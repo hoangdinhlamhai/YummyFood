@@ -12,9 +12,8 @@
         android:theme="@style/Theme.YummyFood"
         tools:targetApi="31">
 
-
         <activity
-            android:name=".Login_userActivity"
+            android:name=".admin.HomePage_Admin"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,10 +21,6 @@
             </intent-filter>
         </activity>
 
-
-        <activity
-            android:name=".Register_Admin"
-            android:exported="true" />
     </application>
 
 </manifest>
