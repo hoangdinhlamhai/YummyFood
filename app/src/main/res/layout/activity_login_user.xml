@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/txt_haveaccount_user"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center">
@@ -15,7 +15,8 @@
         android:layout_marginTop="64dp"
         android:layout_marginEnd="24dp"
         android:backgroundTint="#807777"
-        android:text="Button"
+        android:text="Google"
+        android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button"
@@ -64,8 +65,9 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/input_bg"
-        android:drawableLeft="@android:drawable/stat_sys_phone_call_forward"
+        android:drawableLeft="@android:drawable/stat_sys_phone_call"
         android:drawablePadding="10dp"
+        android:drawableTint="#100F0F"
         android:ems="10"
         android:hint="Number Phone"
         android:inputType="text"
@@ -73,6 +75,7 @@
         android:paddingTop="15dp"
         android:paddingRight="10dp"
         android:paddingBottom="15dp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -94,6 +97,7 @@
         android:paddingTop="10dp"
         android:paddingRight="10dp"
         android:paddingBottom="10dp"
+        android:textSize="27sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextText" />
@@ -129,7 +133,8 @@
         android:layout_marginStart="24dp"
         android:layout_marginEnd="8dp"
         android:backgroundTint="#807777"
-        android:text="Button"
+        android:text="Facebook"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="@+id/button2"
         app:layout_constraintEnd_toStartOf="@+id/button2"
         app:layout_constraintHorizontal_bias="0.5"
@@ -137,14 +142,16 @@
         app:layout_constraintTop_toTopOf="@+id/button2" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btn_loginuser"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="90dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="90dp"
         android:backgroundTint="#C13838"
-        android:text="Button"
+        android:text="Login"
+        android:textSize="40dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button2" />
@@ -156,7 +163,7 @@
         android:layout_marginBottom="8dp"
         android:text="Don't have Account?"
         android:textColor="#E07070"
-        android:textSize="20dp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
