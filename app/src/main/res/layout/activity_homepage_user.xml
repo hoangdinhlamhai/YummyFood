@@ -45,7 +45,7 @@
             app:srcCompat="@drawable/thongbao" />
 
         <EditText
-            android:id="@+id/editTextText3"
+            android:id="@+id/search"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -117,7 +117,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/imageView8"
-            app:layout_constraintTop_toBottomOf="@+id/editTextText3"
+            app:layout_constraintTop_toBottomOf="@+id/search"
             app:srcCompat="@drawable/milktea" />
 
         <!-- Các TextView chú thích cho các ImageView -->
@@ -465,7 +465,7 @@
                     android:src="@drawable/cart" />
             </LinearLayout>
 
-            <!-- Bạn có thể thêm nhiều món ăn khác tương tự ở đây -->
+
 
         </LinearLayout>
 

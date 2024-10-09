@@ -38,6 +38,9 @@
             android:name=".HomepageUserActivity"
             android:exported="true" />
 
+        <activity android:name=".SearchUserActivity" />
+
+
     </application>
 
 </manifest>

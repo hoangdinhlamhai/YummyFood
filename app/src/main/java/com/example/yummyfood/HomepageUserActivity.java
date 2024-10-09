@@ -2,16 +2,20 @@ package com.example.yummyfood;
 
 import android.os.Bundle;
 import android.os.Handler;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import android.view.MenuItem;
+import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.viewpager.widget.ViewPager;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.Timer;
 import java.util.TimerTask;
+import android.content.Intent;
+
+
 
 public class HomepageUserActivity extends AppCompatActivity {
     ViewPager viewPager;
@@ -74,5 +78,13 @@ public class HomepageUserActivity extends AppCompatActivity {
             }
         });
 
+        // Setup sự kiện khi nhấn vào EditText search để chuyển sang SearchUserActivity
+        EditText searchEditText = findViewById(R.id.search);
+        searchEditText.setOnClickListener(v -> {
+            // Tạo intent chuyển sang SearchUserActivity
+            Intent intent = new Intent(HomepageUserActivity.this, SearchUserActivity.class);
+
+            startActivity(intent);
+        });
     }
 }
