@@ -161,7 +161,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/email" /> <!-- Thay đổi thành hình ảnh bạn muốn -->
+                    app:srcCompat="@drawable/plus" /> <!-- Thay đổi thành hình ảnh bạn muốn -->
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -187,7 +187,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/email" /> <!-- Thay đổi thành hình ảnh bạn muốn -->
+                    app:srcCompat="@drawable/list" /> <!-- Thay đổi thành hình ảnh bạn muốn -->
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -213,7 +213,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/email" /> <!-- Thay đổi thành hình ảnh bạn muốn -->
+                    app:srcCompat="@drawable/plus" /> <!-- Thay đổi thành hình ảnh bạn muốn -->
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -239,7 +239,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/email" /> <!-- Thay đổi thành hình ảnh bạn muốn -->
+                    app:srcCompat="@drawable/list" /> <!-- Thay đổi thành hình ảnh bạn muốn -->
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -265,7 +265,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/email" /> <!-- Thay đổi thành hình ảnh bạn muốn -->
+                    app:srcCompat="@drawable/confirmation" /> <!-- Thay đổi thành hình ảnh bạn muốn -->
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -291,7 +291,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/email" /> <!-- Thay đổi thành hình ảnh bạn muốn -->
+                    app:srcCompat="@drawable/profile_user" /> <!-- Thay đổi thành hình ảnh bạn muốn -->
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -317,7 +317,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/email" /> <!-- Thay đổi thành hình ảnh bạn muốn -->
+                    app:srcCompat="@drawable/logout" /> <!-- Thay đổi thành hình ảnh bạn muốn -->
 
                 <TextView
                     android:layout_width="wrap_content"
