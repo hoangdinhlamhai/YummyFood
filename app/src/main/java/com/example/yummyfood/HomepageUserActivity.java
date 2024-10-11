@@ -1,5 +1,7 @@
 package com.example.yummyfood;
 
+import android.view.View;
+
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MenuItem;
@@ -14,8 +16,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.Timer;
 import java.util.TimerTask;
 import android.content.Intent;
-
-
+import android.widget.TextView;
 
 public class HomepageUserActivity extends AppCompatActivity {
     ViewPager viewPager;
@@ -62,16 +63,12 @@ public class HomepageUserActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int itemId = item.getItemId();
                 if (itemId == R.id.navigation_home) {
-                    // Xử lý khi nhấn nút Home
                     return true;
                 } else if (itemId == R.id.navigation_cart) {
-                    // Xử lý khi nhấn nút Cart
                     return true;
                 } else if (itemId == R.id.navigation_menu) {
-                    // Xử lý khi nhấn nút Menu
                     return true;
                 } else if (itemId == R.id.navigation_profile) {
-                    // Xử lý khi nhấn nút Profile
                     return true;
                 }
                 return false;
@@ -81,10 +78,20 @@ public class HomepageUserActivity extends AppCompatActivity {
         // Setup sự kiện khi nhấn vào EditText search để chuyển sang SearchUserActivity
         EditText searchEditText = findViewById(R.id.search);
         searchEditText.setOnClickListener(v -> {
-            // Tạo intent chuyển sang SearchUserActivity
             Intent intent = new Intent(HomepageUserActivity.this, SearchUserActivity.class);
-
             startActivity(intent);
         });
+
+        // Setup sự kiện khi nhấn vào TextView Flashsale để chuyển sang FlashsaleUserActivity
+        TextView textView = findViewById(R.id.textView20);
+        textView.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(HomepageUserActivity.this, flashsale_user.class);
+                startActivity(intent);
+            }
+        });
+
+
+
     }
 }
