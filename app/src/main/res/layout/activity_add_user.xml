@@ -9,26 +9,45 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- Button nằm ở phía trên bên trái -->
-        <Button
-            android:id="@+id/buttonAdd"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add"
-            android:layout_gravity="start" />
+            android:paddingTop="16dp">
+
+            <!-- Button nằm ở phía trên bên trái -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="@drawable/btn_back"
+                android:layout_marginStart="12dp"
+                android:layout_gravity="center"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="YummyFood"
+                android:fontFamily="sans-serif-black"
+                android:textColor="@color/light_red"
+                android:textSize="33sp"
+                android:paddingStart="55dp"/>
+        </LinearLayout>
 
         <!-- TextView nằm giữa theo chiều ngang -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add food"
-            android:textSize="18sp"
+            android:text="Add user"
+            android:fontFamily="sans-serif-black"
+            android:textColor="@color/light_red"
+            android:textSize="33sp"
             android:layout_gravity="center"
             android:layout_marginTop="16dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
             android:text="Avatar"
             android:textSize="18sp"
             android:layout_gravity="center"
@@ -68,10 +87,10 @@
             android:layout_marginTop="22dp"
             android:layout_gravity="center"
             android:background="@drawable/input_bg"
-            android:drawableLeft="@drawable/email"
+            android:drawableLeft="@drawable/user"
             android:drawablePadding="10dp"
             android:drawableTint="#100F0F"
-            android:hint="Email"
+            android:hint="Username"
             android:ems="10"
             android:inputType="text"
             android:paddingLeft="20dp"
@@ -86,10 +105,10 @@
             android:layout_marginTop="22dp"
             android:layout_gravity="center"
             android:background="@drawable/input_bg"
-            android:drawableLeft="@drawable/email"
+            android:drawableLeft="@drawable/phone"
             android:drawablePadding="10dp"
             android:drawableTint="#100F0F"
-            android:hint="Email"
+            android:hint="Phone number"
             android:ems="10"
             android:inputType="text"
             android:paddingLeft="20dp"
@@ -104,10 +123,10 @@
             android:layout_marginTop="22dp"
             android:layout_gravity="center"
             android:background="@drawable/input_bg"
-            android:drawableLeft="@drawable/email"
+            android:drawableLeft="@drawable/address"
             android:drawablePadding="10dp"
             android:drawableTint="#100F0F"
-            android:hint="Email"
+            android:hint="Address"
             android:ems="10"
             android:inputType="text"
             android:paddingLeft="20dp"
@@ -122,12 +141,12 @@
             android:layout_marginTop="22dp"
             android:layout_gravity="center"
             android:background="@drawable/input_bg"
-            android:drawableLeft="@drawable/email"
+            android:drawableLeft="@drawable/padlock"
             android:drawablePadding="10dp"
             android:drawableTint="#100F0F"
-            android:hint="Email"
+            android:hint="Password"
             android:ems="10"
-            android:inputType="text"
+            android:inputType="textPassword"
             android:paddingLeft="20dp"
             android:paddingTop="15dp"
             android:paddingRight="10dp"
@@ -140,36 +159,30 @@
             android:layout_marginTop="22dp"
             android:layout_gravity="center"
             android:background="@drawable/input_bg"
-            android:drawableLeft="@drawable/email"
+            android:drawableLeft="@drawable/padlock"
             android:drawablePadding="10dp"
             android:drawableTint="#100F0F"
-            android:hint="Email"
+            android:hint="Confirm password"
             android:ems="10"
-            android:inputType="text"
+            android:inputType="textPassword"
             android:paddingLeft="20dp"
             android:paddingTop="15dp"
             android:paddingRight="10dp"
             android:paddingBottom="15dp"
             android:textSize="24sp" />
 
-        <EditText
-            android:layout_width="380dp"
+        <Button
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="22dp"
-            android:layout_gravity="center"
-            android:background="@drawable/input_bg"
-            android:drawableLeft="@drawable/email"
-            android:drawablePadding="10dp"
-            android:drawableTint="#100F0F"
-            android:hint="Email"
-            android:ems="10"
-            android:inputType="text"
-            android:paddingLeft="20dp"
-            android:paddingTop="15dp"
-            android:paddingRight="10dp"
-            android:paddingBottom="15dp"
-            android:textSize="24sp" />
-
+            android:text="Create user"
+            android:textColor="@color/white"
+            android:layout_marginStart="72dp"
+            android:layout_marginEnd="72dp"
+            android:padding="14dp"
+            android:layout_marginTop="32dp"
+            android:textSize="26sp"
+            android:backgroundTint="@color/main_red"
+            android:id="@+id/login_btn"/>
 
     </LinearLayout>
 </ScrollView>

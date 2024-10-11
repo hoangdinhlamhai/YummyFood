@@ -13,7 +13,7 @@
         android:theme="@style/Theme.YummyFood"
         tools:targetApi="31">
         <activity
-            android:name=".admin.Add_Food"
+            android:name=".admin.List_User"
             android:exported="false" />
         <activity
             android:name=".activity_dialog_create_account"
@@ -25,8 +25,9 @@
             android:name=".activity_register_user"
             android:exported="false" />
         <activity
-            android:name=".Login_userActivity"
-            android:exported="true">
+            android:name=".admin.Add_User"
+            android:exported="true"
+            tools:ignore="DuplicateActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
