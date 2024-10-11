@@ -22,6 +22,7 @@
             android:name=".activity_register_user"
             android:exported="false" />
         <activity
+
             android:name=".Login_userActivity"
             android:exported="true">
             <intent-filter>
@@ -37,8 +38,13 @@
         <activity
             android:name=".HomepageUserActivity"
             android:exported="true" />
+        <activity
+            android:name=".SearchUserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".flashsale_user"
+            android:exported="false" />
 
-        <activity android:name=".SearchUserActivity" />
 
 
     </application>

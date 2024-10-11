@@ -19,6 +19,7 @@ import com.example.yummyfood.R;
             setContentView(R.layout.activity_flashsale_user);
 
 
+
             // Setup BottomNavigationView
             BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
