@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -53,14 +54,31 @@
             android:layout_gravity="center"
             android:layout_marginTop="16dp" />
 
-        <ImageView
-            android:id="@+id/imageViewAvatar"
-            android:layout_gravity="center"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="16dp"
-            android:scaleType="centerCrop"
-            android:background="@drawable/input_bg"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageViewAvatar"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:background="@drawable/input_bg"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/plus"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/imageViewAvatar" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <!-- EditText (textbox) nằm ở phía dưới -->
         <EditText
@@ -133,43 +151,84 @@
             android:paddingTop="15dp"
             android:paddingRight="10dp"
             android:paddingBottom="15dp"
-            android:textSize="24sp" />
+            android:textSize="24sp"/>
 
-        <EditText
-            android:layout_width="380dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="22dp"
-            android:layout_gravity="center"
-            android:background="@drawable/input_bg"
-            android:drawableLeft="@drawable/padlock"
-            android:drawablePadding="10dp"
-            android:drawableTint="#100F0F"
-            android:hint="Password"
-            android:ems="10"
-            android:inputType="textPassword"
-            android:paddingLeft="20dp"
-            android:paddingTop="15dp"
-            android:paddingRight="10dp"
-            android:paddingBottom="15dp"
-            android:textSize="24sp" />
 
-        <EditText
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="380dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="22dp"
-            android:layout_gravity="center"
+            android:layout_height="65dp"
             android:background="@drawable/input_bg"
-            android:drawableLeft="@drawable/padlock"
-            android:drawablePadding="10dp"
-            android:drawableTint="#100F0F"
-            android:hint="Confirm password"
-            android:ems="10"
-            android:inputType="textPassword"
-            android:paddingLeft="20dp"
-            android:paddingTop="15dp"
-            android:paddingRight="10dp"
-            android:paddingBottom="15dp"
-            android:textSize="24sp" />
+            android:layout_gravity="center"
+            android:layout_marginTop="22dp">
+
+            <EditText
+                android:id="@+id/editText_password"
+                android:layout_width="0dp"
+                android:layout_height="61dp"
+                android:background="@drawable/input_bg_noborder"
+                android:hint="Password"
+                android:drawableLeft="@drawable/padlock"
+                android:drawablePadding="10dp"
+                android:drawableTint="#100F0F"
+                android:ems="10"
+                android:inputType="textPassword"
+                android:paddingLeft="20dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:textSize="24sp"
+                android:layout_marginStart="2dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/hidden"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/editText_password"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="380dp"
+            android:layout_height="65dp"
+            android:background="@drawable/input_bg"
+            android:layout_gravity="center"
+            android:layout_marginTop="22dp">
+
+            <EditText
+                android:id="@+id/editText_confirmPassword"
+                android:layout_width="0dp"
+                android:layout_height="61dp"
+                android:background="@drawable/input_bg_noborder"
+                android:hint="Password"
+                android:drawableLeft="@drawable/padlock"
+                android:drawablePadding="10dp"
+                android:drawableTint="#100F0F"
+                android:ems="10"
+                android:inputType="textPassword"
+                android:paddingLeft="20dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:textSize="24sp"
+                android:layout_marginStart="2dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/hidden"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/editText_confirmPassword"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <Button
             android:layout_width="match_parent"
@@ -182,7 +241,7 @@
             android:layout_marginTop="32dp"
             android:textSize="26sp"
             android:backgroundTint="@color/main_red"
-            android:id="@+id/login_btn"/>
+            android:id="@+id/btn_create_user"/>
 
     </LinearLayout>
 </ScrollView>
