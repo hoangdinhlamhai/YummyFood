@@ -22,10 +22,7 @@
             android:name=".user_dialog_create"
             android:exported="false" />
         <activity
-            android:name=".activity_register_user"
-            android:exported="false" />
-        <activity
-            android:name=".admin.Add_User"
+            android:name=".Login_userActivity"
             android:exported="true"
             tools:ignore="DuplicateActivity">
             <intent-filter>

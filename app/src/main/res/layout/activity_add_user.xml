@@ -13,7 +13,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="16dp">
+            android:paddingTop="22dp">
 
             <!-- Button nằm ở phía trên bên trái -->
             <androidx.appcompat.widget.AppCompatButton
@@ -30,7 +30,7 @@
                 android:text="YummyFood"
                 android:fontFamily="sans-serif-black"
                 android:textColor="@color/light_red"
-                android:textSize="33sp"
+                android:textSize="28sp"
                 android:paddingStart="55dp"/>
         </LinearLayout>
 
@@ -38,10 +38,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add user"
+            android:text="Add User"
             android:fontFamily="sans-serif-black"
             android:textColor="@color/light_red"
-            android:textSize="33sp"
+            android:textSize="28sp"
             android:layout_gravity="center"
             android:layout_marginTop="16dp" />
 
@@ -60,173 +60,177 @@
 
             <ImageView
                 android:id="@+id/imageViewAvatar"
+                android:background="@drawable/rounded_conner"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
-                android:background="@drawable/input_bg"
                 android:scaleType="centerCrop"
+                android:backgroundTint="#e2d6d6"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/plus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|center_vertical"
+                android:background="@drawable/rounded_conner"
+                android:backgroundTint="@color/light_red"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="14dp"
+                android:src="@drawable/plus_black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/imageViewAvatar" />
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <!-- EditText (textbox) nằm ở phía dưới -->
         <EditText
-            android:layout_width="380dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="22dp"
-            android:layout_gravity="center"
-            android:background="@drawable/input_bg"
-            android:drawableLeft="@drawable/email"
-            android:drawablePadding="10dp"
-            android:drawableTint="#100F0F"
+            android:layout_marginTop="12dp"
             android:hint="Email"
-            android:ems="10"
+            android:drawableStart="@drawable/email"
+            android:drawablePadding="16dp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:background="@drawable/rounded_conner"
+            android:layout_marginStart="22dp"
+            android:layout_marginEnd="22dp"
+            android:padding="14dp"
             android:inputType="text"
-            android:paddingLeft="20dp"
-            android:paddingTop="15dp"
-            android:paddingRight="10dp"
-            android:paddingBottom="15dp"
-            android:textSize="24sp" />
+            android:backgroundTint="#E2D6D6"/>
 
         <EditText
-            android:layout_width="380dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="22dp"
-            android:layout_gravity="center"
-            android:background="@drawable/input_bg"
-            android:drawableLeft="@drawable/user"
-            android:drawablePadding="10dp"
-            android:drawableTint="#100F0F"
+            android:layout_marginTop="12dp"
             android:hint="Username"
-            android:ems="10"
+            android:drawableStart="@drawable/user"
+            android:drawablePadding="16dp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:background="@drawable/rounded_conner"
+            android:layout_marginStart="22dp"
+            android:layout_marginEnd="22dp"
+            android:padding="14dp"
             android:inputType="text"
-            android:paddingLeft="20dp"
-            android:paddingTop="15dp"
-            android:paddingRight="10dp"
-            android:paddingBottom="15dp"
-            android:textSize="24sp" />
+            android:backgroundTint="#E2D6D6"/>
 
         <EditText
-            android:layout_width="380dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="22dp"
-            android:layout_gravity="center"
-            android:background="@drawable/input_bg"
-            android:drawableLeft="@drawable/phone"
-            android:drawablePadding="10dp"
-            android:drawableTint="#100F0F"
+            android:layout_marginTop="12dp"
             android:hint="Phone number"
-            android:ems="10"
+            android:drawableStart="@drawable/phone"
+            android:drawablePadding="16dp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:background="@drawable/rounded_conner"
+            android:layout_marginStart="22dp"
+            android:layout_marginEnd="22dp"
+            android:padding="14dp"
             android:inputType="text"
-            android:paddingLeft="20dp"
-            android:paddingTop="15dp"
-            android:paddingRight="10dp"
-            android:paddingBottom="15dp"
-            android:textSize="24sp" />
+            android:backgroundTint="#E2D6D6"/>
 
         <EditText
-            android:layout_width="380dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="22dp"
-            android:layout_gravity="center"
-            android:background="@drawable/input_bg"
-            android:drawableLeft="@drawable/address"
-            android:drawablePadding="10dp"
-            android:drawableTint="#100F0F"
+            android:layout_marginTop="12dp"
             android:hint="Address"
-            android:ems="10"
+            android:drawableStart="@drawable/address"
+            android:drawablePadding="16dp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:background="@drawable/rounded_conner"
+            android:layout_marginStart="22dp"
+            android:layout_marginEnd="22dp"
+            android:padding="14dp"
             android:inputType="text"
-            android:paddingLeft="20dp"
-            android:paddingTop="15dp"
-            android:paddingRight="10dp"
-            android:paddingBottom="15dp"
-            android:textSize="24sp"/>
+            android:backgroundTint="#E2D6D6"/>
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="380dp"
-            android:layout_height="65dp"
-            android:background="@drawable/input_bg"
-            android:layout_gravity="center"
-            android:layout_marginTop="22dp">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="22dp"
+            android:layout_marginEnd="22dp"
+            android:layout_marginTop="12dp">
 
             <EditText
-                android:id="@+id/editText_password"
-                android:layout_width="0dp"
-                android:layout_height="61dp"
-                android:background="@drawable/input_bg_noborder"
+                android:id="@+id/password_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_conner"
+                android:drawableStart="@drawable/padlock"
+                android:drawablePadding="16dp"
                 android:hint="Password"
-                android:drawableLeft="@drawable/padlock"
-                android:drawablePadding="10dp"
-                android:drawableTint="#100F0F"
-                android:ems="10"
                 android:inputType="textPassword"
-                android:paddingLeft="20dp"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
-                android:textSize="24sp"
-                android:layout_marginStart="2dp"
+                android:padding="14dp"
+                android:textColor="@color/black"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:backgroundTint="#E2D6D6"/>
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/hidden"
+                android:id="@+id/hide_password_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|center_vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="14dp"
+                android:background="@drawable/rounded_conner"
+                android:backgroundTint="@color/light_red"
+                android:src="@drawable/hide"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/editText_password"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="380dp"
-            android:layout_height="65dp"
-            android:background="@drawable/input_bg"
-            android:layout_gravity="center"
-            android:layout_marginTop="22dp">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="22dp"
+            android:layout_marginEnd="22dp"
+            android:layout_marginTop="12dp">
 
             <EditText
-                android:id="@+id/editText_confirmPassword"
-                android:layout_width="0dp"
-                android:layout_height="61dp"
-                android:background="@drawable/input_bg_noborder"
-                android:hint="Password"
-                android:drawableLeft="@drawable/padlock"
-                android:drawablePadding="10dp"
-                android:drawableTint="#100F0F"
-                android:ems="10"
+                android:id="@+id/password_confirm_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_conner"
+                android:drawableStart="@drawable/padlock"
+                android:drawablePadding="16dp"
+                android:hint="Confirm password"
                 android:inputType="textPassword"
-                android:paddingLeft="20dp"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
-                android:textSize="24sp"
-                android:layout_marginStart="2dp"
+                android:padding="14dp"
+                android:textColor="@color/black"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:backgroundTint="#E2D6D6"/>
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/hidden"
+                android:id="@+id/hide_password_confirm_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|center_vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="14dp"
+                android:background="@drawable/rounded_conner"
+                android:backgroundTint="@color/light_red"
+                android:src="@drawable/hide"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/editText_confirmPassword"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -239,7 +243,7 @@
             android:layout_marginEnd="72dp"
             android:padding="14dp"
             android:layout_marginTop="32dp"
-            android:textSize="26sp"
+            android:textSize="20sp"
             android:backgroundTint="@color/main_red"
             android:id="@+id/btn_create_user"/>
 

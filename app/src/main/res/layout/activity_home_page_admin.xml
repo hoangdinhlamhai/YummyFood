@@ -7,329 +7,335 @@
     android:layout_height="match_parent"
     tools:context=".admin.HomePage_Admin">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="49dp"
-        tools:layout_editor_absoluteY="0dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="32dp"
-            android:layout_marginBottom="33dp"
-            android:fontFamily="sans-serif-black"
-            android:text="YummyFood"
-            android:textColor="@color/light_red"
-            android:textSize="50sp"
-            android:textStyle="bold" />
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_width="351dp"
-            android:layout_height="150dp"
-            android:layout_gravity="center"
-            android:background="@drawable/rounded_conner"
-            android:backgroundTint="#F9DEDC"
-            android:orientation="horizontal">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:layout_editor_absoluteX="49dp"
+            tools:layout_editor_absoluteY="0dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="33dp"
+                android:fontFamily="sans-serif-black"
+                android:text="YummyFood"
+                android:textColor="@color/light_red"
+                android:textSize="50sp"
+                android:textStyle="bold" />
 
             <LinearLayout
-                android:layout_width="117dp"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:layout_width="351dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:background="@drawable/rounded_conner"
+                android:backgroundTint="#F9DEDC"
+                android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:paddingBottom="8dp"
-                    app:srcCompat="@drawable/remain" />
-
-                <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-black"
+                <LinearLayout
+                    android:layout_width="117dp"
+                    android:layout_height="match_parent"
                     android:gravity="center"
-                    android:paddingBottom="8dp"
-                    android:text="Remaining"
-                    android:textColor="#F19E39"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-black"
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:paddingBottom="8dp"
+                        app:srcCompat="@drawable/remain" />
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-black"
+                        android:gravity="center"
+                        android:paddingBottom="8dp"
+                        android:text="Remaining"
+                        android:textColor="#F19E39"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-black"
+                        android:gravity="center"
+                        android:text="10"
+                        android:textColor="#F19E39"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="117dp"
+                    android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="10"
-                    android:textColor="#F19E39"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:paddingBottom="8dp"
+                        app:srcCompat="@drawable/task_alt" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-black"
+                        android:gravity="center"
+                        android:paddingBottom="8dp"
+                        android:text="Completed"
+                        android:textColor="#75FB4C"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-black"
+                        android:gravity="center"
+                        android:text="10"
+                        android:textColor="#75FB4C"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="117dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:paddingBottom="8dp"
+                        app:srcCompat="@drawable/earn" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-black"
+                        android:gravity="center"
+                        android:paddingBottom="8dp"
+                        android:text="Earning"
+                        android:textColor="#8ab4f8"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-black"
+                        android:gravity="center"
+                        android:text="10"
+                        android:textColor="#8ab4f8"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="117dp"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="vertical">
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rowCount="4"
+                android:columnCount="2"
+                android:padding="24dp">
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:paddingBottom="8dp"
-                    app:srcCompat="@drawable/task_alt" />
-
-                <TextView
-                    android:layout_width="match_parent"
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-black"
+                    android:layout_columnWeight="1"
+                    android:orientation="vertical"
                     android:gravity="center"
-                    android:paddingBottom="8dp"
-                    android:text="Completed"
-                    android:textColor="#75FB4C"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:padding="12dp"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/rounded_conner"
+                    android:backgroundTint="#F9DEDC">
 
-                <TextView
-                    android:layout_width="match_parent"
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/plus" /> <!-- Thay đổi thành hình ảnh bạn muốn -->
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Add food"
+                        android:textSize="18sp"
+                        android:textColor="@color/light_red"
+                        android:fontFamily="sans-serif-black"
+                        android:paddingTop="12dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-black"
+                    android:layout_columnWeight="1"
+                    android:orientation="vertical"
                     android:gravity="center"
-                    android:text="10"
-                    android:textColor="#75FB4C"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
+                    android:padding="12dp"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/rounded_conner"
+                    android:backgroundTint="#F9DEDC">
 
-            <LinearLayout
-                android:layout_width="117dp"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/list" /> <!-- Thay đổi thành hình ảnh bạn muốn -->
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:paddingBottom="8dp"
-                    app:srcCompat="@drawable/earn" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="List food"
+                        android:textSize="18sp"
+                        android:textColor="@color/light_red"
+                        android:fontFamily="sans-serif-black"
+                        android:paddingTop="12dp"/>
+                </LinearLayout>
 
-                <TextView
-                    android:layout_width="match_parent"
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-black"
+                    android:layout_columnWeight="1"
+                    android:orientation="vertical"
                     android:gravity="center"
-                    android:paddingBottom="8dp"
-                    android:text="Earning"
-                    android:textColor="#8ab4f8"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:padding="12dp"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/rounded_conner"
+                    android:backgroundTint="#F9DEDC">
 
-                <TextView
-                    android:layout_width="match_parent"
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/plus" /> <!-- Thay đổi thành hình ảnh bạn muốn -->
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Add user"
+                        android:textSize="18sp"
+                        android:textColor="@color/light_red"
+                        android:fontFamily="sans-serif-black"
+                        android:paddingTop="12dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-black"
+                    android:layout_columnWeight="1"
+                    android:orientation="vertical"
                     android:gravity="center"
-                    android:text="10"
-                    android:textColor="#8ab4f8"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
+                    android:padding="12dp"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/rounded_conner"
+                    android:backgroundTint="#F9DEDC">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/list" /> <!-- Thay đổi thành hình ảnh bạn muốn -->
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="List user"
+                        android:textSize="18sp"
+                        android:textColor="@color/light_red"
+                        android:fontFamily="sans-serif-black"
+                        android:paddingTop="12dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="12dp"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/rounded_conner"
+                    android:backgroundTint="#F9DEDC">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/confirmation" /> <!-- Thay đổi thành hình ảnh bạn muốn -->
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Confirm"
+                        android:textSize="18sp"
+                        android:textColor="@color/light_red"
+                        android:fontFamily="sans-serif-black"
+                        android:paddingTop="12dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="12dp"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/rounded_conner"
+                    android:backgroundTint="#F9DEDC">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/profile_user" /> <!-- Thay đổi thành hình ảnh bạn muốn -->
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Profile"
+                        android:textSize="18sp"
+                        android:textColor="@color/light_red"
+                        android:fontFamily="sans-serif-black"
+                        android:paddingTop="12dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="12dp"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/rounded_conner"
+                    android:backgroundTint="#F9DEDC">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/logout" /> <!-- Thay đổi thành hình ảnh bạn muốn -->
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Logout"
+                        android:textSize="18sp"
+                        android:textColor="@color/light_red"
+                        android:fontFamily="sans-serif-black"
+                        android:paddingTop="12dp"/>
+                </LinearLayout>
+
+            </GridLayout>
         </LinearLayout>
 
-        <GridLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:rowCount="4"
-            android:columnCount="2"
-            android:padding="24dp">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:padding="12dp"
-                android:layout_margin="20dp"
-                android:background="@drawable/rounded_conner"
-                android:backgroundTint="#F9DEDC">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/plus" /> <!-- Thay đổi thành hình ảnh bạn muốn -->
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Add food"
-                    android:textSize="18sp"
-                    android:textColor="@color/light_red"
-                    android:fontFamily="sans-serif-black"
-                    android:paddingTop="12dp"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:padding="12dp"
-                android:layout_margin="20dp"
-                android:background="@drawable/rounded_conner"
-                android:backgroundTint="#F9DEDC">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/list" /> <!-- Thay đổi thành hình ảnh bạn muốn -->
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="List food"
-                    android:textSize="18sp"
-                    android:textColor="@color/light_red"
-                    android:fontFamily="sans-serif-black"
-                    android:paddingTop="12dp"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:padding="12dp"
-                android:layout_margin="20dp"
-                android:background="@drawable/rounded_conner"
-                android:backgroundTint="#F9DEDC">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/plus" /> <!-- Thay đổi thành hình ảnh bạn muốn -->
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Add user"
-                    android:textSize="18sp"
-                    android:textColor="@color/light_red"
-                    android:fontFamily="sans-serif-black"
-                    android:paddingTop="12dp"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:padding="12dp"
-                android:layout_margin="20dp"
-                android:background="@drawable/rounded_conner"
-                android:backgroundTint="#F9DEDC">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/list" /> <!-- Thay đổi thành hình ảnh bạn muốn -->
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="List user"
-                    android:textSize="18sp"
-                    android:textColor="@color/light_red"
-                    android:fontFamily="sans-serif-black"
-                    android:paddingTop="12dp"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:padding="12dp"
-                android:layout_margin="20dp"
-                android:background="@drawable/rounded_conner"
-                android:backgroundTint="#F9DEDC">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/confirmation" /> <!-- Thay đổi thành hình ảnh bạn muốn -->
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Confirm order"
-                    android:textSize="18sp"
-                    android:textColor="@color/light_red"
-                    android:fontFamily="sans-serif-black"
-                    android:paddingTop="12dp"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:padding="12dp"
-                android:layout_margin="20dp"
-                android:background="@drawable/rounded_conner"
-                android:backgroundTint="#F9DEDC">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/profile_user" /> <!-- Thay đổi thành hình ảnh bạn muốn -->
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Profile"
-                    android:textSize="18sp"
-                    android:textColor="@color/light_red"
-                    android:fontFamily="sans-serif-black"
-                    android:paddingTop="12dp"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:padding="12dp"
-                android:layout_margin="20dp"
-                android:background="@drawable/rounded_conner"
-                android:backgroundTint="#F9DEDC">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/logout" /> <!-- Thay đổi thành hình ảnh bạn muốn -->
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Logout"
-                    android:textSize="18sp"
-                    android:textColor="@color/light_red"
-                    android:fontFamily="sans-serif-black"
-                    android:paddingTop="12dp"/>
-            </LinearLayout>
-
-        </GridLayout>
-    </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
