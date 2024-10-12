@@ -23,7 +23,7 @@
             android:exported="false" />
         <activity
 
-            android:name=".Login_userActivity"
+            android:name=".admin.list_food.List_Food"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,9 +31,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Register_Admin"
-            android:exported="true" />
 
         <activity
             android:name=".HomepageUserActivity"
@@ -44,8 +41,6 @@
         <activity
             android:name=".flashsale_user"
             android:exported="false" />
-
-
 
     </application>
 
