@@ -22,8 +22,7 @@
             android:name=".activity_register_user"
             android:exported="false" />
         <activity
-
-            android:name=".admin.List_User"
+            android:name=".admin.Edit_User"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,7 +30,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".HomepageUserActivity"
             android:exported="true" />
@@ -41,7 +39,6 @@
         <activity
             android:name=".flashsale_user"
             android:exported="false" />
-
     </application>
 
 </manifest>
