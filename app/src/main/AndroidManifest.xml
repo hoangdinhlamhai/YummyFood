@@ -23,7 +23,7 @@
             android:exported="false" />
         <activity
 
-            android:name=".admin.list_food.List_Food"
+            android:name=".admin.List_User"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
