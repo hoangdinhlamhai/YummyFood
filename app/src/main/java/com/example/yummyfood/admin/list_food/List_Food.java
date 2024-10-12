@@ -33,8 +33,22 @@ public class List_Food extends AppCompatActivity {
 
         ArrayList<Food> arrFood = new ArrayList<>();
 
-        Food f1 = new Food(1, "food1", "ngon", R.drawable.food1, 1000);
+        Food f1 = new Food(1, "Name", "ngon", R.drawable.food1, 1000);
+        Food f2 = new Food(2, "Name", "ngon", R.drawable.food1, 1000);
+        Food f3 = new Food(3, "Name", "ngon", R.drawable.food1, 1000);
+        Food f4 = new Food(4, "Name", "ngon", R.drawable.food1, 1000);
+        Food f5 = new Food(5, "Name", "ngon", R.drawable.food1, 1000);
+        Food f6 = new Food(6, "Name", "ngon", R.drawable.food1, 1000);
+        Food f7 = new Food(7, "Name", "ngon", R.drawable.food1, 1000);
+
         arrFood.add(f1);
+        arrFood.add(f2);
+        arrFood.add(f3);
+        arrFood.add(f4);
+        arrFood.add(f5);
+        arrFood.add(f6);
+        arrFood.add(f7);
+
         ListFoodAdapter listFoodAdapter = new ListFoodAdapter(this, R.layout.item_food, arrFood);
         lv.setAdapter(listFoodAdapter);
 //        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {

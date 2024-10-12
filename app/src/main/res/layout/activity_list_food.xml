@@ -15,7 +15,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="22dp">
+            android:paddingTop="32dp">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="32dp"
@@ -32,7 +32,7 @@
                 android:fontFamily="sans-serif-black"
                 android:textColor="@color/light_red"
                 android:textSize="28sp"
-                android:paddingStart="55dp"/>
+                android:paddingStart="70dp"/>
         </LinearLayout>
 
         <TextView
@@ -51,6 +51,8 @@
             android:id="@+id/listview"
             android:scrollbars="vertical"
             android:layout_marginTop="12dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             android:divider="@android:color/transparent"
             android:dividerHeight="10.0sp"/>
 

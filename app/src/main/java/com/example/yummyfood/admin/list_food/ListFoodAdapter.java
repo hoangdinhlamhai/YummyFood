@@ -49,9 +49,9 @@ public class ListFoodAdapter extends ArrayAdapter<Food> {
             viewHolder = (ViewHolder) convertView.getTag();
         }
         Food f = arrFood.get(position);
-        viewHolder.tvId.setText(String.valueOf(f.getId()));
+        viewHolder.tvId.setText("ID: " + String.valueOf(f.getId()));
         viewHolder.tvName.setText(f.getName());
-        viewHolder.tvPrice.setText(f.getName());
+        viewHolder.tvPrice.setText(f.getPrice() + " đ");
         viewHolder.listImage.setImageResource(f.getImage());
         return convertView;
     }
