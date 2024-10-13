@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.YummyFood"
         tools:targetApi="31">
+        <activity android:name=".admin.Add_Food"/>
         <activity
             android:name=".activity_dialog_create_account"
             android:exported="false" />
@@ -22,7 +23,7 @@
             android:name=".activity_register_user"
             android:exported="false" />
         <activity
-            android:name=".admin.Profile_Admin"
+            android:name=".admin.HomePage_Admin"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
