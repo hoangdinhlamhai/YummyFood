@@ -22,7 +22,7 @@
             android:name=".activity_register_user"
             android:exported="false" />
         <activity
-            android:name=".admin.Edit_Food"
+            android:name=".admin.List_Comfirm_Order"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
