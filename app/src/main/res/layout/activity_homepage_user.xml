@@ -86,19 +86,19 @@
             app:layout_constraintTop_toTopOf="@+id/imageView7"
             app:srcCompat="@drawable/freeship" />
 
-        <ImageView
-            android:id="@+id/imageView7"
-            android:layout_width="112dp"
-            android:layout_height="62dp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView8"
-            app:layout_constraintEnd_toStartOf="@+id/imageView8"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/imageView6"
-            app:layout_constraintTop_toTopOf="@+id/imageView8"
-            app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/flashsale" />
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="112dp"
+                android:layout_height="62dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView8"
+                app:layout_constraintEnd_toStartOf="@+id/imageView8"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/imageView6"
+                app:layout_constraintTop_toTopOf="@+id/imageView8"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@drawable/flashsale" />
 
-        <ImageView
+            <ImageView
             android:id="@+id/imageView8"
             android:layout_width="103dp"
             android:layout_height="61dp"
