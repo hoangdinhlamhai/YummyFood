@@ -1,8 +1,10 @@
 package com.example.yummyfood.admin;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import androidx.activity.EdgeToEdge;
@@ -15,6 +17,8 @@ import com.example.yummyfood.R;
 import com.example.yummyfood.admin.list_food.List_Food;
 
 public class HomePage_Admin extends AppCompatActivity {
+
+    private Dialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +88,21 @@ public class HomePage_Admin extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(HomePage_Admin.this, Profile_Admin.class);
                 startActivity(intent);
+            }
+        });
+
+        //confirm logout
+        dialog = new Dialog(HomePage_Admin.this);
+        dialog.setContentView(R.layout.activity_dialog_confirm_logout_admin);
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.dialog_createaccount));
+        dialog.setCancelable(false);
+
+        LinearLayout logout = findViewById(R.id.logout);
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.show();
             }
         });
     }

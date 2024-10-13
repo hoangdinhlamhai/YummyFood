@@ -12,13 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.YummyFood"
         tools:targetApi="31">
-        <activity android:name=".admin.Add_Food"/>
-        <activity android:name=".admin.list_food.List_Food"/>
-        <activity android:name=".admin.Add_User"/>
-        <activity android:name=".admin.List_User"/>
-        <activity android:name=".admin.List_Confirm_Order"/>
-        <activity android:name=".admin.Confirm_Order_Details"/>
-        <activity android:name=".admin.Profile_Admin"/>
+        <activity
+            android:name=".admin.Dialog_Confirm_Logout_Admin"
+            android:exported="false" />
+        <activity android:name=".admin.Add_Food" />
+        <activity android:name=".admin.list_food.List_Food" />
+        <activity android:name=".admin.Add_User" />
+        <activity android:name=".admin.List_User" />
+        <activity android:name=".admin.List_Confirm_Order" />
+        <activity android:name=".admin.Confirm_Order_Details" />
+        <activity android:name=".admin.Profile_Admin" />
         <activity
             android:name=".activity_dialog_create_account"
             android:exported="false" />
