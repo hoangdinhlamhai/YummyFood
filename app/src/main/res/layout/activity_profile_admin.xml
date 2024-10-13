@@ -42,7 +42,7 @@
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Edit Food"
+            android:text="Profile"
             android:textSize="24sp"
             android:textStyle="bold"
             android:textColor="@color/light_red"
@@ -70,7 +70,7 @@
                     android:layout_height="wrap_content"
                     android:text="Name"
                     android:textStyle="bold"
-                    android:textSize="16sp"
+                    android:textSize="18sp"
                     android:layout_gravity="center_vertical"
                     android:layout_marginEnd="12dp"
                     android:textColor="@android:color/black"/>
@@ -80,14 +80,13 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="Enter name"
+                    android:hint="YummyFood"
                     android:textColor="@android:color/black"
-                    android:textSize="16sp"
+                    android:textSize="18sp"
                     android:background="@null"/>
 
             </LinearLayout>
 
-            <!-- Giá -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -100,9 +99,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Price (VND)"
+                    android:text="Address"
                     android:textStyle="bold"
-                    android:textSize="16sp"
+                    android:textSize="18sp"
                     android:layout_gravity="center_vertical"
                     android:layout_marginEnd="12dp"
                     android:textColor="@android:color/black"/>
@@ -112,11 +111,111 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="Enter price"
+                    android:hint="Da Nang"
                     android:textColor="@android:color/black"
-                    android:textSize="16sp"
+                    android:textSize="18sp"
                     android:background="@null"
                     android:inputType="numberDecimal"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_conner"
+                android:backgroundTint="#E2D6D6"
+                android:orientation="horizontal"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Email"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="12dp"
+                    android:textColor="@android:color/black"/>
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Yummy@gmail.com"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:background="@null"
+                    android:inputType="numberDecimal"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_conner"
+                android:backgroundTint="#E2D6D6"
+                android:orientation="horizontal"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Phone"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="12dp"
+                    android:textColor="@android:color/black"/>
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="0123456789"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:background="@null"
+                    android:inputType="numberDecimal"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_conner"
+                android:backgroundTint="#E2D6D6"
+                android:orientation="horizontal"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Password"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="12dp"
+                    android:textColor="@android:color/black"/>
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="********"
+                    android:layout_gravity="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:background="@null"
+                    android:inputType="numberDecimal"/>
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/hide"
+                    android:background="@null"/>
 
             </LinearLayout>
 
@@ -133,9 +232,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Image"
+                    android:text="Image Restaurant"
                     android:textStyle="bold"
-                    android:textSize="16sp"
+                    android:textSize="18sp"
                     android:layout_gravity="center_vertical"
                     android:layout_marginEnd="12dp"
                     android:textColor="@android:color/black"/>
@@ -146,7 +245,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:hint="Add image link"
+                    android:hint=""
                     android:textColor="@android:color/black"
                     android:textSize="16sp"
                     android:background="@null"/>
@@ -169,40 +268,6 @@
                 android:backgroundTint="#E2D6D6"
                 android:contentDescription="Selected Image"/>
 
-
-            <!-- Mô tả ngắn -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="@drawable/rounded_conner"
-                android:backgroundTint="#E2D6D6">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Short description"
-                    android:textStyle="bold"
-                    android:textSize="16sp"
-                    android:layout_gravity="start"
-                    android:layout_marginBottom="8dp"
-                    android:paddingTop="12dp"
-                    android:paddingStart="12dp"
-                    android:textColor="@android:color/black"/>
-
-                <EditText
-                    android:id="@+id/food_description_edit_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Enter description"
-                    android:paddingStart="12dp"
-                    android:textColor="@android:color/black"
-                    android:textSize="16sp"
-                    android:background="@null"
-                    android:minHeight="100dp"
-                    android:gravity="top|start"/>
-
-            </LinearLayout>
 
             <!-- Nút lưu -->
             <Button
