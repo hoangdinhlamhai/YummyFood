@@ -19,6 +19,7 @@
             android:paddingBottom="14dp">
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_back"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:background="@drawable/btn_back"

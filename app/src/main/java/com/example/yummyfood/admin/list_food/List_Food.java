@@ -1,6 +1,8 @@
 package com.example.yummyfood.admin.list_food;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 
 import androidx.activity.EdgeToEdge;
@@ -51,26 +53,14 @@ public class List_Food extends AppCompatActivity {
 
         ListFoodAdapter listFoodAdapter = new ListFoodAdapter(this, R.layout.item_food, arrFood);
         lv.setAdapter(listFoodAdapter);
-//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-//            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-//            return insets;
-//        });
-//
-//        int[] imageList = {R.drawable.food1, R.drawable.food1, R.drawable.food1};
-//        String[] nameList = {"Food1", "Food2", "Food3"};
-//        int[] idList = {1, 2, 3};
-//        int[] priceList = {1000, 2000, 3000};
-//        String[] shortDescList = {"1111", "2222", "3333"};
-//
-//        for (int i = 0; i < imageList.length; i++){
-//            food = new Food(idList[i], nameList[i], shortDescList[i] , imageList[i], priceList[i]);
-//            dataArrayList.add(food);
-//        }
-//
-//        listAdapter = new ListFoodAdapter(List_Food.this, dataArrayList);
-//        binding.listview.setAdapter(listAdapter);
-//        binding.listview.setClickable(true);
 
+        //back to homepage
+        Button btnBack = findViewById(R.id.btn_back);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 }
