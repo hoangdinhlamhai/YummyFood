@@ -16,6 +16,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.Timer;
 import java.util.TimerTask;
 import android.content.Intent;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class HomepageUserActivity extends AppCompatActivity {
@@ -87,6 +88,13 @@ public class HomepageUserActivity extends AppCompatActivity {
         textView.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(HomepageUserActivity.this, flashsale_user.class);
+                startActivity(intent);
+            }
+        });
+        ImageView imageView = findViewById(R.id.imageView4);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(HomepageUserActivity.this, information_user.class);
                 startActivity(intent);
             }
         });
