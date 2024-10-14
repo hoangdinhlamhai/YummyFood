@@ -26,5 +26,15 @@ public class FoodRetailActivity extends AppCompatActivity {
                 finish(); // Kết thúc FoodRetailActivity để không trở lại được bằng nút quay lại
             }
         });
+        // nhấn vào nút thanh toán thì chuyển đến trang thanh toán
+        Button btnPayingRetailFood = findViewById(R.id.btn_paying_retailfood);
+        btnPayingRetailFood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Chuyển đến ActivityPaymentUser
+                Intent intent = new Intent(FoodRetailActivity.this, ActivityPaymentUser.class);
+                startActivity(intent);
+            }
+        });
     }
 }
