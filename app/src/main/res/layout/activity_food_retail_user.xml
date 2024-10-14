@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/btn_paying2"
+        android:id="@+id/btn_paying_retailfood"
         android:layout_width="400dp"
         android:layout_height="0dp"
         android:layout_gravity="center"
@@ -206,10 +206,10 @@
         android:layout_height="59dp"
         android:layout_marginStart="1dp"
         android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/btn_paying2"
+        app:layout_constraintBottom_toTopOf="@+id/btn_paying_retailfood"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent">
 
         <TextView
