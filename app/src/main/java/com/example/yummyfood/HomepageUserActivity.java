@@ -84,7 +84,7 @@ public class HomepageUserActivity extends AppCompatActivity {
                     return true;
 
                 } else if (itemId == R.id.navigation_profile) {
-                    // Chuyển đến màn hình Profile (bạn có thể thêm Intent khác nếu cần)
+
                     return true;
                 }
 
@@ -117,35 +117,32 @@ public class HomepageUserActivity extends AppCompatActivity {
             }
         });
 
+        // thong bao het hang
+        ImageView cartIcon1 = findViewById(R.id.cartIcon1);
+        cartIcon1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialog();
+            }
+        });
+    }
 
-       // dialog.show();
-
-
-//// Tìm TextView trong Dialog
-//        TextView cart = dialog.findViewById(R.id.dialog_exit);
-//        cart.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                // Chuyển về homepage
-//                Intent intent = new Intent(dialog_outofstock_user.this, HomepageUserActivity.class);
-//                startActivity(intent);
-//            }
-//        });
-//
-//// Hiển thị Dialog
-//        dialog.show();
-//
-//        TextView loginTextView = dialog.findViewById(R.id.dialog_login);
-//        loginTextView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                // Chuyển về Activity Login
-//                Intent intent = new Intent(activity_register_user.this, Login_userActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+    // Hàm hiển thị dialog
+    private void showDialog() {
+        dialog = new Dialog(HomepageUserActivity.this);
+        dialog.setContentView(R.layout.activity_dialog_outofstock_user);
 
 
+        TextView exitButton = dialog.findViewById(R.id.dialog_exit);
+        exitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss(); // Đóng dialog
+                Intent intent = new Intent(HomepageUserActivity.this, HomepageUserActivity.class);
+                startActivity(intent); // Quay lại trang chủ
+            }
+        });
 
+        dialog.show(); // Hiển thị dialog
     }
 }
