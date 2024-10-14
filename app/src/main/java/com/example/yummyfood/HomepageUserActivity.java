@@ -6,6 +6,7 @@ import android.view.View;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -138,6 +139,8 @@ public class HomepageUserActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
     }
 
     // Hàm hiển thị dialog
