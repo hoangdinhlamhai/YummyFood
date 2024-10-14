@@ -41,7 +41,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/appCompatButton7"
+        android:id="@+id/btn_return_retailfood"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_gravity="center"
