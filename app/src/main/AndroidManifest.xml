@@ -26,6 +26,7 @@
         <activity android:name=".admin.Dialog_Confirm_Logout_Admin"/>
         <activity android:name=".admin.Confirm_Order_Details"/>
         <activity android:name=".FoodRetailActivity"/>
+        <activity android:name=".ActivityPaymentUser"/>
         <activity
             android:name=".activity_dialog_create_account"
             android:exported="false" />
