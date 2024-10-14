@@ -105,6 +105,7 @@
                     android:background="@drawable/trash_black_circle"/>
 
                 <ImageView
+                    android:id="@+id/btnEdit"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:layout_marginTop="6dp"
