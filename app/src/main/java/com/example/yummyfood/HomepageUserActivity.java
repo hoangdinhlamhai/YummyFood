@@ -1,5 +1,6 @@
 package com.example.yummyfood;
 
+import android.app.Dialog;
 import android.view.View;
 
 import android.os.Bundle;
@@ -19,7 +20,9 @@ import android.content.Intent;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
 public class HomepageUserActivity extends AppCompatActivity {
+    Dialog dialog;
     ViewPager viewPager;
     int image[] = {R.drawable.slide1, R.drawable.slide2, R.drawable.slide3};
     int currentPageCounter = 0;
@@ -99,6 +102,33 @@ public class HomepageUserActivity extends AppCompatActivity {
             }
         });
 
+
+       // dialog.show();
+
+
+//// Tìm TextView trong Dialog
+//        TextView cart = dialog.findViewById(R.id.dialog_exit);
+//        cart.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                // Chuyển về homepage
+//                Intent intent = new Intent(dialog_outofstock_user.this, HomepageUserActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+//
+//// Hiển thị Dialog
+//        dialog.show();
+//
+//        TextView loginTextView = dialog.findViewById(R.id.dialog_login);
+//        loginTextView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                // Chuyển về Activity Login
+//                Intent intent = new Intent(activity_register_user.this, Login_userActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
 
 

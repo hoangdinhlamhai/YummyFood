@@ -41,6 +41,8 @@
                 app:srcCompat="@drawable/morong_icon" />
 
             <!-- Flash Sale Banner -->
+
+            <!-- Product 1 Layout -->
             <ImageView
                 android:id="@+id/imageView13"
                 android:layout_width="231dp"
@@ -49,12 +51,11 @@
                 android:layout_marginTop="80dp"
                 android:layout_marginEnd="111dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="0.016"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/flashsale" />
+                app:srcCompat="@drawable/flashsale_removebg_preview" />
 
-            <!-- Product 1 Layout -->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/product1"
                 android:layout_width="match_parent"
@@ -72,7 +73,7 @@
                     android:layout_marginBottom="8dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/milktea" />
+                    app:srcCompat="@drawable/milktea_removebg_preview" />
 
                 <!-- Product Name -->
                 <TextView
@@ -82,7 +83,7 @@
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="8dp"
                     android:text="Trà sữa kem trứng khê"
-                    android:textSize="16sp"
+                    android:textSize="10sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toEndOf="@+id/product_image1"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -108,7 +109,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
                     android:text="39.000đ"
-                    android:textSize="16sp"
+                    android:textSize="12sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     tools:layout_editor_absoluteY="43dp" />
@@ -116,8 +117,8 @@
                 <!-- Add to Cart Button -->
                 <ImageView
                     android:id="@+id/product_add_to_cart1"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginTop="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
