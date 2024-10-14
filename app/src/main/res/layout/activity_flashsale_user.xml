@@ -125,7 +125,83 @@
                     app:layout_constraintTop_toBottomOf="@+id/product_discounted_price1"
                     app:srcCompat="@drawable/cart" />
 
+
+
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/product2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:layout_constraintTop_toBottomOf="@+id/product1">
+
+                <!-- Product Image -->
+                <ImageView
+                    android:id="@+id/product_image2"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/com_removebg_preview" />
+
+                <!-- Product Name -->
+                <TextView
+                    android:id="@+id/product_name2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Cơm gà nam chợ mới"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/product_image2"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- Product Brand -->
+                <TextView
+                    android:id="@+id/product_brand2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="4dp"
+                    android:text="Cơm gà"
+                    android:textColor="@android:color/holo_orange_light"
+                    app:layout_constraintStart_toEndOf="@+id/product_image2"
+                    app:layout_constraintTop_toBottomOf="@+id/product_name2" />
+
+                <!-- Discounted Price -->
+                <TextView
+                    android:id="@+id/product_discounted_price2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:text="45.000đ"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:layout_editor_absoluteY="43dp" />
+
+                <!-- Add to Cart Button -->
+                <ImageView
+                    android:id="@+id/product_add_to_cart2"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/product_discounted_price2"
+                    app:srcCompat="@drawable/cart" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
