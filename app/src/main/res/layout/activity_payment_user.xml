@@ -343,35 +343,46 @@
         android:layout_width="194dp"
         android:layout_height="45dp"
         android:layout_gravity="center"
+        android:layout_marginStart="17dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="7dp"
         android:backgroundTint="@android:color/holo_red_light"
         android:text="Tiền mặt"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        tools:layout_editor_absoluteX="211dp"
-        tools:layout_editor_absoluteY="602dp" />
+        app:layout_constraintBottom_toTopOf="@+id/btn_paying"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_credit" />
 
     <Button
         android:id="@+id/btn_paying"
         android:layout_width="392dp"
         android:layout_height="45dp"
         android:layout_gravity="center"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginBottom="32dp"
         android:backgroundTint="@android:color/holo_red_light"
         android:text="Thanh toán"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        tools:layout_editor_absoluteX="10dp"
-        tools:layout_editor_absoluteY="654dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btn_credit"
         android:layout_width="194dp"
         android:layout_height="45dp"
         android:layout_gravity="center"
+        android:layout_marginEnd="17dp"
+        android:layout_marginBottom="7dp"
         android:backgroundTint="@android:color/holo_red_light"
         android:text="Chuyển khoản"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        tools:layout_editor_absoluteX="7dp"
-        tools:layout_editor_absoluteY="602dp" />
+        app:layout_constraintBottom_toTopOf="@+id/btn_paying"
+        app:layout_constraintEnd_toStartOf="@+id/btn_cash"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
