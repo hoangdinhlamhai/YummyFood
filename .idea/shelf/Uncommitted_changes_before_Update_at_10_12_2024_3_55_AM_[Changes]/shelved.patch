@@ -1,0 +1,331 @@
+Index: app/src/main/res/layout/activity_information_user.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_information_user.xml b/app/src/main/res/layout/activity_information_user.xml
+new file mode 100644
+--- /dev/null	(date 1728680076689)
++++ b/app/src/main/res/layout/activity_information_user.xml	(date 1728680076689)
+@@ -0,0 +1,286 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:background="#FFFFFF">
++
++    <!-- Back Button -->
++    <Button
++        android:id="@+id/button3"
++        android:layout_width="71dp"
++        android:layout_height="47dp"
++        android:layout_marginStart="22dp"
++        android:layout_marginTop="33dp"
++        android:layout_marginEnd="338dp"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent" />
++
++    <!-- Back button icon -->
++    <ImageView
++        android:id="@+id/imageView12"
++        android:layout_width="57dp"
++        android:layout_height="38dp"
++        android:layout_marginStart="8dp"
++        app:layout_constraintBottom_toBottomOf="@+id/button3"
++        app:layout_constraintStart_toStartOf="@+id/button3"
++        app:layout_constraintTop_toTopOf="@+id/button3"
++        app:srcCompat="@drawable/morong_icon" />
++
++    <!-- Title -->
++    <TextView
++        android:id="@+id/title"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginTop="16dp"
++        android:text="Thông báo"
++        android:textColor="#000000"
++        android:textSize="48sp"
++        android:textStyle="bold"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="0.5"
++        app:layout_constraintStart_toEndOf="@id/back_button"
++        app:layout_constraintTop_toTopOf="parent" />
++
++    <!-- Notification List -->
++
++    <!-- Bottom Navigation -->
++    <ScrollView
++        android:id="@+id/notification_scroll"
++        android:layout_width="0dp"
++        android:layout_height="0dp"
++        android:layout_marginTop="8dp"
++        app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="0.0"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@id/title"
++        app:layout_constraintVertical_bias="0.0">
++
++        <LinearLayout
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:orientation="vertical"
++            android:padding="16dp">
++
++            <!-- Notification Item 1 -->
++            <LinearLayout
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:layout_marginBottom="12dp"
++                android:background="#FFF0F0"
++                android:elevation="2dp"
++                android:orientation="horizontal"
++                android:padding="16dp">
++
++                <ImageView
++                    android:layout_width="48dp"
++                    android:layout_height="48dp"
++                    android:src="@drawable/ic_discount" />
++
++                <LinearLayout
++                    android:layout_width="0dp"
++                    android:layout_height="wrap_content"
++                    android:layout_marginStart="16dp"
++                    android:layout_weight="1"
++                    android:orientation="vertical">
++
++                    <TextView
++                        android:layout_width="wrap_content"
++                        android:layout_height="wrap_content"
++                        android:text="Giảm giá"
++                        android:textColor="#FF5722"
++                        android:textSize="18sp"
++                        android:textStyle="bold" />
++
++                    <TextView
++                        android:layout_width="wrap_content"
++                        android:layout_height="wrap_content"
++                        android:text="Voucher trà sữa, cơm cuộn,..."
++                        android:textColor="#555555"
++                        android:textSize="14sp" />
++                </LinearLayout>
++
++                <TextView
++                    android:layout_width="32dp"
++                    android:layout_height="32dp"
++                    android:layout_gravity="center"
++                    android:background="@drawable/bg_notification_count"
++                    android:gravity="center"
++                    android:padding="8dp"
++                    android:text="2"
++                    android:textColor="#FFFFFF"
++                    android:textSize="14sp"
++                    android:textStyle="bold" />
++            </LinearLayout>
++
++            <!-- Notification Item 2 -->
++            <LinearLayout
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:layout_marginBottom="12dp"
++                android:background="#E3F2FD"
++                android:elevation="2dp"
++                android:orientation="horizontal"
++                android:padding="16dp">
++
++                <ImageView
++                    android:layout_width="48dp"
++                    android:layout_height="48dp"
++                    android:src="@drawable/ic_update_info" />
++
++                <LinearLayout
++                    android:layout_width="0dp"
++                    android:layout_height="wrap_content"
++                    android:layout_marginStart="16dp"
++                    android:layout_weight="1"
++                    android:orientation="vertical">
++
++                    <TextView
++                        android:layout_width="wrap_content"
++                        android:layout_height="wrap_content"
++                        android:text="Cập nhật thông tin"
++                        android:textColor="#0288D1"
++                        android:textSize="18sp"
++                        android:textStyle="bold" />
++
++                    <TextView
++                        android:layout_width="wrap_content"
++                        android:layout_height="wrap_content"
++                        android:text="Cập nhật địa chỉ email..."
++                        android:textColor="#555555"
++                        android:textSize="14sp" />
++                </LinearLayout>
++
++                <TextView
++                    android:layout_width="32dp"
++                    android:layout_height="32dp"
++                    android:layout_gravity="center"
++                    android:background="@drawable/bg_notification_count"
++                    android:gravity="center"
++                    android:padding="8dp"
++                    android:text="5"
++                    android:textColor="#FFFFFF"
++                    android:textSize="14sp"
++                    android:textStyle="bold" />
++            </LinearLayout>
++
++            <!-- Notification Item 3 (Repeat of Item 1) -->
++            <LinearLayout
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:layout_marginBottom="16dp"
++                android:background="#FFF0F0"
++                android:elevation="2dp"
++                android:orientation="horizontal"
++                android:padding="16dp">
++
++                <ImageView
++                    android:layout_width="48dp"
++                    android:layout_height="48dp"
++                    android:src="@drawable/ic_discount" />
++
++                <LinearLayout
++                    android:layout_width="0dp"
++                    android:layout_height="wrap_content"
++                    android:layout_marginStart="16dp"
++                    android:layout_weight="1"
++                    android:orientation="vertical">
++
++                    <TextView
++                        android:layout_width="wrap_content"
++                        android:layout_height="wrap_content"
++                        android:text="Giảm giá"
++                        android:textColor="#FF5722"
++                        android:textSize="18sp"
++                        android:textStyle="bold" />
++
++                    <TextView
++                        android:layout_width="wrap_content"
++                        android:layout_height="wrap_content"
++                        android:text="Voucher trà sữa, cơm cuộn,..."
++                        android:textColor="#555555"
++                        android:textSize="14sp" />
++                </LinearLayout>
++
++                <TextView
++                    android:layout_width="32dp"
++                    android:layout_height="32dp"
++                    android:layout_gravity="center"
++                    android:background="@drawable/bg_notification_count"
++                    android:gravity="center"
++                    android:padding="8dp"
++                    android:text="2"
++                    android:textColor="#FFFFFF"
++                    android:textSize="14sp"
++                    android:textStyle="bold" />
++            </LinearLayout>
++
++            <!-- Order Update Section -->
++            <TextView
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:paddingTop="8dp"
++                android:paddingBottom="8dp"
++                android:text="Cập nhật đơn hàng"
++                android:textColor="#D32F2F"
++                android:textSize="18sp"
++                android:textStyle="bold" />
++
++            <!-- Order Item 1 -->
++            <LinearLayout
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:layout_marginBottom="12dp"
++                android:background="#F1F8E9"
++                android:elevation="2dp"
++                android:orientation="horizontal"
++                android:padding="16dp">
++
++                <ImageView
++                    android:layout_width="48dp"
++                    android:layout_height="48dp"
++                    android:src="@drawable/ic_food_image" />
++
++                <LinearLayout
++                    android:layout_width="0dp"
++                    android:layout_height="wrap_content"
++                    android:layout_marginStart="16dp"
++                    android:layout_weight="1"
++                    android:orientation="vertical">
++
++                    <TextView
++                        android:layout_width="wrap_content"
++                        android:layout_height="wrap_content"
++                        android:text="Đơn hàng đã hoàn tất"
++                        android:textColor="#000000"
++                        android:textSize="16sp"
++                        android:textStyle="bold" />
++
++                    <TextView
++                        android:layout_width="wrap_content"
++                        android:layout_height="wrap_content"
++                        android:text="Chia sẻ trải nghiệm của bạn về món ăn..."
++                        android:textColor="#777777"
++                        android:textSize="14sp" />
++                </LinearLayout>
++            </LinearLayout>
++
++        </LinearLayout>
++    </ScrollView>
++
++    <com.google.android.material.bottomnavigation.BottomNavigationView
++        android:id="@+id/bottom_navigation"
++        android:layout_width="0dp"
++        android:layout_height="wrap_content"
++        android:layout_marginTop="16dp"
++        app:itemIconTint="@color/colorPrimary"
++        app:itemTextColor="@color/colorPrimary"
++        app:menu="@menu/bottom_navigation_menu"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintEnd_toEndOf="parent" />
++
++</androidx.constraintlayout.widget.ConstraintLayout>
+Index: app/src/main/java/com/example/yummyfood/information_user.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/yummyfood/information_user.java b/app/src/main/java/com/example/yummyfood/information_user.java
+new file mode 100644
+--- /dev/null	(date 1728679649303)
++++ b/app/src/main/java/com/example/yummyfood/information_user.java	(date 1728679649303)
+@@ -0,0 +1,24 @@
++package com.example.yummyfood;
++
++import android.os.Bundle;
++
++import androidx.activity.EdgeToEdge;
++import androidx.appcompat.app.AppCompatActivity;
++import androidx.core.graphics.Insets;
++import androidx.core.view.ViewCompat;
++import androidx.core.view.WindowInsetsCompat;
++
++public class information_user extends AppCompatActivity {
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        EdgeToEdge.enable(this);
++        setContentView(R.layout.activity_information_user);
++        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
++            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
++            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
++            return insets;
++        });
++    }
++}
+\ No newline at end of file
