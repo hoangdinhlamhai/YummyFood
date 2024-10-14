@@ -4,12 +4,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.example.yummyfood.admin.HomePage_Admin;
 
 public class Login_userActivity extends AppCompatActivity {
 
@@ -38,13 +41,21 @@ public class Login_userActivity extends AppCompatActivity {
             }
         });
 
+        RadioGroup radioGroup = findViewById(R.id.radioGroup);
         Button btnLogin = findViewById(R.id.btn_loginuser);
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Tạo Intent để chuyển từ Login_userActivity sang HomepageUserActivity
-                Intent intent = new Intent(Login_userActivity.this, HomepageUserActivity.class);
-                startActivity(intent); // Bắt đầu Activity mới
+                int selectedId = radioGroup.getCheckedRadioButtonId();
+                Intent intent;
+
+                if (selectedId == R.id.radioButtonUser) {
+                    intent = new Intent(Login_userActivity.this, HomepageUserActivity.class);
+                    startActivity(intent); // Bắt đầu Activity mới
+                } else if (selectedId == R.id.radioButtonAdmin) {
+                    intent = new Intent(Login_userActivity.this, HomePage_Admin.class);
+                    startActivity(intent);
+                }
             }
         });
 
