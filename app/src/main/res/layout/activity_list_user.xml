@@ -90,7 +90,6 @@
                     android:layout_marginTop="4dp"/>
 
                 <TextView
-                    android:id="@+id/user_phone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Phone: 123456789"
@@ -107,7 +106,7 @@
                 android:layout_gravity="center">
 
                 <ImageButton
-                    android:id="@+id/edit_button"
+                    android:id="@+id/btnDelete"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:src="@drawable/trash_black_circle"
@@ -115,7 +114,7 @@
                     android:contentDescription="Edit User"/>
 
                 <ImageButton
-                    android:id="@+id/delete_button"
+                    android:id="@+id/btnEdit"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:src="@drawable/edit_black_circle"
