@@ -9,13 +9,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.yummyfood.R;
 
-public class Add_User extends AppCompatActivity {
+public class List_Confirm_Order extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_add_user);
+        setContentView(R.layout.activity_list_confirm_order);
 
         //back to homepage
         Button btnBack = findViewById(R.id.btn_back);
