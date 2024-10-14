@@ -22,6 +22,7 @@
         <activity android:name=".admin.List_Confirm_Order" />
         <activity android:name=".admin.Confirm_Order_Details" />
         <activity android:name=".admin.Profile_Admin" />
+        <activity android:name=".Login_userActivity" />
         <activity
             android:name=".activity_dialog_create_account"
             android:exported="false" />
