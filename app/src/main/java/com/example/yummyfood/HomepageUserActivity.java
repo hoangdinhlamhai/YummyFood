@@ -66,15 +66,28 @@ public class HomepageUserActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int itemId = item.getItemId();
+
                 if (itemId == R.id.navigation_home) {
+                    // Chuyển về màn hình Home
+                    Intent intent = new Intent(HomepageUserActivity.this, HomepageUserActivity.class);
+                    startActivity(intent);
                     return true;
+
                 } else if (itemId == R.id.navigation_cart) {
+                    // Chuyển đến màn hình Cart (bạn có thể thêm Intent khác nếu cần)
                     return true;
+
                 } else if (itemId == R.id.navigation_menu) {
+                    // Chuyển đến màn hình danh mục (category_user)
+                    Intent intent = new Intent(HomepageUserActivity.this, category_user.class);
+                    startActivity(intent);
                     return true;
+
                 } else if (itemId == R.id.navigation_profile) {
+                    // Chuyển đến màn hình Profile (bạn có thể thêm Intent khác nếu cần)
                     return true;
                 }
+
                 return false;
             }
         });
@@ -94,8 +107,10 @@ public class HomepageUserActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        ImageView imageView = findViewById(R.id.imageView4);
-        imageView.setOnClickListener(new View.OnClickListener() {
+
+        //chuyen sang thong bao
+        ImageView imageView1 = findViewById(R.id.imageView4);
+        imageView1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(HomepageUserActivity.this, information_user.class);
                 startActivity(intent);
