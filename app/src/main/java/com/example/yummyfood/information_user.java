@@ -1,3 +1,5 @@
+
+
 package com.example.yummyfood;
 
 import android.content.Intent;
@@ -6,6 +8,8 @@ import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.example.yummyfood.HomepageUserActivity;
+import com.example.yummyfood.R;
 
 public class information_user extends AppCompatActivity {
 
@@ -13,6 +17,8 @@ public class information_user extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_information_user);
+
+
 
         // Setup BottomNavigationView
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
