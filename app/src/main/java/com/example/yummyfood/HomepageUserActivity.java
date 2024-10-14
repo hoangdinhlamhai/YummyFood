@@ -125,6 +125,19 @@ public class HomepageUserActivity extends AppCompatActivity {
                 showDialog();
             }
         });
+        // nhấn vào ảnh thì chuyển đến chi tiết món
+        // Xác định ImageView cho món ăn
+        ImageView foodImage1 = findViewById(R.id.foodImage1_homepage);
+
+        // Thiết lập OnClickListener cho ImageView
+        foodImage1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Chuyển sang FoodRetailActivity khi nhấn vào ImageView
+                Intent intent = new Intent(HomepageUserActivity.this, FoodRetailActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     // Hàm hiển thị dialog
