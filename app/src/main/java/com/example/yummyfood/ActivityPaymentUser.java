@@ -42,6 +42,19 @@ public class ActivityPaymentUser extends AppCompatActivity {
                 finish(); // Kết thúc ActivityPaymentUser để không quay lại bằng nút back
             }
         });
+        // Khởi tạo nút btn_paying_payment
+        Button btnPayingPayment = findViewById(R.id.btn_paying_payment);
+
+        // Thiết lập sự kiện nhấn nút thanh toán
+        btnPayingPayment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Chuyển đến ActivityOrderStatus
+                Intent intent = new Intent(ActivityPaymentUser.this, ActivityOrderStatus.class);
+                startActivity(intent);
+                finish(); // Kết thúc ActivityPaymentUser để không quay lại bằng nút back
+            }
+        });
 
     }
 }
