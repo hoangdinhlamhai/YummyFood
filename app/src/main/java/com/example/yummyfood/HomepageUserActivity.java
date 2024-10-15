@@ -128,7 +128,7 @@ public class HomepageUserActivity extends AppCompatActivity {
         });
         // nhấn vào ảnh thì chuyển đến chi tiết món
         // Xác định ImageView cho món ăn
-        ImageView foodImage1 = findViewById(R.id.foodImage1_homepage);
+        ImageView foodImage1 = findViewById(R.id.foodImage2_homepage);
 
         // Thiết lập OnClickListener cho ImageView
         foodImage1.setOnClickListener(new View.OnClickListener() {
