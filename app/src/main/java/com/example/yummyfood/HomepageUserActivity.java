@@ -139,6 +139,18 @@ public class HomepageUserActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+         // sự kiện nhấn giỏ hàng thì chuyển đến trang giỏ hàng
+        ImageView cartIcon = findViewById(R.id.cartIcon2_homepage);
+
+        // Set sự kiện click cho ImageView
+        cartIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Chuyển sang trang activity_cart
+                Intent intent = new Intent(HomepageUserActivity.this, CartActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
     }
