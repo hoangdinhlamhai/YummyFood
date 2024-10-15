@@ -281,7 +281,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:backgroundTint="@android:color/holo_red_light"
-                    android:text="Save"
+                    android:text="Lưu"
                     android:textColor="@android:color/white"
                     android:textSize="18sp" />
 
@@ -292,7 +292,7 @@
                     android:layout_gravity="center"
                     android:layout_marginLeft="12dp"
                     android:backgroundTint="@android:color/holo_red_light"
-                    android:text="Logout"
+                    android:text="Đăng xuất"
                     android:textColor="@android:color/white"
                     android:textSize="18sp" />
 
