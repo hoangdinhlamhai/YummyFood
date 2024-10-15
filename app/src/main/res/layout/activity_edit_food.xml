@@ -2,6 +2,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:padding="16dp"
     android:background="#F5F5F5">
 
@@ -118,6 +120,36 @@
                     android:textSize="16sp"
                     android:background="@null"
                     android:inputType="numberDecimal"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_conner"
+                android:backgroundTint="#E2D6D6"
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxBackgroundColor="@android:color/transparent"
+                    android:background="@android:color/transparent"
+                    android:hint="Select category"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    android:backgroundTint="#e2d6d6"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    tools:ignore="MissingConstraints">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/autoCompleteCategory"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="none"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
 

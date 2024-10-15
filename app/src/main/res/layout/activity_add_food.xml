@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -114,6 +115,7 @@
                 app:layout_constraintStart_toEndOf="@+id/textView_Price"
                 app:layout_constraintEnd_toEndOf="parent" />
 
+
             <TextView
                 android:id="@+id/textView_Price"
                 android:layout_width="wrap_content"
@@ -128,6 +130,38 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/editText_Price" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="22dp"
+            android:layout_marginEnd="22dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/rounded_conner"
+            android:backgroundTint="#e2d6d6">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxBackgroundColor="@android:color/transparent"
+                android:background="@android:color/transparent"
+                android:layout_margin="16dp"
+                android:hint="Select category"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
+                android:backgroundTint="#e2d6d6"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                tools:ignore="MissingConstraints">
+
+                <AutoCompleteTextView
+                    android:id="@+id/autoCompleteCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

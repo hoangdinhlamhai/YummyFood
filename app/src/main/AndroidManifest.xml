@@ -12,21 +12,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.YummyFood"
         tools:targetApi="31">
-
-        <!--    Dung xoa may the activity neu khong loi    -->
-        <activity android:name=".admin.HomePage_Admin"/>
-        <activity android:name=".admin.Add_User"/>
-        <activity android:name=".admin.List_User"/>
-        <activity android:name=".admin.Edit_User"/>
-        <activity android:name=".admin.Add_Food"/>
-        <activity android:name=".admin.list_food.List_Food"/>
-        <activity android:name=".admin.Edit_Food"/>
-        <activity android:name=".admin.List_Confirm_Order"/>
-        <activity android:name=".admin.Profile_Admin"/>
-        <activity android:name=".admin.Dialog_Confirm_Logout_Admin"/>
-        <activity android:name=".admin.Confirm_Order_Details"/>
-        <activity android:name=".FoodRetailActivity"/>
-        <activity android:name=".ActivityPaymentUser"/>
+        <!-- Dung xoa may the activity neu khong loi -->
+        <activity android:name=".admin.HomePage_Admin" />
+        <activity android:name=".admin.Add_User" />
+        <activity android:name=".admin.List_User" />
+        <activity android:name=".admin.Edit_User" />
+        <activity android:name=".admin.Add_Food" />
+<!--        <activity android:name="" />-->
+        <activity android:name=".admin.Edit_Food" />
+        <activity android:name=".admin.List_Confirm_Order" />
+        <activity android:name=".admin.Profile_Admin" />
+        <activity android:name=".admin.Dialog_Confirm_Logout_Admin" />
+        <activity android:name=".admin.Confirm_Order_Details" />
+        <activity android:name=".FoodRetailActivity" />
+        <activity android:name=".ActivityPaymentUser" />
         <activity
             android:name=".activity_dialog_create_account"
             android:exported="false" />
@@ -37,7 +36,6 @@
             android:name=".activity_register_user"
             android:exported="false" />
         <activity
-
             android:name=".Login_userActivity"
             android:exported="true">
             <intent-filter>
@@ -46,7 +44,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".HomepageUserActivity"
             android:exported="true" />
@@ -56,14 +53,6 @@
         <activity
             android:name=".flashsale_user"
             android:exported="false" />
-        <activity
-            android:name=".information_user"
-            android:exported="false" />
-
-        <activity
-            android:name=".category_user"
-            android:exported="false" />
-
     </application>
 
 </manifest>
