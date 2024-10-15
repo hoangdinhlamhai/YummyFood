@@ -69,23 +69,23 @@ public class HomepageUserActivity extends AppCompatActivity {
                 int itemId = item.getItemId();
 
                 if (itemId == R.id.navigation_home) {
-                    // Chuyển về màn hình Home
                     Intent intent = new Intent(HomepageUserActivity.this, HomepageUserActivity.class);
                     startActivity(intent);
                     return true;
 
                 } else if (itemId == R.id.navigation_cart) {
-                    // Chuyển đến màn hình Cart (bạn có thể thêm Intent khác nếu cần)
+                    Intent intent = new Intent(HomepageUserActivity.this, CartActivity.class);
                     return true;
 
                 } else if (itemId == R.id.navigation_menu) {
-                    // Chuyển đến màn hình danh mục (category_user)
                     Intent intent = new Intent(HomepageUserActivity.this, category_user.class);
                     startActivity(intent);
                     return true;
 
                 } else if (itemId == R.id.navigation_profile) {
-
+                    // Chuyển sang activity_profile_user
+                    Intent intent = new Intent(HomepageUserActivity.this, Profile_User.class);
+                    startActivity(intent);
                     return true;
                 }
 
