@@ -305,7 +305,7 @@
                     </LinearLayout>
 
                     <ImageView
-                        android:id="@+id/cartIcon2"
+                        android:id="@+id/cartIcon2_homepage"
                         android:layout_width="32dp"
                         android:layout_height="32dp"
                         android:layout_gravity="center_vertical"
