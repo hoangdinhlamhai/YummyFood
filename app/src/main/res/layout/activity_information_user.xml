@@ -459,6 +459,79 @@
                 </LinearLayout>
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:background="#A2BDD3"
+                android:orientation="horizontal"
+                android:padding="12dp">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:contentDescription="Processing Icon"
+                    android:src="@drawable/garan" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="9dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Đơn hàng đang xử lý"
+                        android:textColor="#FF0000"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Mã đơn hàng: #12346 - Đang xử lý, dự kiến giao ngày 14/10/2024"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:background="#A2BDD3"
+                android:orientation="horizontal"
+                android:padding="12dp">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:contentDescription="Delivered Icon"
+                    android:src="@drawable/com_removebg_preview" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="9dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Đơn hàng đã giao"
+                        android:textColor="#FF0000"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Mã đơn hàng: #12345 - Giao thành công ngày 12/10/2024" />
+                </LinearLayout>
+            </LinearLayout>
+
 
 
         </LinearLayout>
@@ -466,16 +539,5 @@
     </LinearLayout>
 </ScrollView>
 
-    <!-- BottomNavigationView -->
-<com.google.android.material.bottomnavigation.BottomNavigationView
-android:id="@+id/bottom_navigation"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-app:itemIconTint="@color/colorPrimary"
-app:itemTextColor="@color/colorPrimary"
-app:menu="@menu/nav_menu"
-app:layout_constraintBottom_toBottomOf="parent"
-app:layout_constraintStart_toStartOf="parent"
-app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

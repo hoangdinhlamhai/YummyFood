@@ -56,8 +56,13 @@
         <activity
             android:name=".flashsale_user"
             android:exported="false" />
+        <activity
+            android:name=".information_user"
+            android:exported="false" />
 
-
+        <activity
+            android:name=".category_user"
+            android:exported="false" />
 
     </application>
 

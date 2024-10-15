@@ -3,6 +3,9 @@ package com.example.yummyfood;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -14,30 +17,16 @@ public class SearchUserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_user);
 
-        // Setup BottomNavigationView
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        // Tìm ImageView bằng ID của icon_morong (imageView12)
+        ImageView imageView = findViewById(R.id.imageView10);
 
-        // Set up the event listener for navigation items
-        bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
+        // Thiết lập sự kiện OnClickListener cho imageView
+        imageView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                int itemId = item.getItemId();
-                if (itemId == R.id.navigation_home) {
-                    // Chuyển về HomepageUserActivity khi nhấn vào nút Home
-                    Intent intent = new Intent(SearchUserActivity.this, HomepageUserActivity.class);
-                    startActivity(intent);
-                    return true;
-                } else if (itemId == R.id.navigation_cart) {
-                    // Xử lý khi nhấn nút Cart (có thể thêm xử lý tương tự nếu cần)
-                    return true;
-                } else if (itemId == R.id.navigation_menu) {
-                    // Xử lý khi nhấn nút Menu (có thể thêm xử lý tương tự nếu cần)
-                    return true;
-                } else if (itemId == R.id.navigation_profile) {
-                    // Xử lý khi nhấn nút Profile (có thể thêm xử lý tương tự nếu cần)
-                    return true;
-                }
-                return false;
+            public void onClick(View v) {
+                // Chuyển hướng về HomepageUserActivity
+                Intent intent = new Intent(SearchUserActivity.this, HomepageUserActivity.class);
+                startActivity(intent);
             }
         });
     }

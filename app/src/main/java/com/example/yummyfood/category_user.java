@@ -25,6 +25,8 @@ public class category_user extends AppCompatActivity {
             return insets;
         });
 
+
+
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
         bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {

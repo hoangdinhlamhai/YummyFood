@@ -30,29 +30,6 @@
                 android:layout_marginTop="9dp"
                 android:layout_marginBottom="9dp">
 
-                <!-- Back Button -->
-                <Button
-                    android:id="@+id/button4"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:backgroundTint="@android:color/holo_red_light"
-                    android:text="←"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-
-                <ImageView
-                    android:id="@+id/imageView10"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_gravity="center"
-                    android:contentDescription="Center Icon"
-                    android:src="@drawable/morong_icon"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/button4"
-                    app:layout_constraintStart_toStartOf="@+id/button4"
-                    app:layout_constraintTop_toTopOf="@+id/button4" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -60,8 +37,8 @@
                     android:layout_gravity="center"
                     android:layout_marginEnd="64dp"
                     android:text="Danh mục"
-                    android:textColor="#000000"
-                    android:textSize="24sp"
+                    android:textColor="#E92222"
+                    android:textSize="44sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
 

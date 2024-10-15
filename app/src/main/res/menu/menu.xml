@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
+    <item android:id="@+id/navigation_home" android:title="Home" android:icon="@drawable/homeicon"/>
+    <item android:id="@+id/navigation_cart" android:title="User" android:icon="@drawable/cart"/>
+    <item android:id="@+id/navigation_menu" android:title="Menu" android:icon="@drawable/menuicon"/>
+    <item android:id="@+id/navigation_profile" android:title="Menu" android:icon="@drawable/person"/>
 </menu>
