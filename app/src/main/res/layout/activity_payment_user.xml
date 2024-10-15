@@ -351,7 +351,7 @@
             app:layout_constraintEnd_toEndOf="parent" />
 
         <Button
-            android:id="@+id/btn_paying"
+            android:id="@+id/btn_paying_payment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
