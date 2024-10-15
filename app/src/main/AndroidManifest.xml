@@ -13,9 +13,11 @@
         android:theme="@style/Theme.YummyFood"
         tools:targetApi="31">
         <activity
-            android:name=".edit_address"
+            android:name=".Rate_Order_User"
             android:exported="false" />
-        <!-- Dung xoa may the activity neu khong loi -->
+        <activity
+            android:name=".edit_address"
+            android:exported="false" /> <!-- Dung xoa may the activity neu khong loi -->
         <activity android:name=".admin.HomePage_Admin" />
         <activity android:name=".admin.Add_User" />
         <activity android:name=".admin.List_User" />
@@ -26,8 +28,7 @@
         <activity android:name=".admin.Profile_Admin" />
         <activity android:name=".admin.Dialog_Confirm_Logout_Admin" />
         <activity android:name=".admin.Confirm_Order_Details" />
-        <activity android:name=".FoodRetailActivity" />
-        <activity android:name=".ActivityPaymentUser" />
+        <activity android:name=".FoodRetailActivity" /> <!-- <activity android:name=".ActivityPaymentUser" /> -->
         <activity android:name=".CartActivity" />
         <activity android:name=".ActivityOrderStatus" />
         <activity
@@ -40,7 +41,7 @@
             android:name=".activity_register_user"
             android:exported="false" />
         <activity
-            android:name=".Login_userActivity"
+            android:name=".ActivityPaymentUser"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -66,11 +67,9 @@
         <activity
             android:name=".Profile_User"
             android:exported="false" />
-
         <activity
             android:name=".edit_address"
             android:exported="false" />
-
     </application>
 
 </manifest>

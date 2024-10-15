@@ -1,0 +1,56 @@
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\">\r\n\r\n    <application\r\n        android:allowBackup=\"true\"\r\n        android:dataExtractionRules=\"@xml/data_extraction_rules\"\r\n        android:fullBackupContent=\"@xml/backup_rules\"\r\n        android:icon=\"@mipmap/ic_launcher\"\r\n        android:label=\"@string/app_name\"\r\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\r\n        android:supportsRtl=\"true\"\r\n        android:theme=\"@style/Theme.YummyFood\"\r\n        tools:targetApi=\"31\">\r\n        <activity\r\n            android:name=\".edit_address\"\r\n            android:exported=\"false\" />\r\n        <!-- Dung xoa may the activity neu khong loi -->\r\n        <activity android:name=\".admin.HomePage_Admin\" />\r\n        <activity android:name=\".admin.Add_User\" />\r\n        <activity android:name=\".admin.List_User\" />\r\n        <activity android:name=\".admin.Edit_User\" />\r\n        <activity android:name=\".admin.Add_Food\" /> <!-- <activity android:name=\"\" /> -->\r\n        <activity android:name=\".admin.Edit_Food\" />\r\n        <activity android:name=\".admin.List_Confirm_Order\" />\r\n        <activity android:name=\".admin.Profile_Admin\" />\r\n        <activity android:name=\".admin.Dialog_Confirm_Logout_Admin\" />\r\n        <activity android:name=\".admin.Confirm_Order_Details\" />\r\n        <activity android:name=\".FoodRetailActivity\" />\r\n        <activity android:name=\".ActivityPaymentUser\" />\r\n        <activity android:name=\".CartActivity\" />\r\n        <activity\r\n            android:name=\".activity_dialog_create_account\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".user_dialog_create\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".activity_register_user\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".Login_userActivity\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n        <activity\r\n            android:name=\".HomepageUserActivity\"\r\n            android:exported=\"true\" />\r\n        <activity\r\n            android:name=\".SearchUserActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".flashsale_user\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".information_user\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".category_user\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".Profile_User\"\r\n            android:exported=\"false\" />\r\n\r\n        <activity\r\n            android:name=\".edit_address\"\r\n            android:exported=\"false\" />\r\n\r\n    </application>\r\n\r\n</manifest>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+--- a/app/src/main/AndroidManifest.xml	(revision 04a61e279f6b3175a494fa6b90bb8d05bff18ad4)
++++ b/app/src/main/AndroidManifest.xml	(date 1729006435008)
+@@ -13,9 +13,11 @@
+         android:theme="@style/Theme.YummyFood"
+         tools:targetApi="31">
+         <activity
++            android:name=".Rate_Order_User"
++            android:exported="false" />
++        <activity
+             android:name=".edit_address"
+-            android:exported="false" />
+-        <!-- Dung xoa may the activity neu khong loi -->
++            android:exported="false" /> <!-- Dung xoa may the activity neu khong loi -->
+         <activity android:name=".admin.HomePage_Admin" />
+         <activity android:name=".admin.Add_User" />
+         <activity android:name=".admin.List_User" />
+@@ -26,8 +28,7 @@
+         <activity android:name=".admin.Profile_Admin" />
+         <activity android:name=".admin.Dialog_Confirm_Logout_Admin" />
+         <activity android:name=".admin.Confirm_Order_Details" />
+-        <activity android:name=".FoodRetailActivity" />
+-        <activity android:name=".ActivityPaymentUser" />
++        <activity android:name=".FoodRetailActivity" /> <!-- <activity android:name=".ActivityPaymentUser" /> -->
+         <activity android:name=".CartActivity" />
+         <activity
+             android:name=".activity_dialog_create_account"
+@@ -39,7 +40,7 @@
+             android:name=".activity_register_user"
+             android:exported="false" />
+         <activity
+-            android:name=".Login_userActivity"
++            android:name=".ActivityPaymentUser"
+             android:exported="true">
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+@@ -65,11 +66,9 @@
+         <activity
+             android:name=".Profile_User"
+             android:exported="false" />
+-
+         <activity
+             android:name=".edit_address"
+             android:exported="false" />
+-
+     </application>
+ 
+ </manifest>
+\ No newline at end of file
