@@ -75,6 +75,7 @@ public class HomepageUserActivity extends AppCompatActivity {
 
                 } else if (itemId == R.id.navigation_cart) {
                     Intent intent = new Intent(HomepageUserActivity.this, CartActivity.class);
+                    startActivity(intent);
                     return true;
 
                 } else if (itemId == R.id.navigation_menu) {

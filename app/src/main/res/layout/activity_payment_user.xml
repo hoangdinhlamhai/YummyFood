@@ -354,7 +354,7 @@
             android:id="@+id/btn_paying"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
             android:layout_marginBottom="32dp"
             android:backgroundTint="@android:color/holo_red_light"
             android:text="Thanh toán"
