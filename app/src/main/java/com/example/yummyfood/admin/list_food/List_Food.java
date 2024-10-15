@@ -1,6 +1,7 @@
 package com.example.yummyfood.admin.list_food;
 
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -10,17 +11,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.yummyfood.R;
 import com.example.yummyfood.admin.model.Food;
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 
 public class List_Food extends AppCompatActivity {
     private ListView lv;
-//    ActivityListFoodBinding binding;
-//    ListFoodAdapter listAdapter;
-//    Food food;
+    private DrawerLayout drawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,30 @@ public class List_Food extends AppCompatActivity {
 
         setContentView(R.layout.activity_list_food);
 
+        //side bar category
+        drawerLayout = findViewById(R.id.main); // Thay đổi ID nếu cần
+        Button btnCate = findViewById(R.id.btn_cate);
+
+        btnCate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Hiện NavigationView
+                drawerLayout.openDrawer(Gravity.START);
+            }
+        });
+
+        NavigationView navigationView = findViewById(R.id.sidebar);
+        navigationView.setNavigationItemSelectedListener(menuItem -> {
+            // Xử lý item click
+            // TODO: Thực hiện hành động tương ứng với item được chọn
+
+            // Đóng NavigationView
+            drawerLayout.closeDrawer(Gravity.START);
+            return true;
+        });
+
+
+        //fill data list
         lv = (ListView)findViewById(R.id.listview);
 
         ArrayList<Food> arrFood = new ArrayList<>();

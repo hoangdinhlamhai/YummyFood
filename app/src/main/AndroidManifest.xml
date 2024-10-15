@@ -18,7 +18,7 @@
         <activity android:name=".admin.List_User" />
         <activity android:name=".admin.Edit_User" />
         <activity android:name=".admin.Add_Food" />
-        <activity android:name=".admin.list_food.List_Food" />
+<!--        <activity android:name="" />-->
         <activity android:name=".admin.Edit_Food" />
         <activity android:name=".admin.List_Confirm_Order" />
         <activity android:name=".admin.Profile_Admin" />
@@ -36,7 +36,7 @@
             android:name=".activity_register_user"
             android:exported="false" />
         <activity
-            android:name=".Profile_User"
+            android:name=".admin.list_food.List_Food"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
