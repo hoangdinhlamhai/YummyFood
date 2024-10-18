@@ -41,7 +41,7 @@
             android:name=".activity_register_user"
             android:exported="false" />
         <activity
-            android:name=".ActivityPaymentUser"
+            android:name=".Login_userActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
