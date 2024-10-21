@@ -9,4 +9,9 @@ public class DashBoardController {
     public String dashboard() {
         return "index";
     }
+
+    @GetMapping("/food")
+    public String food() {
+        return "food/show";
+    }
 }
