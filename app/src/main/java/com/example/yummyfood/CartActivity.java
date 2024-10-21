@@ -13,7 +13,7 @@ public class CartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
-        // Xử lý giao diện cho FoodRetailActivity ở đây
+
 
 
         Button btnReturnCart = findViewById(R.id.btn_return_cart);
