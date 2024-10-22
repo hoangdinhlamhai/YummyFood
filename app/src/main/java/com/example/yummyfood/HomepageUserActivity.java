@@ -152,6 +152,15 @@ public class HomepageUserActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        //dat ban
+        TextView txttable = findViewById(R.id.textViewAll);
+        txttable.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomepageUserActivity.this, booktable_usser.class);
+                startActivity(intent);
+            }
+        });
 
 
     }
@@ -174,14 +183,9 @@ public class HomepageUserActivity extends AppCompatActivity {
 
         dialog.show(); // Hiển thị dialog
 
-        //dat ban
-        TextView txttable = findViewById(R.id.textViewAll);
-        txttable.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent intent = new Intent(HomepageUserActivity.this, booktable_usser.class);
-                startActivity(intent);
-            }
-        });
+
+        }
+
     }
 
-}
+
