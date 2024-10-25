@@ -19,4 +19,9 @@ public class DashBoardController {
     public String add() {
         return "food/add";
     }
+
+    @GetMapping("/food/edit")
+    public String edit() {
+        return "food/edit";
+    }
 }

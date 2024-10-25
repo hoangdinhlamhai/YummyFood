@@ -290,7 +290,9 @@
                                         <span class="text-xs font-weight-bold">22</span>
                                     </td>
                                     <td class="align-middle text-center">
-                                        <button type="button" class="btn btn-primary btn-sm" style="margin-bottom: 0; background-color: #e22f6e">Sửa</button>
+                                        <button type="button" class="btn btn-primary btn-sm" style="margin-bottom: 0; background-color: #e22f6e">
+                                            <a href="/food/edit" style="text-decoration: none; color: inherit;">Sửa</a>
+                                        </button>
                                         <button type="button" class="btn btn-secondary btn-sm" style="margin-bottom: 0;">Xoá</button>
                                     </td>
                                 </tr>

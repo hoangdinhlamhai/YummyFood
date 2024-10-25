@@ -299,7 +299,7 @@
                                 <button type="button" class="btn btn-secondary ml-2 mr-3" onclick="window.history.back();">
                                     Trở về
                                 </button>
-                                <button type="submit" class="btn btn-primary" style="background-color: #e22f6e">Thêm món ăn</button>
+                                <button type="submit" class="btn btn-primary" style="background-color: #e22f6e">Lưu món ăn</button>
                             </div>
                         </form>
                     </div>
