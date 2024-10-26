@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -43,6 +44,15 @@ public class booktable_usser extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(booktable_usser.this, detail_table.class);
+                startActivity(intent);
+            }
+        });
+//ve trang chu
+        Button btnb = findViewById(R.id.btnBack);
+        btnb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(booktable_usser.this, HomepageUserActivity.class);
                 startActivity(intent);
             }
         });
