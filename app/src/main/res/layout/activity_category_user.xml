@@ -30,18 +30,28 @@
                 android:layout_marginTop="9dp"
                 android:layout_marginBottom="9dp">
 
+                <Button
+                    android:id="@+id/btnBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Back"
+
+                    android:textColor="@android:color/white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:layout_marginTop="32dp"
                     android:layout_marginEnd="64dp"
                     android:text="Danh mục"
                     android:textColor="#E92222"
                     android:textSize="44sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
 
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -60,140 +70,140 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="16dp"
-                    android:background="#D3D3D3"
                     android:layout_marginBottom="8dp"
-                    android:gravity="center_vertical">
+                    android:background="@drawable/bgr_category"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
 
                     <TextView
                         android:id="@+id/category_meat"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Thịt"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
                         android:layout_weight="1"
-                        android:textColor="#000000" />
+                        android:text="Thịt"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text=">"
-                        android:textSize="18sp"
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:textSize="25sp" />
                 </LinearLayout>
 
                 <!-- Danh mục Cá -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="16dp"
-                    android:background="#D3D3D3"
                     android:layout_marginBottom="8dp"
-                    android:gravity="center_vertical">
+                    android:background="@drawable/bgr_category"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
 
                     <TextView
                         android:id="@+id/category_fish"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Cá"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
                         android:layout_weight="1"
-                        android:textColor="#000000" />
+                        android:text="Cá"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text=">"
-                        android:textSize="18sp"
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:textSize="25sp" />
                 </LinearLayout>
 
                 <!-- Danh mục Nước ngọt -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="16dp"
-                    android:background="#D3D3D3"
                     android:layout_marginBottom="8dp"
-                    android:gravity="center_vertical">
+                    android:background="@drawable/bgr_category"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
 
                     <TextView
                         android:id="@+id/category_drinks"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Nước ngọt"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
                         android:layout_weight="1"
-                        android:textColor="#000000" />
+                        android:text="Nước ngọt"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text=">"
-                        android:textSize="18sp"
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:textSize="25sp" />
                 </LinearLayout>
 
                 <!-- Danh mục Cơm -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="16dp"
-                    android:background="#D3D3D3"
                     android:layout_marginBottom="8dp"
-                    android:gravity="center_vertical">
+                    android:background="@drawable/bgr_category"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
 
                     <TextView
                         android:id="@+id/category_rice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Cơm"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
                         android:layout_weight="1"
-                        android:textColor="#000000" />
+                        android:text="Cơm"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text=">"
-                        android:textSize="18sp"
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:textSize="25sp" />
                 </LinearLayout>
 
                 <!-- Danh mục Bún -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="16dp"
-                    android:background="#D3D3D3"
                     android:layout_marginBottom="8dp"
-                    android:gravity="center_vertical">
+                    android:background="@drawable/bgr_category"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
 
                     <TextView
                         android:id="@+id/category_noodles"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Bún"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
                         android:layout_weight="1"
-                        android:textColor="#000000" />
+                        android:text="Bún"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text=">"
-                        android:textSize="18sp"
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:textSize="25sp" />
                 </LinearLayout>
 
             </LinearLayout>

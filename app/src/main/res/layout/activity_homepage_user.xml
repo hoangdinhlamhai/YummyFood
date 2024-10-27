@@ -212,6 +212,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="#E2C0C0"
                     android:backgroundTint="#E28484"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
