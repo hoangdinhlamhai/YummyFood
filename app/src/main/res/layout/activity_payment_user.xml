@@ -338,23 +338,22 @@
 
         <Button
             android:id="@+id/btn_cash"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_width="165dp"
+            android:layout_height="47dp"
             android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
             android:backgroundTint="@android:color/holo_red_light"
             android:text="Tiền mặt"
             android:textColor="@android:color/white"
             android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@+id/btn_paying_payment"
-            app:layout_constraintStart_toEndOf="@+id/btn_credit"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btn_credit" />
 
         <Button
             android:id="@+id/btn_paying_payment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_width="355dp"
+            android:layout_height="43dp"
             android:layout_marginBottom="32dp"
             android:backgroundTint="@android:color/holo_red_light"
             android:text="Thanh toán"
