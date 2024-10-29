@@ -47,7 +47,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white active bg-gradient-primary" href="/food">
+                <a class="nav-link text-white" href="/food">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">table_view</i>
                     </div>
@@ -63,7 +63,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white " href="/user">
+                <a class="nav-link text-white active bg-gradient-primary" href="user">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">view_in_ar</i>
                     </div>
@@ -129,9 +129,9 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                     <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Yummy Food</a></li>
-                    <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Món ăn</li>
+                    <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Khách hàng</li>
                 </ol>
-                <h6 class="font-weight-bolder mb-0">Quản lý món ăn</h6>
+                <h6 class="font-weight-bolder mb-0">Quản lý khách hàng</h6>
             </nav>
             <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4 justify-content-end" id="navbar">
                 <ul class="navbar-nav">
@@ -239,76 +239,79 @@
                 <div class="card my-4">
                     <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                         <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                            <h6 class="text-white text-capitalize ps-3">Cập nhật món ăn</h6>
+                            <h6 class="text-white text-capitalize ps-3">Cập nhật thông tin khách hàng</h6>
                         </div>
                     </div>
 
                     <div class="card-body px-4 py-3">
-                        <form id="addFoodForm">
-                            <!-- Row đầu tiên: ID và Tên món ăn -->
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="foodId">ID</label>
-                                    <input type="text" class="form-control" id="foodId" value="123" readonly>
+                        <div class="e-profile">
+                            <div class="row">
+                                <div class="col-12 col-sm-auto mb-3 d-flex justify-content-center">
+                                    <div class="mx-auto" style="width: 140px;">
+                                        <div class="d-flex justify-content-center align-items-center rounded" style="height: 140px; background-color: rgb(233, 236, 239);">
+                                            <span style="color: rgb(166, 168, 170); font: bold 8pt Arial;">140x140</span>
+                                        </div>
+                                        <button class="btn btn-primary mt-2 w-100" style="background-color: #df296a" type="button">
+                                            <i class="fa fa-fw fa-camera"></i>
+                                            <span>Đổi ảnh</span>
+                                        </button>
+                                    </div>
                                 </div>
-                                <div class="form-group col-md-6">
-                                    <label for="foodName">Tên món ăn</label>
-                                    <input type="text" class="form-control" id="foodName" placeholder="Nhập tên món ăn" required>
-                                </div>
-                            </div>
 
-                            <!-- Row thứ hai: Mô tả ngắn và Danh mục -->
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="foodDescription">Mô tả ngắn</label>
-                                    <textarea class="form-control" id="foodDescription" rows="2" placeholder="Nhập mô tả ngắn" required></textarea>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="foodCategory">Danh mục</label>
-                                    <select class="form-control" id="foodCategory" required>
-                                        <option value="">Chọn danh mục</option>
-                                        <option value="DoUong">Đồ uống</option>
-                                        <option value="MonChinh">Món chính</option>
-                                        <option value="TrangMieng">Tráng miệng</option>
-                                    </select>
-                                </div>
-                            </div>
+                                <div class="col-md-8 mx-auto">
+                                    <div class="tab-content pt-3">
+                                        <div class="tab-pane active">
+                                            <form class="form" novalidate="">
+                                                <div class="form-group">
+                                                    <label>ID</label>
+                                                    <input disabled class="form-control w-100" type="text" name="name" placeholder="Nhập họ và tên" value="KH01">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Họ và tên</label>
+                                                    <input class="form-control w-100" type="text" name="name" placeholder="Nhập họ và tên" >
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Email</label>
+                                                    <input class="form-control w-100" type="email" placeholder="user@example.com">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Số điện thoại</label>
+                                                    <input class="form-control w-100" type="text" placeholder="0123456789">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Địa chỉ</label>
+                                                    <textarea class="form-control w-100" rows="5" placeholder="48/Cao Thang/Hai Chau/Da Nang"></textarea>
+                                                </div>
 
-                            <!-- Row thứ ba: Giá và Số lượng -->
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="foodPrice">Giá</label>
-                                    <input type="number" class="form-control" id="foodPrice" placeholder="Nhập giá" min="0" required>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="foodQuantity">Số lượng</label>
-                                    <input type="number" class="form-control" id="foodQuantity" placeholder="Nhập số lượng" min="1" required>
-                                </div>
-                            </div>
+                                                        <div class="mb-2"><b>Thay đổi mật khẩu</b></div>
+                                                        <div class="form-group">
+                                                            <label>Mật khẩu hiện tại</label>
+                                                            <input class="form-control w-100" type="password" placeholder="••••••">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Mật khẩu mới</label>
+                                                            <input class="form-control w-100" type="password" placeholder="••••••">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Xác nhận mật khẩu</label>
+                                                            <input class="form-control w-100" type="password" placeholder="••••••">
+                                                        </div>
 
-                            <!-- Row thứ tư: Hình ảnh -->
-                            <div class="form-row">
-                                <div class="form-group col-md-12">
-                                    <label for="foodImage">Hình ảnh</label>
-                                    <input type="file" class="form-control-file" id="foodImage" accept="image/*" required>
+                                                <div class="d-flex justify-content-center mt-4">
+                                                    <button class="btn btn-primary" style="background-color: #df296a" type="submit">Lưu thay đổi</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-
-                            <!-- Nút Lưu và Hủy -->
-                            <div class="text-center mt-4">
-                                <button type="button" class="btn btn-secondary ml-2 mr-3" onclick="window.history.back();">
-                                    Trở về
-                                </button>
-                                <button type="submit" class="btn btn-primary" style="background-color: #e22f6e">Lưu món ăn</button>
-                            </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
     </div>
-
 </main>
 <!--   Core JS Files   -->
 <script src="/js/core/popper.min.js"></script>

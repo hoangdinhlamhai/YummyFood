@@ -6,6 +6,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="/img/favicon.png">
     <title>
         Material Dashboard 2 by Creative Tim
     </title>
@@ -47,7 +49,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white active bg-gradient-primary" href="/food">
+                <a class="nav-link text-white" href="/food">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">table_view</i>
                     </div>
@@ -55,7 +57,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white " href="/category">
+                <a class="nav-link text-white active bg-gradient-primary" href="/category">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">receipt_long</i>
                     </div>
@@ -129,13 +131,20 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                     <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Yummy Food</a></li>
-                    <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Món ăn</li>
+                    <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Danh mục</li>
                 </ol>
-                <h6 class="font-weight-bolder mb-0">Quản lý món ăn</h6>
+                <h6 class="font-weight-bolder mb-0">Quản lý danh mục</h6>
             </nav>
-            <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4 justify-content-end" id="navbar">
-                <ul class="navbar-nav">
+            <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+                <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+                    <div class="input-group input-group-outline">
+                        <label class="form-label">Tìm kiếm...</label>
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+                <ul class="navbar-nav  justify-content-end">
                     <li class="nav-item d-flex align-items-center">
+                        <a class="btn btn-outline-primary btn-sm mb-0 me-3" style="border-color: #e73673; color: #e73673" href="/food/add">Thêm món mới</a>
                     </li>
 
                     <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
@@ -239,69 +248,52 @@
                 <div class="card my-4">
                     <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                         <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                            <h6 class="text-white text-capitalize ps-3">Cập nhật món ăn</h6>
+                            <h6 class="text-white text-capitalize ps-3">Danh sách danh mục</h6>
                         </div>
                     </div>
+                    <div class="card-body px-0 pb-2">
+                        <div class="table-responsive p-0">
+                            <table class="table align-items-center mb-0">
+                                <thead>
+                                <tr>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tên danh mục</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"></th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"></th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"></th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class="align-middle text-center">
+                                        <span class="text-xs font-weight-bold">1</span>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex px-2 py-1">
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <h6 class="mb-0 font-weight-bold text-sm">Món 1</h6>
+                                                <p class="text-xs text-secondary mb-0">Mô tả ngắn gọn</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                    </td>
+                                    <td class="align-middle text-center">
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <button type="button" class="btn btn-primary btn-sm" style="margin-bottom: 0; background-color: #e22f6e">
+                                            <a href="/food/edit" style="text-decoration: none; color: inherit;">Sửa</a>
+                                        </button>
+                                        <button type="button" class="btn btn-secondary btn-sm" style="margin-bottom: 0;">Xoá</button>
+                                    </td>
+                                </tr>
 
-                    <div class="card-body px-4 py-3">
-                        <form id="addFoodForm">
-                            <!-- Row đầu tiên: ID và Tên món ăn -->
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="foodId">ID</label>
-                                    <input type="text" class="form-control" id="foodId" value="123" readonly>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="foodName">Tên món ăn</label>
-                                    <input type="text" class="form-control" id="foodName" placeholder="Nhập tên món ăn" required>
-                                </div>
-                            </div>
-
-                            <!-- Row thứ hai: Mô tả ngắn và Danh mục -->
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="foodDescription">Mô tả ngắn</label>
-                                    <textarea class="form-control" id="foodDescription" rows="2" placeholder="Nhập mô tả ngắn" required></textarea>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="foodCategory">Danh mục</label>
-                                    <select class="form-control" id="foodCategory" required>
-                                        <option value="">Chọn danh mục</option>
-                                        <option value="DoUong">Đồ uống</option>
-                                        <option value="MonChinh">Món chính</option>
-                                        <option value="TrangMieng">Tráng miệng</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <!-- Row thứ ba: Giá và Số lượng -->
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="foodPrice">Giá</label>
-                                    <input type="number" class="form-control" id="foodPrice" placeholder="Nhập giá" min="0" required>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="foodQuantity">Số lượng</label>
-                                    <input type="number" class="form-control" id="foodQuantity" placeholder="Nhập số lượng" min="1" required>
-                                </div>
-                            </div>
-
-                            <!-- Row thứ tư: Hình ảnh -->
-                            <div class="form-row">
-                                <div class="form-group col-md-12">
-                                    <label for="foodImage">Hình ảnh</label>
-                                    <input type="file" class="form-control-file" id="foodImage" accept="image/*" required>
-                                </div>
-                            </div>
-
-                            <!-- Nút Lưu và Hủy -->
-                            <div class="text-center mt-4">
-                                <button type="button" class="btn btn-secondary ml-2 mr-3" onclick="window.history.back();">
-                                    Trở về
-                                </button>
-                                <button type="submit" class="btn btn-primary" style="background-color: #e22f6e">Lưu món ăn</button>
-                            </div>
-                        </form>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

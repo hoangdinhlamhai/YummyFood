@@ -47,7 +47,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white active bg-gradient-primary" href="/food">
+                <a class="nav-link text-white" href="/food">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">table_view</i>
                     </div>
@@ -63,7 +63,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white " href="/user">
+                <a class="nav-link text-white active bg-gradient-primary" href="/user">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">view_in_ar</i>
                     </div>
@@ -129,9 +129,9 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                     <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Yummy Food</a></li>
-                    <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Món ăn</li>
+                    <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Khách hàng</li>
                 </ol>
-                <h6 class="font-weight-bolder mb-0">Quản lý món ăn</h6>
+                <h6 class="font-weight-bolder mb-0">Quản lý khách hàng</h6>
             </nav>
             <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4 justify-content-end" id="navbar">
                 <ul class="navbar-nav">
@@ -239,58 +239,58 @@
                 <div class="card my-4">
                     <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                         <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                            <h6 class="text-white text-capitalize ps-3">Cập nhật món ăn</h6>
+                            <h6 class="text-white text-capitalize ps-3">Thêm mới khách hàng</h6>
                         </div>
                     </div>
 
                     <div class="card-body px-4 py-3">
-                        <form id="addFoodForm">
-                            <!-- Row đầu tiên: ID và Tên món ăn -->
+                        <form id="addCustomerForm">
+                            <!-- Row đầu tiên: ID và Tên khách hàng -->
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="foodId">ID</label>
-                                    <input type="text" class="form-control" id="foodId" value="123" readonly>
+                                    <label for="customerId">ID</label>
+                                    <input type="text" class="form-control" id="customerId" value="123" readonly>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="foodName">Tên món ăn</label>
-                                    <input type="text" class="form-control" id="foodName" placeholder="Nhập tên món ăn" required>
+                                    <label for="customerName">Tên khách hàng</label>
+                                    <input type="text" class="form-control" id="customerName" placeholder="Nhập tên khách hàng" required>
                                 </div>
                             </div>
 
-                            <!-- Row thứ hai: Mô tả ngắn và Danh mục -->
+                            <!-- Row thứ hai: Số điện thoại và Địa chỉ -->
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="foodDescription">Mô tả ngắn</label>
-                                    <textarea class="form-control" id="foodDescription" rows="2" placeholder="Nhập mô tả ngắn" required></textarea>
+                                    <label for="customerPhone">Số điện thoại</label>
+                                    <input type="tel" class="form-control" id="customerPhone" placeholder="Nhập số điện thoại" pattern="[0-9]{10}" required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="foodCategory">Danh mục</label>
-                                    <select class="form-control" id="foodCategory" required>
-                                        <option value="">Chọn danh mục</option>
-                                        <option value="DoUong">Đồ uống</option>
-                                        <option value="MonChinh">Món chính</option>
-                                        <option value="TrangMieng">Tráng miệng</option>
-                                    </select>
+                                    <label for="customerAddress">Địa chỉ</label>
+                                    <input type="text" class="form-control" id="customerAddress" placeholder="Nhập địa chỉ" required>
                                 </div>
                             </div>
 
-                            <!-- Row thứ ba: Giá và Số lượng -->
+                            <!-- Row thứ ba: Email và Mật khẩu -->
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="foodPrice">Giá</label>
-                                    <input type="number" class="form-control" id="foodPrice" placeholder="Nhập giá" min="0" required>
+                                    <label for="customerEmail">Email</label>
+                                    <input type="email" class="form-control" id="customerEmail" placeholder="Nhập email" required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="foodQuantity">Số lượng</label>
-                                    <input type="number" class="form-control" id="foodQuantity" placeholder="Nhập số lượng" min="1" required>
+                                    <label for="customerPassword">Mật khẩu</label>
+                                    <div class="input-group">
+                                        <input type="password" class="form-control" id="customerPassword" placeholder="Nhập mật khẩu">
+                                        <div class="input-group-append">
+                                            <button type="button" class="btn btn-outline-secondary" onclick="togglePasswordVisibility()">Hiện</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
-                            <!-- Row thứ tư: Hình ảnh -->
+                            <!-- Row thứ tư: Ảnh đại diện -->
                             <div class="form-row">
                                 <div class="form-group col-md-12">
-                                    <label for="foodImage">Hình ảnh</label>
-                                    <input type="file" class="form-control-file" id="foodImage" accept="image/*" required>
+                                    <label for="customerImage">Ảnh đại diện</label>
+                                    <input type="file" class="form-control-file" id="customerImage" accept="image/*" required>
                                 </div>
                             </div>
 
@@ -299,9 +299,24 @@
                                 <button type="button" class="btn btn-secondary ml-2 mr-3" onclick="window.history.back();">
                                     Trở về
                                 </button>
-                                <button type="submit" class="btn btn-primary" style="background-color: #e22f6e">Lưu món ăn</button>
+                                <button type="submit" class="btn btn-primary" style="background-color: #e22f6e">Thêm khách hàng</button>
                             </div>
                         </form>
+
+                        <script>
+                            function togglePasswordVisibility() {
+                                const passwordField = document.getElementById("customerPassword");
+                                const toggleButton = passwordField.nextElementSibling.querySelector("button");
+                                if (passwordField.type === "password") {
+                                    passwordField.type = "text";
+                                    toggleButton.textContent = "Ẩn";
+                                } else {
+                                    passwordField.type = "password";
+                                    toggleButton.textContent = "Hiện";
+                                }
+                            }
+                        </script>
+
                     </div>
                 </div>
             </div>
