@@ -7,8 +7,8 @@
 
     <Button
         android:id="@+id/btn_paying_retailfood"
-        android:layout_width="400dp"
-        android:layout_height="0dp"
+        android:layout_width="367dp"
+        android:layout_height="50dp"
         android:layout_gravity="center"
         android:layout_marginStart="2dp"
         android:layout_marginEnd="9dp"
@@ -29,13 +29,13 @@
         android:layout_gravity="center"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="96dp"
+        android:layout_marginBottom="10dp"
         android:paddingBottom="16dp"
         android:text="Chi tiết món"
         android:textAlignment="center"
         android:textColor="@color/light_red"
         android:textSize="25sp"
         android:textStyle="bold"
-        android:layout_marginBottom="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.32"
         app:layout_constraintStart_toEndOf="@+id/appCompatButton2"
@@ -92,7 +92,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="323dp"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
@@ -206,14 +206,14 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="405dp"
-        android:layout_height="59dp"
+        android:layout_width="341dp"
+        android:layout_height="47dp"
         android:layout_marginStart="1dp"
         android:layout_marginEnd="1dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/btn_paying_retailfood"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.382"
         app:layout_constraintStart_toStartOf="parent">
 
         <TextView
