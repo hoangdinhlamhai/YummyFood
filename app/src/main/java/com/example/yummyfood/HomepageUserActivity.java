@@ -1,6 +1,7 @@
 package com.example.yummyfood;
 
 import android.app.Dialog;
+import android.util.Log;
 import android.view.View;
 
 import android.os.Bundle;
@@ -24,6 +25,7 @@ import android.widget.TextView;
 
 public class HomepageUserActivity extends AppCompatActivity {
     Dialog dialog;
+    Log log;
     ViewPager viewPager;
     int image[] = {R.drawable.slide1, R.drawable.slide2, R.drawable.slide3};
     int currentPageCounter = 0;
@@ -111,9 +113,11 @@ public class HomepageUserActivity extends AppCompatActivity {
         });
 
         //chuyen sang thong bao
-        ImageView imageView1 = findViewById(R.id.imageView4);
+        ImageView imageView1 = findViewById(R.id.btntb);
         imageView1.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View v) {
+                Log.d("NotificationClick", "Icon thông báo được nhấn");
                 Intent intent = new Intent(HomepageUserActivity.this, information_user.class);
                 startActivity(intent);
             }
@@ -127,7 +131,7 @@ public class HomepageUserActivity extends AppCompatActivity {
                 showDialog();
             }
         });
-        // nhấn vào ảnh thì chuyển đến chi tiết món
+
         // Xác định ImageView cho món ăn
         ImageView foodImage1 = findViewById(R.id.foodImage2);
 

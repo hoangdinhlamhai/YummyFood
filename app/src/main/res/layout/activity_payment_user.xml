@@ -13,19 +13,14 @@
         android:layout_height="wrap_content"
         tools:context=".ActivityPaymentUser">
 
-        <Button
+        <ImageView
             android:id="@+id/btn_return_payment"
-            android:layout_width="25dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="27dp"
-
-            android:layout_marginEnd="352dp"
-            android:background="@drawable/btn_back"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/btn_back"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_margin="16dp" />
 
         <LinearLayout
 

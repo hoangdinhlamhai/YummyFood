@@ -6,27 +6,23 @@
     tools:context=".MainActivity"
     android:id="@+id/main">
 
-    <!-- Nút Quay lại -->
-    <Button
+    <ImageView
         android:id="@+id/btnBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Back"
-        android:textColor="@android:color/white"
-
-        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/btn_back"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="16dp" />
 
     <!-- Tiêu đề -->
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:text="Bàn 1"
-        android:textColor="#D0392A"
+        android:textColor="#F44336"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

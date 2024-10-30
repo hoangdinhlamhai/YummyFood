@@ -22,7 +22,7 @@ import com.example.yummyfood.R;
             setContentView(R.layout.activity_flashsale_user);
 
             // Tìm ImageView bằng ID của icon_morong (imageView12)
-            ImageView imageView = findViewById(R.id.imageView10);
+            ImageView imageView = findViewById(R.id.button4);
 
             // Thiết lập sự kiện OnClickListener cho imageView
             imageView.setOnClickListener(new View.OnClickListener() {

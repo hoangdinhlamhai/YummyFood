@@ -14,24 +14,34 @@
         android:padding="16dp">
 
         <!-- Back Button -->
-        <Button
-            android:id="@+id/btnBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Back"
-
-            android:textColor="@android:color/white"/>
 
         <!-- Title -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Đặt bàn"
-            android:textStyle="bold"
-            android:textSize="24sp"
-            android:layout_gravity="center"
-            android:paddingBottom="20dp"/>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="22dp"
+            android:paddingBottom="14dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_back"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="@drawable/btn_back"
+                android:layout_marginStart="12dp"
+                android:layout_gravity="center"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Đặt bàn"
+                android:fontFamily="sans-serif-black"
+                android:textColor="@color/light_red"
+                android:textSize="28sp"
+                android:gravity="center"
+                android:layout_marginEnd="32dp"/>
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"

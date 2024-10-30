@@ -24,7 +24,7 @@ public class information_user extends AppCompatActivity {
 
 
         // Tìm ImageView bằng ID của icon_morong (imageView12)
-        ImageView imageView = findViewById(R.id.imageView10);
+        ImageView imageView = findViewById(R.id.btn_back);
 
         // Thiết lập sự kiện OnClickListener cho imageView
         imageView.setOnClickListener(new View.OnClickListener() {

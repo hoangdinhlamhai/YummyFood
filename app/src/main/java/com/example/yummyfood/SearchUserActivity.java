@@ -18,7 +18,7 @@ public class SearchUserActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search_user);
 
         // Tìm ImageView bằng ID của icon_morong (imageView12)
-        ImageView imageView = findViewById(R.id.imageView10);
+        ImageView imageView = findViewById(R.id.button4);
 
         // Thiết lập sự kiện OnClickListener cho imageView
         imageView.setOnClickListener(new View.OnClickListener() {
