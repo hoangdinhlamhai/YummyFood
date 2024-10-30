@@ -49,6 +49,7 @@
         <activity android:name=".FoodRetailActivity" /> <!-- <activity android:name=".ActivityPaymentUser" /> -->
         <activity android:name=".CartActivity" />
         <activity android:name=".ActivityOrderStatus" />
+        <activity android:name=".ActivityPaymentUser" />
         <activity
             android:name=".activity_dialog_create_account"
             android:exported="false" />
