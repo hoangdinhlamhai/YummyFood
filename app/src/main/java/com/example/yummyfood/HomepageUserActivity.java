@@ -96,14 +96,14 @@ public class HomepageUserActivity extends AppCompatActivity {
             }
         });
 
-        // Setup sự kiện khi nhấn vào EditText search để chuyển sang SearchUserActivity
+        // SearchUserActivity
         EditText searchEditText = findViewById(R.id.search);
         searchEditText.setOnClickListener(v -> {
             Intent intent = new Intent(HomepageUserActivity.this, SearchUserActivity.class);
             startActivity(intent);
         });
 
-        // Setup sự kiện khi nhấn vào TextView Flashsale để chuyển sang FlashsaleUserActivity
+        //  FlashsaleUserActivity
         TextView textView = findViewById(R.id.textView20);
         textView.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -113,12 +113,10 @@ public class HomepageUserActivity extends AppCompatActivity {
         });
 
         //chuyen sang thong bao
-        ImageView imageView1 = findViewById(R.id.btntb);
-        imageView1.setOnClickListener(new View.OnClickListener() {
-            @Override
+        ImageView img1 = findViewById(R.id.btntb);
+        img1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Log.d("NotificationClick", "Icon thông báo được nhấn");
-                Intent intent = new Intent(HomepageUserActivity.this, information_user.class);
+                Intent intent = new Intent(HomepageUserActivity.this, notification_user.class);
                 startActivity(intent);
             }
         });

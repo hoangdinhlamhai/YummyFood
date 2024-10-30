@@ -111,30 +111,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextText2">
 
-        <RadioGroup
-            android:id="@+id/radioGroup"
-            android:layout_marginTop="14dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/radioButtonUser"
-                android:textStyle="bold"
-                android:textSize="22dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="User" />
-
-            <RadioButton
-                android:id="@+id/radioButtonAdmin"
-                android:layout_marginStart="26dp"
-                android:textStyle="bold"
-                android:textSize="22dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Admin" />
-        </RadioGroup>
 
     </LinearLayout>
 
