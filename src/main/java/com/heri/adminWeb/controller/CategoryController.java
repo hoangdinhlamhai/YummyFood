@@ -9,4 +9,14 @@ public class CategoryController {
     public String category() {
         return "category/show";
     }
+
+    @GetMapping("/category/add")
+    public String addCategory() {
+        return "category/add";
+    }
+
+    @GetMapping("/category/edit")
+    public String editCategory() {
+        return "category/edit";
+    }
 }

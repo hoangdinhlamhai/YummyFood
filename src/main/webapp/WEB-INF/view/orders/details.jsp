@@ -33,7 +33,7 @@
     <div class="sidenav-header">
         <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
         <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard " target="_blank">
-<%--            <img src="" class="navbar-brand-img h-100" alt="main_logo">--%>
+            <%--            <img src="" class="navbar-brand-img h-100" alt="main_logo">--%>
             <span class="ms-1 font-weight-bold text-white">Yummy Food</span>
         </a>
     </div>
@@ -49,7 +49,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white active bg-gradient-primary" href="/food">
+                <a class="nav-link text-white" href="/food">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">table_view</i>
                     </div>
@@ -67,7 +67,7 @@
             <li class="nav-item">
                 <a class="nav-link text-white " href="/user">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">person</i>
+                        <i class="material-icons opacity-10">view_in_ar</i>
                     </div>
                     <span class="nav-link-text ms-1">Khách hàng</span>
                 </a>
@@ -75,13 +75,13 @@
             <li class="nav-item">
                 <a class="nav-link text-white " href="/table">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">table_restaurant</i>
+                        <i class="material-icons opacity-10">format_textdirection_r_to_l</i>
                     </div>
                     <span class="nav-link-text ms-1">Bàn</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white " href="../pages/notifications.html">
+                <a class="nav-link text-white active bg-gradient-primary" href="/orders">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">notifications</i>
                     </div>
@@ -96,23 +96,7 @@
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">person</i>
                     </div>
-                    <span class="nav-link-text ms-1">Profile</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white " href="../pages/sign-in.html">
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">login</i>
-                    </div>
-                    <span class="nav-link-text ms-1">Sign In</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white " href="../pages/sign-up.html">
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">assignment</i>
-                    </div>
-                    <span class="nav-link-text ms-1">Sign Up</span>
+                    <span class="nav-link-text ms-1">Hồ sơ</span>
                 </a>
             </li>
         </ul>
@@ -131,9 +115,9 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                     <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Yummy Food</a></li>
-                    <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Món ăn</li>
+                    <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Đơn hàng</li>
                 </ol>
-                <h6 class="font-weight-bolder mb-0">Quản lý món ăn</h6>
+                <h6 class="font-weight-bolder mb-0">Chi tiết đơn hàng</h6>
             </nav>
             <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
                 <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -143,10 +127,6 @@
                     </div>
                 </div>
                 <ul class="navbar-nav  justify-content-end">
-                    <li class="nav-item d-flex align-items-center">
-                        <a class="btn btn-outline-primary btn-sm mb-0 me-3" style="border-color: #e73673; color: #e73673" href="/food/add">Thêm món mới</a>
-                    </li>
-
                     <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
                         <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
                             <div class="sidenav-toggler-inner">
@@ -245,10 +225,10 @@
     <div class="container-fluid py-4">
         <div class="row">
             <div class="col-12">
-                <div class="card my-4">
+                <div class="card my-4" style="height: calc(100vh - 250px);">
                     <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                         <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                            <h6 class="text-white text-capitalize ps-3">Danh sách món ăn</h6>
+                            <h6 class="text-white text-capitalize ps-3">Mã đơn hàng: 123</h6>
                         </div>
                     </div>
                     <div class="card-body px-0 pb-2">
@@ -258,14 +238,13 @@
                                 <tr>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tên món ăn</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Danh mục</th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Giá</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Đơn giá</th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Số lượng</th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"></th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Thành tiền</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                <tr>
                                     <td class="align-middle text-center">
                                         <span class="text-xs font-weight-bold">1</span>
                                     </td>
@@ -276,92 +255,28 @@
                                             </div>
                                             <div class="d-flex flex-column justify-content-center">
                                                 <h6 class="mb-0 font-weight-bold text-sm">Món 1</h6>
-                                                <p class="text-xs text-secondary mb-0">Mô tả ngắn gọn</p>
                                             </div>
                                         </div>
                                     </td>
                                     <td>
-                                        <p class="text-xs font-weight-bold mb-0">Danh mục</p>
+                                        <p class="text-xs font-weight-bold mb-0">22000 VND</p>
                                     </td>
                                     <td class="align-middle text-center text-sm">
-                                        <span class="text-xs font-weight-bold">22000 VND</span>
+                                        <span class="text-xs font-weight-bold">2</span>
                                     </td>
                                     <td class="align-middle text-center">
-                                        <span class="text-xs font-weight-bold">22</span>
-                                    </td>
-                                    <td class="align-middle text-center">
-                                        <button type="button" class="btn btn-primary btn-sm" style="margin-bottom: 0; background-color: #e22f6e">
-                                            <a href="/food/edit" style="text-decoration: none; color: inherit;">Sửa</a>
-                                        </button>
-                                        <button type="button" class="btn btn-secondary btn-sm" style="margin-bottom: 0;">Xoá</button>
+                                        <span class="text-xs font-weight-bold">44000 VND</span>
                                     </td>
                                 </tr>
-                                    <tr>
-                                        <td class="align-middle text-center">
-                                            <span class="text-xs font-weight-bold">2</span>
-                                        </td>
-                                        <td>
-                                            <div class="d-flex px-2 py-1">
-                                                <div>
-                                                    <img src="/img/team-2.jpg" class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
-                                                </div>
-                                                <div class="d-flex flex-column justify-content-center">
-                                                    <h6 class="mb-0 font-weight-bold text-sm">Món 2</h6>
-                                                    <p class="text-xs text-secondary mb-0">Mô tả ngắn gọn</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p class="text-xs font-weight-bold mb-0">Danh mục</p>
-                                        </td>
-                                        <td class="align-middle text-center text-sm">
-                                            <span class="text-xs font-weight-bold">12000 VND</span>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <span class="text-xs font-weight-bold">2</span>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <button type="button" class="btn btn-primary btn-sm" style="margin-bottom: 0; background-color: #e22f6e">
-                                                <a href="/food/edit" style="text-decoration: none; color: inherit;">Sửa</a>
-                                            </button>
-                                            <button type="button" class="btn btn-secondary btn-sm" style="margin-bottom: 0;">Xoá</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="align-middle text-center">
-                                            <span class="text-xs font-weight-bold">3</span>
-                                        </td>
-                                        <td>
-                                            <div class="d-flex px-2 py-1">
-                                                <div>
-                                                    <img src="/img/team-2.jpg" class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
-                                                </div>
-                                                <div class="d-flex flex-column justify-content-center">
-                                                    <h6 class="mb-0 font-weight-bold text-sm">Món 3</h6>
-                                                    <p class="text-xs text-secondary mb-0">Mô tả ngắn gọn</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p class="text-xs font-weight-bold mb-0">Danh mục</p>
-                                        </td>
-                                        <td class="align-middle text-center text-sm">
-                                            <span class="text-xs font-weight-bold">23000 VND</span>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <span class="text-xs font-weight-bold">14</span>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <button type="button" class="btn btn-primary btn-sm" style="margin-bottom: 0; background-color: #e22f6e">
-                                                <a href="/food/edit" style="text-decoration: none; color: inherit;">Sửa</a>
-                                            </button>
-                                            <button type="button" class="btn btn-secondary btn-sm" style="margin-bottom: 0;">Xoá</button>
-                                        </td>
-                                    </tr>
+
                                 </tbody>
                             </table>
                         </div>
                     </div>
+                </div>
+                <!-- Thẻ hiển thị tổng tiền nằm ngoài card -->
+                <div class="total-amount mt-3">
+                    <h6 class="text-center font-weight-bold">Tổng tiền: 44000 VND</h6>
                 </div>
             </div>
         </div>

@@ -67,7 +67,7 @@
             <li class="nav-item">
                 <a class="nav-link text-white " href="/user">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">view_in_ar</i>
+                        <i class="material-icons opacity-10">person</i>
                     </div>
                     <span class="nav-link-text ms-1">Khách hàng</span>
                 </a>
@@ -75,7 +75,7 @@
             <li class="nav-item">
                 <a class="nav-link text-white " href="/table">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">format_textdirection_r_to_l</i>
+                        <i class="material-icons opacity-10">table_restaurant</i>
                     </div>
                     <span class="nav-link-text ms-1">Bàn</span>
                 </a>
@@ -85,34 +85,18 @@
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">notifications</i>
                     </div>
-                    <span class="nav-link-text ms-1">Notifications</span>
+                    <span class="nav-link-text ms-1">Danh mục</span>
                 </a>
             </li>
             <li class="nav-item mt-3">
-                <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Account pages</h6>
+                <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Hồ sơ</h6>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white " href="../pages/profile.html">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">person</i>
                     </div>
-                    <span class="nav-link-text ms-1">Profile</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white " href="../pages/sign-in.html">
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">login</i>
-                    </div>
-                    <span class="nav-link-text ms-1">Sign In</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white " href="../pages/sign-up.html">
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">assignment</i>
-                    </div>
-                    <span class="nav-link-text ms-1">Sign Up</span>
+                    <span class="nav-link-text ms-1">Hồ sơ</span>
                 </a>
             </li>
         </ul>
@@ -144,7 +128,7 @@
                 </div>
                 <ul class="navbar-nav  justify-content-end">
                     <li class="nav-item d-flex align-items-center">
-                        <a class="btn btn-outline-primary btn-sm mb-0 me-3" style="border-color: #e73673; color: #e73673" href="/food/add">Thêm món mới</a>
+                        <a class="btn btn-outline-primary btn-sm mb-0 me-3" style="border-color: #e73673; color: #e73673" href="/category/add">Thêm danh mục</a>
                     </li>
 
                     <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
@@ -234,7 +218,7 @@
                     <li class="nav-item d-flex align-items-center">
                         <a href="../pages/sign-in.html" class="nav-link text-body font-weight-bold px-0">
                             <i class="fa fa-user me-sm-1"></i>
-                            <span class="d-sm-inline d-none">Sign In</span>
+                            <span class="d-sm-inline d-none">Admin@gmail.com</span>
                         </a>
                     </li>
                 </ul>
@@ -285,7 +269,7 @@
                                     </td>
                                     <td class="align-middle text-center">
                                         <button type="button" class="btn btn-primary btn-sm" style="margin-bottom: 0; background-color: #e22f6e">
-                                            <a href="/food/edit" style="text-decoration: none; color: inherit;">Sửa</a>
+                                            <a href="/category/edit" style="text-decoration: none; color: inherit;">Sửa</a>
                                         </button>
                                         <button type="button" class="btn btn-secondary btn-sm" style="margin-bottom: 0;">Xoá</button>
                                     </td>

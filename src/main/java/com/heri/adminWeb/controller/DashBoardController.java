@@ -24,4 +24,14 @@ public class DashBoardController {
     public String edit() {
         return "food/edit";
     }
+
+    @GetMapping("/profile")
+    public String profile() {
+        return "profile/show";
+    }
+
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
 }

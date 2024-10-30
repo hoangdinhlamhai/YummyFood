@@ -67,7 +67,7 @@
             <li class="nav-item">
                 <a class="nav-link text-white " href="/user">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">view_in_ar</i>
+                        <i class="material-icons opacity-10">person</i>
                     </div>
                     <span class="nav-link-text ms-1">Khách hàng</span>
                 </a>
@@ -75,44 +75,28 @@
             <li class="nav-item">
                 <a class="nav-link text-white active bg-gradient-primary" href="/table">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">format_textdirection_r_to_l</i>
+                        <i class="material-icons opacity-10">table_restaurant</i>
                     </div>
                     <span class="nav-link-text ms-1">Bàn</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white " href="../pages/notifications.html">
+                <a class="nav-link text-white " href="/orders">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">notifications</i>
                     </div>
-                    <span class="nav-link-text ms-1">Notifications</span>
+                    <span class="nav-link-text ms-1">Đơn hàng</span>
                 </a>
             </li>
             <li class="nav-item mt-3">
-                <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Account pages</h6>
+                <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Hồ sơ</h6>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white " href="../pages/profile.html">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">person</i>
                     </div>
-                    <span class="nav-link-text ms-1">Profile</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white " href="../pages/sign-in.html">
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">login</i>
-                    </div>
-                    <span class="nav-link-text ms-1">Sign In</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white " href="../pages/sign-up.html">
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">assignment</i>
-                    </div>
-                    <span class="nav-link-text ms-1">Sign Up</span>
+                    <span class="nav-link-text ms-1">Hồ sơ</span>
                 </a>
             </li>
         </ul>
@@ -144,7 +128,11 @@
                 </div>
                 <ul class="navbar-nav  justify-content-end">
                     <li class="nav-item d-flex align-items-center">
-                        <a class="btn btn-outline-primary btn-sm mb-0 me-3" style="border-color: #e73673; color: #e73673" href="/food/add">Thêm món mới</a>
+                        <a class="btn btn-outline-primary btn-sm mb-0 me-3" style="border-color: #e73673; color: #e73673" href="/table/add">Thêm bàn</a>
+                    </li>
+
+                    <li class="nav-item d-flex align-items-center">
+                        <a class="btn btn-outline-primary btn-sm mb-0 me-3" style="border-color: #e73673; color: #e73673" href="/table/add_region">Thêm khu vực</a>
                     </li>
 
                     <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
@@ -234,7 +222,7 @@
                     <li class="nav-item d-flex align-items-center">
                         <a href="../pages/sign-in.html" class="nav-link text-body font-weight-bold px-0">
                             <i class="fa fa-user me-sm-1"></i>
-                            <span class="d-sm-inline d-none">Sign In</span>
+                            <span class="d-sm-inline d-none">Admin@gmail.com</span>
                         </a>
                     </li>
                 </ul>
@@ -247,8 +235,14 @@
             <div class="col-12">
                 <div class="card my-4">
                     <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                        <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                        <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3 d-flex justify-content-between align-items-center">
                             <h6 class="text-white text-capitalize ps-3">Tầng 1</h6>
+                            <div class="ms-auto"> <!-- Sử dụng ms-auto để đẩy nút sang bên phải -->
+                                <button type="button" class="btn btn-light btn-sm me-2">
+                                    <a href="/region/edit" style="text-decoration: none; color: inherit;">Sửa</a>
+                                </button>
+                                <button type="button" class="btn btn-light btn-sm me-2">Xoá</button>
+                            </div>
                         </div>
                     </div>
                     <div class="card-body px-0 pb-2" style="height: 400px; overflow-y: auto;">
@@ -257,10 +251,10 @@
                                 <thead>
                                 <tr>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tên danh mục</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"></th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"></th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"></th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tên bàn</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Số ghế</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Trạng thái</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Giá tiền</th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"></th>
                                 </tr>
                                 </thead>
@@ -272,70 +266,54 @@
                                     <td>
                                         <div class="d-flex px-2 py-1">
                                             <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="mb-0 font-weight-bold text-sm">Món 1</h6>
-                                                <p class="text-xs text-secondary mb-0">Mô tả ngắn gọn</p>
+                                                <h6 class="mb-0 font-weight-bold text-sm">Bàn 1</h6>
                                             </div>
                                         </div>
                                     </td>
                                     <td>
+                                        <span class="text-xs font-weight-bold">10</span>
                                     </td>
                                     <td class="align-middle text-center text-sm">
+                                        <span class="text-xs font-weight-bold">Trống</span>
                                     </td>
                                     <td class="align-middle text-center">
+                                        <span class="text-xs font-weight-bold">100000 VND</span>
                                     </td>
                                     <td class="align-middle text-center">
                                         <button type="button" class="btn btn-primary btn-sm" style="margin-bottom: 0; background-color: #e22f6e">
-                                            <a href="/food/edit" style="text-decoration: none; color: inherit;">Sửa</a>
+                                            <a href="/table/edit" style="text-decoration: none; color: inherit;">Sửa</a>
                                         </button>
                                         <button type="button" class="btn btn-secondary btn-sm" style="margin-bottom: 0;">Xoá</button>
                                     </td>
                                 </tr>
-                                    <tr>
-                                        <td class="align-middle text-center">
-                                            <span class="text-xs font-weight-bold">1</span>
-                                        </td>
-                                        <td>
-                                            <div class="d-flex px-2 py-1">
-                                                <div class="d-flex flex-column justify-content-center">
-                                                    <h6 class="mb-0 font-weight-bold text-sm">Món 1</h6>
-                                                    <p class="text-xs text-secondary mb-0">Mô tả ngắn gọn</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                        </td>
-                                        <td class="align-middle text-center text-sm">
-                                        </td>
-                                        <td class="align-middle text-center">
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <button type="button" class="btn btn-primary btn-sm" style="margin-bottom: 0; background-color: #e22f6e">
-                                                <a href="/food/edit" style="text-decoration: none; color: inherit;">Sửa</a>
-                                            </button>
-                                            <button type="button" class="btn btn-secondary btn-sm" style="margin-bottom: 0;">Xoá</button>
-                                        </td>
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
+
                 <div class="card my-4">
                     <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                        <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                            <h6 class="text-white text-capitalize ps-3">Tầng 2</h6>
+                        <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3 d-flex justify-content-between align-items-center">
+                            <h6 class="text-white text-capitalize ps-3">Tầng 1</h6>
+                            <div class="ms-auto"> <!-- Sử dụng ms-auto để đẩy nút sang bên phải -->
+                                <button type="button" class="btn btn-light btn-sm me-2">
+                                    <a href="/table/edit" style="text-decoration: none; color: inherit;">Sửa</a>
+                                </button>
+                                <button type="button" class="btn btn-light btn-sm me-2">Xoá</button>
+                            </div>
                         </div>
                     </div>
-                    <div class="card-body px-0 pb-2">
+                    <div class="card-body px-0 pb-2" style="height: 400px; overflow-y: auto;">
                         <div class="table-responsive p-0">
                             <table class="table align-items-center mb-0">
                                 <thead>
                                 <tr>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tên danh mục</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"></th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"></th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"></th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tên bàn</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Số ghế</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Trạng thái</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Giá tiền</th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"></th>
                                 </tr>
                                 </thead>
@@ -347,25 +325,26 @@
                                     <td>
                                         <div class="d-flex px-2 py-1">
                                             <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="mb-0 font-weight-bold text-sm">Món 1</h6>
-                                                <p class="text-xs text-secondary mb-0">Mô tả ngắn gọn</p>
+                                                <h6 class="mb-0 font-weight-bold text-sm">Bàn 1</h6>
                                             </div>
                                         </div>
                                     </td>
                                     <td>
+                                        <span class="text-xs font-weight-bold">10</span>
                                     </td>
                                     <td class="align-middle text-center text-sm">
+                                        <span class="text-xs font-weight-bold">Trống</span>
                                     </td>
                                     <td class="align-middle text-center">
+                                        <span class="text-xs font-weight-bold">100000 VND</span>
                                     </td>
                                     <td class="align-middle text-center">
                                         <button type="button" class="btn btn-primary btn-sm" style="margin-bottom: 0; background-color: #e22f6e">
-                                            <a href="/food/edit" style="text-decoration: none; color: inherit;">Sửa</a>
+                                            <a href="/table/edit" style="text-decoration: none; color: inherit;">Sửa</a>
                                         </button>
                                         <button type="button" class="btn btn-secondary btn-sm" style="margin-bottom: 0;">Xoá</button>
                                     </td>
                                 </tr>
-
                                 </tbody>
                             </table>
                         </div>

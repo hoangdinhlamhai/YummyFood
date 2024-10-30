@@ -6,8 +6,6 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="/img/favicon.png">
     <title>
         Material Dashboard 2 by Creative Tim
     </title>
@@ -33,7 +31,7 @@
     <div class="sidenav-header">
         <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
         <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard " target="_blank">
-<%--            <img src="" class="navbar-brand-img h-100" alt="main_logo">--%>
+            <%--            <img src="" class="navbar-brand-img h-100" alt="main_logo">--%>
             <span class="ms-1 font-weight-bold text-white">Yummy Food</span>
         </a>
     </div>
@@ -49,7 +47,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white active bg-gradient-primary" href="/food">
+                <a class="nav-link text-white" href="/food">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">table_view</i>
                     </div>
@@ -65,7 +63,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white " href="/user">
+                <a class="nav-link text-white" href="user">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">person</i>
                     </div>
@@ -81,7 +79,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white " href="../pages/notifications.html">
+                <a class="nav-link text-white " href="/orders">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">notifications</i>
                     </div>
@@ -89,30 +87,14 @@
                 </a>
             </li>
             <li class="nav-item mt-3">
-                <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Account pages</h6>
+                <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Hồ sơ</h6>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white " href="../pages/profile.html">
+                <a class="nav-link text-white active bg-gradient-primary" href="/profile">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">person</i>
                     </div>
-                    <span class="nav-link-text ms-1">Profile</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white " href="../pages/sign-in.html">
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">login</i>
-                    </div>
-                    <span class="nav-link-text ms-1">Sign In</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white " href="../pages/sign-up.html">
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">assignment</i>
-                    </div>
-                    <span class="nav-link-text ms-1">Sign Up</span>
+                    <span class="nav-link-text ms-1">Hồ sơ</span>
                 </a>
             </li>
         </ul>
@@ -131,20 +113,13 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                     <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Yummy Food</a></li>
-                    <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Món ăn</li>
+                    <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Hồ sơ</li>
                 </ol>
-                <h6 class="font-weight-bolder mb-0">Quản lý món ăn</h6>
+                <h6 class="font-weight-bolder mb-0">Hồ sơ</h6>
             </nav>
-            <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
-                <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-                    <div class="input-group input-group-outline">
-                        <label class="form-label">Tìm kiếm...</label>
-                        <input type="text" class="form-control">
-                    </div>
-                </div>
-                <ul class="navbar-nav  justify-content-end">
+            <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4 justify-content-end" id="navbar">
+                <ul class="navbar-nav">
                     <li class="nav-item d-flex align-items-center">
-                        <a class="btn btn-outline-primary btn-sm mb-0 me-3" style="border-color: #e73673; color: #e73673" href="/food/add">Thêm món mới</a>
                     </li>
 
                     <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
@@ -242,132 +217,72 @@
         </div>
     </nav>
     <!-- End Navbar -->
-    <div class="container-fluid py-4">
-        <div class="row">
-            <div class="col-12">
-                <div class="card my-4">
-                    <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                        <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                            <h6 class="text-white text-capitalize ps-3">Danh sách món ăn</h6>
+    <div class="container-fluid px-2 px-md-4">
+            <div class="page-header min-height-300 border-radius-xl mt-4" style="background-image: url('https://png.pngtree.com/thumb_back/fw800/background/20240102/pngtree-captivating-japanese-restaurant-textured-landing-page-image_13907552.png');">
+                <span class="mask  bg-gradient-primary  opacity-6"></span>
+            </div>
+
+            <div class="card card-body mx-3 mx-md-4 mt-n6">
+                <div class="e-profile">
+                    <div class="row">
+                        <div class="col-12 col-sm-auto mb-3 d-flex justify-content-center">
+                            <div class="mx-auto" style="width: 140px;">
+                                <div class="d-flex justify-content-center align-items-center rounded" style="height: 140px; background-color: rgb(233, 236, 239);">
+                                    <span style="color: rgb(166, 168, 170); font: bold 8pt Arial;">140x140</span>
+                                </div>
+                                <button class="btn btn-primary mt-2 w-100" style="background-color: #df296a" type="button">
+                                    <i class="fa fa-fw fa-camera"></i>
+                                    <span>Đổi ảnh</span>
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card-body px-0 pb-2">
-                        <div class="table-responsive p-0">
-                            <table class="table align-items-center mb-0">
-                                <thead>
-                                <tr>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tên món ăn</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Danh mục</th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Giá</th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Số lượng</th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                    <td class="align-middle text-center">
-                                        <span class="text-xs font-weight-bold">1</span>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex px-2 py-1">
-                                            <div>
-                                                <img src="/img/team-2.jpg" class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
-                                            </div>
-                                            <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="mb-0 font-weight-bold text-sm">Món 1</h6>
-                                                <p class="text-xs text-secondary mb-0">Mô tả ngắn gọn</p>
-                                            </div>
+
+                        <div class="col-md-8 mx-auto">
+                            <div class="tab-content pt-3">
+                                <div class="tab-pane active">
+                                    <form class="form" novalidate="">
+                                        <div class="form-group">
+                                            <label>Tên nhà hàng</label>
+                                            <input class="form-control w-100" type="text" name="name" placeholder="YummyFood" >
                                         </div>
-                                    </td>
-                                    <td>
-                                        <p class="text-xs font-weight-bold mb-0">Danh mục</p>
-                                    </td>
-                                    <td class="align-middle text-center text-sm">
-                                        <span class="text-xs font-weight-bold">22000 VND</span>
-                                    </td>
-                                    <td class="align-middle text-center">
-                                        <span class="text-xs font-weight-bold">22</span>
-                                    </td>
-                                    <td class="align-middle text-center">
-                                        <button type="button" class="btn btn-primary btn-sm" style="margin-bottom: 0; background-color: #e22f6e">
-                                            <a href="/food/edit" style="text-decoration: none; color: inherit;">Sửa</a>
-                                        </button>
-                                        <button type="button" class="btn btn-secondary btn-sm" style="margin-bottom: 0;">Xoá</button>
-                                    </td>
-                                </tr>
-                                    <tr>
-                                        <td class="align-middle text-center">
-                                            <span class="text-xs font-weight-bold">2</span>
-                                        </td>
-                                        <td>
-                                            <div class="d-flex px-2 py-1">
-                                                <div>
-                                                    <img src="/img/team-2.jpg" class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
-                                                </div>
-                                                <div class="d-flex flex-column justify-content-center">
-                                                    <h6 class="mb-0 font-weight-bold text-sm">Món 2</h6>
-                                                    <p class="text-xs text-secondary mb-0">Mô tả ngắn gọn</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p class="text-xs font-weight-bold mb-0">Danh mục</p>
-                                        </td>
-                                        <td class="align-middle text-center text-sm">
-                                            <span class="text-xs font-weight-bold">12000 VND</span>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <span class="text-xs font-weight-bold">2</span>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <button type="button" class="btn btn-primary btn-sm" style="margin-bottom: 0; background-color: #e22f6e">
-                                                <a href="/food/edit" style="text-decoration: none; color: inherit;">Sửa</a>
-                                            </button>
-                                            <button type="button" class="btn btn-secondary btn-sm" style="margin-bottom: 0;">Xoá</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="align-middle text-center">
-                                            <span class="text-xs font-weight-bold">3</span>
-                                        </td>
-                                        <td>
-                                            <div class="d-flex px-2 py-1">
-                                                <div>
-                                                    <img src="/img/team-2.jpg" class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
-                                                </div>
-                                                <div class="d-flex flex-column justify-content-center">
-                                                    <h6 class="mb-0 font-weight-bold text-sm">Món 3</h6>
-                                                    <p class="text-xs text-secondary mb-0">Mô tả ngắn gọn</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p class="text-xs font-weight-bold mb-0">Danh mục</p>
-                                        </td>
-                                        <td class="align-middle text-center text-sm">
-                                            <span class="text-xs font-weight-bold">23000 VND</span>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <span class="text-xs font-weight-bold">14</span>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <button type="button" class="btn btn-primary btn-sm" style="margin-bottom: 0; background-color: #e22f6e">
-                                                <a href="/food/edit" style="text-decoration: none; color: inherit;">Sửa</a>
-                                            </button>
-                                            <button type="button" class="btn btn-secondary btn-sm" style="margin-bottom: 0;">Xoá</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                        <div class="form-group">
+                                            <label>Email</label>
+                                            <input class="form-control w-100" type="email" placeholder="user@example.com">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Số điện thoại</label>
+                                            <input class="form-control w-100" type="text" placeholder="0123456789">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Địa chỉ</label>
+                                            <textarea class="form-control w-100" rows="5" placeholder="48/Cao Thang/Hai Chau/Da Nang"></textarea>
+                                        </div>
+
+                                        <div class="mb-2"><b>Thay đổi mật khẩu</b></div>
+                                        <div class="form-group">
+                                            <label>Mật khẩu hiện tại</label>
+                                            <input class="form-control w-100" type="password" placeholder="••••••">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Mật khẩu mới</label>
+                                            <input class="form-control w-100" type="password" placeholder="••••••">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Xác nhận mật khẩu</label>
+                                            <input class="form-control w-100" type="password" placeholder="••••••">
+                                        </div>
+
+                                        <div class="d-flex justify-content-center mt-4">
+                                            <button class="btn btn-primary" style="background-color: #df296a" type="submit">Lưu thay đổi</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-    </div>
-
 </main>
 <!--   Core JS Files   -->
 <script src="/js/core/popper.min.js"></script>
