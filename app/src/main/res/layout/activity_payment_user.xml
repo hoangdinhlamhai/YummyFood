@@ -17,10 +17,12 @@
             android:id="@+id/btn_return_payment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/btn_back"
-            app:layout_constraintTop_toTopOf="parent"
+            android:layout_margin="16dp"
+            android:layout_marginBottom="6dp"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_margin="16dp" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/btn_back" />
 
         <LinearLayout
 
@@ -229,10 +231,10 @@
                 android:id="@+id/textView12"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Sửa"
                 android:layout_marginTop="5dp"
-                android:textSize="15dp"
-                android:textAlignment="textEnd" />
+                android:text="Sửa"
+                android:textAlignment="textEnd"
+                android:textSize="15dp" />
 
         </LinearLayout>
 
