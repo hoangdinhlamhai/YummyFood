@@ -49,7 +49,9 @@
         <activity android:name=".FoodRetailActivity" /> <!-- <activity android:name=".ActivityPaymentUser" /> -->
         <activity android:name=".CartActivity" />
         <activity android:name=".ActivityOrderStatus" />
-        <activity android:name=".ActivityPaymentUser" />
+        <activity android:name=".ActivityPaymentUser" /> <!-- Khanh 30/10/2024 -->
+        <activity android:name=".Activity_History_Order" />
+
         <activity
             android:name=".activity_dialog_create_account"
             android:exported="false" />
