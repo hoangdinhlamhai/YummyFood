@@ -335,7 +335,7 @@
 
     <!-- Nút Xem lịch sử đơn hàng -->
     <Button
-        android:id="@+id/save_button5"
+        android:id="@+id/btn_see_history_orderstatus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="28dp"
