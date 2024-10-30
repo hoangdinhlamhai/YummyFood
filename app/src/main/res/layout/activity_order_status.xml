@@ -338,15 +338,14 @@
         android:id="@+id/save_button5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginBottom="28dp"
         android:backgroundTint="@android:color/holo_red_light"
         android:text="Xem lịch sử đơn hàng"
         android:textColor="@android:color/white"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/save_button4" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <!-- Bottom Navigation -->
 
