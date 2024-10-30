@@ -18,7 +18,7 @@ public class ActivityPaymentUser extends AppCompatActivity {
 
 
         // Khởi tạo nút btn_return_retailfood
-        Button btnReturnRetailFood = findViewById(R.id.btn_return_payment);
+        Button btnReturnRetailFood = findViewById(R.id.btn_paying_payment);
 
         // Thiết lập sự kiện nhấn nút
         btnReturnRetailFood.setOnClickListener(new View.OnClickListener() {
