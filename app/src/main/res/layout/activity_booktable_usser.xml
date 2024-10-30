@@ -228,6 +228,7 @@
             android:layout_marginTop="10dp">
 
         <LinearLayout
+            android:id="@+id/ban1tt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
