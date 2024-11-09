@@ -265,9 +265,10 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                <c:forEach var="food" items="${foods}">
                                     <tr>
                                     <td class="align-middle text-center">
-                                        <span class="text-xs font-weight-bold">1</span>
+                                        <span class="text-xs font-weight-bold">${food.idMonAn}</span>
                                     </td>
                                     <td>
                                         <div class="d-flex px-2 py-1">
@@ -275,19 +276,19 @@
                                                 <img src="/img/team-2.jpg" class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
                                             </div>
                                             <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="mb-0 font-weight-bold text-sm">Món 1</h6>
-                                                <p class="text-xs text-secondary mb-0">Mô tả ngắn gọn</p>
+                                                <h6 class="mb-0 font-weight-bold text-sm">${food.tenMonAn}</h6>
+                                                <p class="text-xs text-secondary mb-0">${food.moTa}</p>
                                             </div>
                                         </div>
                                     </td>
                                     <td>
-                                        <p class="text-xs font-weight-bold mb-0">Danh mục</p>
+                                        <p class="text-xs font-weight-bold mb-0">${food.category.tenDanhMuc}</p>
                                     </td>
                                     <td class="align-middle text-center text-sm">
-                                        <span class="text-xs font-weight-bold">22000 VND</span>
+                                        <span class="text-xs font-weight-bold">${food.donGia} VND</span>
                                     </td>
                                     <td class="align-middle text-center">
-                                        <span class="text-xs font-weight-bold">22</span>
+                                        <span class="text-xs font-weight-bold">${food.soLuong}</span>
                                     </td>
                                     <td class="align-middle text-center">
                                         <button type="button" class="btn btn-primary btn-sm" style="margin-bottom: 0; background-color: #e22f6e">
@@ -296,68 +297,7 @@
                                         <button type="button" class="btn btn-secondary btn-sm" style="margin-bottom: 0;">Xoá</button>
                                     </td>
                                 </tr>
-                                    <tr>
-                                        <td class="align-middle text-center">
-                                            <span class="text-xs font-weight-bold">2</span>
-                                        </td>
-                                        <td>
-                                            <div class="d-flex px-2 py-1">
-                                                <div>
-                                                    <img src="/img/team-2.jpg" class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
-                                                </div>
-                                                <div class="d-flex flex-column justify-content-center">
-                                                    <h6 class="mb-0 font-weight-bold text-sm">Món 2</h6>
-                                                    <p class="text-xs text-secondary mb-0">Mô tả ngắn gọn</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p class="text-xs font-weight-bold mb-0">Danh mục</p>
-                                        </td>
-                                        <td class="align-middle text-center text-sm">
-                                            <span class="text-xs font-weight-bold">12000 VND</span>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <span class="text-xs font-weight-bold">2</span>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <button type="button" class="btn btn-primary btn-sm" style="margin-bottom: 0; background-color: #e22f6e">
-                                                <a href="/food/edit" style="text-decoration: none; color: inherit;">Sửa</a>
-                                            </button>
-                                            <button type="button" class="btn btn-secondary btn-sm" style="margin-bottom: 0;">Xoá</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="align-middle text-center">
-                                            <span class="text-xs font-weight-bold">3</span>
-                                        </td>
-                                        <td>
-                                            <div class="d-flex px-2 py-1">
-                                                <div>
-                                                    <img src="/img/team-2.jpg" class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
-                                                </div>
-                                                <div class="d-flex flex-column justify-content-center">
-                                                    <h6 class="mb-0 font-weight-bold text-sm">Món 3</h6>
-                                                    <p class="text-xs text-secondary mb-0">Mô tả ngắn gọn</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p class="text-xs font-weight-bold mb-0">Danh mục</p>
-                                        </td>
-                                        <td class="align-middle text-center text-sm">
-                                            <span class="text-xs font-weight-bold">23000 VND</span>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <span class="text-xs font-weight-bold">14</span>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <button type="button" class="btn btn-primary btn-sm" style="margin-bottom: 0; background-color: #e22f6e">
-                                                <a href="/food/edit" style="text-decoration: none; color: inherit;">Sửa</a>
-                                            </button>
-                                            <button type="button" class="btn btn-secondary btn-sm" style="margin-bottom: 0;">Xoá</button>
-                                        </td>
-                                    </tr>
+                                </c:forEach>
                                 </tbody>
                             </table>
                         </div>

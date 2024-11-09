@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -249,15 +250,15 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
+                                <c:forEach var="cate" items="${categories}">
+                                    <tr>
                                     <td class="align-middle text-center">
-                                        <span class="text-xs font-weight-bold">1</span>
+                                        <span class="text-xs font-weight-bold">${cate.idDanhMuc}</span>
                                     </td>
                                     <td>
                                         <div class="d-flex px-2 py-1">
                                             <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="mb-0 font-weight-bold text-sm">Món 1</h6>
-                                                <p class="text-xs text-secondary mb-0">Mô tả ngắn gọn</p>
+                                                <h6 class="mb-0 font-weight-bold text-sm">${cate.tenDanhMuc}</h6>
                                             </div>
                                         </div>
                                     </td>
@@ -269,12 +270,16 @@
                                     </td>
                                     <td class="align-middle text-center">
                                         <button type="button" class="btn btn-primary btn-sm" style="margin-bottom: 0; background-color: #e22f6e">
-                                            <a href="/category/edit" style="text-decoration: none; color: inherit;">Sửa</a>
+                                            <a href="/category/edit/${cate.idDanhMuc}" style="text-decoration: none; color: inherit;">Sửa</a>
                                         </button>
-                                        <button type="button" class="btn btn-secondary btn-sm" style="margin-bottom: 0;">Xoá</button>
+                                        <form:form action="/category/delete/${cate.idDanhMuc}" method="post" style="display:inline;">
+                                            <button type="submit" class="btn btn-secondary btn-sm" style="margin-bottom: 0;">
+                                                Xoá
+                                            </button>
+                                        </form:form>
                                     </td>
                                 </tr>
-
+                                </c:forEach>
                                 </tbody>
                             </table>
                         </div>

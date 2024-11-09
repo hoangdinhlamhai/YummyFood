@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -228,16 +229,18 @@
                     </div>
 
                     <div class="card-body px-4 py-3">
-                        <form id="addFoodForm">
-                            <!-- Row đầu tiên: ID và Tên món ăn -->
+                        <form:form id="editCategoryForm" modelAttribute="category" method="post" action="/category/update/${category.idDanhMuc}" >
                             <div class="form-row">
+                                <!-- ID Danh mục -->
                                 <div class="form-group col-md-6">
-                                    <label for="foodId">ID</label>
-                                    <input type="text" class="form-control" id="foodId" value="123" readonly>
+                                    <label for="categoryId">ID</label>
+                                    <input type="text" class="form-control" id="categoryId" value="${category.idDanhMuc}" readonly>
                                 </div>
+
+                                <!-- Tên danh mục -->
                                 <div class="form-group col-md-6">
-                                    <label for="foodName">Tên danh mục</label>
-                                    <input type="text" class="form-control" id="foodName" placeholder="Nhập tên danh mục" required>
+                                    <label for="categoryName">Tên danh mục</label>
+                                    <form:input path="tenDanhMuc" class="form-control" type="text"/>
                                 </div>
                             </div>
 
@@ -248,7 +251,8 @@
                                 </button>
                                 <button type="submit" class="btn btn-primary" style="background-color: #e22f6e">Lưu</button>
                             </div>
-                        </form>
+                        </form:form>
+
                     </div>
                 </div>
             </div>
