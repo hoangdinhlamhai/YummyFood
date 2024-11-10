@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -228,16 +229,16 @@
                     </div>
 
                     <div class="card-body px-4 py-3">
-                        <form id="addFoodForm">
+                        <form:form method="post" action="/food/update" modelAttribute="food">
                             <!-- Row đầu tiên: ID và Tên món ăn -->
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="foodId">ID</label>
-                                    <input type="text" class="form-control" id="foodId" value="123" readonly>
+                                    <form:input path="idMonAn" class="form-control" id="foodId" readonly="true"/>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="foodName">Tên món ăn</label>
-                                    <input type="text" class="form-control" id="foodName" placeholder="Nhập tên món ăn" required>
+                                    <form:input path="tenMonAn" class="form-control" id="foodName" placeholder="Nhập tên món ăn"/>
                                 </div>
                             </div>
 
@@ -245,16 +246,14 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="foodDescription">Mô tả ngắn</label>
-                                    <textarea class="form-control" id="foodDescription" rows="2" placeholder="Nhập mô tả ngắn" required></textarea>
+                                    <form:textarea path="moTa" class="form-control" id="foodDescription" rows="2" placeholder="Nhập mô tả ngắn"/>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="foodCategory">Danh mục</label>
-                                    <select class="form-control" id="foodCategory" required>
+                                    <form:select path="category.idDanhMuc" class="form-control" id="foodCategory">
                                         <option value="">Chọn danh mục</option>
-                                        <option value="DoUong">Đồ uống</option>
-                                        <option value="MonChinh">Món chính</option>
-                                        <option value="TrangMieng">Tráng miệng</option>
-                                    </select>
+                                        <form:options items="${categories}" itemValue="idDanhMuc" itemLabel="tenDanhMuc"/>
+                                    </form:select>
                                 </div>
                             </div>
 
@@ -262,11 +261,11 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="foodPrice">Giá</label>
-                                    <input type="number" class="form-control" id="foodPrice" placeholder="Nhập giá" min="0" required>
+                                    <form:input path="donGia" type="number" class="form-control" id="foodPrice" placeholder="Nhập giá" min="0" />
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="foodQuantity">Số lượng</label>
-                                    <input type="number" class="form-control" id="foodQuantity" placeholder="Nhập số lượng" min="1" required>
+                                    <form:input path="soLuong" type="number" class="form-control" id="foodQuantity" placeholder="Nhập số lượng" min="1" />
                                 </div>
                             </div>
 
@@ -274,7 +273,7 @@
                             <div class="form-row">
                                 <div class="form-group col-md-12">
                                     <label for="foodImage">Hình ảnh</label>
-                                    <input type="file" class="form-control-file" id="foodImage" accept="image/*" required>
+                                    <input type="file" class="form-control-file" id="foodImage" accept="image/*"/>
                                 </div>
                             </div>
 
@@ -283,9 +282,10 @@
                                 <button type="button" class="btn btn-secondary ml-2 mr-3" onclick="window.history.back();">
                                     Trở về
                                 </button>
-                                <button type="submit" class="btn btn-primary" style="background-color: #e22f6e">Lưu món ăn</button>
+                                <button type="submit" class="btn btn-primary" style="background-color: #e22f6e">Lưu thay đổi</button>
                             </div>
-                        </form>
+                        </form:form>
+
                     </div>
                 </div>
             </div>

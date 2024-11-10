@@ -10,16 +10,6 @@ public class DashBoardController {
         return "index";
     }
 
-    @GetMapping("/food/add")
-    public String add() {
-        return "food/add";
-    }
-
-    @GetMapping("/food/edit")
-    public String edit() {
-        return "food/edit";
-    }
-
     @GetMapping("/profile")
     public String profile() {
         return "profile/show";

@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,7 +56,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white " href="../pages/billing.html">
+                <a class="nav-link text-white " href="/category">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">receipt_long</i>
                     </div>
@@ -228,64 +229,53 @@
                     </div>
 
                     <div class="card-body px-4 py-3">
-                        <form id="addFoodForm">
-                            <!-- Row đầu tiên: ID và Tên món ăn -->
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="foodId">ID</label>
-                                    <input type="text" class="form-control" id="foodId" value="123" readonly>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="foodName">Tên món ăn</label>
-                                    <input type="text" class="form-control" id="foodName" placeholder="Nhập tên món ăn" required>
-                                </div>
+                        <form:form method="post" action="/food/add" modelAttribute="newFood">
+                            <!-- Tên món ăn -->
+                            <div class="form-group">
+                                <label>Tên món ăn</label>
+                                <form:input path="tenMonAn" class="form-control" placeholder="Nhập tên món ăn"/>
                             </div>
 
-                            <!-- Row thứ hai: Mô tả ngắn và Danh mục -->
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="foodDescription">Mô tả ngắn</label>
-                                    <textarea class="form-control" id="foodDescription" rows="2" placeholder="Nhập mô tả ngắn" required></textarea>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="foodCategory">Danh mục</label>
-                                    <select class="form-control" id="foodCategory" required>
-                                        <option value="">Chọn danh mục</option>
-                                        <option value="DoUong">Đồ uống</option>
-                                        <option value="MonChinh">Món chính</option>
-                                        <option value="TrangMieng">Tráng miệng</option>
-                                    </select>
-                                </div>
+                            <!-- Mô tả ngắn -->
+                            <div class="form-group">
+                                <label>Mô tả ngắn</label>
+                                <form:textarea path="moTa" class="form-control" rows="2" placeholder="Nhập mô tả ngắn"/>
                             </div>
 
-                            <!-- Row thứ ba: Giá và Số lượng -->
+                            <!-- Danh mục -->
+                            <div class="form-group">
+                                <label>Danh mục</label>
+                                <form:select path="category.idDanhMuc" class="form-control">
+                                    <option value="">Chọn danh mục</option>
+                                    <form:options items="${categories}" itemValue="idDanhMuc" itemLabel="tenDanhMuc"/>
+                                </form:select>
+                            </div>
+
+                            <!-- Giá và Số lượng -->
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="foodPrice">Giá</label>
-                                    <input type="number" class="form-control" id="foodPrice" placeholder="Nhập giá" min="0" required>
+                                    <form:input path="donGia" class="form-control" id="foodPrice" type="number" placeholder="Nhập giá" min="0"/>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="foodQuantity">Số lượng</label>
-                                    <input type="number" class="form-control" id="foodQuantity" placeholder="Nhập số lượng" min="1" required>
+                                    <form:input path="soLuong" class="form-control" id="foodQuantity" type="number" placeholder="Nhập số lượng" min="1"/>
                                 </div>
                             </div>
 
-                            <!-- Row thứ tư: Hình ảnh -->
-                            <div class="form-row">
-                                <div class="form-group col-md-12">
-                                    <label for="foodImage">Hình ảnh</label>
-                                    <input type="file" class="form-control-file" id="foodImage" accept="image/*" required>
-                                </div>
+                            <!-- Hình ảnh -->
+                            <div class="form-group">
+                                <label for="foodImage">Hình ảnh</label>
+                                <input type="file" class="form-control-file" id="foodImage" accept="image/*"/>
                             </div>
 
                             <!-- Nút Lưu và Hủy -->
                             <div class="text-center mt-4">
-                                <button type="button" class="btn btn-secondary ml-2 mr-3" onclick="window.history.back();">
-                                    Trở về
-                                </button>
+                                <button type="button" class="btn btn-secondary" onclick="window.history.back();">Trở về</button>
                                 <button type="submit" class="btn btn-primary" style="background-color: #e22f6e">Thêm món ăn</button>
                             </div>
-                        </form>
+                        </form:form>
+
                     </div>
                 </div>
             </div>

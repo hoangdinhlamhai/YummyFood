@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 @Table(name = "MonAn")
 public class Food {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idMonAn;
     private String tenMonAn;
     private String moTa;

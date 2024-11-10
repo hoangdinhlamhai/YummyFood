@@ -35,4 +35,8 @@ public class CategoryService {
     public void update(Category category) {
         this.categoryRepository.save(category); // Lưu lại danh mục sau khi chỉnh sửa
     }
+
+    public List<Category> getNameCategories() {
+        return categoryRepository.findAll();
+    }
 }

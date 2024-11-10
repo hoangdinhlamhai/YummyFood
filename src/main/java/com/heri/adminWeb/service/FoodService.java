@@ -20,4 +20,19 @@ public class FoodService {
         return foodRepository.findAll();
     }
 
+    public void saveFood(Food food) {
+        foodRepository.save(food); // Lưu món ăn vào cơ sở dữ liệu
+    }
+
+    public Food getFoodById(long id) {
+        return foodRepository.findById(id).orElse(null);
+    }
+
+    public void updateFood(Food food) {
+        foodRepository.save(food);
+    }
+
+    public void deleteFood(long id) {
+        foodRepository.deleteById(id);
+    }
 }

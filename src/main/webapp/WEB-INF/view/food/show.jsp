@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -292,9 +293,13 @@
                                     </td>
                                     <td class="align-middle text-center">
                                         <button type="button" class="btn btn-primary btn-sm" style="margin-bottom: 0; background-color: #e22f6e">
-                                            <a href="/food/edit" style="text-decoration: none; color: inherit;">Sửa</a>
+                                            <a href="/food/edit/${food.idMonAn}" style="text-decoration: none; color: inherit;">Sửa</a>
                                         </button>
-                                        <button type="button" class="btn btn-secondary btn-sm" style="margin-bottom: 0;">Xoá</button>
+                                        <form:form action="/food/delete/${food.idMonAn}" method="post" style="display:inline;">
+                                            <button type="submit" class="btn btn-secondary btn-sm" style="margin-bottom: 0;">
+                                                Xoá
+                                            </button>
+                                        </form:form>
                                     </td>
                                 </tr>
                                 </c:forEach>
