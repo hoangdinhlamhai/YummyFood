@@ -1,55 +1,54 @@
 package com.example.yummyfood;
 
 import android.app.Dialog;
-import android.util.Log;
-import android.view.View;
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.MenuItem;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
+
+import com.example.yummyfood.Fragment.HomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.util.Timer;
 import java.util.TimerTask;
-import android.content.Intent;
-import android.widget.ImageView;
-import android.widget.TextView;
-
 
 public class HomepageUserActivity extends AppCompatActivity {
-    Dialog dialog;
-    Log log;
-    ViewPager viewPager;
-    int image[] = {R.drawable.slide1, R.drawable.slide2, R.drawable.slide3};
-    int currentPageCounter = 0;
+    private Dialog dialog;
+    private ViewPager viewPager;
+    private int[] images = {R.drawable.slide1, R.drawable.slide2, R.drawable.slide3};
+    private int currentPageCounter = 0;
+    private BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage_user);
 
-        // Setup window insets to adjust layout
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        // Set up the image slider
-        viewPager = findViewById(R.id.viewpager);
-        viewPager.setAdapter(new SliderAdapter(image, HomepageUserActivity.this));
 
-        // Automatic image slider
+        viewPager = findViewById(R.id.viewpager);
+        viewPager.setAdapter(new SliderAdapter(images, HomepageUserActivity.this));
+
+
         final Handler handler = new Handler();
         final Runnable update = () -> {
-            if (currentPageCounter == image.length) {
+            if (currentPageCounter == images.length) {
                 currentPageCounter = 0;
             }
             viewPager.setCurrentItem(currentPageCounter++, true);
@@ -62,132 +61,90 @@ public class HomepageUserActivity extends AppCompatActivity {
             }
         }, 2500, 2500);
 
-        // Setup BottomNavigationView
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
-        bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                int itemId = item.getItemId();
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
 
-                if (itemId == R.id.navigation_home) {
-                    Intent intent = new Intent(HomepageUserActivity.this, HomepageUserActivity.class);
-                    startActivity(intent);
-                    return true;
 
-                } else if (itemId == R.id.navigation_cart) {
-                    Intent intent = new Intent(HomepageUserActivity.this, CartActivity.class);
-                    startActivity(intent);
-                    return true;
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, new HomeFragment())
+                    .commit();
+            bottomNavigationView.setSelectedItemId(R.id.home_nav1); // Set default selected item
+        }
 
-                } else if (itemId == R.id.navigation_menu) {
-                    Intent intent = new Intent(HomepageUserActivity.this, category_user.class);
-                    startActivity(intent);
-                    return true;
 
-                } else if (itemId == R.id.navigation_profile) {
-                    // Chuyển sang activity_profile_user
-                    Intent intent = new Intent(HomepageUserActivity.this, Profile_User.class);
-                    startActivity(intent);
-                    return true;
-                }
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            Fragment selectedFragment = null;
+            int itemId = item.getItemId();
 
-                return false;
+            if (itemId == R.id.home_nav1) {
+                // Replace only the fragment for Home
+                selectedFragment = new HomeFragment();
+            } else if (itemId == R.id.menu_nav1) {
+                // Start category_user Activity for Menu
+                startActivity(new Intent(HomepageUserActivity.this, category_user.class));
+                return true; // No fragment change here, handled by activity switch
+            } else if (itemId == R.id.person_nav1) {
+                // Start profile_user Activity for User
+                startActivity(new Intent(HomepageUserActivity.this, Profile_User.class));
+                return true; // No fragment change here, handled by activity switch
             }
-        });
 
-        // SearchUserActivity
-        EditText searchEditText = findViewById(R.id.search);
-        searchEditText.setOnClickListener(v -> {
-            Intent intent = new Intent(HomepageUserActivity.this, SearchUserActivity.class);
-            startActivity(intent);
-        });
 
-        //  FlashsaleUserActivity
-        TextView textView = findViewById(R.id.textView20);
-        textView.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent intent = new Intent(HomepageUserActivity.this, flashsale_user.class);
-                startActivity(intent);
+            if (selectedFragment != null) {
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, selectedFragment)
+                        .commit();
             }
-        });
-
-        //chuyen sang thong bao
-        ImageView img1 = findViewById(R.id.btntb);
-        img1.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent intent = new Intent(HomepageUserActivity.this, notification_user.class);
-                startActivity(intent);
-            }
-        });
-
-        // thong bao het hang
-        ImageView cartIcon1 = findViewById(R.id.cartIcon1);
-        cartIcon1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDialog();
-            }
-        });
-
-        // Xác định ImageView cho món ăn
-        ImageView foodImage1 = findViewById(R.id.foodImage2);
-
-        // Thiết lập OnClickListener cho ImageView
-        foodImage1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Chuyển sang FoodRetailActivity khi nhấn vào ImageView
-                Intent intent = new Intent(HomepageUserActivity.this, FoodRetailActivity.class);
-                startActivity(intent);
-            }
-        });
-         // sự kiện nhấn giỏ hàng thì chuyển đến trang giỏ hàng
-        ImageView cartIcon = findViewById(R.id.cartIcon2_homepage);
-
-        // Set sự kiện click cho ImageView
-        cartIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Chuyển sang trang activity_cart
-                Intent intent = new Intent(HomepageUserActivity.this, CartActivity.class);
-                startActivity(intent);
-            }
-        });
-        //dat ban
-        TextView txttable = findViewById(R.id.textViewAll);
-        txttable.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(HomepageUserActivity.this, booktable_usser.class);
-                startActivity(intent);
-            }
+            return true;
         });
 
 
+        setupUIInteractions();
     }
 
-    // Hàm hiển thị dialog
+
+    private void setupUIInteractions() {
+
+        EditText searchEditText = findViewById(R.id.search);
+        searchEditText.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, SearchUserActivity.class)));
+
+
+        TextView flashSaleTextView = findViewById(R.id.textView20);
+        flashSaleTextView.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, flashsale_user.class)));
+
+
+        ImageView notificationIcon = findViewById(R.id.btntb);
+        notificationIcon.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, notification_user.class)));
+
+
+        ImageView cartIcon1 = findViewById(R.id.cartIcon1);
+        cartIcon1.setOnClickListener(v -> showDialog());
+
+
+        ImageView foodImage1 = findViewById(R.id.foodImage2);
+        foodImage1.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, FoodRetailActivity.class)));
+
+
+        ImageView cartIcon2 = findViewById(R.id.cartIcon2_homepage);
+        cartIcon2.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, CartActivity.class)));
+
+
+        TextView tableBookingTextView = findViewById(R.id.textViewAll);
+        tableBookingTextView.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, booktable_usser.class)));
+    }
+
+
     private void showDialog() {
         dialog = new Dialog(HomepageUserActivity.this);
         dialog.setContentView(R.layout.activity_dialog_outofstock_user);
 
-
         TextView exitButton = dialog.findViewById(R.id.dialog_exit);
-        exitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss(); // Đóng dialog
-                Intent intent = new Intent(HomepageUserActivity.this, HomepageUserActivity.class);
-                startActivity(intent); // Quay lại trang chủ
-            }
+        exitButton.setOnClickListener(v -> {
+            dialog.dismiss(); // Close dialog
+            startActivity(new Intent(HomepageUserActivity.this, HomepageUserActivity.class)); // Return to homepage
         });
 
-        dialog.show(); // Hiển thị dialog
-
-
-        }
-
+        dialog.show();
     }
-
-
+}

@@ -6,25 +6,12 @@
     android:layout_height="match_parent"
     android:id="@+id/main">
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        app:itemIconTint="@color/colorPrimary"
-        app:itemTextColor="@color/colorPrimary"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/nav_menu" />
-
     <LinearLayout
         android:id="@+id/popularFoodList"
         android:layout_width="379dp"
-        android:layout_height="260dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="130dp"
         android:orientation="vertical"
-        app:layout_constraintDimensionRatio="w,1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -36,7 +23,7 @@
             android:backgroundTint="#AD9C9C"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:padding="8dp">
+            android:padding="4dp">
 
             <ImageView
                 android:id="@+id/foodImage1"
@@ -92,11 +79,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:backgroundTint="#D3C4C4"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:padding="8dp">
+            android:padding="4dp">
 
             <ImageView
                 android:id="@+id/foodImage2_1"
@@ -146,13 +132,14 @@
                 android:src="@drawable/edit_black_circle" />
         </LinearLayout>
 
+        <!-- Món 3 -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#AD9C9C"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:padding="8dp">
+            android:padding="4dp">
 
             <ImageView
                 android:id="@+id/foodImage3"
@@ -201,7 +188,6 @@
                 android:background="@null"
                 android:src="@drawable/edit_black_circle" />
         </LinearLayout>
-
 
     </LinearLayout>
 
@@ -265,135 +251,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
         android:text="Ngày 20/6/2024"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintBottom_toTopOf="@+id/popularFoodList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.051"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="382dp"
-        android:layout_height="178dp"
-        android:layout_marginBottom="10dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="79dp"
-            android:layout_marginTop="8dp"
-            android:backgroundTint="#D3C4C4"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:padding="8dp">
-
-            <ImageView
-                android:id="@+id/foodImage2"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginEnd="8dp"
-                android:contentDescription="Food Image"
-                android:src="@drawable/milktea" />
-
-            <LinearLayout
-                android:layout_width="222dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_vertical"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/foodName4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Trà sữa - MayCha"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/foodPrice4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="29.000đ"
-                    android:textColor="#D02828"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/idSL4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="SL: 1"
-                    tools:ignore="DuplicateIds" />
-            </LinearLayout>
-
-            <ImageButton
-                android:id="@+id/review_button4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@null"
-                android:src="@drawable/edit_black_circle" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:backgroundTint="#AD9C9C"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:padding="8dp">
-
-            <ImageView
-                android:id="@+id/foodImage5"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginEnd="8dp"
-                android:contentDescription="Food Image"
-                android:src="@drawable/garan" />
-
-            <LinearLayout
-                android:layout_width="222dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_vertical"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/foodName5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Gà rán - Jollibee"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/foodPrice5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="79.000đ"
-                    android:textColor="#D02828"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/idSL5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="SL: 1" />
-
-            </LinearLayout>
-
-            <ImageButton
-                android:id="@+id/review_button5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@null"
-                android:src="@drawable/edit_black_circle" />
-
-        </LinearLayout>
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
