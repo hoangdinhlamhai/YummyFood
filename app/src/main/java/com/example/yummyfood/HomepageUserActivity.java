@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -17,7 +18,9 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.yummyfood.Fragment.HomeFragment;
+import com.example.yummyfood.Fragment.MenuFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -34,12 +37,11 @@ public class HomepageUserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage_user);
 
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+//            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+//            return insets;
+//        });
 
 
         viewPager = findViewById(R.id.viewpager);
@@ -63,7 +65,7 @@ public class HomepageUserActivity extends AppCompatActivity {
 
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
-
+        bottomNavigationView.setSelectedItemId(R.id.home_nav1);
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
@@ -79,23 +81,23 @@ public class HomepageUserActivity extends AppCompatActivity {
 
             if (itemId == R.id.home_nav1) {
                 // Replace only the fragment for Home
-                selectedFragment = new HomeFragment();
+//                selectedFragment = new HomeFragment();
             } else if (itemId == R.id.menu_nav1) {
                 // Start category_user Activity for Menu
                 startActivity(new Intent(HomepageUserActivity.this, category_user.class));
-                return true; // No fragment change here, handled by activity switch
+                //return true; // No fragment change here, handled by activity switch
             } else if (itemId == R.id.person_nav1) {
                 // Start profile_user Activity for User
                 startActivity(new Intent(HomepageUserActivity.this, Profile_User.class));
-                return true; // No fragment change here, handled by activity switch
+                //return true; // No fragment change here, handled by activity switch
             }
 
 
-            if (selectedFragment != null) {
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, selectedFragment)
-                        .commit();
-            }
+//            if (selectedFragment != null) {
+//                getSupportFragmentManager().beginTransaction()
+//                        .replace(R.id.fragment_container, selectedFragment)
+//                        .commit();
+//            }
             return true;
         });
 

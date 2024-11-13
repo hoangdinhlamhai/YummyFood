@@ -17,9 +17,9 @@ public class ViewPageAdapter extends FragmentStateAdapter {
             case 0:
                 return new HomeFragment();
             case 1:
-                return new UserFragment();
-            case 2:
                 return new MenuFragment();
+            case 2:
+                return new UserFragment();
             default:
                 return new HomeFragment();
         }
