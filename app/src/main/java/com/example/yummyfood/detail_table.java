@@ -54,7 +54,7 @@ public class detail_table extends AppCompatActivity {
         txt1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(detail_table.this, policy_user.class);
+                Intent intent = new Intent(detail_table.this, user_policy.class);
                 startActivity(intent);
             }
         });

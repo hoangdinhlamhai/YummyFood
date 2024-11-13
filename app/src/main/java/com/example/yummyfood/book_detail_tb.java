@@ -44,6 +44,13 @@ public class book_detail_tb extends AppCompatActivity {
             }
         });
 
+        Button btnHuy = findViewById(R.id.cancel_button);
+        btnHuy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
     private void showDialog() {
         dialog = new Dialog(book_detail_tb.this);
@@ -62,4 +69,6 @@ public class book_detail_tb extends AppCompatActivity {
 
         dialog.show(); // Hiển thị dialog
     }
+
+
 }
