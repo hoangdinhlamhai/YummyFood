@@ -46,15 +46,6 @@
             android:paddingTop="22dp"
             android:paddingBottom="14dp">
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_cate"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:background="@drawable/list"
-                android:layout_marginStart="22dp"
-                android:layout_gravity="center"
-                />
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -62,8 +53,7 @@
                 android:fontFamily="sans-serif-black"
                 android:textColor="@color/light_red"
                 android:textSize="28sp"
-                android:gravity="center"
-                android:layout_marginEnd="32dp"/>
+                android:gravity="center"/>
         </LinearLayout>
 
 

@@ -13,6 +13,9 @@
         android:theme="@style/Theme.YummyFood"
         tools:targetApi="31">
         <activity
+            android:name=".ListFoodUser"
+            android:exported="false" />
+        <activity
             android:name=".user_policy"
             android:exported="false" />
         <activity
@@ -51,7 +54,6 @@
         <activity android:name=".ActivityOrderStatus" />
         <activity android:name=".ActivityPaymentUser" /> <!-- Khanh 30/10/2024 -->
         <activity android:name=".Activity_History_Order" />
-
         <activity
             android:name=".activity_dialog_create_account"
             android:exported="false" />

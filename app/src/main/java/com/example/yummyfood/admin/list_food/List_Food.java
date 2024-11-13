@@ -34,15 +34,15 @@ public class List_Food extends AppCompatActivity {
 
         //side bar category
         drawerLayout = findViewById(R.id.main); // Thay đổi ID nếu cần
-        Button btnCate = findViewById(R.id.btn_cate);
+//        Button btnCate = findViewById(R.id.btn_cate);
 
-        btnCate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Hiện NavigationView
-                drawerLayout.openDrawer(Gravity.START);
-            }
-        });
+//        btnCate.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                // Hiện NavigationView
+//                drawerLayout.openDrawer(Gravity.START);
+//            }
+//        });
 
         NavigationView navigationView = findViewById(R.id.sidebar);
         navigationView.setNavigationItemSelectedListener(menuItem -> {
@@ -50,7 +50,7 @@ public class List_Food extends AppCompatActivity {
             // TODO: Thực hiện hành động tương ứng với item được chọn
 
             // Đóng NavigationView
-            drawerLayout.closeDrawer(Gravity.START);
+//            drawerLayout.closeDrawer(Gravity.START);
             return true;
         });
 

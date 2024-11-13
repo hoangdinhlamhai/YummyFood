@@ -3,6 +3,9 @@ package com.example.yummyfood;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -48,7 +51,19 @@ public class category_user extends AppCompatActivity {
             return true;
         });
 
+        // Lấy tham chiếu đến TextView danh sách món
+        TextView textView = findViewById(R.id.category_milkTea);
 
+        // Thiết lập OnClickListener cho TextView
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Xử lý sự kiện khi TextView được nhấn
+                // Ví dụ: Mở một Activity mới khi người dùng nhấn vào TextView
+                Intent intent = new Intent(category_user.this, ListFoodUser.class);
+                startActivity(intent);
+            }
+        });
 
     }
 }
