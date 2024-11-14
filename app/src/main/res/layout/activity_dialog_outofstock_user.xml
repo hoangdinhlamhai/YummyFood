@@ -6,20 +6,24 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="#E6B9B9"
+    
     tools:context=".activity_dialog_create_account">
 
+    <!-- Tiêu đề thông báo -->
     <TextView
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="Thông báo"
-        android:textSize="29sp"
+        android:textColor="#0B0A0A"
+        android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/imageView3"
         app:layout_constraintHorizontal_bias="0.24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Đường dẫn guideline -->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
         android:layout_width="wrap_content"
@@ -27,15 +31,17 @@
         android:orientation="vertical"
         app:layout_constraintGuide_begin="20dp" />
 
+    <!-- Biểu tượng cảnh báo -->
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="88dp"
+        android:layout_height="77dp"
         android:layout_marginEnd="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/warning_icon" />
 
+    <!-- Nội dung thông báo -->
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
@@ -44,20 +50,23 @@
         android:layout_marginTop="64dp"
         android:text="Mặt hàng tạm hết!"
         android:textColor="#D05A5A"
-        android:textSize="45dp"
+        android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
+    <!-- Nút thoát -->
     <TextView
         android:id="@+id/dialog_exit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="Thoát"
+        android:textColor="#050505"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.8"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -125,6 +125,8 @@ public class HomepageUserActivity extends AppCompatActivity {
         flashSaleTextView.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, flashsale_user.class)));
 
         // thêm de thay cham gk
+
+
         TextView flashSaleTextView2 = findViewById(R.id.textView19);
         flashSaleTextView2.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, flashsale_user.class)));
 
@@ -163,6 +165,7 @@ public class HomepageUserActivity extends AppCompatActivity {
 
 
 
+
         //them den day
         ImageView notificationIcon = findViewById(R.id.btntb);
         notificationIcon.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, notification_user.class)));
@@ -182,6 +185,7 @@ public class HomepageUserActivity extends AppCompatActivity {
 
         TextView tableBookingTextView = findViewById(R.id.textViewAll);
         tableBookingTextView.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, booktable_usser.class)));
+
     }
 
 

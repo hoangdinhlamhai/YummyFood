@@ -36,10 +36,12 @@ public class CartActivity extends AppCompatActivity {
         LinearLayout mon1 = findViewById(R.id.mon1);
         LinearLayout mon2 = findViewById(R.id.mon2);
         LinearLayout mon3 = findViewById(R.id.mon3);
+        Button btn_paying3 = findViewById(R.id.btn_paying3);
 
 
         mon1.setOnClickListener(v -> startActivity(new Intent(CartActivity.this, FoodRetailActivity.class)));
         mon2.setOnClickListener(v -> startActivity(new Intent(CartActivity.this, FoodRetailActivity.class)));
         mon3.setOnClickListener(v -> startActivity(new Intent(CartActivity.this, FoodRetailActivity.class)));
+        btn_paying3.setOnClickListener(v -> startActivity(new Intent(CartActivity.this, ActivityPaymentUser.class)));
     }
 }
