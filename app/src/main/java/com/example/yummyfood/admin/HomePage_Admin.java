@@ -68,8 +68,8 @@ public class HomePage_Admin extends AppCompatActivity {
         listUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HomePage_Admin.this, List_User.class);
-                startActivity(intent);
+                //Intent intent = new Intent(HomePage_Admin.this, List_User.class);
+                //startActivity(intent);
             }
         });
 

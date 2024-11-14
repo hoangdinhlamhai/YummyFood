@@ -55,5 +55,22 @@ import com.example.yummyfood.R;
                     startActivity(intent);
                 }
             });
+            ConstraintLayout  chitiet = findViewById(R.id.product1);
+            chitiet.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(flashsale_user.this, FoodRetailActivity.class);
+                    startActivity(intent);
+                }
+            });
+
+            ConstraintLayout  chitiet2 = findViewById(R.id.product2);
+            chitiet2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(flashsale_user.this, FoodRetailActivity.class);
+                    startActivity(intent);
+                }
+            });
         }
     }

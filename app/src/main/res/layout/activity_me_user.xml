@@ -112,7 +112,7 @@
                         android:layout_height="wrap_content"
                         android:text="Chờ xác nhận"
                         android:textColor="#000000"
-                        android:textSize="12sp" />
+                        android:textSize="10sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -134,7 +134,7 @@
                         android:layout_height="wrap_content"
                         android:text="Chờ giao hàng"
                         android:textColor="#000000"
-                        android:textSize="12sp" />
+                        android:textSize="10sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -156,7 +156,7 @@
                         android:layout_height="wrap_content"
                         android:text="Đánh giá"
                         android:textColor="#000000"
-                        android:textSize="12sp" />
+                        android:textSize="10sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -178,7 +178,7 @@
                         android:layout_height="wrap_content"
                         android:text="Bàn đã đặt"
                         android:textColor="#000000"
-                        android:textSize="12sp" />
+                        android:textSize="10sp" />
                 </LinearLayout>
             </LinearLayout>
 

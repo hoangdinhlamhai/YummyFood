@@ -1,5 +1,6 @@
 package com.example.yummyfood;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ActivityPaymentUser extends AppCompatActivity {
+    private Dialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +53,7 @@ public class ActivityPaymentUser extends AppCompatActivity {
                 // Chuyển đến ActivityOrderStatus
                 Intent intent = new Intent(ActivityPaymentUser.this, ActivityOrderStatus.class);
                 startActivity(intent);
-                finish(); // Kết thúc ActivityPaymentUser để không quay lại bằng nút back
+                finish();
             }
         });
 
@@ -62,5 +64,19 @@ public class ActivityPaymentUser extends AppCompatActivity {
                 finish();
             }
         });
+    }
+    private void showDialog() {
+        dialog = new Dialog(ActivityPaymentUser.this);
+        dialog.setContentView(R.layout.activity_dialog_order);
+
+
+        TextView exitButton = dialog.findViewById(R.id.trangthai);
+        exitButton.setOnClickListener(v -> {
+            dialog.dismiss();
+            startActivity(new Intent(ActivityPaymentUser.this, ActivityOrderStatus.class));
+            finish();
+        });
+
+        dialog.show();
     }
 }
