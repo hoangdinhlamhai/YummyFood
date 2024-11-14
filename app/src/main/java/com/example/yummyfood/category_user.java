@@ -42,6 +42,11 @@ public class category_user extends AppCompatActivity {
                 // Start category_user Activity for Menu
 //                selectedFragment = new ();
                 //return true; // No fragment change here, handled by activity switch
+            } else if (itemId == R.id.cart_nav1) {
+                startActivity(new Intent(category_user.this, CartActivity.class));
+                // Start category_user Activity for Menu
+//                selectedFragment = new ();
+                //return true; // No fragment change here, handled by activity switch
             } else if (itemId == R.id.person_nav1) {
                 // Start profile_user Activity for User
                 startActivity(new Intent(category_user.this, me_user.class));

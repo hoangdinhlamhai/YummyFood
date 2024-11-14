@@ -304,18 +304,6 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Nút Xem lịch sử đơn hàng -->
-    <Button
-        android:id="@+id/btn_see_history_orderstatus"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
-        android:backgroundTint="@android:color/holo_red_light"
-        android:text="Xem lịch sử đơn hàng"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btn_backToHomePage"
@@ -325,6 +313,8 @@
         android:text="Trang chủ"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_see_history_orderstatus" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

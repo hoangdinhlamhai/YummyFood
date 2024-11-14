@@ -65,18 +65,5 @@ public class ActivityPaymentUser extends AppCompatActivity {
             }
         });
     }
-    private void showDialog() {
-        dialog = new Dialog(ActivityPaymentUser.this);
-        dialog.setContentView(R.layout.activity_dialog_order);
 
-
-        TextView exitButton = dialog.findViewById(R.id.trangthai);
-        exitButton.setOnClickListener(v -> {
-            dialog.dismiss();
-            startActivity(new Intent(ActivityPaymentUser.this, ActivityOrderStatus.class));
-            finish();
-        });
-
-        dialog.show();
-    }
 }
