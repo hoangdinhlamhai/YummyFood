@@ -56,6 +56,7 @@
 
         <!-- Món 1 -->
         <LinearLayout
+            android:id="@+id/mon1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -123,6 +124,7 @@
 
         <!-- Món 2 -->
         <LinearLayout
+            android:id="@+id/mon2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -191,6 +193,7 @@
 
         <!-- Món 3 -->
         <LinearLayout
+            android:id="@+id/mon3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
