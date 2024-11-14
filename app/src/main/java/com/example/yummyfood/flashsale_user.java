@@ -3,6 +3,7 @@
 package com.example.yummyfood;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -10,6 +11,8 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.example.yummyfood.HomepageUserActivity;
 import com.example.yummyfood.R;
@@ -29,12 +32,28 @@ import com.example.yummyfood.R;
                 @Override
                 public void onClick(View v) {
                     // Chuyển hướng về HomepageUserActivity
-                    Intent intent = new Intent(flashsale_user.this, HomepageUserActivity.class);
+//                    Intent intent = new Intent(flashsale_user.this, HomepageUserActivity.class);
+//                    startActivity(intent);
+                    finish();
+                }
+            });
+
+            ConstraintLayout product1 = findViewById(R.id.product1);
+            product1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(flashsale_user.this, FoodRetailActivity.class);
                     startActivity(intent);
                 }
             });
 
-
-
+            ImageView addToCart = findViewById(R.id.product_add_to_cart1);
+            addToCart.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(flashsale_user.this, CartActivity.class);
+                    startActivity(intent);
+                }
+            });
         }
     }

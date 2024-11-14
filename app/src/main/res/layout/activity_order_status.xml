@@ -7,17 +7,6 @@
     android:layout_height="match_parent"
     android:id="@+id/main">
 
-    <!-- Nút quay lại -->
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/appCompatButton3"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/btn_back"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <!-- Tiêu đề Trạng thái đơn hàng -->
     <TextView
         android:id="@+id/title4"
@@ -28,10 +17,10 @@
         android:textColor="@color/light_red"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/appCompatButton3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Thông tin về thời gian và trạng thái -->
     <LinearLayout
@@ -196,13 +185,7 @@
                     android:text="SL: 1" />
             </LinearLayout>
 
-            <ImageButton
-                android:id="@+id/review_button1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:layout_marginLeft="100dp"
-                android:src="@drawable/edit_black_circle" />
+
         </LinearLayout>
 
         <!-- Món 2 -->
@@ -251,13 +234,7 @@
                     android:text="SL: 1" />
             </LinearLayout>
 
-            <ImageButton
-                android:id="@+id/review_button2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:layout_marginLeft="90dp"
-                android:src="@drawable/edit_black_circle" />
+
         </LinearLayout>
 
         <!-- Món 3 -->
@@ -306,13 +283,6 @@
                     android:text="SL: 1" />
             </LinearLayout>
 
-            <ImageButton
-                android:id="@+id/review_button3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:layout_marginLeft="100dp"
-                android:src="@drawable/edit_black_circle" />
         </LinearLayout>
 
     </LinearLayout>
@@ -347,6 +317,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- Bottom Navigation -->
+    <Button
+        android:id="@+id/btn_backToHomePage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@android:color/holo_red_light"
+        android:text="Trang chủ"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_see_history_orderstatus" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

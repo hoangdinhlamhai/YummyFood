@@ -26,5 +26,16 @@ public class ActivityOrderStatus  extends AppCompatActivity {
                 finish(); // Kết thúc FoodRetailActivity để không trở lại được bằng nút quay lại
             }
         });
+
+        //back to homepage
+        Button btnBack = findViewById(R.id.btn_backToHomePage);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ActivityOrderStatus.this, HomepageUserActivity.class);
+                startActivity(intent);
+//                finish();
+            }
+        });
     }
 }

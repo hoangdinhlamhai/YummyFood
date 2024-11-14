@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -27,10 +28,13 @@ public class me_user extends AppCompatActivity {
 
             if (itemId == R.id.home_nav1) {
                 startActivity(new Intent(me_user.this, HomepageUserActivity.class));
-                finish();
+//                finish();
             } else if (itemId == R.id.menu_nav1) {
                 startActivity(new Intent(me_user.this, category_user.class));
-                finish();
+//                finish();
+            }else if (itemId == R.id.cart_nav1) {
+                startActivity(new Intent(me_user.this, CartActivity.class));
+//                finish();
             } else if (itemId == R.id.person_nav1) {
                 return true;
             }
@@ -47,22 +51,22 @@ public class me_user extends AppCompatActivity {
         });
 
         // Thêm sự kiện khi nhấn vào choxacnhan
-        LinearLayout choxacnhan = findViewById(R.id.choxacnhan);
-        choxacnhan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(me_user.this, ListFoodUser.class));
-            }
-        });
+//        LinearLayout choxacnhan = findViewById(R.id.choxacnhan);
+//        choxacnhan.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(new Intent(me_user.this, ListFoodUser.class));
+//            }
+//        });
 
         // Thêm sự kiện khi nhấn vào chogiaohang
-        LinearLayout chogiaohang = findViewById(R.id.chogiaohang);
-        chogiaohang.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(me_user.this, ListFoodUser.class));
-            }
-        });
+//        LinearLayout chogiaohang = findViewById(R.id.chogiaohang);
+//        chogiaohang.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(new Intent(me_user.this, ListFoodUser.class));
+//            }
+//        });
 
         // Thêm sự kiện khi nhấn vào danhgia
         LinearLayout danhgia = findViewById(R.id.danhgia);
@@ -106,6 +110,14 @@ public class me_user extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(me_user.this, flashsale_user.class));
+            }
+        });
+
+        TextView viewHistoryOrder = findViewById(R.id.viewHistory);
+        viewHistoryOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(me_user.this, Activity_History_Order.class));
             }
         });
     }

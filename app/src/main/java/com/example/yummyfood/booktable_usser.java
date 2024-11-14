@@ -48,6 +48,17 @@ public class booktable_usser extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        LinearLayout linearLayout2 = findViewById(R.id.ban1tang1);
+        linearLayout2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Khởi tạo Intent để chuyển đến detail_table
+                Intent intent = new Intent(booktable_usser.this, book_detail_tb.class);
+                startActivity(intent);
+            }
+        });
+
 //ve trang chu
         Button btnb = findViewById(R.id.btnBack);
         btnb.setOnClickListener(new View.OnClickListener() {

@@ -7,6 +7,9 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class CartActivity extends AppCompatActivity {
     @Override
@@ -20,13 +23,40 @@ public class CartActivity extends AppCompatActivity {
         btnReturnCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Chuyển về HomepageUserActivity
-                Intent intent = new Intent(CartActivity.this, HomepageUserActivity.class);
-                startActivity(intent);
+//                // Chuyển về HomepageUserActivity
+//                Intent intent = new Intent(CartActivity.this, HomepageUserActivity.class);
+//                startActivity(intent);
                 finish();
             }
         });
 
+        // Khởi tạo BottomNavigationView
+        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+
+        // Chọn item "Home" (giả sử ID của item "Home" là R.id.nav_home)
+        bottomNav.setSelectedItemId(R.id.cart_nav1);
+
+        bottomNav.setOnNavigationItemSelectedListener(item -> {
+            Fragment selectedFragment = null;
+            int itemId = item.getItemId();
+
+            if (itemId == R.id.home_nav1) {
+                // Replace only the fragment for Home
+                startActivity(new Intent(CartActivity.this, HomepageUserActivity.class));
+//                selectedFragment = new HomeFragment();
+            } else if (itemId == R.id.menu_nav1) {
+                // Start category_user Activity for Menu
+                startActivity(new Intent(CartActivity.this, category_user.class));
+//                selectedFragment = new ();
+                //return true; // No fragment change here, handled by activity switch
+            } else if (itemId == R.id.person_nav1) {
+                // Start profile_user Activity for User
+                startActivity(new Intent(CartActivity.this, me_user.class));
+                //return true; // No fragment change here, handled by activity switch
+            }
+
+            return true;
+        });
 
         setupUIInteractions();
     }

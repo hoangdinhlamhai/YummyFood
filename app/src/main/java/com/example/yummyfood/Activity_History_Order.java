@@ -21,8 +21,8 @@ public class Activity_History_Order extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Chuyển về HomepageUserActivity
-                Intent intent = new Intent(Activity_History_Order.this, ActivityOrderStatus.class);
-                startActivity(intent);
+//                Intent intent = new Intent(Activity_History_Order.this, ActivityOrderStatus.class);
+//                startActivity(intent);
                 finish(); // Kết thúc FoodRetailActivity để không trở lại được bằng nút quay lại
             }
         });

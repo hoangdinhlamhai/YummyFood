@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,8 +17,6 @@ public class ActivityPaymentUser extends AppCompatActivity {
         setContentView(R.layout.activity_payment_user);
         // Đảm bảo layout của bạn được thiết lập
 
-
-        // Khởi tạo nút btn_return_retailfood
         Button btnReturnRetailFood = findViewById(R.id.btn_paying_payment);
 
         // Thiết lập sự kiện nhấn nút
@@ -56,5 +55,12 @@ public class ActivityPaymentUser extends AppCompatActivity {
             }
         });
 
+        ImageView btnBack = findViewById(R.id.btn_return_payment);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 }

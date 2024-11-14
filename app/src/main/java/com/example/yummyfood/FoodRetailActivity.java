@@ -20,9 +20,6 @@ public class FoodRetailActivity extends AppCompatActivity {
         btnReturnRetailFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Chuyển về HomepageUserActivity
-                Intent intent = new Intent(FoodRetailActivity.this, HomepageUserActivity.class);
-                startActivity(intent);
                 finish(); // Kết thúc FoodRetailActivity để không trở lại được bằng nút quay lại
             }
         });
