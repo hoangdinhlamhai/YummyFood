@@ -302,14 +302,5 @@
         </LinearLayout>
     </ScrollView>
 
-    <!-- BottomNavigationView cố định ở cuối màn hình -->
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#CE4848"
-        app:itemTextColor="@color/custom_color_navigation"
-        app:itemIconTint="@color/custom_color_navigation"
-        app:menu="@menu/menu_bottom_navigation"
-        app:layout_constraintBottom_toBottomOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

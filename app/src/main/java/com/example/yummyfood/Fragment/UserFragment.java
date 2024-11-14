@@ -29,7 +29,7 @@ public class UserFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Sử dụng fragment_user.xml làm layout cho Fragment này
-        View view = inflater.inflate(R.layout.activity_profile_user, container, false);
+        View view = inflater.inflate(R.layout.activity_me_user, container, false);
 
         // Tìm BottomNavigationView trong layout
         BottomNavigationView bottomNavigationView = view.findViewById(R.id.bottom_navigation);

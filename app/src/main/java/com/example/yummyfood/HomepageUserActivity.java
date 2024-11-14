@@ -88,7 +88,7 @@ public class HomepageUserActivity extends AppCompatActivity {
                 //return true; // No fragment change here, handled by activity switch
             } else if (itemId == R.id.person_nav1) {
                 // Start profile_user Activity for User
-                startActivity(new Intent(HomepageUserActivity.this, Profile_User.class));
+                startActivity(new Intent(HomepageUserActivity.this, me_user.class));
                 //return true; // No fragment change here, handled by activity switch
             }
 
@@ -100,6 +100,8 @@ public class HomepageUserActivity extends AppCompatActivity {
 //            }
             return true;
         });
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setSelectedItemId(R.id.home_nav1);
 
 
         setupUIInteractions();

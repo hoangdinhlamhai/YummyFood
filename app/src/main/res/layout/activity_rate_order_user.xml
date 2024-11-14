@@ -73,7 +73,7 @@
                 android:id="@+id/tvShortDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Short description"
+                android:text="Món ăn ngon, nhân viên nhiệt tình "
                 android:textSize="16sp"
                 android:textColor="#F97373"
                 android:textStyle="bold"

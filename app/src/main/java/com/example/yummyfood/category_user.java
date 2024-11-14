@@ -44,7 +44,7 @@ public class category_user extends AppCompatActivity {
                 //return true; // No fragment change here, handled by activity switch
             } else if (itemId == R.id.person_nav1) {
                 // Start profile_user Activity for User
-                startActivity(new Intent(category_user.this, Profile_User.class));
+                startActivity(new Intent(category_user.this, me_user.class));
                 //return true; // No fragment change here, handled by activity switch
             }
 
