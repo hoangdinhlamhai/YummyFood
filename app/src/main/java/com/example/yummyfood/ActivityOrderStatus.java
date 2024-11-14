@@ -20,8 +20,8 @@ public class ActivityOrderStatus  extends AppCompatActivity {
         btnSeeHistoryOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Chuyển về HomepageUserActivity
-                Intent intent = new Intent(ActivityOrderStatus.this, Activity_History_Order.class);
+                // Chuyển về Trang ca nhan, xem lich su don hang
+                Intent intent = new Intent(ActivityOrderStatus.this, me_user.class);
                 startActivity(intent);
                 finish(); // Kết thúc FoodRetailActivity để không trở lại được bằng nút quay lại
             }
