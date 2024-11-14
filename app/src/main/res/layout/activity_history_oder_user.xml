@@ -205,12 +205,12 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.32"
-        app:layout_constraintStart_toEndOf="@+id/appCompatButton2"
+        app:layout_constraintStart_toEndOf="@+id/btn_return_historyorder"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.120000005" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/appCompatButton2"
+        android:id="@+id/btn_return_historyorder"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_gravity="center"
