@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,9 +27,25 @@ public class SearchUserActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Chuyển hướng về HomepageUserActivity
-                Intent intent = new Intent(SearchUserActivity.this, HomepageUserActivity.class);
+                finish();
+            }
+
+        });
+        LinearLayout item = findViewById(R.id.itemLayout);
+        item.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SearchUserActivity.this, FoodRetailActivity.class);
                 startActivity(intent);
             }
         });
-    }
+
+        ImageButton addToCart = findViewById(R.id.btn_add_to_cart);
+        addToCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SearchUserActivity.this, CartActivity.class);
+                startActivity(intent);
+            }
+        });    }
 }

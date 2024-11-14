@@ -27,8 +27,7 @@ public class user_policy extends AppCompatActivity {
         btnb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(user_policy.this, detail_table.class);
-                startActivity(intent);
+                finish();
             }
         });
     }

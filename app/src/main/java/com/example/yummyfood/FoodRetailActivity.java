@@ -11,7 +11,7 @@ public class FoodRetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_food_retail_user);
+        setContentView(R.layout.activity_food_detail_user);
         // Xử lý giao diện cho FoodRetailActivity ở đây
         // Khởi tạo nút btn_return_retailfood
         Button btnReturnRetailFood = findViewById(R.id.btn_return_retailfood);
