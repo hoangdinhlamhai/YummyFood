@@ -17,18 +17,18 @@ public class ViewPageAdapter extends FragmentStateAdapter {
             case 0:
                 return new HomeFragment();
             case 1:
-                return new MenuFragment();
+                return new CartFragment();
             case 2:
+                return new MenuFragment();
+            case 3:
                 return new UserFragment();
             default:
                 return new HomeFragment();
         }
-
     }
 
-//    return so luong icon
     @Override
     public int getItemCount() {
-        return 3;
+        return 4;
     }
 }

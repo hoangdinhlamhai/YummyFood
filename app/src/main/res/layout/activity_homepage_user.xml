@@ -219,6 +219,8 @@
 
                 <!-- Món 1 -->
                 <LinearLayout
+
+                    android:id="@+id/mon1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#E2C0C0"
@@ -274,6 +276,8 @@
 
                 <!-- Món 2 -->
                 <LinearLayout
+
+                    android:id="@+id/mon2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -326,6 +330,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/mon3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="#AD9C9C"
@@ -377,6 +382,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/mon4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -429,8 +435,9 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/mon5"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:backgroundTint="#AD9C9C"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"

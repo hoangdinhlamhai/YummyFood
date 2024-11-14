@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -86,7 +87,13 @@ public class HomepageUserActivity extends AppCompatActivity {
                 // Start category_user Activity for Menu
                 startActivity(new Intent(HomepageUserActivity.this, category_user.class));
                 //return true; // No fragment change here, handled by activity switch
-            } else if (itemId == R.id.person_nav1) {
+
+            }
+            else if (itemId == R.id.cart_nav1) {
+                // Start category_user Activity for Menu
+                startActivity(new Intent(HomepageUserActivity.this, CartActivity.class));
+                //return true; // No fragment change here, handled by activity switch}
+            }else if (itemId == R.id.person_nav1) {
                 // Start profile_user Activity for User
                 startActivity(new Intent(HomepageUserActivity.this, me_user.class));
                 //return true; // No fragment change here, handled by activity switch
@@ -117,7 +124,46 @@ public class HomepageUserActivity extends AppCompatActivity {
         TextView flashSaleTextView = findViewById(R.id.textView20);
         flashSaleTextView.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, flashsale_user.class)));
 
+        // thêm de thay cham gk
+        TextView flashSaleTextView2 = findViewById(R.id.textView19);
+        flashSaleTextView2.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, flashsale_user.class)));
 
+        TextView flashSaleTextView3 = findViewById(R.id.textView21);
+        flashSaleTextView3.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, flashsale_user.class)));
+
+        TextView flashSaleTextView4 = findViewById(R.id.textView22);
+        flashSaleTextView4.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, flashsale_user.class)));
+
+        ImageView imageView6 = findViewById(R.id.imageView6);
+        imageView6.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, flashsale_user.class)));
+
+
+        ImageView imageView7 = findViewById(R.id.imageView7);
+        imageView7.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, flashsale_user.class)));
+
+        ImageView imageView8 = findViewById(R.id.imageView8);
+        imageView8.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, flashsale_user.class)));
+
+        ImageView imageView9 = findViewById(R.id.imageView9);
+        imageView9.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, flashsale_user.class)));
+
+        LinearLayout mon2 = findViewById(R.id.mon2);
+        mon2.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, FoodRetailActivity.class)));
+
+        LinearLayout mon3 = findViewById(R.id.mon3);
+        mon3.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, FoodRetailActivity.class)));
+
+        LinearLayout mon4 = findViewById(R.id.mon4);
+        mon4.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, FoodRetailActivity.class)));
+
+        LinearLayout mon5 = findViewById(R.id.mon5);
+        mon5.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, FoodRetailActivity.class)));
+
+
+
+
+
+        //them den day
         ImageView notificationIcon = findViewById(R.id.btntb);
         notificationIcon.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, notification_user.class)));
 

@@ -5,42 +5,69 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btn_paying3"
-        android:layout_width="367dp"
-        android:layout_height="52dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="40dp"
-        android:backgroundTint="@android:color/holo_red_light"
-        android:text="Thanh toán"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
+    <!-- Nút quay lại -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_return_cart"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/btn_back"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="677dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Tiêu đề Giỏ hàng -->
+    <TextView
+        android:id="@+id/title_cart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:layout_marginStart="16dp"
+        android:text="Giỏ hàng"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        android:textColor="@color/light_red"
+        app:layout_constraintStart_toEndOf="@id/btn_return_cart"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Biểu tượng thùng rác (Xóa tất cả) -->
+    <ImageButton
+        android:id="@+id/btn_delete_all"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="16dp"
+        android:scaleType="centerInside"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/thungrac1"
+        app:tint="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Danh sách món ăn -->
     <LinearLayout
         android:id="@+id/popularFoodList"
-        android:layout_width="379dp"
-        android:layout_height="260dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintDimensionRatio="w,1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_cash2">
+        app:layout_constraintTop_toBottomOf="@id/title_cart">
 
         <!-- Món 1 -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:backgroundTint="#AD9C9C"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:padding="8dp">
+
+            <CheckBox
+                android:id="@+id/checkbox1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
             <ImageView
                 android:id="@+id/foodImage1"
@@ -51,7 +78,7 @@
                 android:src="@drawable/garan" />
 
             <LinearLayout
-                android:layout_width="222dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
@@ -73,14 +100,13 @@
                     android:text="79.000đ"
                     android:textColor="#D02828"
                     android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/idSL1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="SL: 1" />
-
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/idSL1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SL: 1" />
 
             <ImageView
                 android:id="@+id/imageView15"
@@ -92,9 +118,7 @@
                 android:id="@+id/imageView20"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 app:srcCompat="@drawable/minus_black_circle" />
-
         </LinearLayout>
 
         <!-- Món 2 -->
@@ -102,13 +126,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
             android:backgroundTint="#D3C4C4"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:padding="8dp">
 
+            <CheckBox
+                android:id="@+id/checkbox2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
             <ImageView
-                android:id="@+id/foodImage2_1"
+                android:id="@+id/foodImage2"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_marginEnd="8dp"
@@ -116,14 +146,14 @@
                 android:src="@drawable/milktea" />
 
             <LinearLayout
-                android:layout_width="222dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/foodName2_1"
+                    android:id="@+id/foodName2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Trà sữa - MayCha"
@@ -138,13 +168,13 @@
                     android:text="29.000đ"
                     android:textColor="#D02828"
                     android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/idSL2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="SL: 1" />
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/idSL2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SL: 1" />
 
             <ImageView
                 android:id="@+id/imageView18"
@@ -157,16 +187,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/minus_black_circle" />
-
         </LinearLayout>
 
+        <!-- Món 3 -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:backgroundTint="#AD9C9C"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:padding="8dp">
+
+            <CheckBox
+                android:id="@+id/checkbox3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
             <ImageView
                 android:id="@+id/foodImage3"
@@ -177,7 +213,7 @@
                 android:src="@drawable/garan" />
 
             <LinearLayout
-                android:layout_width="222dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
@@ -199,13 +235,13 @@
                     android:text="79.000đ"
                     android:textColor="#D02828"
                     android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/idSL3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="SL: 1" />
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/idSL3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SL: 1" />
 
             <ImageView
                 android:id="@+id/imageView19"
@@ -218,91 +254,35 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/minus_black_circle" />
-
         </LinearLayout>
-
-
     </LinearLayout>
 
+    <!-- Nút Đặt hàng -->
     <Button
-        android:id="@+id/btn_cash2"
-        android:layout_width="164dp"
-        android:layout_height="43dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="7dp"
-        android:backgroundTint="@color/white"
-        android:text="Xóa tất cả"
-        android:textColor="@color/black"
+        android:id="@+id/btn_paying3"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:backgroundTint="@android:color/holo_red_light"
+        android:text="Đặt hàng"
+        android:textColor="@android:color/white"
         android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.878"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- BottomNavigationView nằm cố định ở cuối màn hình -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#CE4848"
+        app:itemTextColor="@color/custom_color_navigation"
+        app:itemIconTint="@color/custom_color_navigation"
+        app:menu="@menu/menu_bottom_navigation"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title7" />
-
-    <TextView
-        android:id="@+id/title7"
-        android:layout_width="214dp"
-        android:layout_height="61dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="96dp"
-        android:paddingBottom="16dp"
-        android:text="Giỏ hàng"
-        android:textAlignment="center"
-        android:textColor="@color/light_red"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.32"
-        app:layout_constraintStart_toEndOf="@+id/appCompatButton2"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_return_cart"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="352dp"
-        android:background="@drawable/btn_back"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="240dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginEnd="151dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/btn_paying3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <TextView
-            android:id="@+id/textView32"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tổng:"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/textView33"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="3 món"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/textView34"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="187.000 vnđ"
-            android:textSize="24sp" />
-    </LinearLayout>
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
