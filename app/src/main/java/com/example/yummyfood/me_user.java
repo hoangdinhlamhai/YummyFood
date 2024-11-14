@@ -81,5 +81,32 @@ public class me_user extends AppCompatActivity {
                 startActivity(new Intent(me_user.this, Profile_User.class));
             }
         });
+
+        // Thêm sự kiện khi nhấn vào magiamgia
+        LinearLayout magiamgia = findViewById(R.id.magiamgia);
+        magiamgia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(me_user.this, voucher_user.class));
+            }
+        });
+
+        // Thêm sự kiện khi nhấn vào khuyenmai
+        LinearLayout khuyenmai = findViewById(R.id.khuyenmai);
+        khuyenmai.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(me_user.this, flashsale_user.class));
+            }
+        });
+
+        // Thêm sự kiện khi nhấn vào voucher
+        LinearLayout voucher = findViewById(R.id.voucher);
+        voucher.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(me_user.this, flashsale_user.class));
+            }
+        });
     }
 }

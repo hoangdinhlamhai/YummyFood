@@ -211,72 +211,75 @@
                 android:paddingBottom="16dp">
 
                 <LinearLayout
+                    android:id="@+id/khuyenmai"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:layout_margin="8dp"
                     android:layout_columnWeight="1"
-                    android:layout_gravity="fill_horizontal">
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_margin="8dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <ImageView
                         android:layout_width="48dp"
                         android:layout_height="48dp"
-                        android:src="@drawable/khuyenmai1"
-                        android:contentDescription="Khuyến mãi" />
+                        android:contentDescription="Khuyến mãi"
+                        android:src="@drawable/khuyenmai1" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:text="Khuyến mãi"
-                        android:textColor="#000000"
-                        android:gravity="center" />
+                        android:textColor="#000000" />
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/magiamgia"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:layout_margin="8dp"
                     android:layout_columnWeight="1"
-                    android:layout_gravity="fill_horizontal">
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_margin="8dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <ImageView
                         android:layout_width="48dp"
                         android:layout_height="48dp"
-                        android:src="@drawable/magiamgia1"
-                        android:contentDescription="Mã giảm giá" />
+                        android:contentDescription="Mã giảm giá"
+                        android:src="@drawable/magiamgia1" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:text="Mã giảm giá"
-                        android:textColor="#000000"
-                        android:gravity="center" />
+                        android:textColor="#000000" />
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/voucher"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:layout_margin="8dp"
                     android:layout_columnWeight="1"
-                    android:layout_gravity="fill_horizontal">
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_margin="8dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <ImageView
                         android:layout_width="48dp"
                         android:layout_height="48dp"
-                        android:src="@drawable/voucher1"
-                        android:contentDescription="Voucher" />
+                        android:contentDescription="Voucher"
+                        android:src="@drawable/voucher1" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:text="Voucher"
-                        android:textColor="#000000"
-                        android:gravity="center" />
+                        android:textColor="#000000" />
                 </LinearLayout>
             </GridLayout>
         </LinearLayout>
