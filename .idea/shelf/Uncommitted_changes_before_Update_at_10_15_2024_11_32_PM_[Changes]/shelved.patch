@@ -113,29 +113,7 @@ diff --git a/app/src/main/java/com/example/yummyfood/ActivityPaymentUser.java b/
 +
      }
  }
-Index: .idea/deploymentTargetSelector.xml
-IDEA additional info:
-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"deploymentTargetSelector\">\r\n    <selectionStates>\r\n      <SelectionState runConfigName=\"app\">\r\n        <option name=\"selectionMode\" value=\"DROPDOWN\" />\r\n        <DropdownSelection timestamp=\"2024-10-15T14:38:09.938727800Z\">\r\n          <Target type=\"DEFAULT_BOOT\">\r\n            <handle>\r\n              <DeviceId pluginId=\"PhysicalDevice\" identifier=\"serial=ae4d080\" />\r\n            </handle>\r\n          </Target>\r\n        </DropdownSelection>\r\n        <DialogSelection />\r\n      </SelectionState>\r\n    </selectionStates>\r\n  </component>\r\n</project>
-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
-<+>UTF-8
-===================================================================
-diff --git a/.idea/deploymentTargetSelector.xml b/.idea/deploymentTargetSelector.xml
---- a/.idea/deploymentTargetSelector.xml	
-+++ b/.idea/deploymentTargetSelector.xml	
-@@ -4,7 +4,7 @@
-     <selectionStates>
-       <SelectionState runConfigName="app">
-         <option name="selectionMode" value="DROPDOWN" />
--        <DropdownSelection timestamp="2024-10-15T14:38:09.938727800Z">
-+        <DropdownSelection timestamp="2024-10-15T16:21:48.710277100Z">
-           <Target type="DEFAULT_BOOT">
-             <handle>
-               <DeviceId pluginId="PhysicalDevice" identifier="serial=ae4d080" />
 Index: app/src/main/java/com/example/yummyfood/activity_order_status.java
-IDEA additional info:
-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
-<+>UTF-8
 ===================================================================
 diff --git a/app/src/main/java/com/example/yummyfood/activity_order_status.java b/app/src/main/java/com/example/yummyfood/activity_order_status.java
 new file mode 100644
@@ -185,9 +163,6 @@ new file mode 100644
 +    }
 \ No newline at end of file
 Index: app/src/main/java/com/example/yummyfood/activity_history_oder_user.java
-IDEA additional info:
-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
-<+>UTF-8
 ===================================================================
 diff --git a/app/src/main/java/com/example/yummyfood/activity_history_oder_user.java b/app/src/main/java/com/example/yummyfood/activity_history_oder_user.java
 new file mode 100644
