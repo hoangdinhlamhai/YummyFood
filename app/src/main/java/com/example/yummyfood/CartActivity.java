@@ -17,19 +17,6 @@ public class CartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
 
-        Button btnReturnCart = findViewById(R.id.btn_return_cart);
-
-
-        btnReturnCart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                // Chuyển về HomepageUserActivity
-//                Intent intent = new Intent(CartActivity.this, HomepageUserActivity.class);
-//                startActivity(intent);
-                finish();
-            }
-        });
-
         // Khởi tạo BottomNavigationView
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
 
