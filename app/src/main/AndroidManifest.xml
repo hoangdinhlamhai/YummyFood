@@ -12,6 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.YummyFood"
         tools:targetApi="31">
+        <activity android:name=".Activity_Review_User" />
+        <activity android:name=".Rate_Order_User" />
         <activity
             android:name=".DanhSachThanhVien"
             android:exported="false" />
@@ -55,9 +57,7 @@
         <activity
             android:name=".booktable_usser"
             android:exported="false" />
-        <activity
-            android:name=".Rate_Order_User"
-            android:exported="false" />
+
         <activity
             android:name=".edit_address"
             android:exported="false" /> <!-- Dung xoa may the activity neu khong loi -->
@@ -109,6 +109,8 @@
         <activity
             android:name=".Profile_User"
             android:exported="false" />
+
+
     </application>
 
 </manifest>

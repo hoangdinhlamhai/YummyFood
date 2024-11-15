@@ -93,21 +93,5 @@
     </androidx.cardview.widget.CardView>
 
     <!-- Nút Gửi -->
-    <Button
-        android:id="@+id/btnSend"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Gửi"
-        android:textColor="#FFFFFF"
-        android:backgroundTint="#F97373"
-        android:layout_marginTop="24dp"
-        android:paddingStart="32dp"
-        android:paddingEnd="32dp"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
-        android:layout_gravity="center_horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/cardRating"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

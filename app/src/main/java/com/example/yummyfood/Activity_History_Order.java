@@ -20,11 +20,27 @@ public class Activity_History_Order extends AppCompatActivity {
         btnReturnHistoryOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Chuyển về HomepageUserActivity
-//                Intent intent = new Intent(Activity_History_Order.this, ActivityOrderStatus.class);
-//                startActivity(intent);
-                finish(); // Kết thúc FoodRetailActivity để không trở lại được bằng nút quay lại
+
+                finish();
             }
         });
+        Button btnDanhGia = findViewById(R.id.danhgia);
+        btnDanhGia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Activity_History_Order.this, Activity_Review_User.class);
+                startActivity(intent);
+            }
+        });
+        Button btnxemDanhGia = findViewById(R.id.xemdanhgia);
+        btnxemDanhGia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Activity_History_Order.this, Rate_Order_User.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }
