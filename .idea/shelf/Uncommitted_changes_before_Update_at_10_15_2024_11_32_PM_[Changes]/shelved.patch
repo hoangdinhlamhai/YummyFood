@@ -1,0 +1,221 @@
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\">\r\n\r\n    <application\r\n        android:allowBackup=\"true\"\r\n        android:dataExtractionRules=\"@xml/data_extraction_rules\"\r\n        android:fullBackupContent=\"@xml/backup_rules\"\r\n        android:icon=\"@mipmap/ic_launcher\"\r\n        android:label=\"@string/app_name\"\r\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\r\n        android:supportsRtl=\"true\"\r\n        android:theme=\"@style/Theme.YummyFood\"\r\n        tools:targetApi=\"31\">\r\n        <activity\r\n            android:name=\".edit_address\"\r\n            android:exported=\"false\" />\r\n        <!-- Dung xoa may the activity neu khong loi -->\r\n        <activity android:name=\".admin.HomePage_Admin\" />\r\n        <activity android:name=\".admin.Add_User\" />\r\n        <activity android:name=\".admin.List_User\" />\r\n        <activity android:name=\".admin.Edit_User\" />\r\n        <activity android:name=\".admin.Add_Food\" /> <!-- <activity android:name=\"\" /> -->\r\n        <activity android:name=\".admin.Edit_Food\" />\r\n        <activity android:name=\".admin.List_Confirm_Order\" />\r\n        <activity android:name=\".admin.Profile_Admin\" />\r\n        <activity android:name=\".admin.Dialog_Confirm_Logout_Admin\" />\r\n        <activity android:name=\".admin.Confirm_Order_Details\" />\r\n        <activity android:name=\".FoodRetailActivity\" />\r\n        <activity android:name=\".ActivityPaymentUser\" />\r\n        <activity android:name=\".CartActivity\" />\r\n        <activity android:name=\".ActivityOrderStatus\" />\r\n        <activity\r\n            android:name=\".activity_dialog_create_account\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".user_dialog_create\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".activity_register_user\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".Login_userActivity\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n        <activity\r\n            android:name=\".HomepageUserActivity\"\r\n            android:exported=\"true\" />\r\n        <activity\r\n            android:name=\".SearchUserActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".flashsale_user\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".information_user\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".category_user\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".Profile_User\"\r\n            android:exported=\"false\" />\r\n\r\n        <activity\r\n            android:name=\".edit_address\"\r\n            android:exported=\"false\" />\r\n\r\n    </application>\r\n\r\n</manifest>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+--- a/app/src/main/AndroidManifest.xml	
++++ b/app/src/main/AndroidManifest.xml	
+@@ -13,9 +13,14 @@
+         android:theme="@style/Theme.YummyFood"
+         tools:targetApi="31">
+         <activity
++            android:name=".activity_history_oder_user"
++            android:exported="false" />
++        <activity
++            android:name=".activity_order_status"
++            android:exported="false" />
++        <activity
+             android:name=".edit_address"
+-            android:exported="false" />
+-        <!-- Dung xoa may the activity neu khong loi -->
++            android:exported="false" /> <!-- Dung xoa may the activity neu khong loi -->
+         <activity android:name=".admin.HomePage_Admin" />
+         <activity android:name=".admin.Add_User" />
+         <activity android:name=".admin.List_User" />
+@@ -66,11 +71,19 @@
+         <activity
+             android:name=".Profile_User"
+             android:exported="false" />
+-
+         <activity
+             android:name=".edit_address"
+             android:exported="false" />
++        <activity
++            android:name=".activity_order_status"
++            android:exported="false" />
++        <activity
++            android:name=".activity_history_oder_user"
++            android:exported="false" />
++
++
++
+ 
+     </application>
+ 
+-</manifest>
++</manifest>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_payment_user.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<ScrollView\r\n    xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:fillViewport=\"true\"\r\n    android:background=\"#F2F1F1\">\r\n\r\n    <androidx.constraintlayout.widget.ConstraintLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        tools:context=\".ActivityPaymentUser\">\r\n\r\n        <Button\r\n            android:id=\"@+id/btn_return_payment\"\r\n            android:layout_width=\"32dp\"\r\n            android:layout_height=\"32dp\"\r\n            android:layout_gravity=\"center\"\r\n            android:layout_marginStart=\"27dp\"\r\n\r\n            android:layout_marginEnd=\"352dp\"\r\n            android:background=\"@drawable/btn_back\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"\r\n            app:layout_constraintHorizontal_bias=\"0.0\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toTopOf=\"parent\" />\r\n\r\n        <LinearLayout\r\n\r\n\r\n            android:id=\"@+id/popularFoodList\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_marginTop=\"10dp\"\r\n            android:orientation=\"vertical\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toBottomOf=\"@+id/linearLayout3\">\r\n\r\n\r\n            <!-- Món 1 -->\r\n            <LinearLayout\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:backgroundTint=\"#AD9C9C\"\r\n                android:gravity=\"center_vertical\"\r\n                android:orientation=\"horizontal\"\r\n                android:padding=\"8dp\">\r\n\r\n                <ImageView\r\n                    android:id=\"@+id/foodImage1\"\r\n                    android:layout_width=\"60dp\"\r\n                    android:layout_height=\"54dp\"\r\n                    android:layout_marginEnd=\"8dp\"\r\n                    android:contentDescription=\"Food Image\"\r\n                    android:src=\"@drawable/garan\" />\r\n\r\n                <LinearLayout\r\n                    android:layout_width=\"wrap_content\"\r\n                    android:layout_height=\"wrap_content\"\r\n                    android:gravity=\"center_vertical\"\r\n                    android:orientation=\"vertical\">\r\n\r\n                    <TextView\r\n                        android:id=\"@+id/foodName1\"\r\n                        android:layout_width=\"wrap_content\"\r\n                        android:layout_height=\"wrap_content\"\r\n                        android:text=\"Gà rán - Jollibee\"\r\n                        android:textSize=\"16sp\"\r\n                        android:textStyle=\"bold\" />\r\n\r\n                    <TextView\r\n                        android:id=\"@+id/foodPrice1\"\r\n                        android:layout_width=\"wrap_content\"\r\n                        android:layout_height=\"wrap_content\"\r\n                        android:layout_marginTop=\"4dp\"\r\n                        android:text=\"79.000đ\"\r\n                        android:textColor=\"#D02828\"\r\n                        android:textSize=\"16sp\" />\r\n\r\n                    <TextView\r\n                        android:id=\"@+id/idSL1\"\r\n                        android:layout_width=\"match_parent\"\r\n                        android:layout_height=\"wrap_content\"\r\n                        android:text=\"SL: 1\" />\r\n\r\n                </LinearLayout>\r\n\r\n            </LinearLayout>\r\n\r\n            <!-- Món 2 -->\r\n            <LinearLayout\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:layout_marginTop=\"8dp\"\r\n                android:backgroundTint=\"#D3C4C4\"\r\n                android:gravity=\"center_vertical\"\r\n                android:orientation=\"horizontal\"\r\n                android:padding=\"8dp\">\r\n\r\n                <ImageView\r\n                    android:id=\"@+id/foodImage2_1\"\r\n                    android:layout_width=\"60dp\"\r\n                    android:layout_height=\"60dp\"\r\n                    android:layout_marginEnd=\"8dp\"\r\n                    android:contentDescription=\"Food Image\"\r\n                    android:src=\"@drawable/milktea\" />\r\n\r\n                <LinearLayout\r\n                    android:layout_width=\"wrap_content\"\r\n                    android:layout_height=\"wrap_content\"\r\n                    android:gravity=\"center_vertical\"\r\n                    android:orientation=\"vertical\">\r\n\r\n                    <TextView\r\n                        android:id=\"@+id/foodName2_1\"\r\n                        android:layout_width=\"wrap_content\"\r\n                        android:layout_height=\"wrap_content\"\r\n                        android:text=\"Trà sữa - MayCha\"\r\n                        android:textSize=\"16sp\"\r\n                        android:textStyle=\"bold\" />\r\n\r\n                    <TextView\r\n                        android:id=\"@+id/foodPrice2\"\r\n                        android:layout_width=\"wrap_content\"\r\n                        android:layout_height=\"wrap_content\"\r\n                        android:layout_marginTop=\"4dp\"\r\n                        android:text=\"29.000đ\"\r\n                        android:textColor=\"#D02828\"\r\n                        android:textSize=\"16sp\" />\r\n\r\n                    <TextView\r\n                        android:id=\"@+id/idSL2\"\r\n                        android:layout_width=\"match_parent\"\r\n                        android:layout_height=\"wrap_content\"\r\n                        android:text=\"SL: 1\" />\r\n                </LinearLayout>\r\n\r\n            </LinearLayout>\r\n\r\n            <!-- Món 3 -->\r\n            <LinearLayout\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:backgroundTint=\"#AD9C9C\"\r\n                android:gravity=\"center_vertical\"\r\n                android:orientation=\"horizontal\"\r\n                android:padding=\"8dp\">\r\n\r\n                <ImageView\r\n                    android:id=\"@+id/foodImage3\"\r\n                    android:layout_width=\"60dp\"\r\n                    android:layout_height=\"60dp\"\r\n                    android:layout_marginEnd=\"8dp\"\r\n                    android:contentDescription=\"Food Image\"\r\n                    android:src=\"@drawable/garan\" />\r\n\r\n                <LinearLayout\r\n                    android:layout_width=\"wrap_content\"\r\n                    android:layout_height=\"wrap_content\"\r\n                    android:gravity=\"center_vertical\"\r\n                    android:orientation=\"vertical\">\r\n\r\n                    <TextView\r\n                        android:id=\"@+id/foodName3\"\r\n                        android:layout_width=\"wrap_content\"\r\n                        android:layout_height=\"wrap_content\"\r\n                        android:text=\"Gà rán - Jollibee\"\r\n                        android:textSize=\"16sp\"\r\n                        android:textStyle=\"bold\" />\r\n\r\n                    <TextView\r\n                        android:id=\"@+id/foodPrice3\"\r\n                        android:layout_width=\"wrap_content\"\r\n                        android:layout_height=\"wrap_content\"\r\n                        android:layout_marginTop=\"4dp\"\r\n                        android:text=\"79.000đ\"\r\n                        android:textColor=\"#D02828\"\r\n                        android:textSize=\"16sp\" />\r\n\r\n                    <TextView\r\n                        android:id=\"@+id/idSL3\"\r\n                        android:layout_width=\"match_parent\"\r\n                        android:layout_height=\"wrap_content\"\r\n                        android:text=\"SL: 1\" />\r\n                </LinearLayout>\r\n\r\n            </LinearLayout>\r\n\r\n        </LinearLayout>\r\n\r\n        <LinearLayout\r\n            android:id=\"@+id/linearLayout3\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_margin=\"8dp\"\r\n            android:background=\"#FDFDFD\"\r\n            android:orientation=\"vertical\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toBottomOf=\"@+id/title6\">\r\n\r\n            <TextView\r\n                android:id=\"@+id/textView13\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:text=\"Địa chỉ:\"\r\n                android:textStyle=\"bold\" />\r\n\r\n            <TextView\r\n                android:id=\"@+id/textView14\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:text=\"Nguyễn Văn An\"\r\n                android:textStyle=\"bold\" />\r\n\r\n            <TextView\r\n                android:id=\"@+id/textView18\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:text=\"0376267552\"\r\n                android:textStyle=\"bold\" />\r\n\r\n            <TextView\r\n                android:id=\"@+id/textView23\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:text=\"48 Cao Thắng, Thanh Bình, Hải Châu, Đà Nẵng\"\r\n                android:textStyle=\"bold\" />\r\n\r\n            <TextView\r\n                android:id=\"@+id/textView12\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:text=\"Sửa\"\r\n                android:layout_marginTop=\"5dp\"\r\n                android:textSize=\"15dp\"\r\n                android:textAlignment=\"textEnd\" />\r\n\r\n        </LinearLayout>\r\n\r\n        <TextView\r\n            android:id=\"@+id/title6\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\"Thanh toán\"\r\n            android:textColor=\"@color/light_red\"\r\n            android:textSize=\"34sp\"\r\n            android:textStyle=\"bold\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toTopOf=\"parent\" />\r\n\r\n        <LinearLayout\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_marginTop=\"16dp\"\r\n            android:orientation=\"horizontal\"\r\n            app:layout_constraintTop_toBottomOf=\"@+id/popularFoodList\"\r\n            android:padding=\"8dp\">\r\n\r\n            <LinearLayout\r\n                android:layout_width=\"0dp\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:layout_weight=\"1\"\r\n                android:orientation=\"vertical\">\r\n\r\n                <TextView\r\n                    android:id=\"@+id/textView35\"\r\n                    android:layout_width=\"wrap_content\"\r\n                    android:layout_height=\"wrap_content\"\r\n                    android:text=\"Tổng:\" />\r\n\r\n                <TextView\r\n                    android:id=\"@+id/textView36\"\r\n                    android:layout_width=\"wrap_content\"\r\n                    android:layout_height=\"wrap_content\"\r\n                    android:text=\"3 món\" />\r\n\r\n                <TextView\r\n                    android:id=\"@+id/textView37\"\r\n                    android:layout_width=\"wrap_content\"\r\n                    android:layout_height=\"wrap_content\"\r\n                    android:text=\"Phí giao hàng\" />\r\n\r\n                <TextView\r\n                    android:id=\"@+id/textView38\"\r\n                    android:layout_width=\"wrap_content\"\r\n                    android:layout_height=\"wrap_content\"\r\n                    android:text=\"Tổng cộng\" />\r\n            </LinearLayout>\r\n\r\n            <LinearLayout\r\n                android:layout_width=\"0dp\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:layout_weight=\"1\"\r\n                android:orientation=\"vertical\">\r\n\r\n                <TextView\r\n                    android:id=\"@+id/textView39\"\r\n                    android:layout_width=\"wrap_content\"\r\n                    android:layout_height=\"wrap_content\"\r\n                    android:text=\"187.000 vnđ\"\r\n                    android:textAlignment=\"textEnd\" />\r\n\r\n                <TextView\r\n                    android:id=\"@+id/textView41\"\r\n                    android:layout_width=\"wrap_content\"\r\n                    android:layout_height=\"wrap_content\"\r\n                    android:text=\"0 vnđ\"\r\n                    android:textAlignment=\"textEnd\" />\r\n\r\n                <TextView\r\n                    android:id=\"@+id/textView42\"\r\n                    android:layout_width=\"wrap_content\"\r\n                    android:layout_height=\"wrap_content\"\r\n                    android:text=\"187.000 vnđ\"\r\n                    android:textAlignment=\"textEnd\" />\r\n            </LinearLayout>\r\n        </LinearLayout>\r\n\r\n        <Button\r\n            android:id=\"@+id/btn_credit\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_marginTop=\"16dp\"\r\n            android:layout_marginEnd=\"8dp\"\r\n            android:layout_marginStart=\"16dp\"\r\n            android:backgroundTint=\"@android:color/holo_red_light\"\r\n            android:text=\"Chuyển khoản\"\r\n            android:textColor=\"@android:color/white\"\r\n            android:textSize=\"16sp\"\r\n            app:layout_constraintBottom_toTopOf=\"@+id/btn_paying\"\r\n            app:layout_constraintEnd_toStartOf=\"@+id/btn_cash\"\r\n            app:layout_constraintStart_toStartOf=\"parent\" />\r\n\r\n        <Button\r\n            android:id=\"@+id/btn_cash\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_marginTop=\"16dp\"\r\n            android:layout_marginStart=\"8dp\"\r\n            android:backgroundTint=\"@android:color/holo_red_light\"\r\n            android:text=\"Tiền mặt\"\r\n            android:textColor=\"@android:color/white\"\r\n            android:textSize=\"16sp\"\r\n            app:layout_constraintBottom_toTopOf=\"@+id/btn_paying\"\r\n            app:layout_constraintStart_toEndOf=\"@+id/btn_credit\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\" />\r\n\r\n        <Button\r\n            android:id=\"@+id/btn_paying_payment\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_marginEnd=\"16dp\"\r\n            android:layout_marginBottom=\"32dp\"\r\n            android:backgroundTint=\"@android:color/holo_red_light\"\r\n            android:text=\"Thanh toán\"\r\n            android:textColor=\"@android:color/white\"\r\n            android:textSize=\"18sp\"\r\n            app:layout_constraintBottom_toBottomOf=\"parent\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"\r\n            app:layout_constraintStart_toStartOf=\"parent\" />\r\n\r\n    </androidx.constraintlayout.widget.ConstraintLayout>\r\n\r\n</ScrollView>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_payment_user.xml b/app/src/main/res/layout/activity_payment_user.xml
+--- a/app/src/main/res/layout/activity_payment_user.xml	
++++ b/app/src/main/res/layout/activity_payment_user.xml	
+@@ -325,14 +325,13 @@
+             android:id="@+id/btn_credit"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+-            android:layout_marginTop="16dp"
+-            android:layout_marginEnd="8dp"
+             android:layout_marginStart="16dp"
++            android:layout_marginEnd="8dp"
+             android:backgroundTint="@android:color/holo_red_light"
+             android:text="Chuyển khoản"
+             android:textColor="@android:color/white"
+             android:textSize="16sp"
+-            app:layout_constraintBottom_toTopOf="@+id/btn_paying"
++            app:layout_constraintBottom_toTopOf="@+id/btn_paying_payment"
+             app:layout_constraintEnd_toStartOf="@+id/btn_cash"
+             app:layout_constraintStart_toStartOf="parent" />
+ 
+@@ -340,15 +339,14 @@
+             android:id="@+id/btn_cash"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+-            android:layout_marginTop="16dp"
+-            android:layout_marginStart="8dp"
++            android:layout_marginStart="64dp"
+             android:backgroundTint="@android:color/holo_red_light"
+             android:text="Tiền mặt"
+             android:textColor="@android:color/white"
+             android:textSize="16sp"
+-            app:layout_constraintBottom_toTopOf="@+id/btn_paying"
+-            app:layout_constraintStart_toEndOf="@+id/btn_credit"
+-            app:layout_constraintEnd_toEndOf="parent" />
++            app:layout_constraintBottom_toTopOf="@+id/btn_paying_payment"
++            app:layout_constraintEnd_toEndOf="parent"
++            app:layout_constraintStart_toEndOf="@+id/btn_credit" />
+ 
+         <Button
+             android:id="@+id/btn_paying_payment"
+Index: app/src/main/java/com/example/yummyfood/ActivityPaymentUser.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.yummyfood;\r\n\r\nimport android.content.Intent;\r\nimport android.os.Bundle;\r\nimport android.view.View;\r\nimport android.widget.Button;\r\nimport android.widget.TextView;\r\n\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\npublic class ActivityPaymentUser extends AppCompatActivity {\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_payment_user);\r\n        // Đảm bảo layout của bạn được thiết lập\r\n\r\n\r\n        // Khởi tạo nút btn_return_retailfood\r\n        Button btnReturnRetailFood = findViewById(R.id.btn_return_payment);\r\n\r\n        // Thiết lập sự kiện nhấn nút\r\n        btnReturnRetailFood.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n                // Chuyển về HomepageUserActivity\r\n                Intent intent = new Intent(ActivityPaymentUser.this, FoodRetailActivity.class);\r\n                startActivity(intent);\r\n                finish(); // Kết thúc FoodRetailActivity để không trở lại được bằng nút quay lại\r\n            }\r\n        });\r\n        TextView txt1 = findViewById(R.id.textView12);\r\n\r\n// Thiết lập sự kiện nhấn vào TextView\r\n        txt1.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n                // Chuyển sang edit_address khi TextView được nhấn\r\n                Intent intent = new Intent(ActivityPaymentUser.this, edit_address.class);\r\n                startActivity(intent);\r\n                finish(); // Kết thúc ActivityPaymentUser để không quay lại bằng nút back\r\n            }\r\n        });\r\n        // Khởi tạo nút btn_paying_payment\r\n        Button btnPayingPayment = findViewById(R.id.btn_paying_payment);\r\n\r\n        // Thiết lập sự kiện nhấn nút thanh toán\r\n        btnPayingPayment.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n                // Chuyển đến ActivityOrderStatus\r\n                Intent intent = new Intent(ActivityPaymentUser.this, ActivityOrderStatus.class);\r\n                startActivity(intent);\r\n                finish(); // Kết thúc ActivityPaymentUser để không quay lại bằng nút back\r\n            }\r\n        });\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/yummyfood/ActivityPaymentUser.java b/app/src/main/java/com/example/yummyfood/ActivityPaymentUser.java
+--- a/app/src/main/java/com/example/yummyfood/ActivityPaymentUser.java	
++++ b/app/src/main/java/com/example/yummyfood/ActivityPaymentUser.java	
+@@ -56,5 +56,7 @@
+             }
+         });
+ 
++
++
+     }
+ }
+Index: .idea/deploymentTargetSelector.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"deploymentTargetSelector\">\r\n    <selectionStates>\r\n      <SelectionState runConfigName=\"app\">\r\n        <option name=\"selectionMode\" value=\"DROPDOWN\" />\r\n        <DropdownSelection timestamp=\"2024-10-15T14:38:09.938727800Z\">\r\n          <Target type=\"DEFAULT_BOOT\">\r\n            <handle>\r\n              <DeviceId pluginId=\"PhysicalDevice\" identifier=\"serial=ae4d080\" />\r\n            </handle>\r\n          </Target>\r\n        </DropdownSelection>\r\n        <DialogSelection />\r\n      </SelectionState>\r\n    </selectionStates>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/deploymentTargetSelector.xml b/.idea/deploymentTargetSelector.xml
+--- a/.idea/deploymentTargetSelector.xml	
++++ b/.idea/deploymentTargetSelector.xml	
+@@ -4,7 +4,7 @@
+     <selectionStates>
+       <SelectionState runConfigName="app">
+         <option name="selectionMode" value="DROPDOWN" />
+-        <DropdownSelection timestamp="2024-10-15T14:38:09.938727800Z">
++        <DropdownSelection timestamp="2024-10-15T16:21:48.710277100Z">
+           <Target type="DEFAULT_BOOT">
+             <handle>
+               <DeviceId pluginId="PhysicalDevice" identifier="serial=ae4d080" />
+Index: app/src/main/java/com/example/yummyfood/activity_order_status.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/yummyfood/activity_order_status.java b/app/src/main/java/com/example/yummyfood/activity_order_status.java
+new file mode 100644
+--- /dev/null	
++++ b/app/src/main/java/com/example/yummyfood/activity_order_status.java	
+@@ -0,0 +1,41 @@
++package com.example.yummyfood;
++
++import android.content.Intent;
++import android.os.Bundle;
++import android.view.View;
++import android.widget.Button;
++
++import androidx.activity.EdgeToEdge;
++import androidx.appcompat.app.AppCompatActivity;
++import androidx.core.graphics.Insets;
++import androidx.core.view.ViewCompat;
++import androidx.core.view.WindowInsetsCompat;
++
++public class activity_order_status extends AppCompatActivity {
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        EdgeToEdge.enable(this);
++        setContentView(R.layout.activity_order_status);
++
++        // Cấu hình Window Insets
++        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
++            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
++            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
++            return insets;
++        });
++
++        // Trong activity_order_status.java
++        Button btt1 = findViewById(R.id.save_button5);
++        btt1.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++                Intent intent = new Intent(activity_order_status.this, activity_history_oder_user.class);
++                startActivity(intent);
++            }
++        });
++
++
++    }
++    }
+\ No newline at end of file
+Index: app/src/main/java/com/example/yummyfood/activity_history_oder_user.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/yummyfood/activity_history_oder_user.java b/app/src/main/java/com/example/yummyfood/activity_history_oder_user.java
+new file mode 100644
+--- /dev/null	
++++ b/app/src/main/java/com/example/yummyfood/activity_history_oder_user.java	
+@@ -0,0 +1,24 @@
++package com.example.yummyfood;
++
++import android.os.Bundle;
++
++import androidx.activity.EdgeToEdge;
++import androidx.appcompat.app.AppCompatActivity;
++import androidx.core.graphics.Insets;
++import androidx.core.view.ViewCompat;
++import androidx.core.view.WindowInsetsCompat;
++
++public class activity_history_oder_user extends AppCompatActivity {
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        EdgeToEdge.enable(this);
++        setContentView(R.layout.activity_history_oder_user);
++        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
++            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
++            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
++            return insets;
++        });
++    }
++}
+\ No newline at end of file
