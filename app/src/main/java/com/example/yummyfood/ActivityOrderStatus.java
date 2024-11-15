@@ -1,41 +1,53 @@
 package com.example.yummyfood;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class ActivityOrderStatus  extends AppCompatActivity {
+public class ActivityOrderStatus extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_status);
-        // Xử lý giao diện  ở đây
-        // Khởi tạo nút btn_see_history_orderstatus
-        //Button btnSeeHistoryOrder = findViewById(R.id.btn_see_history_orderstatus);
 
-        // Thiết lập sự kiện nhấn nút
-//        btnSeeHistoryOrder.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                // Chuyển về Trang ca nhan, xem lich su don hang
-//                Intent intent = new Intent(ActivityOrderStatus.this, me_user.class);
-//                startActivity(intent);
-//                finish(); // Kết thúc FoodRetailActivity để không trở lại được bằng nút quay lại
-//            }
-//        });
 
-        //back to homepage
+        Button saveButton4 = findViewById(R.id.save_button4);
+        saveButton4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showCancelOrderDialog();
+            }
+        });
+
+
         Button btnBack = findViewById(R.id.btn_backToHomePage);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ActivityOrderStatus.this, HomepageUserActivity.class);
                 startActivity(intent);
-//                finish();
             }
         });
+    }
+
+
+    private void showCancelOrderDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(ActivityOrderStatus.this);
+        builder.setTitle("Hủy đơn thành công")
+                .setPositiveButton("Trang chủ", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        Intent intent = new Intent(ActivityOrderStatus.this, HomepageUserActivity.class);
+                        startActivity(intent);
+                    }
+                })
+                .setCancelable(false)
+                .show();
     }
 }
