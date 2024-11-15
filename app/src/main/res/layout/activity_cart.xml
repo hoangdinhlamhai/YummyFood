@@ -6,29 +6,20 @@
     android:layout_height="match_parent">
 
     <!-- Nút quay lại -->
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_return_cart"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="36dp"
-        android:background="@drawable/btn_back"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
 
     <!-- Tiêu đề Giỏ hàng -->
     <TextView
         android:id="@+id/title_cart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="30dp"
         android:text="Giỏ hàng"
         android:textColor="@color/light_red"
         android:textSize="34sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/btn_delete_all"
-        app:layout_constraintStart_toEndOf="@id/btn_return_cart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Biểu tượng thùng rác (Xóa tất cả) -->
