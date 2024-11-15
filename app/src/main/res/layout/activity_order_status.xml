@@ -65,21 +65,6 @@
                 android:textAlignment="center"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/textView23"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="10:15"
-                android:textAlignment="center"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textView24"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="10:17"
-                android:textAlignment="center"
-                android:textStyle="bold" />
         </LinearLayout>
 
         <!-- Cột trạng thái -->
@@ -110,19 +95,6 @@
                 android:text="Đang chế biến"
                 android:textAlignment="textEnd" />
 
-            <TextView
-                android:id="@+id/textView28"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Đang giao hàng"
-                android:textAlignment="textEnd" />
-
-            <TextView
-                android:id="@+id/textView29"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Giao hàng thành công"
-                android:textAlignment="textEnd" />
         </LinearLayout>
     </LinearLayout>
 
@@ -184,8 +156,6 @@
                     android:layout_height="wrap_content"
                     android:text="SL: 1" />
             </LinearLayout>
-
-
         </LinearLayout>
 
         <!-- Món 2 -->
@@ -233,8 +203,6 @@
                     android:layout_height="wrap_content"
                     android:text="SL: 1" />
             </LinearLayout>
-
-
         </LinearLayout>
 
         <!-- Món 3 -->
@@ -282,39 +250,42 @@
                     android:layout_height="wrap_content"
                     android:text="SL: 1" />
             </LinearLayout>
-
         </LinearLayout>
-
     </LinearLayout>
 
-    <!-- Nút Hủy đơn hàng -->
-    <Button
-        android:id="@+id/save_button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:layout_gravity="center"
-        android:backgroundTint="@android:color/holo_red_light"
-        android:text="Hủy đơn hàng"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@id/popularFoodList"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <!-- Nút Xem lịch sử đơn hàng -->
-
-    <Button
-        android:id="@+id/btn_backToHomePage"
+    <!-- Group the two buttons into a LinearLayout for horizontal alignment -->
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@android:color/holo_red_light"
-        android:text="Trang chủ"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Nút Hủy đơn hàng -->
+        <Button
+            android:id="@+id/save_button4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/holo_red_light"
+            android:text="Hủy đơn hàng"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+
+        <!-- Nút Xem lịch sử đơn hàng -->
+        <Button
+            android:id="@+id/btn_backToHomePage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/holo_red_light"
+            android:text="Trang chủ"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
