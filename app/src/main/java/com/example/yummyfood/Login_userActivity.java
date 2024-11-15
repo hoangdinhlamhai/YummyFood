@@ -47,6 +47,15 @@ public class Login_userActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        TextView viewMember = findViewById(R.id.viewMember);
+        viewMember.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Login_userActivity.this, DanhSachThanhVien.class);
+                startActivity(intent);
+            }
+        });
     }
 }
 
