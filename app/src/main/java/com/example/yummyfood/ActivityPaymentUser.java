@@ -53,7 +53,7 @@ public class ActivityPaymentUser extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Chuyển đến ActivityOrderStatus
-                Intent intent = new Intent(ActivityPaymentUser.this, ActivityOrderStatus.class);
+                Intent intent = new Intent(ActivityPaymentUser.this, scan_qr.class);
                 startActivity(intent);
                 finish();
             }
@@ -75,6 +75,8 @@ public class ActivityPaymentUser extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
 
 
     }
