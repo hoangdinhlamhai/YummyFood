@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#FFFFFF"
+    android:id="@+id/main">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Nút trở về và tiêu đề Voucher -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/btn_back"
+                android:contentDescription="Back Button"
+                android:layout_marginEnd="8dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Voucher"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#D32F2F"/>
+        </LinearLayout>
+
+        <!-- Nhập mã voucher và nút Áp dụng -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            android:gravity="center_vertical">
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:hint="Nhập voucher"
+
+                android:padding="12dp"
+                android:textSize="16sp"
+                android:layout_marginEnd="8dp"/>
+
+            <Button
+                android:id="@+id/use"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bgr_inf"
+                android:backgroundTint="#D32F2F"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="Áp dụng"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <!-- Danh sách voucher -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="16dp">
+
+            <!-- Voucher 1 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/bg_voucher"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp"
+                android:elevation="2dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Free ship"
+                    android:background="#D32F2F"
+                    android:textColor="#FFFFFF"
+                    android:padding="6dp"
+                    android:layout_marginEnd="16dp"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:backgroundTintMode="src_in"
+                    android:layout_gravity="center_vertical"
+                    />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Giảm tối đa 10k"
+                        android:textSize="14sp"
+                        android:textColor="#333333"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Đơn tối thiểu 0đ"
+                        android:textSize="12sp"
+                        android:textColor="#666666"/>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/chon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dùng"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#D32F2F"
+                    android:textSize="12sp"
+                    android:padding="6dp"/>
+            </LinearLayout>
+
+            <!-- Voucher 2 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/bg_voucher"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp"
+                android:elevation="2dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Giảm 50%"
+                    android:background="#D32F2F"
+                    android:textColor="#FFFFFF"
+                    android:padding="6dp"
+                    android:layout_marginEnd="16dp"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:backgroundTintMode="src_in" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Đơn tối thiểu 500k"
+                        android:textSize="14sp"
+                        android:textColor="#333333"/>
+                </LinearLayout>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dùng"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#D32F2F"
+                    android:textSize="12sp"
+                    android:padding="6dp"/>
+            </LinearLayout>
+
+            <!-- Voucher 3 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/bg_voucher"
+                android:padding="12dp"
+                android:elevation="2dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Free ship"
+                    android:background="#D32F2F"
+                    android:textColor="#FFFFFF"
+                    android:padding="6dp"
+                    android:layout_marginEnd="16dp"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:backgroundTintMode="src_in" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Giảm tối đa 10k"
+                        android:textSize="14sp"
+                        android:textColor="#333333"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Đơn tối thiểu 0đ"
+                        android:textSize="12sp"
+                        android:textColor="#666666"/>
+                </LinearLayout>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dùng"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#D32F2F"
+                    android:textSize="12sp"
+                    android:padding="6dp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

@@ -64,6 +64,15 @@ public class ActivityPaymentUser extends AppCompatActivity {
                 finish();
             }
         });
+
+        TextView voucher = findViewById(R.id.voucher);
+        voucher.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ActivityPaymentUser.this, use_voucher_user.class);
+                startActivity(intent);
+            }
+        });
     }
 
 }
