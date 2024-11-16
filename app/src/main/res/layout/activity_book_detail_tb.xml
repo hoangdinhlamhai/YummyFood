@@ -148,7 +148,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="#F43B3B"
-            android:text="Đặt luôn"
+            android:text="Đặt bàn"
             android:textColor="@android:color/white" />
     </LinearLayout>
 

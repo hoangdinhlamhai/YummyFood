@@ -16,7 +16,7 @@
         android:layout_marginEnd="24dp"
         android:backgroundTint="#807777"
         android:text="Google"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button"

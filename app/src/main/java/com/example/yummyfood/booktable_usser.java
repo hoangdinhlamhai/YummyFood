@@ -79,13 +79,8 @@ public class booktable_usser extends AppCompatActivity {
 
 
         TextView exitButton = dialog.findViewById(R.id.dialog_exit);
-        exitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss(); // Đóng dialog
-                Intent intent = new Intent(booktable_usser.this, booktable_usser.class);
-                startActivity(intent); // Quay lại trang chủ
-            }
+        exitButton.setOnClickListener(v -> {
+            dialog.dismiss(); // Chỉ đóng dialog
         });
 
         dialog.show(); // Hiển thị dialog

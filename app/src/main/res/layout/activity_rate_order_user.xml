@@ -79,16 +79,7 @@
                 android:textStyle="bold"
                 android:layout_marginBottom="8dp" />
 
-            <!-- Nội dung mô tả -->
-            <TextView
-                android:id="@+id/tvDescription"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="Nhập đánh giá"
-                android:paddingBottom="12dp"
-                android:textSize="14sp"
-                android:textColor="#7D7D7D"
-                android:gravity="center_horizontal" />
+
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

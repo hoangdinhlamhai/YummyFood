@@ -51,18 +51,25 @@ public class book_detail_tb extends AppCompatActivity {
                 finish();
             }
         });
+        Button btnback = findViewById(R.id.btnBack);
+        btnback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
     private void showDialog() {
         dialog = new Dialog(book_detail_tb.this);
         dialog.setContentView(R.layout.activity_dialog_book_table);
 
 
-        TextView exitButton = dialog.findViewById(R.id.dialog_exit);
+        TextView exitButton = dialog.findViewById(R.id.dialog_xem);
         exitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
-                Intent intent = new Intent(book_detail_tb.this, booktable_usser.class);
+                Intent intent = new Intent(book_detail_tb.this, history_table.class);
                 startActivity(intent);
             }
         });

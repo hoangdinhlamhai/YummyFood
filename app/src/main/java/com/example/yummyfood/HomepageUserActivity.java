@@ -171,7 +171,7 @@ public class HomepageUserActivity extends AppCompatActivity {
         notificationIcon.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, notification_user.class)));
 
 
-        ImageView cartIcon1 = findViewById(R.id.cartIcon1);
+        LinearLayout cartIcon1 = findViewById(R.id.mon1);
         cartIcon1.setOnClickListener(v -> showDialog());
 
 
@@ -193,12 +193,13 @@ public class HomepageUserActivity extends AppCompatActivity {
         dialog = new Dialog(HomepageUserActivity.this);
         dialog.setContentView(R.layout.activity_dialog_outofstock_user);
 
+
         TextView exitButton = dialog.findViewById(R.id.dialog_exit);
         exitButton.setOnClickListener(v -> {
-            dialog.dismiss(); // Close dialog
-            startActivity(new Intent(HomepageUserActivity.this, HomepageUserActivity.class)); // Return to homepage
+            dialog.dismiss();
         });
 
-        dialog.show();
+        dialog.show(); // Hiển thị dialog
     }
+
 }
