@@ -32,13 +32,21 @@
             android:gravity="center"
             android:layout_marginEnd="32dp"/>
     </LinearLayout>
+    <TextView
+        android:id="@+id/tieude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cảm ơn bạn đã sử dung dịch vụ của nhà hàng YummyFood dưới đây là những thông tin về chính sách của chúng tôi."
+        android:textSize="20sp"
+        android:textColor="@android:color/black"
+        android:padding="16dp" />
 
 
     <TextView
         android:id="@+id/policy1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nếu hủy trước 24 tiếng ngày đặt bàn bạn sẽ được hoàn trả 100% tiền cọc"
+        android:text="Nếu hủy trước 24 tiếng trước ngày đặt bàn bạn sẽ được hoàn trả 100% tiền cọc"
         android:textSize="20sp"
         android:textColor="@android:color/black"
         android:padding="16dp" />
@@ -53,7 +61,7 @@
         android:id="@+id/policy2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Từ 24h-12h bạn sẽ được hoàn 50% tiền cọc"
+        android:text="Từ 24 tiếng - 12 tiếng bạn sẽ được hoàn 50% tiền cọc"
         android:textSize="20sp"
         android:textColor="@android:color/black"
         android:padding="16dp" />
@@ -68,10 +76,19 @@
         android:id="@+id/policy3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Dưới 12 tiếng bạn sẽ mất tiền cọc"
+        android:text="Dưới 12 tiếng bạn sẽ không nhận lại tiền cọc"
         android:textSize="20sp"
         android:textColor="@android:color/black"
         android:padding="16dp" />
+
+    <TextView
+        android:id="@+id/policy4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="Tiền cọc mặc định của đơn đặt bàn sẽ là 200k đối với bàn 2  người , 400k đối với bàn 4 người và 500k đối với bàn 4 người trở lên."
+        android:textColor="@color/light_red"
+        android:textSize="20sp" />
 
 
     <Space

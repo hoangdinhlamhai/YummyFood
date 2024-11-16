@@ -13,6 +13,12 @@
         android:theme="@style/Theme.YummyFood"
         tools:targetApi="31">
         <activity
+            android:name=".qr_tinhtien_ban"
+            android:exported="false" />
+        <activity
+            android:name=".qr_coc_table"
+            android:exported="false" />
+        <activity
             android:name=".scan_qr"
             android:exported="false" />
         <activity android:name=".Activity_Review_User" />

@@ -132,18 +132,18 @@
 
         <!-- Cancel Button -->
         <Button
-            android:id="@+id/cancel_button"
+            android:id="@+id/datcoc"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_weight="1"
             android:backgroundTint="#F43B3B"
-            android:text="Huỷ"
+            android:text="Đặt cọc"
             android:textColor="@android:color/white" />
 
         <!-- Confirm Button -->
         <Button
-            android:id="@+id/confirm_button"
+            android:id="@+id/thanhtoan"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
