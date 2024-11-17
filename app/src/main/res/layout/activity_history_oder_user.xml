@@ -25,8 +25,9 @@
         android:layout_marginTop="24dp"
         android:text="Lịch sử đơn hàng"
         android:textColor="@color/light_red"
-        android:textSize="24sp"
+        android:textSize="28sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/btn_return_historyorder"
         app:layout_constraintTop_toTopOf="parent" />
 

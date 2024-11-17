@@ -31,13 +31,13 @@ public class book_detail_tb extends AppCompatActivity {
         btntb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(book_detail_tb.this, qr_coc_table.class);
+                Intent intent = new Intent(book_detail_tb.this, qr_tinhtien_ban.class);
                 startActivity(intent);
             }
         });
         // thanh toan tien
         // Nút xác nhận để hiển thị dialog
-        Button thanhtoan = findViewById(R.id.thanhtoan);
+        Button thanhtoan = findViewById(R.id.datcoc);
         thanhtoan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

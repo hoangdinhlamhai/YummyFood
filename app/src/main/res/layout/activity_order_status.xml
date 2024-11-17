@@ -15,7 +15,7 @@
         android:layout_marginTop="16dp"
         android:text="Trạng thái đơn hàng"
         android:textColor="@color/light_red"
-        android:textSize="30sp"
+        android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

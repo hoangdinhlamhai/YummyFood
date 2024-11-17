@@ -7,6 +7,36 @@
     android:background="#FFFFFF"
     android:padding="16dp">
 
+    <!-- Hàng chứa Nút Back và Tiêu đề Bàn -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="16dp">
+
+        <!-- Nút Back -->
+        <ImageView
+            android:id="@+id/back_button"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/btn_back"
+            android:padding="8dp"
+            android:contentDescription="Back Button" />
+
+        <!-- Tiêu đề Bàn -->
+        <TextView
+            android:id="@+id/table_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Bàn 1"
+            android:textColor="#E85858"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:gravity="center" />
+    </LinearLayout>
+
     <!-- Phần nội dung có thể cuộn -->
     <ScrollView
         android:layout_width="match_parent"
@@ -17,28 +47,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <!-- Nút quay lại -->
-            <ImageView
-                android:id="@+id/back_button"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="start"
-                android:background="@drawable/btn_back"
-                android:padding="8dp"
-                android:layout_marginBottom="16dp"
-                android:contentDescription="Back Button" />
-
-            <!-- Tiêu đề bàn -->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Bàn 1"
-                android:textColor="#E85858"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:layout_marginBottom="8dp" />
 
             <!-- Trạng thái đặt bàn -->
             <TextView
@@ -68,8 +76,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-
                     android:text="10"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -92,8 +98,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-
                     android:text="12/1/2025"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -116,8 +120,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-
                     android:text="19:00"
                     android:textSize="16sp"
                     android:textStyle="bold" />
