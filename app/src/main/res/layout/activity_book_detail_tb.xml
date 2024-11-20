@@ -46,65 +46,68 @@
 
         <!-- Seat Count -->
         <TextView
-            android:id="@+id/seat_count_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Số lượng ghế:"
-            android:textStyle="bold"/>
-
+            android:textSize="20sp"
+            android:textStyle="bold" />
         <EditText
-            android:id="@+id/seat_count_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
-            android:hint="Nhập số ghế"
-            android:textStyle="bold"/>
+            android:hint="Nhập số lượng ghế"
+            android:padding="8dp"
+            android:background="#EFEFEF"
+            android:layout_marginBottom="16dp"/>
 
-        <!-- Date -->
+        <!-- Ngày -->
         <TextView
-            android:id="@+id/date_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nhập ngày:"
-            android:textStyle="bold"/>
-
-        <EditText
-            android:id="@+id/date_input"
+            android:text="Ngày"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tvDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:hint="Ngày/Tháng/Năm"/>
+            android:padding="8dp"
+            android:background="#EFEFEF"
+            android:hint="Chọn ngày"
+            android:layout_marginBottom="16dp"/>
 
-        <!-- Time -->
+        <!-- Giờ -->
         <TextView
-            android:id="@+id/time_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nhập giờ:"
-            android:textStyle="bold"/>
-
-        <EditText
-            android:id="@+id/time_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="time"
-            android:hint="00:00"/>
+            android:text="Giờ"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-        <!-- Note -->
         <TextView
-            android:id="@+id/note_label"
+            android:id="@+id/tvTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:background="#EFEFEF"
+            android:hint="Chọn giờ"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Dặn dò -->
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Bạn có dặn dò gì không?"
-            android:textStyle="bold"/>
-
+            android:text="Dặn dò"
+            android:textSize="20sp"
+            android:textStyle="bold" />
         <EditText
-            android:id="@+id/note_input"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:layout_marginTop="8dp"
-            android:hint="Nhập ghi chú..."
-            android:padding="8dp"/>
+            android:background="#EFEFEF"
+            android:padding="8dp"
+            android:layout_marginBottom="50dp"
+            android:hint="Nhập dặn dò"/>
+
     </LinearLayout>
 
     <!-- Policy Text -->
