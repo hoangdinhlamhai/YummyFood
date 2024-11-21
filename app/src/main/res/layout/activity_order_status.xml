@@ -60,8 +60,7 @@
                     android:layout_height="wrap_content"
                     android:text="Đặt đơn thành công"
                     android:textSize="12sp"
-                    android:gravity="center"
-                    android:marginTop="4dp" />
+                    android:gravity="center" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -96,8 +95,7 @@
                     android:layout_height="wrap_content"
                     android:text="Đã thanh toán"
                     android:textSize="12sp"
-                    android:gravity="center"
-                    android:marginTop="4dp" />
+                    android:gravity="center"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -132,8 +130,7 @@
                     android:layout_height="wrap_content"
                     android:text="Đang chế biến"
                     android:textSize="12sp"
-                    android:gravity="center"
-                    android:marginTop="4dp" />
+                    android:gravity="center"/>
 
                 <TextView
                     android:layout_width="wrap_content"

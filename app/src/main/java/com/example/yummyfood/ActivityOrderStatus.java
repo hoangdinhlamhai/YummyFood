@@ -25,7 +25,7 @@ public class ActivityOrderStatus extends AppCompatActivity {
         });
 
 
-        Button btnBack = findViewById(R.id.btn_backToHomePage);
+        Button btnBack = findViewById(R.id.btn_back);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
