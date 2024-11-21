@@ -27,7 +27,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Đặt bàn"
+                android:text="Trạng thái đơn hàng"
                 android:fontFamily="sans-serif-black"
                 android:textColor="@color/light_red"
                 android:textSize="28sp"
