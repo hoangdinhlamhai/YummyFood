@@ -83,7 +83,7 @@
                         android:id="@+id/table1_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Giá"
+                        android:text=""
                         android:textSize="14sp" />
 
                     <TextView
@@ -120,7 +120,7 @@
                     android:id="@+id/table2_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Giá"
+                    android:text=""
                     android:textSize="14sp" />
             </LinearLayout>
 
@@ -145,40 +145,34 @@
                 android:id="@+id/ban1tang2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp"
-                android:layout_margin="8dp"
                 android:layout_columnWeight="1"
-                android:background="@drawable/bgr_bookedtable"
-                android:gravity="center">
+                android:layout_margin="8dp"
+                android:background="@drawable/background_booktable"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="16dp">
 
                 <TextView
                     android:id="@+id/table3_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Bàn 1"
-                    android:textStyle="bold"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/table3_price"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Giá"
-                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/table3_reserved"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
-                        android:text="Đã đặt"
+                        android:text=""
                         android:textColor="@color/light_red"
                         android:textSize="14sp"
                         android:textStyle="bold" />
@@ -207,7 +201,7 @@
                     android:id="@+id/table4_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Giá"
+                    android:text=""
                     android:textSize="14sp" />
             </LinearLayout>
         </GridLayout>
@@ -250,7 +244,7 @@
                 android:id="@+id/table5_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Giá"
+                android:text=""
                 android:textSize="14sp" />
         </LinearLayout>
 
@@ -276,7 +270,7 @@
                 android:id="@+id/table6_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Giá"
+                android:text=""
                 android:textSize="14sp" />
         </LinearLayout>
 
@@ -302,7 +296,7 @@
                 android:id="@+id/table7_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Giá"
+                android:text=""
                 android:textSize="14sp" />
         </LinearLayout>
 
@@ -328,7 +322,7 @@
                 android:id="@+id/table8_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Giá"
+                android:text=""
                 android:textSize="14sp" />
         </LinearLayout>
         </GridLayout>

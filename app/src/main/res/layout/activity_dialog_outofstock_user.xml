@@ -5,8 +5,7 @@
     android:id="@+id/main"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="#E6B9B9"
-    
+    android:background="@drawable/bgr_dialog"
     tools:context=".activity_dialog_create_account">
 
     <!-- Tiêu đề thông báo -->
