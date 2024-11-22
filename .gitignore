@@ -1,1 +1,4 @@
-YummyFood/
+*.apk
+*.bin
+.gradle/
+build/

@@ -12,12 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.YummyFood"
         tools:targetApi="31">
+        <activity android:name=".Fragment.MainActivityVoucher"
+            android:exported="false" />
+        <activity
+            android:name=".Fragment.Voucher.voucher_item"
+            android:exported="false" />
+
         <activity
             android:name=".qr_tinhtien_ban"
             android:exported="false" />
-        <activity
-            android:name=".qr_coc_table"
-            android:exported="false" />
+
         <activity
             android:name=".scan_qr"
             android:exported="false" />
@@ -29,10 +33,10 @@
         <activity
             android:name=".use_voucher_user"
             android:exported="false" />
-        <activity
-            android:name=".activity_dialog_oder"
-            android:exported="false"
-            android:theme="@style/Theme.YummyFood" />
+<!--        <activity-->
+<!--            android:name=".activity_dialog_oder"-->
+<!--            android:exported="false"-->
+<!--            android:theme="@style/Theme.YummyFood" />-->
         <activity
             android:name=".voucher_user"
             android:exported="false" />

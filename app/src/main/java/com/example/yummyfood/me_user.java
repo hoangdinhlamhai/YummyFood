@@ -8,7 +8,11 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.yummyfood.Fragment.MainActivityVoucher;
+import com.example.yummyfood.Fragment.Voucher.voucher_item;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.example.yummyfood.Fragment.MainActivityVoucher;
+
 
 public class me_user extends AppCompatActivity {
 
@@ -91,7 +95,7 @@ public class me_user extends AppCompatActivity {
         magiamgia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(me_user.this, voucher_user.class));
+                startActivity(new Intent(me_user.this, MainActivityVoucher.class));
             }
         });
 
