@@ -13,7 +13,7 @@
         android:id="@+id/title_cart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="25dp"
         android:text="Giỏ hàng"
         android:textColor="@color/light_red"
         android:textSize="28sp"
@@ -27,20 +27,21 @@
         android:id="@+id/btn_delete_all"
         android:layout_width="32dp"
         android:layout_height="32dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="16dp"
-        android:scaleType="centerInside"
         android:background="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="centerInside"
         android:src="@drawable/thungrac1"
-        app:tint="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@android:color/black" />
 
     <!-- Danh sách món ăn -->
     <LinearLayout
         android:id="@+id/popularFoodList"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,13 +63,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
-            <ImageView
-                android:id="@+id/foodImage1"
+            <FrameLayout
                 android:layout_width="60dp"
-                android:layout_height="54dp"
-                android:layout_marginEnd="8dp"
-                android:contentDescription="Food Image"
-                android:src="@drawable/garan" />
+                android:layout_height="60dp"
+                android:layout_marginEnd="15dp">
+
+                <ImageView
+                    android:id="@+id/foodImage1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/rounded_image"
+                    android:src="@drawable/garan"
+                    android:scaleType="centerCrop"
+                    android:clipToOutline="true" />
+            </FrameLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -95,17 +103,17 @@
                     android:textSize="16sp" />
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/idSL1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="SL: 1" />
-
             <ImageView
                 android:id="@+id/imageView15"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/plus_black_circle" />
+
+            <TextView
+                android:id="@+id/idSL1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  1  " />
 
             <ImageView
                 android:id="@+id/imageView20"
@@ -131,13 +139,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
-            <ImageView
-                android:id="@+id/foodImage2"
+            <FrameLayout
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_marginEnd="8dp"
-                android:contentDescription="Food Image"
-                android:src="@drawable/milktea" />
+                android:layout_marginEnd="15dp">
+
+                <ImageView
+                    android:id="@+id/foodImage2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/rounded_image"
+                    android:src="@drawable/milktea"
+                    android:scaleType="centerCrop"
+                    android:clipToOutline="true" />
+            </FrameLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -164,17 +179,17 @@
                     android:textSize="16sp" />
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/idSL2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="SL: 1" />
-
             <ImageView
                 android:id="@+id/imageView18"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/plus_black_circle" />
+
+            <TextView
+                android:id="@+id/idSL2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  1  " />
 
             <ImageView
                 android:id="@+id/imageView16"
@@ -199,13 +214,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
-            <ImageView
-                android:id="@+id/foodImage3"
+            <FrameLayout
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_marginEnd="8dp"
-                android:contentDescription="Food Image"
-                android:src="@drawable/garan" />
+                android:layout_marginEnd="15dp">
+
+                <ImageView
+                    android:id="@+id/foodImage3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/rounded_image"
+                    android:src="@drawable/garan"
+                    android:scaleType="centerCrop"
+                    android:clipToOutline="true" />
+            </FrameLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -233,17 +255,17 @@
             </LinearLayout>
 
 
-            <TextView
-                android:id="@+id/idSL3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="SL: 1" />
-
             <ImageView
                 android:id="@+id/imageView19"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/plus_black_circle" />
+
+            <TextView
+                android:id="@+id/idSL3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  1  " />
 
             <ImageView
                 android:id="@+id/imageView21"
@@ -251,6 +273,7 @@
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/minus_black_circle" />
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/mon4"
             android:layout_width="match_parent"
@@ -267,13 +290,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
-            <ImageView
-                android:id="@+id/foodImage4"
+            <FrameLayout
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_marginEnd="8dp"
-                android:contentDescription="Food Image"
-                android:src="@drawable/milktea" />
+                android:layout_marginEnd="15dp">
+
+                <ImageView
+                    android:id="@+id/foodImage4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/rounded_image"
+                    android:src="@drawable/milktea"
+                    android:scaleType="centerCrop"
+                    android:clipToOutline="true" />
+            </FrameLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -300,17 +330,17 @@
                     android:textSize="16sp" />
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/idSL4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="SL: 1" />
-
             <ImageView
                 android:id="@+id/imageViewcongmon4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/plus_black_circle" />
+
+            <TextView
+                android:id="@+id/idSL4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  1  " />
 
             <ImageView
                 android:id="@+id/imageViewtrumon4"
@@ -318,6 +348,7 @@
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/minus_black_circle" />
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/mon5"
             android:layout_width="match_parent"
@@ -333,13 +364,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
-            <ImageView
-                android:id="@+id/foodImage5"
+            <FrameLayout
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_marginEnd="8dp"
-                android:contentDescription="Food Image"
-                android:src="@drawable/garan" />
+                android:layout_marginEnd="15dp">
+
+                <ImageView
+                    android:id="@+id/foodImage5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/rounded_image"
+                    android:src="@drawable/garan"
+                    android:scaleType="centerCrop"
+                    android:clipToOutline="true" />
+            </FrameLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -367,17 +405,17 @@
             </LinearLayout>
 
 
-            <TextView
-                android:id="@+id/idSL5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="SL: 1" />
-
             <ImageView
                 android:id="@+id/imageView23"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/plus_black_circle" />
+
+            <TextView
+                android:id="@+id/idSL5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  1  " />
 
             <ImageView
                 android:id="@+id/imageView24"
@@ -392,6 +430,9 @@
         android:id="@+id/btn_paying3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="10dp"
         android:layout_weight="1"
         android:backgroundTint="#F43B3B"
         android:text="Đặt hàng"
