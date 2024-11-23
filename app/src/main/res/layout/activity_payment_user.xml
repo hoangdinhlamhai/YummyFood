@@ -18,28 +18,35 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- Nút trở về -->
-            <ImageView
-                android:id="@+id/btn_return_payment"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:src="@drawable/btn_back"
-                android:contentDescription="Back Button"/>
+                android:orientation="horizontal"
+                android:padding="16dp">            <!-- Nút trở về -->
+                <ImageView
+                    android:id="@+id/btn_return_payment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginEnd="50dp"
+                    android:contentDescription="Back Button"
+                    android:src="@drawable/btn_back" />
 
-            <!-- Tiêu đề Thanh toán -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Thanh toán"
-                android:textSize="28sp"
-                android:textStyle="bold"
-                android:textColor="#E53935"
-                android:gravity="center"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="16dp"/>
+                <!-- Tiêu đề Thanh toán -->
 
-            <!-- Địa chỉ người nhận -->
+                <!-- Địa chỉ người nhận -->
+
+                <TextView
+                    android:layout_width="153dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="16dp"
+                    android:gravity="center"
+                    android:text="Thanh toán"
+                    android:textColor="#E53935"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -84,11 +91,19 @@
                     android:layout_marginBottom="8dp"
                     android:elevation="2dp">
 
-                    <ImageView
+                    <FrameLayout
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:src="@drawable/garan"
-                        android:contentDescription="Food Image" />
+                        android:layout_marginEnd="15dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/rounded_image"
+                            android:src="@drawable/garan"
+                            android:scaleType="centerCrop"
+                            android:clipToOutline="true" />
+                    </FrameLayout>
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -128,11 +143,19 @@
                     android:layout_marginBottom="8dp"
                     android:elevation="2dp">
 
-                    <ImageView
+                    <FrameLayout
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:src="@drawable/milktea"
-                        android:contentDescription="Food Image" />
+                        android:layout_marginEnd="15dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/rounded_image"
+                            android:src="@drawable/milktea"
+                            android:scaleType="centerCrop"
+                            android:clipToOutline="true" />
+                    </FrameLayout>
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -171,12 +194,19 @@
                     android:background="#FFFFFF"
                     android:elevation="2dp">
 
-                    <ImageView
+                    <FrameLayout
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:src="@drawable/garan"
-                        android:contentDescription="Food Image" />
+                        android:layout_marginEnd="15dp">
 
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/rounded_image"
+                            android:src="@drawable/garan"
+                            android:scaleType="centerCrop"
+                            android:clipToOutline="true" />
+                    </FrameLayout>
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
