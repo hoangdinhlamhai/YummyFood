@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="32dp"
-                android:text="Đặt hàng liền tay!"
+                android:text="Đặt hàng liền tay cùng Yummy!"
                 android:textColor="#D02828"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -43,11 +43,12 @@
 
             <ImageView
                 android:id="@+id/btntb"
-                android:layout_width="69dp"
-                android:layout_height="51dp"
-                android:layout_marginTop="24dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.88"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="15dp"
+                app:layout_constraintEnd_toEndOf="@+id/textView9"
+                app:layout_constraintHorizontal_bias="0.972"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/thongbao" />
@@ -56,12 +57,12 @@
                 android:id="@+id/search"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
-                android:layout_marginEnd="32dp"
+                android:layout_marginEnd="16dp"
                 android:background="@drawable/input_bg"
                 android:ems="10"
-                android:hint="Tìm món ăn yêu thích của bạn"
+                android:hint="  Tìm món ăn yêu thích của bạn"
                 android:inputType="text"
                 android:paddingLeft="10dp"
                 android:paddingTop="20dp"
@@ -75,10 +76,10 @@
 
             <ImageView
                 android:id="@+id/imageView5"
-                android:layout_width="36dp"
+                android:layout_width="30dp"
                 android:layout_height="53dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="48dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="35dp"
                 app:layout_constraintBottom_toBottomOf="@+id/search"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btntb"
@@ -86,8 +87,8 @@
 
             <ImageView
                 android:id="@+id/imageView6"
-                android:layout_width="105dp"
-                android:layout_height="61dp"
+                android:layout_width="80dp"
+                android:layout_height="50dp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView7"
                 app:layout_constraintEnd_toStartOf="@+id/imageView7"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -97,8 +98,8 @@
 
             <ImageView
                 android:id="@+id/imageView7"
-                android:layout_width="112dp"
-                android:layout_height="62dp"
+                android:layout_width="80dp"
+                android:layout_height="50dp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView8"
                 app:layout_constraintEnd_toStartOf="@+id/imageView8"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -109,8 +110,8 @@
 
             <ImageView
                 android:id="@+id/imageView8"
-                android:layout_width="103dp"
-                android:layout_height="61dp"
+                android:layout_width="80dp"
+                android:layout_height="50dp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView9"
                 app:layout_constraintEnd_toStartOf="@+id/imageView9"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -120,9 +121,9 @@
 
             <ImageView
                 android:id="@+id/imageView9"
-                android:layout_width="97dp"
-                android:layout_height="61dp"
-                android:layout_marginTop="32dp"
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/imageView8"
@@ -130,11 +131,13 @@
                 app:srcCompat="@drawable/milktea_removebg_preview" />
 
             <!-- Các TextView chú thích cho các ImageView -->
+
             <TextView
                 android:id="@+id/textView19"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="10dp"
                 android:text="Bánh"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView6" />
@@ -143,8 +146,8 @@
                 android:id="@+id/textView20"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="75dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginStart="65dp"
+                android:layout_marginTop="10dp"
                 android:text="Bún"
                 app:layout_constraintStart_toEndOf="@+id/textView19"
                 app:layout_constraintTop_toBottomOf="@+id/imageView7" />
@@ -153,8 +156,8 @@
                 android:id="@+id/textView21"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="78dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginStart="65dp"
+                android:layout_marginTop="10dp"
                 android:text="Cơm"
                 app:layout_constraintStart_toEndOf="@+id/textView20"
                 app:layout_constraintTop_toBottomOf="@+id/imageView8" />
@@ -163,10 +166,10 @@
                 android:id="@+id/textView22"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="10dp"
                 android:text="Trà sữa"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView21"
                 app:layout_constraintTop_toBottomOf="@+id/imageView9" />
 
 
@@ -174,7 +177,7 @@
                 android:id="@+id/viewpager"
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView22" />
@@ -226,16 +229,27 @@
                     android:background="#E2C0C0"
                     android:backgroundTint="#E28484"
                     android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:padding="8dp">
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="7dp">
 
-                    <ImageView
-                        android:id="@+id/foodImage1_homepage"
+                    <FrameLayout
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:layout_marginEnd="8dp"
-                        android:contentDescription="Food Image"
-                        android:src="@drawable/garan" />
+                        android:layout_marginEnd="15dp">
+
+                        <ImageView
+                            android:id="@+id/foodImage1_homepage"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/rounded_image"
+                            android:src="@drawable/garan"
+                            android:scaleType="centerCrop"
+                            android:clipToOutline="true" />
+                    </FrameLayout>
+
+
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -265,13 +279,13 @@
 
                     <ImageView
                         android:id="@+id/cartIcon1"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="16dp"
                         android:background="#D38888"
                         android:contentDescription="Cart Icon"
-                        android:src="@drawable/cart" />
+                        android:src="@drawable/plus_black" />
                 </LinearLayout>
 
                 <!-- Món 2 -->
@@ -284,15 +298,25 @@
                     android:backgroundTint="#D3C4C4"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:padding="8dp">
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="7dp">
 
-                    <ImageView
-                        android:id="@+id/foodImage2"
+                    <FrameLayout
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:layout_marginEnd="8dp"
-                        android:contentDescription="Food Image"
-                        android:src="@drawable/milktea" />
+                        android:layout_marginEnd="15dp">
+
+                        <ImageView
+                            android:id="@+id/foodImage2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/rounded_image"
+                            android:src="@drawable/milktea"
+                            android:scaleType="centerCrop"
+                            android:clipToOutline="true" />
+                    </FrameLayout>
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -321,12 +345,12 @@
 
                     <ImageView
                         android:id="@+id/cartIcon2_homepage"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="16dp"
                         android:contentDescription="Cart Icon"
-                        android:src="@drawable/cart" />
+                        android:src="@drawable/plus_black" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -336,15 +360,25 @@
                     android:backgroundTint="#AD9C9C"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:padding="8dp">
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="7dp">
 
-                    <ImageView
-                        android:id="@+id/foodImage3"
+                    <FrameLayout
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:layout_marginEnd="8dp"
-                        android:contentDescription="Food Image"
-                        android:src="@drawable/garan" />
+                        android:layout_marginEnd="15dp">
+
+                        <ImageView
+                            android:id="@+id/foodImage3"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/rounded_image"
+                            android:src="@drawable/garan"
+                            android:scaleType="centerCrop"
+                            android:clipToOutline="true" />
+                    </FrameLayout>
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -373,12 +407,12 @@
 
                     <ImageView
                         android:id="@+id/cartIcon3"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="16dp"
                         android:contentDescription="Cart Icon"
-                        android:src="@drawable/cart" />
+                        android:src="@drawable/plus_black" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -389,15 +423,25 @@
                     android:backgroundTint="#D3C4C4"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:padding="8dp">
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="7dp">
 
-                    <ImageView
-                        android:id="@+id/foodImage4"
+                    <FrameLayout
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:layout_marginEnd="8dp"
-                        android:contentDescription="Food Image"
-                        android:src="@drawable/milktea" />
+                        android:layout_marginEnd="15dp">
+
+                        <ImageView
+                            android:id="@+id/foodImage4"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/rounded_image"
+                            android:src="@drawable/milktea"
+                            android:scaleType="centerCrop"
+                            android:clipToOutline="true" />
+                    </FrameLayout>
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -426,12 +470,12 @@
 
                     <ImageView
                         android:id="@+id/cartIcon4"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="16dp"
                         android:contentDescription="Cart Icon"
-                        android:src="@drawable/cart" />
+                        android:src="@drawable/plus_black" />
                 </LinearLayout>
 
                 <LinearLayout
