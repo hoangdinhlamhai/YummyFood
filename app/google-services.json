@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "369513719948",
+    "firebase_url": "https://yummyfood-a39ce-default-rtdb.firebaseio.com",
+    "project_id": "yummyfood-a39ce",
+    "storage_bucket": "yummyfood-a39ce.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:369513719948:android:080ad494fbb948a2f833a9",
+        "android_client_info": {
+          "package_name": "com.example.yummyfood"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUZXIMJ4DfrUC2Qrpj4Xd8utDGXS-Mnk4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

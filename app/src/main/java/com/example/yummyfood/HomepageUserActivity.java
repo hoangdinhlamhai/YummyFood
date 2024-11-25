@@ -4,24 +4,17 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.yummyfood.Fragment.HomeFragment;
-import com.example.yummyfood.Fragment.MenuFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -184,7 +177,7 @@ public class HomepageUserActivity extends AppCompatActivity {
 
 
         TextView tableBookingTextView = findViewById(R.id.textViewAll);
-        tableBookingTextView.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, booktable_usser.class)));
+        tableBookingTextView.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, ListTableActivity.class)));
 
     }
 
