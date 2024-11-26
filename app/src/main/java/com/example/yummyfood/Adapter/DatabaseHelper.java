@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+
 public class DatabaseHelper {
     private static final String DATABASE_NAME = "dbYummyFood.db";
     private static final String DB_PATH_SUFFIX = "/databases/";
@@ -24,13 +25,15 @@ public class DatabaseHelper {
 
     public void processCopy() {
         File dbFile = new File(getDatabasePath());
-        if (!dbFile.exists()) {
+        if (!dbFile.exists()) {  // Chỉ sao chép khi database chưa tồn tại
             try {
                 copyDatabaseFromAsset();
                 Log.d("DatabaseHelper", "Database copied successfully");
             } catch (Exception e) {
                 Log.e("DatabaseHelper", "Error copying database", e);
             }
+        } else {
+            Log.d("DatabaseHelper", "Database already exists, no need to copy");
         }
     }
 
@@ -58,4 +61,5 @@ public class DatabaseHelper {
         }
     }
 }
+
 
