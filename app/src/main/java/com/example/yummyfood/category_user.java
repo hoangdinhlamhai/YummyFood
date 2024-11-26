@@ -29,6 +29,7 @@ public class category_user extends AppCompatActivity {
 
     private RecyclerView rvCategories;
     private ArrayList<String> categoryList;
+    private ArrayList<Integer> categoryIdList;
     private CategoryAdapter categoryAdapter;
     private SQLiteDatabase database;
 
@@ -49,10 +50,11 @@ public class category_user extends AppCompatActivity {
 
         // Load categories
         categoryList = new ArrayList<>();
+        categoryIdList = new ArrayList<>();
         loadCategoriesFromDatabase();
 
         // Set up adapter
-        categoryAdapter = new CategoryAdapter(this, categoryList);
+        categoryAdapter = new CategoryAdapter(this, categoryList, categoryIdList);
         rvCategories.setAdapter(categoryAdapter);
 
         // Khởi tạo BottomNavigationView
@@ -87,41 +89,19 @@ public class category_user extends AppCompatActivity {
             return true;
         });
 
-//        // Lấy tham chiếu đến TextView danh sách món
-//        TextView textView = findViewById(R.id.category_milkTea);
-//
-//        // Thiết lập OnClickListener cho TextView
-//        textView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                // Xử lý sự kiện khi TextView được nhấn
-//                // Ví dụ: Mở một Activity mới khi người dùng nhấn vào TextView
-//                Intent intent = new Intent(category_user.this, ListFoodUser.class);
-//                startActivity(intent);
-//            }
-//        });
-
     }
 
     private void loadCategoriesFromDatabase() {
-        Cursor cursor = database.query("DanhMuc", new String[]{"tenDanhMuc"}, null, null, null, null, null);
+        Cursor cursor = database.query("DanhMuc", new String[]{"idDanhMuc", "tenDanhMuc"}, null, null, null, null, null);
         if (cursor != null) {
             while (cursor.moveToNext()) {
-                String categoryName = cursor.getString(0);
-                categoryList.add(categoryName);
+                int idDanhMuc = cursor.getInt(cursor.getColumnIndex("idDanhMuc"));
+                String tenDanhMuc = cursor.getString(cursor.getColumnIndex("tenDanhMuc"));
+
+                categoryIdList.add(idDanhMuc); // Thêm ID danh mục
+                categoryList.add(tenDanhMuc); // Thêm tên danh mục
             }
             cursor.close();
         }
-//        if (cursor != null) {
-//            Log.d("DatabaseQuery", "Cursor count: " + cursor.getCount());
-//            while (cursor.moveToNext()) {
-//                String categoryName = cursor.getString(0);
-//                Log.d("DatabaseQuery", "Category found: " + categoryName);
-//                categoryList.add(categoryName);
-//            }
-//            cursor.close();
-//        } else {
-//            Log.e("DatabaseQuery", "Cursor is null");
-//        }
     }
 }

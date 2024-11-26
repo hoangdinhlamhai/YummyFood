@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.yummyfood.Adapter.SliderAdapter;
 import com.example.yummyfood.Fragment.HomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 

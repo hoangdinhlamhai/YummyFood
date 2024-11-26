@@ -73,7 +73,10 @@
             android:exported="false" />
         <activity
             android:name=".edit_address"
-            android:exported="false" /> <!-- Dung xoa may the activity neu khong loi -->
+            android:exported="false" />
+        <activity
+            android:name=".List_Food"
+            android:exported="false" /><!-- Dung xoa may the activity neu khong loi -->
         <activity android:name=".admin.HomePage_Admin" />
         <activity android:name=".admin.Add_User" />
         <activity android:name=".admin.List_User" />

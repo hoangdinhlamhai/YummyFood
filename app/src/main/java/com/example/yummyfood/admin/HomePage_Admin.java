@@ -16,7 +16,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.yummyfood.Login_userActivity;
 import com.example.yummyfood.R;
-import com.example.yummyfood.admin.list_food.List_Food;
+import com.example.yummyfood.List_Food;
 
 public class HomePage_Admin extends AppCompatActivity {
 
