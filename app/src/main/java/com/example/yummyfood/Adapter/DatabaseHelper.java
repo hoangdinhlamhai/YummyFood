@@ -24,16 +24,13 @@ public class DatabaseHelper {
     }
 
     public void processCopy() {
-        File dbFile = new File(getDatabasePath());
-        if (!dbFile.exists()) {  // Chỉ sao chép khi database chưa tồn tại
-            try {
-                copyDatabaseFromAsset();
-                Log.d("DatabaseHelper", "Database copied successfully");
-            } catch (Exception e) {
-                Log.e("DatabaseHelper", "Error copying database", e);
-            }
-        } else {
-            Log.d("DatabaseHelper", "Database already exists, no need to copy");
+        // Luôn luôn sao chép lại cơ sở dữ liệu từ assets với mỗi lần chạy ứng dụng
+        try {
+            deleteOldDatabase();  // Xóa cơ sở dữ liệu cũ nếu có
+            copyDatabaseFromAsset();  // Sao chép cơ sở dữ liệu mới từ assets
+            Log.d("DatabaseHelper", "Database copied and overwritten successfully");
+        } catch (Exception e) {
+            Log.e("DatabaseHelper", "Error copying and overwriting database", e);
         }
     }
 
@@ -41,12 +38,25 @@ public class DatabaseHelper {
         return context.getApplicationInfo().dataDir + DB_PATH_SUFFIX + DATABASE_NAME;
     }
 
+    // Phương thức xóa cơ sở dữ liệu cũ nếu có
+    private void deleteOldDatabase() {
+        File dbFile = new File(getDatabasePath());
+        if (dbFile.exists()) {
+            if (dbFile.delete()) {
+                Log.d("DatabaseHelper", "Old database deleted successfully");
+            } else {
+                Log.e("DatabaseHelper", "Failed to delete old database");
+            }
+        }
+    }
+
+    // Phương thức sao chép cơ sở dữ liệu từ thư mục assets
     private void copyDatabaseFromAsset() {
         try {
             InputStream myInput = context.getAssets().open(DATABASE_NAME);
             String outFileName = getDatabasePath();
             File f = new File(context.getApplicationInfo().dataDir + DB_PATH_SUFFIX);
-            if (!f.exists()) f.mkdir();
+            if (!f.exists()) f.mkdir();  // Tạo thư mục nếu chưa có
             OutputStream myOutput = new FileOutputStream(outFileName);
             byte[] buffer = new byte[1024];
             int length;

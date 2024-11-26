@@ -27,7 +27,7 @@ public class FoodDetailActivity extends AppCompatActivity {
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish(); // Kết thúc FoodRetailActivity để không trở lại được bằng nút quay lại
+                finish();
             }
         });
 
