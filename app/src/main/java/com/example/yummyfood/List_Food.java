@@ -1,5 +1,6 @@
 package com.example.yummyfood;
 
+import android.annotation.SuppressLint;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -32,8 +33,6 @@ public class List_Food extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_food);
-
-
 
         // Khởi tạo RecyclerView
         rvFoodList = findViewById(R.id.rvFoodList);
@@ -87,12 +86,12 @@ public class List_Food extends AppCompatActivity {
         if (cursor != null) {
             while (cursor.moveToNext()) {
                 // Lấy dữ liệu từ cột trong bảng "MonAn"
-                int id = cursor.getInt(cursor.getColumnIndex("idMonAn"));
-                String name = cursor.getString(cursor.getColumnIndex("tenMonAn"));
-                String description = cursor.getString(cursor.getColumnIndex("moTa")); // Mô tả
-                int price = cursor.getInt(cursor.getColumnIndex("donGia")); // Giá
-                int quantity = cursor.getInt(cursor.getColumnIndex("soLuong")); // Số lượng
-                byte[] image = cursor.getBlob(cursor.getColumnIndex("hinhAnh")); // Hình ảnh
+                @SuppressLint("Range") int id = cursor.getInt(cursor.getColumnIndex("idMonAn"));
+                @SuppressLint("Range") String name = cursor.getString(cursor.getColumnIndex("tenMonAn"));
+                @SuppressLint("Range") String description = cursor.getString(cursor.getColumnIndex("moTa")); // Mô tả
+                @SuppressLint("Range") int price = cursor.getInt(cursor.getColumnIndex("donGia")); // Giá
+                @SuppressLint("Range") int quantity = cursor.getInt(cursor.getColumnIndex("soLuong")); // Số lượng
+                @SuppressLint("Range") byte[] image = cursor.getBlob(cursor.getColumnIndex("hinhAnh")); // Hình ảnh
 
                 // Tạo đối tượng Food
                 Food food = new Food(id, name, description, price, quantity, image);

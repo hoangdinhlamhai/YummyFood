@@ -49,10 +49,7 @@ public class ListFoodAdapter extends RecyclerView.Adapter<ListFoodAdapter.FoodVi
         // đi tới trang chi tiết
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, FoodDetailActivity.class);
-            intent.putExtra("food_name", food.getName());
-            intent.putExtra("food_price", food.getPrice());
-            intent.putExtra("food_image", food.getImage());
-            intent.putExtra("food_description", food.getDescription());
+            intent.putExtra("food_id", food.getId());
             context.startActivity(intent);
         });
     }

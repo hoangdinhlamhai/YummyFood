@@ -1,68 +1,118 @@
 package com.example.yummyfood;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.yummyfood.Adapter.ListReviewAdapter;
+import com.example.yummyfood.Domain.Review;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class FoodDetailActivity extends AppCompatActivity {
 
     TextView tvFoodName, tvFoodPrice, tvFoodDescription;
     ImageView ivFoodImage;
+    RecyclerView rvReviews;
+    SQLiteDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_detail_user);
 
-        Button btn_back = findViewById(R.id.btn_back);
-
-        // Thiết lập sự kiện nhấn nút
-        btn_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-
         // Ánh xạ view
         tvFoodName = findViewById(R.id.foodDetailName);
         tvFoodPrice = findViewById(R.id.foodDetailPrice);
         ivFoodImage = findViewById(R.id.foodDetailImg);
         tvFoodDescription = findViewById(R.id.foodDetailDescription);
+        rvReviews = findViewById(R.id.rvReviews);
 
-        // Nhận dữ liệu từ Intent
+        // Mở cơ sở dữ liệu
+        database = openOrCreateDatabase("dbYummyFood.db", MODE_PRIVATE, null);
+
+        // Lấy ID món ăn từ Intent
         Intent intent = getIntent();
-        String foodName = intent.getStringExtra("food_name");
-        int foodPrice = intent.getIntExtra("food_price", 0);
-        String foodDesc = intent.getStringExtra("food_description");
-        byte[] foodImage = intent.getByteArrayExtra("food_image");
+        int foodId = intent.getIntExtra("food_id", -1); // Truyền food_id khi gọi Intent
 
-        // Hiển thị dữ liệu
-        tvFoodName.setText(foodName);
-        tvFoodPrice.setText(foodPrice + "đ");
-        tvFoodDescription.setText(foodDesc);
+        if (foodId != -1) {
+            // Lấy thông tin món ăn
+            loadFoodDetail(foodId);
 
-        // Convert byte[] to Bitmap and display image
-        Bitmap bitmap = BitmapFactory.decodeByteArray(foodImage, 0, foodImage.length);
-        ivFoodImage.setImageBitmap(bitmap);
+            // Lấy danh sách đánh giá theo id món ăn
+            List<Review> reviews = loadReviews(foodId);
+            setupReviewsRecyclerView(reviews);
+        }
+    }
 
+    private void loadFoodDetail(int foodId) {
+        Cursor cursor = database.query("MonAn",
+                new String[]{"tenMonAn", "donGia", "moTa", "hinhAnh"},
+                "idMonAn = ?",
+                new String[]{String.valueOf(foodId)},
+                null, null, null);
 
-        // nhấn vào nút thanh toán thì chuyển đến trang thanh toán
-        Button btnPayingRetailFood = findViewById(R.id.btn_paying_retailfood);
-        btnPayingRetailFood.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Chuyển đến ActivityPaymentUser
-                Intent intent = new Intent(FoodDetailActivity.this, ActivityPaymentUser.class);
-                startActivity(intent);
+        if (cursor != null && cursor.moveToFirst()) {
+            @SuppressLint("Range") String foodName = cursor.getString(cursor.getColumnIndex("tenMonAn"));
+            @SuppressLint("Range") int foodPrice = cursor.getInt(cursor.getColumnIndex("donGia"));
+            @SuppressLint("Range") String foodDesc = cursor.getString(cursor.getColumnIndex("moTa"));
+            @SuppressLint("Range") byte[] foodImage = cursor.getBlob(cursor.getColumnIndex("hinhAnh"));
+
+            tvFoodName.setText(foodName);
+            tvFoodPrice.setText(foodPrice + " đ");
+            tvFoodDescription.setText(foodDesc);
+
+            if (foodImage != null) {
+                Bitmap bitmap = BitmapFactory.decodeByteArray(foodImage, 0, foodImage.length);
+                ivFoodImage.setImageBitmap(bitmap);
             }
-        });
+
+            cursor.close();
+        }
+    }
+
+    private List<Review> loadReviews(int foodId) {
+        List<Review> reviews = new ArrayList<>();
+        Cursor cursor = database.query("DanhGia",
+                new String[]{"danhGia"},
+                "idMonAn = ?",
+                new String[]{String.valueOf(foodId)},
+                null, null, null);
+
+        if (cursor != null) {
+            while (cursor.moveToNext()) {
+                @SuppressLint("Range") String comment = cursor.getString(cursor.getColumnIndex("danhGia"));
+
+                reviews.add(new Review(comment));
+            }
+            cursor.close();
+        }
+
+        return reviews;
+    }
+
+    private void setupReviewsRecyclerView(List<Review> reviews) {
+        ListReviewAdapter adapter = new ListReviewAdapter(this, reviews);
+        rvReviews.setLayoutManager(new LinearLayoutManager(this));
+        rvReviews.setAdapter(adapter);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (database != null && database.isOpen()) {
+            database.close();
+        }
     }
 }
