@@ -1,6 +1,7 @@
 package com.example.yummyfood.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.yummyfood.Domain.Food;
+import com.example.yummyfood.FoodDetailActivity;
 import com.example.yummyfood.R;
 
 import java.util.List;
@@ -43,6 +45,16 @@ public class ListFoodAdapter extends RecyclerView.Adapter<ListFoodAdapter.FoodVi
         // Convert byte[] to Bitmap
         Bitmap bitmap = BitmapFactory.decodeByteArray(food.getImage(), 0, food.getImage().length);
         holder.ivFoodImage.setImageBitmap(bitmap);
+
+        // đi tới trang chi tiết
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, FoodDetailActivity.class);
+            intent.putExtra("food_name", food.getName());
+            intent.putExtra("food_price", food.getPrice());
+            intent.putExtra("food_image", food.getImage());
+            intent.putExtra("food_description", food.getDescription());
+            context.startActivity(intent);
+        });
     }
 
     @Override

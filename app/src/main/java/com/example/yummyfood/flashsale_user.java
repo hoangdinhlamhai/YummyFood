@@ -3,21 +3,14 @@
 package com.example.yummyfood;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.example.yummyfood.HomepageUserActivity;
-import com.example.yummyfood.R;
-
-    public class flashsale_user extends AppCompatActivity {
+public class flashsale_user extends AppCompatActivity {
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +35,7 @@ import com.example.yummyfood.R;
             product1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(flashsale_user.this, FoodRetailActivity.class);
+                    Intent intent = new Intent(flashsale_user.this, FoodDetailActivity.class);
                     startActivity(intent);
                 }
             });
@@ -59,7 +52,7 @@ import com.example.yummyfood.R;
             chitiet.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(flashsale_user.this, FoodRetailActivity.class);
+                    Intent intent = new Intent(flashsale_user.this, FoodDetailActivity.class);
                     startActivity(intent);
                 }
             });
@@ -68,7 +61,7 @@ import com.example.yummyfood.R;
             chitiet2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(flashsale_user.this, FoodRetailActivity.class);
+                    Intent intent = new Intent(flashsale_user.this, FoodDetailActivity.class);
                     startActivity(intent);
                 }
             });

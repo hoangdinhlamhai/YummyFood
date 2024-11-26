@@ -1,5 +1,6 @@
 package com.example.yummyfood;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -95,8 +96,8 @@ public class category_user extends AppCompatActivity {
         Cursor cursor = database.query("DanhMuc", new String[]{"idDanhMuc", "tenDanhMuc"}, null, null, null, null, null);
         if (cursor != null) {
             while (cursor.moveToNext()) {
-                int idDanhMuc = cursor.getInt(cursor.getColumnIndex("idDanhMuc"));
-                String tenDanhMuc = cursor.getString(cursor.getColumnIndex("tenDanhMuc"));
+                @SuppressLint("Range") int idDanhMuc = cursor.getInt(cursor.getColumnIndex("idDanhMuc"));
+                @SuppressLint("Range") String tenDanhMuc = cursor.getString(cursor.getColumnIndex("tenDanhMuc"));
 
                 categoryIdList.add(idDanhMuc); // Thêm ID danh mục
                 categoryList.add(tenDanhMuc); // Thêm tên danh mục
