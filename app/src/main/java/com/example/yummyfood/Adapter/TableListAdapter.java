@@ -1,53 +1,54 @@
 package com.example.yummyfood.Adapter;
 
-
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.yummyfood.Domain.Table;
 import com.example.yummyfood.R;
 
-import java.util.ArrayList;
+import java.util.List;
 
-public class TableListAdapter extends BaseAdapter {
+public class TableListAdapter extends RecyclerView.Adapter<TableListAdapter.TableViewHolder> {
+
     private Context context;
-    private ArrayList<String> tableList;
-    private LayoutInflater inflater;
+    private List<Table> tableList;
 
-    public TableListAdapter(Context context, ArrayList<String> tableList) {
+    public TableListAdapter(Context context, List<Table> tableList) {
         this.context = context;
         this.tableList = tableList;
-        this.inflater = LayoutInflater.from(context);
     }
 
     @Override
-    public int getCount() {
+    public TableViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.item_table, parent, false);
+        return new TableViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(TableViewHolder holder, int position) {
+        Table table = tableList.get(position);
+
+        // Gán tên bàn
+        holder.tvTableName.setText(table.getTenBan());
+    }
+
+    @Override
+    public int getItemCount() {
         return tableList.size();
     }
 
-    @Override
-    public Object getItem(int position) {
-        return tableList.get(position);
-    }
+    // ViewHolder cho từng bàn
+    public class TableViewHolder extends RecyclerView.ViewHolder {
+        TextView tvTableName;
 
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
-
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        if (convertView == null) {
-            convertView = inflater.inflate(R.layout.activity_list_table_item, parent, false);
+        public TableViewHolder(View itemView) {
+            super(itemView);
+            tvTableName = itemView.findViewById(R.id.table_name);
         }
-
-        TextView tableName = convertView.findViewById(R.id.table1_name);
-        tableName.setText(tableList.get(position));
-
-        return convertView;
     }
 }

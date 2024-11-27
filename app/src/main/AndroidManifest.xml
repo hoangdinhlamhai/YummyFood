@@ -13,6 +13,12 @@
         android:theme="@style/Theme.YummyFood"
         tools:targetApi="31">
         <activity
+            android:name=".item_floor"
+            android:exported="false" />
+        <activity
+            android:name=".List_Table"
+            android:exported="false" />
+        <activity
             android:name=".item.List_table_item"
             android:exported="false" />
         <activity
@@ -69,14 +75,14 @@
             android:name=".detail_table"
             android:exported="false" />
         <activity
-            android:name=".ListTableActivity"
+            android:name=".List_Table"
             android:exported="false" />
         <activity
             android:name=".edit_address"
             android:exported="false" />
         <activity
             android:name=".List_Food"
-            android:exported="false" /><!-- Dung xoa may the activity neu khong loi -->
+            android:exported="false" /> <!-- Dung xoa may the activity neu khong loi -->
         <activity android:name=".admin.HomePage_Admin" />
         <activity android:name=".admin.Add_User" />
         <activity android:name=".admin.List_User" />
