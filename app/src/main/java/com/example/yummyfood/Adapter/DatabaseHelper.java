@@ -1,6 +1,9 @@
 package com.example.yummyfood.Adapter;
 
 import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import java.io.File;
@@ -9,23 +12,30 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-
-public class DatabaseHelper {
+public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "dbYummyFood.db";
     private static final String DB_PATH_SUFFIX = "/databases/";
     private Context context;
 
     public DatabaseHelper(Context context) {
+        super(context, DATABASE_NAME, null, 1);
         this.context = context;
+        processCopy();
     }
 
-    public String getDatabaseName() {
-        return DATABASE_NAME;
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        // Không cần tạo bảng ở đây vì bạn đang sao chép từ assets
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        // Cập nhật cơ sở dữ liệu nếu cần
     }
 
     public void processCopy() {
         File dbFile = new File(getDatabasePath());
-        if (!dbFile.exists()) {  // Chỉ sao chép khi database chưa tồn tại
+        if (!dbFile.exists()) {
             try {
                 copyDatabaseFromAsset();
                 Log.d("DatabaseHelper", "Database copied successfully");
@@ -46,7 +56,7 @@ public class DatabaseHelper {
             InputStream myInput = context.getAssets().open(DATABASE_NAME);
             String outFileName = getDatabasePath();
             File f = new File(context.getApplicationInfo().dataDir + DB_PATH_SUFFIX);
-            if (!f.exists()) f.mkdir();
+            if (!f.exists()) f.mkdirs();
             OutputStream myOutput = new FileOutputStream(outFileName);
             byte[] buffer = new byte[1024];
             int length;
@@ -61,5 +71,3 @@ public class DatabaseHelper {
         }
     }
 }
-
-

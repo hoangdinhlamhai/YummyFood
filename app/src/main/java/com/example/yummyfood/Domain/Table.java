@@ -1,13 +1,19 @@
 package com.example.yummyfood.Domain;
 
 public class Table {
-    private String tenBan;
+    private int id;
+    private String name;
 
-    public Table(String tenBan) {
-        this.tenBan = tenBan;
+    public Table(int id, String name) {
+        this.id = id;
+        this.name = name;
     }
 
-    public String getTenBan() {
-        return tenBan;
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
     }
 }

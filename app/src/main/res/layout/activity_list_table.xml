@@ -22,7 +22,7 @@
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Đặt bàn"
+        android:text="Danh sách bàn"
         android:fontFamily="sans-serif-black"
         android:textColor="@color/light_red"
         android:textSize="28sp"
@@ -33,7 +33,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"/>
 
-    <!-- RecyclerView để hiển thị các tầng -->
+    <!-- RecyclerView để hiển thị danh sách bàn -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvFloorList"
         android:layout_width="match_parent"

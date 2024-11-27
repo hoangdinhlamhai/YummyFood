@@ -1,13 +1,19 @@
 package com.example.yummyfood;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.yummyfood.Adapter.ListFloorAdapter;
-import com.example.yummyfood.Domain.Floor;
+import com.example.yummyfood.Adapter.DatabaseHelper;
+import com.example.yummyfood.Adapter.TableListAdapter;
+
 import com.example.yummyfood.Domain.Table;
 
 import java.util.ArrayList;
@@ -15,34 +21,52 @@ import java.util.List;
 
 public class List_Table extends AppCompatActivity {
 
-    private RecyclerView rvFloorList;
-    private ListFloorAdapter floorAdapter;
+    private RecyclerView rvTableList;
+    private DatabaseHelper databaseHelper;
+    private SQLiteDatabase database;
+    private TableListAdapter tableAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_table);
 
-        rvFloorList = findViewById(R.id.rvFloorList);
-        rvFloorList.setLayoutManager(new LinearLayoutManager(this));
+        // Xử lý nút quay lại
+        ImageView btnBack = findViewById(R.id.btn_back);
+        btnBack.setOnClickListener(view -> finish());
 
-        // Tạo dữ liệu mẫu cho các tầng và bàn
-        List<Floor> floorList = new ArrayList<>();
-        floorList.add(new Floor("Tầng 1", createTableList("Bàn 1", "Bàn 2")));
-        floorList.add(new Floor("Tầng 2", createTableList("Bàn 1", "Bàn 2", "Bàn 3", "Bàn 4")));
-        floorList.add(new Floor("Tầng Thượng", createTableList("Bàn 1", "Bàn 2")));
+        // Khởi tạo RecyclerView
+        rvTableList = findViewById(R.id.rvFloorList);  // RecyclerView này sẽ hiển thị danh sách các bàn
+        rvTableList.setLayoutManager(new LinearLayoutManager(this));
 
-        // Cài đặt Adapter
-        floorAdapter = new ListFloorAdapter(this, floorList);
-        rvFloorList.setAdapter(floorAdapter);
+        // Khởi tạo DatabaseHelper và database
+        databaseHelper = new DatabaseHelper(this);
+        database = databaseHelper.getWritableDatabase();
+
+        // Lấy danh sách các bàn từ cơ sở dữ liệu
+        List<Table> tableList = loadTables();
+
+        // Cài đặt Adapter cho RecyclerView
+        tableAdapter = new TableListAdapter(this, tableList);
+        rvTableList.setAdapter(tableAdapter);
     }
 
-    // Tạo danh sách các bàn cho từng tầng
-    private List<Table> createTableList(String... tableNames) {
+    // Lấy danh sách các bàn từ database
+    private List<Table> loadTables() {
         List<Table> tableList = new ArrayList<>();
-        for (String tableName : tableNames) {
-            tableList.add(new Table(tableName));
+        Cursor cursor = database.query("Ban", new String[]{"idBan", "tenBan"}, null, null, null, null, null);
+
+        if (cursor != null) {
+            while (cursor.moveToNext()) {
+                int tableId = cursor.getInt(cursor.getColumnIndex("idBan"));
+                String tableName = cursor.getString(cursor.getColumnIndex("tenBan"));
+                tableList.add(new Table(tableId, tableName));
+            }
+            cursor.close();
+        } else {
+            Log.e("List_Table", "No tables found in database.");
         }
+
         return tableList;
     }
 }

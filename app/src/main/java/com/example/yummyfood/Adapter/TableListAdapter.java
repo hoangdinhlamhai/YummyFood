@@ -32,9 +32,7 @@ public class TableListAdapter extends RecyclerView.Adapter<TableListAdapter.Tabl
     @Override
     public void onBindViewHolder(TableViewHolder holder, int position) {
         Table table = tableList.get(position);
-
-        // Gán tên bàn
-        holder.tvTableName.setText(table.getTenBan());
+        holder.tableName.setText(table.getName());
     }
 
     @Override
@@ -42,13 +40,12 @@ public class TableListAdapter extends RecyclerView.Adapter<TableListAdapter.Tabl
         return tableList.size();
     }
 
-    // ViewHolder cho từng bàn
-    public class TableViewHolder extends RecyclerView.ViewHolder {
-        TextView tvTableName;
+    public static class TableViewHolder extends RecyclerView.ViewHolder {
+        TextView tableName;
 
         public TableViewHolder(View itemView) {
             super(itemView);
-            tvTableName = itemView.findViewById(R.id.table_name);
+            tableName = itemView.findViewById(R.id.table_name);
         }
     }
 }

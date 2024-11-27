@@ -17,7 +17,7 @@ import com.example.yummyfood.R;
 
 import java.util.List;
 
-public class ListFoodAdapter extends RecyclerView.Adapter<ListFoodAdapter.FoodViewHolder> {
+public class  ListFoodAdapter extends RecyclerView.Adapter<ListFoodAdapter.FoodViewHolder> {
 
     private Context context;
     private List<Food> foodList;
