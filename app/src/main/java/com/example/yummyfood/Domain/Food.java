@@ -3,15 +3,14 @@ package com.example.yummyfood.Domain;
 public class Food {
     private int id;
     private String name, description;
-    private int price, quantity;
-    private byte[] image;
+    private int price;
+    private String image;
 
-    public Food(int id, String name, String description, int price, int quantity, byte[] image) {
+    public Food(int id, String name, String description, int price, String image) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.image = image;
-        this.quantity = quantity;
         this.description = description;
     }
 
@@ -47,19 +46,11 @@ public class Food {
         this.price = price;
     }
 
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public byte[] getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(byte[] image) {
+    public void setImage(String image) {
         this.image = image;
     }
 }

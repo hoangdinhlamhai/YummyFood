@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.yummyfood.Domain.Food;
 import com.example.yummyfood.R;
 
@@ -40,9 +41,8 @@ public class  ListFoodAdapter extends RecyclerView.Adapter<ListFoodAdapter.FoodV
         holder.tvFoodName.setText(food.getName());
         holder.tvFoodPrice.setText(food.getPrice() + "đ");
 
-        // Convert byte[] to Bitmap
-        Bitmap bitmap = BitmapFactory.decodeByteArray(food.getImage(), 0, food.getImage().length);
-        holder.ivFoodImage.setImageBitmap(bitmap);
+        // Load hình ảnh
+        Glide.with(context).load(food.getImage()).into(holder.ivFoodImage);
     }
 
     @Override

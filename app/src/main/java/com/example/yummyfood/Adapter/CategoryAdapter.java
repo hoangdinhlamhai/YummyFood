@@ -40,12 +40,12 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         holder.tvCategoryName.setText(categoryName);
 
         // Xử lý sự kiện click vào item
-//        holder.itemView.setOnClickListener(v -> {
-//            Intent intent = new Intent(context, List_Food.class);
-//            intent.putExtra("idDanhMuc", categoryIdList.get(position));  // Truyền idDanhMuc
-//            intent.putExtra("tenDanhMuc", categoryList.get(position));
-//            context.startActivity(intent);
-//        });
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, List_Food.class);
+            intent.putExtra("idDanhMuc", categoryIdList.get(position));  // Truyền idDanhMuc
+            intent.putExtra("tenDanhMuc", categoryList.get(position));
+            context.startActivity(intent);
+        });
     }
 
     @Override

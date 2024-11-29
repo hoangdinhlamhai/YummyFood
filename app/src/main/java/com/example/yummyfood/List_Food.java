@@ -3,12 +3,14 @@ package com.example.yummyfood;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -18,6 +20,11 @@ import com.example.yummyfood.Adapter.DatabaseHelper;
 import com.example.yummyfood.Adapter.ListFoodAdapter;
 import com.example.yummyfood.Domain.Food;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,23 +33,22 @@ public class List_Food extends AppCompatActivity {
     private RecyclerView rvFoodList;
     private List<Food> foodList;
     private ListFoodAdapter foodAdapter;
-    private SQLiteDatabase database;
+//    private SQLiteDatabase database;
+    private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_food);
 
-
-
         // Khởi tạo RecyclerView
         rvFoodList = findViewById(R.id.rvFoodList);
         rvFoodList.setLayoutManager(new LinearLayoutManager(this));
 
         // Mở cơ sở dữ liệu
-        DatabaseHelper databaseHelper = new DatabaseHelper(this);
-        databaseHelper.processCopy();
-        database = openOrCreateDatabase("dbYummyFood.db", MODE_PRIVATE, null);
+//        DatabaseHelper databaseHelper = new DatabaseHelper(this);
+//        databaseHelper.processCopy();
+//        database = openOrCreateDatabase("dbYummyFood.db", MODE_PRIVATE, null);
 
         // Lấy idDanhMuc từ Intent
         int categoryId = getIntent().getIntExtra("idDanhMuc", -1);
@@ -55,13 +61,42 @@ public class List_Food extends AppCompatActivity {
             titleTextView.setText(categoryName);
         }
 
-        // Load danh sách món ăn
-        foodList = new ArrayList<>();
-        loadFoodsFromDatabase(categoryId);
-
-        // Thiết lập Adapter
+        foodList = new ArrayList<>(); // Khởi tạo danh sách rỗng trước
+        // Thiết lập Adapter sau
         foodAdapter = new ListFoodAdapter(this, foodList);
         rvFoodList.setAdapter(foodAdapter);
+
+        // Kết nối Firebase
+        databaseReference = FirebaseDatabase.getInstance().getReference("MonAn");
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                foodList.clear();
+
+                for (DataSnapshot data : snapshot.getChildren()) {
+                    int idDM = data.child("idDanhMuc").getValue(Integer.class);
+                    if (idDM == categoryId) {
+                        String tenMonAn = data.child("tenMonAn").getValue(String.class);
+                        int donGia = data.child("donGia").getValue(Integer.class);
+                        String moTa = data.child("moTa").getValue(String.class);
+                        String hinhAnh = data.child("hinhAnh").getValue(String.class);
+
+                        Food food = new Food(categoryId, tenMonAn, moTa, donGia, hinhAnh);
+                        foodList.add(food);
+                    }
+                }
+
+                foodAdapter.notifyDataSetChanged(); // Cập nhật RecyclerView
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // Xử lý lỗi
+                Log.e("FirebaseError", "Lỗi Firebase: " + error.getMessage());
+            }
+        });
+
 
         //back to homepage
         Button btnBack = findViewById(R.id.btn_back);
@@ -72,38 +107,5 @@ public class List_Food extends AppCompatActivity {
             }
         });
     }
-
-    private void loadFoodsFromDatabase(int categoryId) {
-        Cursor cursor = database.query(
-                "MonAn",
-                null,
-                "idDanhMuc = ?",
-                new String[]{String.valueOf(categoryId)},
-                null,
-                null,
-                null
-        );
-
-        if (cursor != null) {
-            while (cursor.moveToNext()) {
-                // Lấy dữ liệu từ cột trong bảng "MonAn"
-                int id = cursor.getInt(cursor.getColumnIndex("idMonAn"));
-                String name = cursor.getString(cursor.getColumnIndex("tenMonAn"));
-                String description = cursor.getString(cursor.getColumnIndex("moTa")); // Mô tả
-                int price = cursor.getInt(cursor.getColumnIndex("donGia")); // Giá
-                int quantity = cursor.getInt(cursor.getColumnIndex("soLuong")); // Số lượng
-                byte[] image = cursor.getBlob(cursor.getColumnIndex("hinhAnh")); // Hình ảnh
-
-                // Tạo đối tượng Food
-                Food food = new Food(id, name, description, price, quantity, image);
-
-                // Thêm vào danh sách
-                foodList.add(food);
-            }
-            cursor.close();
-        }
-    }
-
-
 
 }
