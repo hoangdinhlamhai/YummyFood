@@ -49,21 +49,25 @@ public class dsban extends AppCompatActivity {
         khuVucList.clear();
 
         // Sử dụng ValueEventListener để lắng nghe sự thay đổi của các phần tử trong Firebase
-        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+        databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                // Duyệt qua tất cả các phần tử trong node "KhuVuc"
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    // Lấy thông tin mỗi "KhuVuc" từ Firebase
                     KhuVuc khuVuc = snapshot.getValue(KhuVuc.class);
                     if (khuVuc != null) {
                         khuVucList.add(khuVuc);  // Thêm vào danh sách
                     }
                 }
 
-                khuVucAdapter.notifyDataSetChanged();  // Thông báo cho adapter cập nhật dữ liệu
+                // Thông báo cho adapter cập nhật dữ liệu trong RecyclerView
+                khuVucAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
+                // Thông báo lỗi khi tải dữ liệu
                 Toast.makeText(dsban.this, "Lỗi khi tải dữ liệu", Toast.LENGTH_SHORT).show();
             }
         });
