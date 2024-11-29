@@ -93,7 +93,7 @@
         <activity android:name=".admin.Profile_Admin" />
         <activity android:name=".admin.Dialog_Confirm_Logout_Admin" />
         <activity android:name=".admin.Confirm_Order_Details" />
-        <activity android:name=".FoodRetailActivity" /> <!-- <activity android:name=".ActivityPaymentUser" /> -->
+        <activity android:name=".FoodDetailActivity" /> <!-- <activity android:name=".ActivityPaymentUser" /> -->
         <activity android:name=".CartActivity" />
         <activity android:name=".ActivityOrderStatus" />
         <activity android:name=".ActivityPaymentUser" /> <!-- Khanh 30/10/2024 -->

@@ -2,15 +2,12 @@ package com.example.yummyfood;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class SearchUserActivity extends AppCompatActivity {
 
@@ -35,7 +32,7 @@ public class SearchUserActivity extends AppCompatActivity {
         item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SearchUserActivity.this, FoodRetailActivity.class);
+                Intent intent = new Intent(SearchUserActivity.this, FoodDetailActivity.class);
                 startActivity(intent);
             }
         });

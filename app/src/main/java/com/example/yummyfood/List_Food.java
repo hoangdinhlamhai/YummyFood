@@ -33,7 +33,7 @@ public class List_Food extends AppCompatActivity {
     private RecyclerView rvFoodList;
     private List<Food> foodList;
     private ListFoodAdapter foodAdapter;
-//    private SQLiteDatabase database;
+    //    private SQLiteDatabase database;
     private DatabaseReference databaseReference;
 
     @Override
@@ -77,12 +77,13 @@ public class List_Food extends AppCompatActivity {
                 for (DataSnapshot data : snapshot.getChildren()) {
                     int idDM = data.child("idDanhMuc").getValue(Integer.class);
                     if (idDM == categoryId) {
+                        String idMonAn = data.getKey();
                         String tenMonAn = data.child("tenMonAn").getValue(String.class);
                         int donGia = data.child("donGia").getValue(Integer.class);
                         String moTa = data.child("moTa").getValue(String.class);
                         String hinhAnh = data.child("hinhAnh").getValue(String.class);
 
-                        Food food = new Food(categoryId, tenMonAn, moTa, donGia, hinhAnh);
+                        Food food = new Food(idMonAn, tenMonAn, moTa, donGia, hinhAnh);
                         foodList.add(food);
                     }
                 }

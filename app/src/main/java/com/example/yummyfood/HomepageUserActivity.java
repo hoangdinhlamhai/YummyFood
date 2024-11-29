@@ -144,16 +144,16 @@ public class HomepageUserActivity extends AppCompatActivity {
         imageView9.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, flashsale_user.class)));
 
         LinearLayout mon2 = findViewById(R.id.mon2);
-        mon2.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, FoodRetailActivity.class)));
+        mon2.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, FoodDetailActivity.class)));
 
         LinearLayout mon3 = findViewById(R.id.mon3);
-        mon3.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, FoodRetailActivity.class)));
+        mon3.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, FoodDetailActivity.class)));
 
         LinearLayout mon4 = findViewById(R.id.mon4);
-        mon4.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, FoodRetailActivity.class)));
+        mon4.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, FoodDetailActivity.class)));
 
         LinearLayout mon5 = findViewById(R.id.mon5);
-        mon5.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, FoodRetailActivity.class)));
+        mon5.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, FoodDetailActivity.class)));
 
 
 
@@ -170,7 +170,7 @@ public class HomepageUserActivity extends AppCompatActivity {
 
 
         ImageView foodImage1 = findViewById(R.id.foodImage2);
-        foodImage1.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, FoodRetailActivity.class)));
+        foodImage1.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, FoodDetailActivity.class)));
 
 
         ImageView cartIcon2 = findViewById(R.id.cartIcon2_homepage);

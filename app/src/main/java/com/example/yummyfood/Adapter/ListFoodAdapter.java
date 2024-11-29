@@ -1,6 +1,7 @@
 package com.example.yummyfood.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.yummyfood.Domain.Food;
+import com.example.yummyfood.FoodDetailActivity;
 import com.example.yummyfood.R;
 
 import java.util.List;
@@ -43,6 +45,18 @@ public class  ListFoodAdapter extends RecyclerView.Adapter<ListFoodAdapter.FoodV
 
         // Load hình ảnh
         Glide.with(context).load(food.getImage()).into(holder.ivFoodImage);
+
+        // Thêm sự kiện click
+        holder.itemView.setOnClickListener(v -> {
+            // Tạo Intent để chuyển sang Activity chi tiết món ăn
+            Intent intent = new Intent(context, FoodDetailActivity.class);
+
+            // Truyền idMonAn qua Intent
+            intent.putExtra("idMonAn", food.getId());
+
+            // Khởi động Activity
+            context.startActivity(intent);
+        });
     }
 
     @Override

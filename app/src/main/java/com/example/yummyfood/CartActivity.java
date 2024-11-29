@@ -2,7 +2,6 @@ package com.example.yummyfood;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
@@ -56,9 +55,9 @@ public class CartActivity extends AppCompatActivity {
         Button btn_paying3 = findViewById(R.id.btn_paying3);
 
 
-        mon1.setOnClickListener(v -> startActivity(new Intent(CartActivity.this, FoodRetailActivity.class)));
-        mon2.setOnClickListener(v -> startActivity(new Intent(CartActivity.this, FoodRetailActivity.class)));
-        mon3.setOnClickListener(v -> startActivity(new Intent(CartActivity.this, FoodRetailActivity.class)));
+        mon1.setOnClickListener(v -> startActivity(new Intent(CartActivity.this, FoodDetailActivity.class)));
+        mon2.setOnClickListener(v -> startActivity(new Intent(CartActivity.this, FoodDetailActivity.class)));
+        mon3.setOnClickListener(v -> startActivity(new Intent(CartActivity.this, FoodDetailActivity.class)));
         btn_paying3.setOnClickListener(v -> startActivity(new Intent(CartActivity.this, ActivityPaymentUser.class)));
     }
 }

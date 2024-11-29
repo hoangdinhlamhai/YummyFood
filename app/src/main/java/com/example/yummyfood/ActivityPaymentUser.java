@@ -1,7 +1,6 @@
 package com.example.yummyfood;
 
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,7 +8,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ActivityPaymentUser extends AppCompatActivity {
@@ -28,7 +26,7 @@ public class ActivityPaymentUser extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Chuyển về HomepageUserActivity
-                Intent intent = new Intent(ActivityPaymentUser.this, FoodRetailActivity.class);
+                Intent intent = new Intent(ActivityPaymentUser.this, FoodDetailActivity.class);
                 startActivity(intent);
                 finish(); // Kết thúc FoodRetailActivity để không trở lại được bằng nút quay lại
             }
