@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,6 +23,11 @@ import com.example.yummyfood.Adapter.CategoryAdapter;
 import com.example.yummyfood.Adapter.DatabaseHelper;
 import com.example.yummyfood.Fragment.HomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -31,18 +37,18 @@ public class category_user extends AppCompatActivity {
     private ArrayList<String> categoryList;
     private ArrayList<Integer> categoryIdList;
     private CategoryAdapter categoryAdapter;
-    private SQLiteDatabase database;
+//    private SQLiteDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category_user);
 
-        DatabaseHelper databaseHelper = new DatabaseHelper(this);
-        databaseHelper.processCopy();
+//        DatabaseHelper databaseHelper = new DatabaseHelper(this);
+//        databaseHelper.processCopy();
 
         // Open database
-        database = openOrCreateDatabase("dbYummyFood.db", MODE_PRIVATE, null);
+//        database = openOrCreateDatabase("dbYummyFood.db", MODE_PRIVATE, null);
 
         // Initialize RecyclerView
         rvCategories = findViewById(R.id.rvCategories); // Update ID in your XML
@@ -51,7 +57,7 @@ public class category_user extends AppCompatActivity {
         // Load categories
         categoryList = new ArrayList<>();
         categoryIdList = new ArrayList<>();
-        loadCategoriesFromDatabase();
+        fetchDataFromFirebase();
 
         // Set up adapter
         categoryAdapter = new CategoryAdapter(this, categoryList, categoryIdList);
@@ -91,17 +97,54 @@ public class category_user extends AppCompatActivity {
 
     }
 
-    private void loadCategoriesFromDatabase() {
-        Cursor cursor = database.query("DanhMuc", new String[]{"idDanhMuc", "tenDanhMuc"}, null, null, null, null, null);
-        if (cursor != null) {
-            while (cursor.moveToNext()) {
-                int idDanhMuc = cursor.getInt(cursor.getColumnIndex("idDanhMuc"));
-                String tenDanhMuc = cursor.getString(cursor.getColumnIndex("tenDanhMuc"));
+//    private void loadCategoriesFromDatabase() {
+//        Cursor cursor = database.query("DanhMuc", new String[]{"idDanhMuc", "tenDanhMuc"}, null, null, null, null, null);
+//        if (cursor != null) {
+//            while (cursor.moveToNext()) {
+//                int idDanhMuc = cursor.getInt(cursor.getColumnIndex("idDanhMuc"));
+//                String tenDanhMuc = cursor.getString(cursor.getColumnIndex("tenDanhMuc"));
+//
+//                categoryIdList.add(idDanhMuc); // Thêm ID danh mục
+//                categoryList.add(tenDanhMuc); // Thêm tên danh mục
+//            }
+//            cursor.close();
+//        }
+//    }
 
-                categoryIdList.add(idDanhMuc); // Thêm ID danh mục
-                categoryList.add(tenDanhMuc); // Thêm tên danh mục
+    private void fetchDataFromFirebase() {
+        // Kết nối đến Realtime Database
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("DanhMuc");
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                // Xóa dữ liệu cũ
+                categoryList.clear();
+                categoryIdList.clear();
+
+                // Duyệt qua từng danh mục
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    try {
+                        // Lấy ID (key) và tên danh mục (tenKV)
+                        int id = Integer.parseInt(snapshot.getKey());
+                        String tenKV = snapshot.child("tenDanhMuc").getValue(String.class);
+
+                        // Thêm vào danh sách
+                        categoryList.add(tenKV);
+                        categoryIdList.add(id);
+                    } catch (Exception e) {
+                        Log.e("CategoryActivity", "Error parsing data", e);
+                    }
+                }
+
+                // Thông báo Adapter cập nhật dữ liệu
+                categoryAdapter.notifyDataSetChanged();
             }
-            cursor.close();
-        }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(category_user.this, "Failed to load data: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
