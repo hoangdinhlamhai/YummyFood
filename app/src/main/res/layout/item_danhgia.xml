@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:background="#EFEFEF"
+    android:orientation="vertical"
+    android:padding="12dp">
+
+    <TextView
+        android:id="@+id/tvTenKhachHang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nguyễn Văn A"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+        <!-- Tên người dùng và xếp hạng -->
+
+        <!-- Nội dung nhận xét -->
+        <TextView
+            android:id="@+id/tvDanhGia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Món ăn rất ngon, giao hàng nhanh, nhân viên phục vụ tận tình!"
+            android:textColor="#555555"
+            android:textSize="14sp" />
+
+</LinearLayout>
