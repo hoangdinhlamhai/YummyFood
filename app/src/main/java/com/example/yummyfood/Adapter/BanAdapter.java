@@ -29,9 +29,7 @@ public class BanAdapter extends RecyclerView.Adapter<BanAdapter.BanViewHolder> {
     @Override
     public void onBindViewHolder(BanViewHolder holder, int position) {
         Ban ban = banList.get(position);
-
-        // Set tên bàn vào TextView
-        holder.tableName.setText(ban.getTenBan());
+        holder.tableName.setText(ban.getTenBan()); // Hiển thị tên bàn
     }
 
     @Override
@@ -44,7 +42,7 @@ public class BanAdapter extends RecyclerView.Adapter<BanAdapter.BanViewHolder> {
 
         public BanViewHolder(View itemView) {
             super(itemView);
-            tableName = itemView.findViewById(R.id.table_name);
+            tableName = itemView.findViewById(R.id.table_name); // Kết nối với TextView trong item layout
         }
     }
 }

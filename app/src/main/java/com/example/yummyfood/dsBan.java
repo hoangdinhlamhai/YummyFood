@@ -2,8 +2,6 @@ package com.example.yummyfood;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -24,75 +22,60 @@ import java.util.List;
 
 public class dsBan extends AppCompatActivity {
 
-    private RecyclerView rvTableList; // RecyclerView để hiển thị danh sách bàn
-    private List<Ban> tableList; // Danh sách các bàn
-    private BanAdapter banAdapter; // Adapter để hiển thị danh sách bàn
-    private DatabaseReference databaseReference; // Firebase Database Reference
+    private RecyclerView rvTableList;
+    private List<Ban> tableList;
+    private BanAdapter banAdapter;
+    private DatabaseReference databaseReference;
+    private TextView tenKhuVucTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ds_ban); // Đảm bảo layout là activity_ds_ban
+        setContentView(R.layout.activity_ds_ban);
+
+        // Lấy thông tin từ Intent
+        String tenKhuVuc = getIntent().getStringExtra("tenKhuVuc");
+        String idKhuVuc = getIntent().getStringExtra("idKhuVuc");
+
+        // Set tên khu vực
+        tenKhuVucTextView = findViewById(R.id.title);
+        tenKhuVucTextView.setText(tenKhuVuc);
 
         // Khởi tạo RecyclerView
         rvTableList = findViewById(R.id.recyclerView);
         rvTableList.setLayoutManager(new LinearLayoutManager(this));
-
-        // Lấy thông tin từ Intent
-        String tenKhuVuc = getIntent().getStringExtra("tenKhuVuc"); // Lấy tên khu vực
-        int idKhuVuc = getIntent().getIntExtra("idKhuVuc", -1); // Lấy ID khu vực
-
-        // Hiển thị tên khu vực (ví dụ: "Tầng 1")
-        TextView tenKhuVucTextView = findViewById(R.id.title);
-        tenKhuVucTextView.setText(tenKhuVuc);
+        rvTableList.setHasFixedSize(true);
 
         // Khởi tạo danh sách bàn
         tableList = new ArrayList<>();
-
-        // Tạo và gán adapter cho RecyclerView
         banAdapter = new BanAdapter(tableList);
         rvTableList.setAdapter(banAdapter);
 
-        // Kết nối Firebase và lấy dữ liệu bàn từ khu vực
+        // Khởi tạo DatabaseReference
         databaseReference = FirebaseDatabase.getInstance().getReference("Ban");
 
-        // Lắng nghe sự thay đổi dữ liệu trong Firebase
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        // Lấy dữ liệu bàn từ Firebase theo idKhuVuc
+        loadBanData(idKhuVuc);
+    }
+
+    private void loadBanData(String idKhuVuc) {
+        // Lọc theo idKhuVuc
+        databaseReference.orderByChild("idKhuVuc").equalTo(idKhuVuc).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                // Kiểm tra nếu có dữ liệu
-                if (dataSnapshot.exists()) {
-                    Log.d("dsBan", "Data exists for idKhuVuc: " + idKhuVuc);
-                } else {
-                    Log.d("dsBan", "No data found for idKhuVuc: " + idKhuVuc);
-                }
-
-                // Xóa dữ liệu cũ và thêm dữ liệu mới
-                tableList.clear();
+                tableList.clear();  // Xóa danh sách trước khi thêm mới
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    Ban ban = snapshot.getValue(Ban.class); // Lấy dữ liệu Ban từ Firebase
-                    if (ban != null && ban.getIdKhuVuc() == idKhuVuc) {
-                        tableList.add(ban); // Thêm bàn nếu ID khu vực trùng với khu vực đang xem
+                    Ban ban = snapshot.getValue(Ban.class);
+                    if (ban != null) {
+                        tableList.add(ban);  // Thêm bàn vào danh sách
                     }
                 }
-
-                // Cập nhật lại RecyclerView
-                banAdapter.notifyDataSetChanged();
+                banAdapter.notifyDataSetChanged();  // Cập nhật adapter
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                // Xử lý lỗi khi tải dữ liệu
                 Log.e("dsBan", "Error loading data", databaseError.toException());
-            }
-        });
-
-        // Button quay lại
-        Button btnBack = findViewById(R.id.btn_back);
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish(); // Quay lại màn hình trước
             }
         });
     }

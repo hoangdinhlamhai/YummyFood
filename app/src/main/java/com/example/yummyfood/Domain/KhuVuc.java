@@ -1,8 +1,8 @@
 package com.example.yummyfood.Domain;
 
 public class KhuVuc {
-    private String idKhuVuc; // Thêm thuộc tính idKhuVuc
-    private String tenKV; // Tên khu vực (Tầng)
+    private String idKhuVuc; // ID khu vực
+    private String tenKV;    // Tên khu vực (Tầng)
 
     // Constructor rỗng cần thiết cho Firebase
     public KhuVuc() {}

@@ -1,15 +1,15 @@
 package com.example.yummyfood.Domain;
 
 public class Ban {
-    private String tenBan; // Tên bàn
-    private int idBan; // ID bàn (kiểu int nếu ID là số nguyên)
-    private int idKhuVuc; // ID khu vực mà bàn thuộc về (thêm thuộc tính này)
+    private String tenBan;  // Tên bàn
+    private String idBan;   // ID bàn (dùng String vì Firebase lưu dưới dạng String)
+    private String idKhuVuc; // ID khu vực mà bàn thuộc về (dùng String vì Firebase lưu dưới dạng String)
 
     // Constructor rỗng cần thiết cho Firebase
     public Ban() {}
 
     // Constructor có tham số
-    public Ban(String tenBan, int idBan, int idKhuVuc) {
+    public Ban(String tenBan, String idBan, String idKhuVuc) {
         this.tenBan = tenBan;
         this.idBan = idBan;
         this.idKhuVuc = idKhuVuc;
@@ -24,19 +24,19 @@ public class Ban {
         this.tenBan = tenBan;
     }
 
-    public int getIdBan() {
+    public String getIdBan() {
         return idBan;
     }
 
-    public void setIdBan(int idBan) {
+    public void setIdBan(String idBan) {
         this.idBan = idBan;
     }
 
-    public int getIdKhuVuc() {
+    public String getIdKhuVuc() {
         return idKhuVuc;
     }
 
-    public void setIdKhuVuc(int idKhuVuc) {
+    public void setIdKhuVuc(String idKhuVuc) {
         this.idKhuVuc = idKhuVuc;
     }
 }

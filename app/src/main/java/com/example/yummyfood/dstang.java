@@ -2,7 +2,6 @@ package com.example.yummyfood;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,38 +37,29 @@ public class dstang extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         khuVucList = new ArrayList<>();
-        khuVucAdapter = new KhuVucAdapter(this, khuVucList);  // Pass context here
+        khuVucAdapter = new KhuVucAdapter(this, khuVucList);
         recyclerView.setAdapter(khuVucAdapter);
 
         // Lắng nghe sự thay đổi dữ liệu từ Firebase
         loadKhuVucData();  // Tải lại dữ liệu từ Firebase khi ứng dụng mở lại
     }
 
-    // Phương thức tải dữ liệu từ Firebase
     private void loadKhuVucData() {
-        // Clear dữ liệu cũ mỗi khi tải lại để tránh dữ liệu bị trùng
         khuVucList.clear();
-
-        // Sử dụng ValueEventListener để lắng nghe sự thay đổi của các phần tử trong Firebase
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                // Duyệt qua tất cả các phần tử trong node "KhuVuc"
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    // Lấy thông tin mỗi "KhuVuc" từ Firebase
                     KhuVuc khuVuc = snapshot.getValue(KhuVuc.class);
                     if (khuVuc != null) {
-                        khuVucList.add(khuVuc);  // Thêm vào danh sách
+                        khuVucList.add(khuVuc);
                     }
                 }
-
-                // Thông báo cho adapter cập nhật dữ liệu trong RecyclerView
                 khuVucAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                // Thông báo lỗi khi tải dữ liệu
                 Toast.makeText(dstang.this, "Lỗi khi tải dữ liệu", Toast.LENGTH_SHORT).show();
             }
         });

@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.yummyfood.Domain.KhuVuc;
 import com.example.yummyfood.R;
-import com.example.yummyfood.dsBan;  // Activity hiển thị danh sách bàn
+import com.example.yummyfood.dsBan;
 
 import java.util.List;
 
@@ -20,7 +20,6 @@ public class KhuVucAdapter extends RecyclerView.Adapter<KhuVucAdapter.KhuVucView
     private Context context;
     private List<KhuVuc> khuVucList;
 
-    // Constructor
     public KhuVucAdapter(Context context, List<KhuVuc> khuVucList) {
         this.context = context;
         this.khuVucList = khuVucList;
@@ -28,27 +27,21 @@ public class KhuVucAdapter extends RecyclerView.Adapter<KhuVucAdapter.KhuVucView
 
     @Override
     public KhuVucViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        // Inflate layout item
         View itemView = LayoutInflater.from(context).inflate(R.layout.item_tang, parent, false);
         return new KhuVucViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(KhuVucViewHolder holder, int position) {
-        // Get KhuVuc item from the list
         KhuVuc khuVuc = khuVucList.get(position);
-
-        // Set the name of the floor (Tầng)
         holder.tenKVTextView.setText(khuVuc.getTenKV());
 
-        // Handle click event to open dsBan Activity when item (floor) is clicked
+        // Handle click event
         holder.itemView.setOnClickListener(v -> {
-            // Pass the position along with other data
             Intent intent = new Intent(context, dsBan.class);
-            intent.putExtra("idKhuVuc", khuVuc.getIdKhuVuc());  // Pass floor ID
-            intent.putExtra("tenKhuVuc", khuVuc.getTenKV());  // Pass floor name
-            intent.putExtra("position", position);  // Pass position to know which item was clicked
-            context.startActivity(intent);  // Start the activity
+            intent.putExtra("idKhuVuc", khuVuc.getIdKhuVuc());  // Chuyển idKhuVuc là String
+            intent.putExtra("tenKhuVuc", khuVuc.getTenKV());
+            context.startActivity(intent);
         });
     }
 
@@ -57,13 +50,12 @@ public class KhuVucAdapter extends RecyclerView.Adapter<KhuVucAdapter.KhuVucView
         return khuVucList.size();
     }
 
-    // ViewHolder
     public static class KhuVucViewHolder extends RecyclerView.ViewHolder {
         TextView tenKVTextView;
 
         public KhuVucViewHolder(View itemView) {
             super(itemView);
-            tenKVTextView = itemView.findViewById(R.id.tenTangTextView);  // Reference to the TextView in the item
+            tenKVTextView = itemView.findViewById(R.id.tenTangTextView);
         }
     }
 }
