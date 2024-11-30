@@ -26,7 +26,6 @@ public class List_Food extends AppCompatActivity {
     private RecyclerView rvFoodList;
     private List<Food> foodList;
     private ListFoodAdapter foodAdapter;
-    //    private SQLiteDatabase database;
     private DatabaseReference databaseReference;
 
     @Override
@@ -37,11 +36,6 @@ public class List_Food extends AppCompatActivity {
         // Khởi tạo RecyclerView
         rvFoodList = findViewById(R.id.rvFoodList);
         rvFoodList.setLayoutManager(new LinearLayoutManager(this));
-
-        // Mở cơ sở dữ liệu
-//        DatabaseHelper databaseHelper = new DatabaseHelper(this);
-//        databaseHelper.processCopy();
-//        database = openOrCreateDatabase("dbYummyFood.db", MODE_PRIVATE, null);
 
         // Lấy idDanhMuc từ Intent
         int categoryId = getIntent().getIntExtra("idDanhMuc", -1);
