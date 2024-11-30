@@ -51,6 +51,7 @@ public class category_user extends AppCompatActivity {
 
         // Set up adapter
         categoryAdapter = new CategoryAdapter(this, categoryList, categoryIdList);
+
         rvCategories.setAdapter(categoryAdapter);
 
         // Khởi tạo BottomNavigationView

@@ -2,10 +2,13 @@ package com.example.yummyfood;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -33,49 +36,51 @@ public class dsBan extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ds_ban);
 
-        // Lấy thông tin từ Intent
         String tenKhuVuc = getIntent().getStringExtra("tenKhuVuc");
         String idKhuVuc = getIntent().getStringExtra("idKhuVuc");
 
-        // Set tên khu vực
         tenKhuVucTextView = findViewById(R.id.title);
         tenKhuVucTextView.setText(tenKhuVuc);
 
-        // Khởi tạo RecyclerView
         rvTableList = findViewById(R.id.recyclerView);
-        rvTableList.setLayoutManager(new LinearLayoutManager(this));
+
+        // Sử dụng GridLayoutManager với 2 cột
+        rvTableList.setLayoutManager(new GridLayoutManager(this, 2));
         rvTableList.setHasFixedSize(true);
 
-        // Khởi tạo danh sách bàn
         tableList = new ArrayList<>();
         banAdapter = new BanAdapter(tableList);
         rvTableList.setAdapter(banAdapter);
 
-        // Khởi tạo DatabaseReference
         databaseReference = FirebaseDatabase.getInstance().getReference("Ban");
 
-        // Lấy dữ liệu bàn từ Firebase theo idKhuVuc
         loadBanData(idKhuVuc);
     }
 
     private void loadBanData(String idKhuVuc) {
-        // Lọc theo idKhuVuc
-        databaseReference.orderByChild("idKhuVuc").equalTo(idKhuVuc).addValueEventListener(new ValueEventListener() {
+        databaseReference.orderByChild("idKhuVuc").equalTo(Integer.parseInt(idKhuVuc)).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                tableList.clear();  // Xóa danh sách trước khi thêm mới
+                tableList.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Ban ban = snapshot.getValue(Ban.class);
                     if (ban != null) {
-                        tableList.add(ban);  // Thêm bàn vào danh sách
+                        tableList.add(ban);
                     }
                 }
-                banAdapter.notifyDataSetChanged();  // Cập nhật adapter
+                banAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 Log.e("dsBan", "Error loading data", databaseError.toException());
+            }
+        });
+        Button btnBack = findViewById(R.id.btn_back);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
             }
         });
     }

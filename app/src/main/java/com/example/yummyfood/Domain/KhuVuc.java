@@ -2,18 +2,15 @@ package com.example.yummyfood.Domain;
 
 public class KhuVuc {
     private String idKhuVuc; // ID khu vực
-    private String tenKV;    // Tên khu vực (Tầng)
+    private String tenKV;    // Tên khu vực
 
-    // Constructor rỗng cần thiết cho Firebase
     public KhuVuc() {}
 
-    // Constructor có tham số
     public KhuVuc(String idKhuVuc, String tenKV) {
         this.idKhuVuc = idKhuVuc;
         this.tenKV = tenKV;
     }
 
-    // Getter và Setter
     public String getIdKhuVuc() {
         return idKhuVuc;
     }

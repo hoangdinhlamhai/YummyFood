@@ -7,40 +7,45 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.yummyfood.Domain.KhuVuc;
 import com.example.yummyfood.R;
 import com.example.yummyfood.dsBan;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class KhuVucAdapter extends RecyclerView.Adapter<KhuVucAdapter.KhuVucViewHolder> {
 
     private Context context;
-    private List<KhuVuc> khuVucList;
+    private ArrayList<String> khuVucList;
+    private ArrayList<String> khuVucIdList;
 
-    public KhuVucAdapter(Context context, List<KhuVuc> khuVucList) {
+    public KhuVucAdapter(Context context, ArrayList<String> khuVucList, ArrayList<String> khuVucIdList) {
         this.context = context;
         this.khuVucList = khuVucList;
+        this.khuVucIdList = khuVucIdList;
+    }
+
+    @NonNull
+    @Override
+    public KhuVucViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.item_tang, parent, false);
+        return new KhuVucViewHolder(view);
     }
 
     @Override
-    public KhuVucViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(context).inflate(R.layout.item_tang, parent, false);
-        return new KhuVucViewHolder(itemView);
-    }
+    public void onBindViewHolder(@NonNull KhuVucViewHolder holder, int position) {
+        String tenKhuVuc = khuVucList.get(position);
+        String khuVucId = khuVucIdList.get(position);
 
-    @Override
-    public void onBindViewHolder(KhuVucViewHolder holder, int position) {
-        KhuVuc khuVuc = khuVucList.get(position);
-        holder.tenKVTextView.setText(khuVuc.getTenKV());
+        holder.tvKhuVuc.setText(tenKhuVuc);
 
-        // Handle click event
+        // Thiết lập sự kiện click cho item
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, dsBan.class);
-            intent.putExtra("idKhuVuc", khuVuc.getIdKhuVuc());  // Chuyển idKhuVuc là String
-            intent.putExtra("tenKhuVuc", khuVuc.getTenKV());
+            intent.putExtra("idKhuVuc", khuVucId); // ID khu vực
+            intent.putExtra("tenKhuVuc", tenKhuVuc); // Tên khu vực
             context.startActivity(intent);
         });
     }
@@ -51,11 +56,11 @@ public class KhuVucAdapter extends RecyclerView.Adapter<KhuVucAdapter.KhuVucView
     }
 
     public static class KhuVucViewHolder extends RecyclerView.ViewHolder {
-        TextView tenKVTextView;
+        TextView tvKhuVuc;
 
-        public KhuVucViewHolder(View itemView) {
+        public KhuVucViewHolder(@NonNull View itemView) {
             super(itemView);
-            tenKVTextView = itemView.findViewById(R.id.tenTangTextView);
+            tvKhuVuc = itemView.findViewById(R.id.tenTangTextView);
         }
     }
 }
