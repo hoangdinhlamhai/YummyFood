@@ -16,7 +16,10 @@
         android:theme="@style/Theme.YummyFood"
         tools:targetApi="31">
         <activity
-            android:name=".dsban"
+            android:name=".dsBan"
+            android:exported="false" />
+        <activity
+            android:name=".dstang"
             android:exported="false" />
         <activity
             android:name=".List_Table"

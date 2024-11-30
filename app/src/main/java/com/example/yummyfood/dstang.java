@@ -1,6 +1,8 @@
 package com.example.yummyfood;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,7 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class dsban extends AppCompatActivity {
+public class dstang extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private KhuVucAdapter khuVucAdapter;
@@ -27,7 +29,7 @@ public class dsban extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dsban);
+        setContentView(R.layout.activity_dstang);
 
         // Khởi tạo Firebase database reference
         databaseReference = FirebaseDatabase.getInstance().getReference("KhuVuc");
@@ -36,7 +38,7 @@ public class dsban extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         khuVucList = new ArrayList<>();
-        khuVucAdapter = new KhuVucAdapter(khuVucList);
+        khuVucAdapter = new KhuVucAdapter(this, khuVucList);  // Pass context here
         recyclerView.setAdapter(khuVucAdapter);
 
         // Lắng nghe sự thay đổi dữ liệu từ Firebase
@@ -68,7 +70,7 @@ public class dsban extends AppCompatActivity {
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 // Thông báo lỗi khi tải dữ liệu
-                Toast.makeText(dsban.this, "Lỗi khi tải dữ liệu", Toast.LENGTH_SHORT).show();
+                Toast.makeText(dstang.this, "Lỗi khi tải dữ liệu", Toast.LENGTH_SHORT).show();
             }
         });
     }
