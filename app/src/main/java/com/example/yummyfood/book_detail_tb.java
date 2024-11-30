@@ -1,97 +1,68 @@
 package com.example.yummyfood;
 
 import android.app.DatePickerDialog;
-import android.app.Dialog;
 import android.app.TimePickerDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.yummyfood.Domain.ChiTietDatBan;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class book_detail_tb extends AppCompatActivity {
 
-    TextView tvDate, tvTime;
-    Dialog dialog;
+    TextView tvDate, tvStartTime, tvEndTime, tenBanTextView;
+    EditText etGhiChu; // Thêm EditText cho ghi chú
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_book_detail_tb);  // Gọi setContentView một lần duy nhất
+        setContentView(R.layout.activity_book_detail_tb);
 
         tvDate = findViewById(R.id.tvDate);
-        tvTime = findViewById(R.id.tvTime);
+        tvStartTime = findViewById(R.id.tvStartTime);
+        tvEndTime = findViewById(R.id.tvEndTime);
+        tenBanTextView = findViewById(R.id.tenBanTextView);
+        etGhiChu = findViewById(R.id.etGhiChu); // Khởi tạo EditText cho ghi chú
+
+        // Nhận dữ liệu từ Intent (ví dụ: "Bàn 1")
+        String tenBan = getIntent().getStringExtra("tenBan");
+        tenBanTextView.setText(tenBan);
 
         // Hiển thị DatePicker khi nhấn vào "Ngày"
-        tvDate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDatePicker();
-            }
-        });
+        tvDate.setOnClickListener(v -> showDatePicker());
 
-        // Hiển thị TimePicker khi nhấn vào "Giờ"
-        tvTime.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showTimePicker();
-            }
-        });
+        // Hiển thị TimePicker khi nhấn vào "Giờ bắt đầu"
+        tvStartTime.setOnClickListener(v -> showStartTimePicker());
 
-        // Nút xác nhận để hiển thị dialog
-        Button btntb = findViewById(R.id.datcoc);
-        btntb.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(book_detail_tb.this, qr_tinhtien_ban.class);
-                startActivity(intent);
-            }
-        });
+        // Hiển thị TimePicker khi nhấn vào "Giờ kết thúc"
+        tvEndTime.setOnClickListener(v -> showEndTimePicker());
 
-        // Chuyển qua chính sách đặt bàn
-        TextView txt1 = findViewById(R.id.policy);
-        txt1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(book_detail_tb.this, user_policy.class);
-                startActivity(intent);
-            }
+        // Nút xác nhận
+        Button btnDatCoc = findViewById(R.id.datcoc);
+        btnDatCoc.setOnClickListener(v -> {
+            saveBooking(); // Gọi hàm lưu đặt bàn
         });
 
         // Nút quay lại
-        Button btnback = findViewById(R.id.btnBack);
-        btnback.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+        Button btnBack = findViewById(R.id.btnBack);
+        btnBack.setOnClickListener(view -> finish());
     }
 
-    // Hàm hiển thị dialog
-    private void showDialog() {
-        dialog = new Dialog(book_detail_tb.this);
-        dialog.setContentView(R.layout.activity_dialog_book_table);
-
-        TextView exitButton = dialog.findViewById(R.id.dialog_xem);
-        exitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-                Intent intent = new Intent(book_detail_tb.this, history_table.class);
-                startActivity(intent);
-            }
-        });
-
-        dialog.show(); // Hiển thị dialog
-    }
-
-    // Hàm chọn ngày (chỉ cho phép chọn ngày trong tương lai)
+    // Hiển thị DatePicker để chọn ngày
     private void showDatePicker() {
         Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
@@ -106,15 +77,11 @@ public class book_detail_tb extends AppCompatActivity {
                 },
                 year, month, day);
 
-        // Đặt ngày hiện tại làm ngày tối thiểu
-        calendar.set(year, month, day);
-        datePickerDialog.getDatePicker().setMinDate(calendar.getTimeInMillis());  // Chỉ cho phép chọn ngày trong tương lai
-
         datePickerDialog.show();
     }
 
-    // Hàm chọn giờ (không cho chọn khung giờ từ 7-9 sáng)
-    private void showTimePicker() {
+    // Hiển thị TimePicker để chọn giờ bắt đầu
+    private void showStartTimePicker() {
         Calendar calendar = Calendar.getInstance();
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
         int minute = calendar.get(Calendar.MINUTE);
@@ -122,16 +89,109 @@ public class book_detail_tb extends AppCompatActivity {
         TimePickerDialog timePickerDialog = new TimePickerDialog(
                 book_detail_tb.this,
                 (view, hourOfDay, minute1) -> {
-                    // Kiểm tra nếu giờ nằm trong khoảng 7-9 giờ sáng thì không cho chọn
-                    if (hourOfDay >= 7 && hourOfDay <= 9) {
-                        Toast.makeText(book_detail_tb.this, "Khung giờ từ 7-9 sáng đã có người đặt!", Toast.LENGTH_SHORT).show();
-                    } else {
-                        String selectedTime = hourOfDay + ":" + (minute1 < 10 ? "0" + minute1 : minute1);
-                        tvTime.setText(selectedTime);
-                    }
+                    String selectedTime = hourOfDay + ":" + (minute1 < 10 ? "0" + minute1 : minute1);
+                    tvStartTime.setText(selectedTime);
                 },
                 hour, minute, true);
 
         timePickerDialog.show();
+    }
+
+    // Hiển thị TimePicker để chọn giờ kết thúc
+    private void showEndTimePicker() {
+        Calendar calendar = Calendar.getInstance();
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        int minute = calendar.get(Calendar.MINUTE);
+
+        TimePickerDialog timePickerDialog = new TimePickerDialog(
+                book_detail_tb.this,
+                (view, hourOfDay, minute1) -> {
+                    String selectedTime = hourOfDay + ":" + (minute1 < 10 ? "0" + minute1 : minute1);
+                    tvEndTime.setText(selectedTime);
+                },
+                hour, minute, true);
+
+        timePickerDialog.show();
+    }
+
+    // Lưu thông tin đặt bàn vào Firebase
+    private void saveBooking() {
+        // Lấy dữ liệu từ các TextView và EditText
+        String tenBan = tenBanTextView.getText().toString();
+        String ngay = tvDate.getText().toString();
+        String gioBatDau = tvStartTime.getText().toString();
+        String gioKetThuc = tvEndTime.getText().toString();
+        String ghiChu = etGhiChu.getText().toString();
+
+        // Kiểm tra xem các trường có trống hay không
+        if (tenBan.isEmpty() || ngay.isEmpty() || gioBatDau.isEmpty() || gioKetThuc.isEmpty()) {
+            Toast.makeText(this, "Vui lòng điền đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Kiểm tra xem giờ đã có người đặt chưa
+        checkIfTimeAvailable(ngay, gioBatDau, gioKetThuc, tenBan, ghiChu);
+    }
+
+    // Kiểm tra xem thời gian có trùng lặp với đơn đặt bàn khác không
+    private void checkIfTimeAvailable(String ngay, String gioBatDau, String gioKetThuc, String tenBan, String ghiChu) {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("ChiTietDatBan");
+
+        // Truy vấn tất cả các đơn đặt bàn trong cùng ngày
+        Query query = myRef.orderByChild("Ngay").equalTo(ngay);
+
+        query.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                boolean isAvailable = true;
+
+                for (DataSnapshot snapshot : task.getResult().getChildren()) {
+                    ChiTietDatBan existingBooking = snapshot.getValue(ChiTietDatBan.class);
+
+                    if (existingBooking != null && existingBooking.getIdBan().equals(tenBan)) {
+                        // Kiểm tra xung đột thời gian
+                        if (isTimeConflict(existingBooking, gioBatDau, gioKetThuc)) {
+                            isAvailable = false;
+                            break;
+                        }
+                    }
+                }
+
+                if (isAvailable) {
+                    // Nếu không có xung đột, lưu đơn đặt bàn mới vào Firebase
+                    ChiTietDatBan chiTietDatBan = new ChiTietDatBan(ngay, ghiChu, tenBan, gioBatDau, gioKetThuc);
+                    myRef.push().setValue(chiTietDatBan).addOnCompleteListener(task1 -> {
+                        if (task1.isSuccessful()) {
+                            Toast.makeText(this, "Đặt bàn thành công!", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(this, "Đặt bàn thất bại!", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                } else {
+                    // Thông báo nếu giờ đã có người đặt
+                    Toast.makeText(this, "Giờ đã có người đặt. Vui lòng chọn thời gian khác.", Toast.LENGTH_LONG).show();
+                }
+            } else {
+                Toast.makeText(this, "Lỗi khi truy vấn dữ liệu: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    // Kiểm tra xung đột thời gian
+    private boolean isTimeConflict(ChiTietDatBan existingBooking, String newStartTime, String newEndTime) {
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+
+        try {
+            Date existingStart = sdf.parse(existingBooking.getThoiGianBatDau());
+            Date existingEnd = sdf.parse(existingBooking.getThoiGianKetThuc());
+            Date newStart = sdf.parse(newStartTime);
+            Date newEnd = sdf.parse(newEndTime);
+
+            // Kiểm tra nếu thời gian mới có sự xung đột với thời gian đã đặt trước
+            return (newStart.before(existingEnd) && newEnd.after(existingStart));
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }

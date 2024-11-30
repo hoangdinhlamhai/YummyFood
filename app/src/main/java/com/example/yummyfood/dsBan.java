@@ -1,5 +1,6 @@
 package com.example.yummyfood;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -9,7 +10,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.yummyfood.Adapter.BanAdapter;
@@ -23,7 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class dsBan extends AppCompatActivity {
+public class dsBan extends AppCompatActivity implements BanAdapter.OnBanClickListener {
 
     private RecyclerView rvTableList;
     private List<Ban> tableList;
@@ -43,18 +43,19 @@ public class dsBan extends AppCompatActivity {
         tenKhuVucTextView.setText(tenKhuVuc);
 
         rvTableList = findViewById(R.id.recyclerView);
-
-        // Sử dụng GridLayoutManager với 2 cột
         rvTableList.setLayoutManager(new GridLayoutManager(this, 2));
         rvTableList.setHasFixedSize(true);
 
         tableList = new ArrayList<>();
-        banAdapter = new BanAdapter(tableList);
+        banAdapter = new BanAdapter(tableList, this); // Truyền `this` làm listener
         rvTableList.setAdapter(banAdapter);
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Ban");
 
         loadBanData(idKhuVuc);
+
+        Button btnBack = findViewById(R.id.btn_back);
+        btnBack.setOnClickListener(view -> finish());
     }
 
     private void loadBanData(String idKhuVuc) {
@@ -76,12 +77,13 @@ public class dsBan extends AppCompatActivity {
                 Log.e("dsBan", "Error loading data", databaseError.toException());
             }
         });
-        Button btnBack = findViewById(R.id.btn_back);
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+    }
+
+    @Override
+    public void onBanClick(Ban ban) {
+        Intent intent = new Intent(this, book_detail_tb.class); // Gọi đến book_detail_tb
+        intent.putExtra("tenBan", ban.getTenBan());
+        intent.putExtra("soLuongGhe", ban.getSoLuongGhe());
+        startActivity(intent);
     }
 }
