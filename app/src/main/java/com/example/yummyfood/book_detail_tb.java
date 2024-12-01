@@ -25,7 +25,7 @@ import java.util.Date;
 public class book_detail_tb extends AppCompatActivity {
 
     TextView tvDate, tvStartTime, tvEndTime, tenBanTextView;
-    EditText etGhiChu; // Thêm EditText cho ghi chú
+    EditText etGhiChu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,12 +35,12 @@ public class book_detail_tb extends AppCompatActivity {
         tvDate = findViewById(R.id.tvDate);
         tvStartTime = findViewById(R.id.tvStartTime);
         tvEndTime = findViewById(R.id.tvEndTime);
-        tenBanTextView = findViewById(R.id.tenBanTextView);
-        etGhiChu = findViewById(R.id.etGhiChu); // Khởi tạo EditText cho ghi chú
+        tenBanTextView = findViewById(R.id.tenBanTextView); // TextView cho tên bàn
+        etGhiChu = findViewById(R.id.etGhiChu);
 
         // Nhận dữ liệu từ Intent (ví dụ: "Bàn 1")
         String tenBan = getIntent().getStringExtra("tenBan");
-        tenBanTextView.setText(tenBan);
+        tenBanTextView.setText(tenBan); // Hiển thị tên bàn
 
         // Hiển thị DatePicker khi nhấn vào "Ngày"
         tvDate.setOnClickListener(v -> showDatePicker());
@@ -139,7 +139,7 @@ public class book_detail_tb extends AppCompatActivity {
         DatabaseReference myRef = database.getReference("ChiTietDatBan");
 
         // Truy vấn tất cả các đơn đặt bàn trong cùng ngày
-        Query query = myRef.orderByChild("Ngay").equalTo(ngay);
+        Query query = myRef.orderByChild("ngay").equalTo(ngay);
 
         query.get().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
@@ -148,8 +148,8 @@ public class book_detail_tb extends AppCompatActivity {
                 for (DataSnapshot snapshot : task.getResult().getChildren()) {
                     ChiTietDatBan existingBooking = snapshot.getValue(ChiTietDatBan.class);
 
-                    if (existingBooking != null && existingBooking.getIdBan().equals(tenBan)) {
-                        // Kiểm tra xung đột thời gian
+                    if (existingBooking != null && existingBooking.getTenBan().equals(tenBan)) {
+                        // Kiểm tra xung đột thời gian và ID bàn
                         if (isTimeConflict(existingBooking, gioBatDau, gioKetThuc)) {
                             isAvailable = false;
                             break;
@@ -159,7 +159,7 @@ public class book_detail_tb extends AppCompatActivity {
 
                 if (isAvailable) {
                     // Nếu không có xung đột, lưu đơn đặt bàn mới vào Firebase
-                    ChiTietDatBan chiTietDatBan = new ChiTietDatBan(ngay, ghiChu, tenBan, gioBatDau, gioKetThuc);
+                    ChiTietDatBan chiTietDatBan = new ChiTietDatBan(tenBan, ngay, ghiChu, gioBatDau, gioKetThuc);
                     myRef.push().setValue(chiTietDatBan).addOnCompleteListener(task1 -> {
                         if (task1.isSuccessful()) {
                             Toast.makeText(this, "Đặt bàn thành công!", Toast.LENGTH_SHORT).show();
@@ -169,7 +169,8 @@ public class book_detail_tb extends AppCompatActivity {
                     });
                 } else {
                     // Thông báo nếu giờ đã có người đặt
-                    Toast.makeText(this, "Giờ đã có người đặt. Vui lòng chọn thời gian khác.", Toast.LENGTH_LONG).show();
+                    String message = "Giờ bạn chọn (" + gioBatDau + " - " + gioKetThuc + ") cho bàn " + tenBan + " đã có người đặt. Vui lòng chọn thời gian khác.";
+                    Toast.makeText(this, message, Toast.LENGTH_LONG).show();
                 }
             } else {
                 Toast.makeText(this, "Lỗi khi truy vấn dữ liệu: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
