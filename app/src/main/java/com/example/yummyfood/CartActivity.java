@@ -110,34 +110,35 @@ public class CartActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 for (DataSnapshot data : snapshot.getChildren()) {
-                    // Lấy idChiTietDonHang dưới dạng Long
-                    Long idChiTietDonHangLong = data.child("idChiTietDonHang").getValue(Long.class);
-                    int idChiTietDonHang = (idChiTietDonHangLong != null) ? idChiTietDonHangLong.intValue() : 0; // hoặc giá trị mặc định bạn muốn
+                    /// Lấy idChiTietDonHang
+                    Integer idChiTietDonHang = data.child("idChiTietDonHang").getValue(Integer.class);
+                    idChiTietDonHang = (idChiTietDonHang != null) ? idChiTietDonHang : 0;
 
-                    // Lấy idMonAn dưới dạng Long
-                    Long idMonAnLong = data.child("idMonAn").getValue(Long.class);
-                    int idMonAn = (idMonAnLong != null) ? idMonAnLong.intValue() : 0; // hoặc giá trị mặc định bạn muốn
+                    // Lấy idMonAn
+                    Integer idMonAn = data.child("idMonAn").getValue(Integer.class);
+                    idMonAn = (idMonAn != null) ? idMonAn : 0;
+//                    Integer idMonAnInt = data.child("idMonAn").getValue(Integer.class);
+//                    String idMonAn = (idMonAnInt != null) ? String.valueOf(idMonAnInt) : null;
 
-                    // Lấy soLuong dưới dạng Long
-                    Long soLuongLong = data.child("soLuong").getValue(Long.class);
-                    int soLuong = (soLuongLong != null) ? soLuongLong.intValue() : 0; // hoặc giá trị mặc định bạn muốn
-
-                    // In giá trị để kiểm tra
-                    Log.d("ChiTietDebug", "idChiTietDonHang: " + idChiTietDonHang);
-                    Log.d("ChiTietDebug", "idMonAn: " + idMonAn);
-                    Log.d("ChiTietDebug", "soLuong: " + soLuong);
+                    // Lấy soLuong
+                    Integer soLuong = data.child("soLuong").getValue(Integer.class);
+                    soLuong = (soLuong != null) ? soLuong : 0;
 
                     // Kiểm tra null trước khi thêm vào danh sách
-                    if (idChiTietDonHang > 0 && idMonAn > 0 && soLuong > 0) { // Hoặc kiểm tra theo điều kiện bạn muốn
+//                    if (idChiTietDonHang > 0 && idMonAn > 0 && soLuong > 0) { // Hoặc kiểm tra theo điều kiện bạn muốn
                         chiTietMonAnList.add(new CartItem(idChiTietDonHang, idMonAn, soLuong));
-                    } else {
-                        Log.w("ChiTietDebug", "Dữ liệu không đầy đủ: idChiTietDonHang=" + idChiTietDonHang + ", idMonAn=" + idMonAn + ", soLuong=" + soLuong);
-                    }
+//                    } else {
+//                        Log.w("ChiTietDebug", "Dữ liệu không đầy đủ: idChiTietDonHang=" + idChiTietDonHang + ", idMonAn=" + idMonAn + ", soLuong=" + soLuong);
+//                    }
                 }
 
                 // Set data to RecyclerView adapter
                 cartAdapter = new CartAdapter(CartActivity.this, chiTietMonAnList, monAnMap);
                 rvCart.setAdapter(cartAdapter);
+                //monAnMap đã có được các object Food
+//                for (Map.Entry<String, Food> entry : monAnMap.entrySet()) {
+//                    Log.d("MonAnMap", "Key: " + entry.getKey() + ", Value: " + entry.getValue().toString());
+//                }
             }
 
             @Override

@@ -1,6 +1,7 @@
 package com.example.yummyfood.Adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,15 +40,22 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         CartItem chiTietMonAn = chiTietMonAnList.get(position);
-        int  idMonAn = chiTietMonAn.getIdMonAn(); // idMonAn là String
+        int idMonAn = chiTietMonAn.getIdMonAn();
         int soLuong = chiTietMonAn.getSoLuong();
 
         // Lấy thông tin món ăn từ monAnMap
-        Food monAn = monAnMap.get(idMonAn);
+        Food monAn = monAnMap.get(String.valueOf(idMonAn));
+
+//        Log.d("CartDebug", "idMonAn: " + idMonAn); // In giá trị idMonAn
+//        if (monAn != null) {
+//            Log.d("CartDebug", "Món ăn tìm được: " + monAn.toString()); // In thông tin món ăn nếu tìm thấy
+//        } else {
+//            Log.d("CartDebug", "Không tìm thấy món ăn với idMonAn: " + idMonAn); // Thông báo nếu không tìm thấy
+//        }
 
         if (monAn != null) {
             holder.tvMonAn.setText(monAn.getName());
-            holder.tvGiaMonAn.setText(String.format("%.0f đ", monAn.getPrice())); // Hiển thị giá
+            holder.tvGiaMonAn.setText(monAn.getPrice()+"VND"); // Hiển thị giá
             holder.tvSoLuong.setText(String.valueOf(soLuong));
 
             // Sử dụng Glide để hiển thị hình ảnh
