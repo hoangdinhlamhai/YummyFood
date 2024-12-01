@@ -22,7 +22,7 @@
         android:layout_marginEnd="15dp">
 
         <ImageView
-            android:id="@+id/foodImage1"
+            android:id="@+id/ivHinhAnh"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/rounded_image"
@@ -39,7 +39,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/foodName1"
+            android:id="@+id/tvMonAn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Gà rán - Jollibee"
@@ -47,7 +47,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/foodPrice1"
+            android:id="@+id/tvGiaMonAn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -63,10 +63,12 @@
         app:srcCompat="@drawable/minus_black_circle" />
 
     <TextView
-        android:id="@+id/idSL1"
+        android:id="@+id/tvSoLuong"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="  1  " />
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:text="1" />
 
     <ImageView
         android:id="@+id/imageView20"

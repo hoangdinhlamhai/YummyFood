@@ -102,7 +102,7 @@ public class  ListFoodAdapter extends RecyclerView.Adapter<ListFoodAdapter.FoodV
                         String newKey = idDonHang + "_" + (maxSuffix + 1);
 
                         // Tạo đối tượng CartItem
-                        CartItem cartItem = new CartItem(idDonHang, idMonAn);
+                        CartItem cartItem = new CartItem(idDonHang, idMonAn, 1);
 
                         // Thêm vào Firebase
                         databaseReference.child(newKey).setValue(cartItem)

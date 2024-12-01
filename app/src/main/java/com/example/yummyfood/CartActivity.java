@@ -2,15 +2,39 @@ package com.example.yummyfood;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.yummyfood.Adapter.CartAdapter;
+import com.example.yummyfood.Domain.CartItem;
+import com.example.yummyfood.Domain.Food;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class CartActivity extends AppCompatActivity {
+
+    private RecyclerView rvCart;
+    private CartAdapter cartAdapter;
+    private DatabaseReference databaseReference;
+    private List<CartItem> chiTietMonAnList = new ArrayList<>();
+    private Map<String, Food> monAnMap = new HashMap<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,20 +68,82 @@ public class CartActivity extends AppCompatActivity {
             return true;
         });
 
-        setupUIInteractions();
+        // Initialize RecyclerView
+        rvCart = findViewById(R.id.rvCart);
+        rvCart.setLayoutManager(new LinearLayoutManager(this));
+
+        // Initialize Firebase Database reference
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+
+        // Load data from Firebase
+        loadMonAnData();
     }
 
+    private void loadMonAnData() {
+        // Load MonAn data
+        databaseReference.child("MonAn").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                for (DataSnapshot data : snapshot.getChildren()) {
+                    String idMonAn = data.getKey();
+                    String tenMonAn = data.child("tenMonAn").getValue(String.class);
+                    int giaMonAn = data.child("donGia").getValue(Integer.class);
+                    String hinhAnh = data.child("hinhAnh").getValue(String.class);
 
-    private void setupUIInteractions() {
-        LinearLayout mon1 = findViewById(R.id.mon1);
-        LinearLayout mon2 = findViewById(R.id.mon2);
-        LinearLayout mon3 = findViewById(R.id.mon3);
-        Button btn_paying3 = findViewById(R.id.btn_paying3);
+                    monAnMap.put(idMonAn, new Food(idMonAn, tenMonAn, null, giaMonAn, hinhAnh));
+                }
 
+                // Load ChiTietDonHang_MonAn after MonAn data
+                loadChiTietDonHang();
+            }
 
-        mon1.setOnClickListener(v -> startActivity(new Intent(CartActivity.this, FoodDetailActivity.class)));
-        mon2.setOnClickListener(v -> startActivity(new Intent(CartActivity.this, FoodDetailActivity.class)));
-        mon3.setOnClickListener(v -> startActivity(new Intent(CartActivity.this, FoodDetailActivity.class)));
-        btn_paying3.setOnClickListener(v -> startActivity(new Intent(CartActivity.this, ActivityPaymentUser.class)));
+            @Override
+            public void onCancelled(DatabaseError error) {
+                Toast.makeText(CartActivity.this, "Lỗi tải dữ liệu món ăn!", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void loadChiTietDonHang() {
+        // Load ChiTietDonHang_MonAn data
+        databaseReference.child("ChiTietDonHang_MonAn").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                for (DataSnapshot data : snapshot.getChildren()) {
+                    // Lấy idChiTietDonHang dưới dạng Long
+                    Long idChiTietDonHangLong = data.child("idChiTietDonHang").getValue(Long.class);
+                    int idChiTietDonHang = (idChiTietDonHangLong != null) ? idChiTietDonHangLong.intValue() : 0; // hoặc giá trị mặc định bạn muốn
+
+                    // Lấy idMonAn dưới dạng Long
+                    Long idMonAnLong = data.child("idMonAn").getValue(Long.class);
+                    int idMonAn = (idMonAnLong != null) ? idMonAnLong.intValue() : 0; // hoặc giá trị mặc định bạn muốn
+
+                    // Lấy soLuong dưới dạng Long
+                    Long soLuongLong = data.child("soLuong").getValue(Long.class);
+                    int soLuong = (soLuongLong != null) ? soLuongLong.intValue() : 0; // hoặc giá trị mặc định bạn muốn
+
+                    // In giá trị để kiểm tra
+                    Log.d("ChiTietDebug", "idChiTietDonHang: " + idChiTietDonHang);
+                    Log.d("ChiTietDebug", "idMonAn: " + idMonAn);
+                    Log.d("ChiTietDebug", "soLuong: " + soLuong);
+
+                    // Kiểm tra null trước khi thêm vào danh sách
+                    if (idChiTietDonHang > 0 && idMonAn > 0 && soLuong > 0) { // Hoặc kiểm tra theo điều kiện bạn muốn
+                        chiTietMonAnList.add(new CartItem(idChiTietDonHang, idMonAn, soLuong));
+                    } else {
+                        Log.w("ChiTietDebug", "Dữ liệu không đầy đủ: idChiTietDonHang=" + idChiTietDonHang + ", idMonAn=" + idMonAn + ", soLuong=" + soLuong);
+                    }
+                }
+
+                // Set data to RecyclerView adapter
+                cartAdapter = new CartAdapter(CartActivity.this, chiTietMonAnList, monAnMap);
+                rvCart.setAdapter(cartAdapter);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                Toast.makeText(CartActivity.this, "Lỗi tải chi tiết đơn hàng!", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
