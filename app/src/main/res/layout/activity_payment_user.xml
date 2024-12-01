@@ -25,22 +25,16 @@
                 android:padding="16dp">            <!-- Nút trở về -->
                 <ImageView
                     android:id="@+id/btn_return_payment"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="28dp"
+                    android:layout_height="28sp"
                     android:layout_marginBottom="16dp"
-                    android:layout_marginEnd="50dp"
-                    android:contentDescription="Back Button"
                     android:src="@drawable/btn_back" />
 
-                <!-- Tiêu đề Thanh toán -->
-
-                <!-- Địa chỉ người nhận -->
-
                 <TextView
-                    android:layout_width="153dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginBottom="16dp"
+                    android:layout_marginEnd="24dp"
                     android:gravity="center"
                     android:text="Thanh toán"
                     android:textColor="#E53935"
@@ -74,167 +68,11 @@
             </LinearLayout>
 
             <!-- Danh sách món ăn -->
-            <LinearLayout
-                android:id="@+id/popularFoodList"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvCart"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginBottom="16dp">
-
-                <!-- Món ăn 1 -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="12dp"
-                    android:background="#FFFFFF"
-                    android:layout_marginBottom="8dp"
-                    android:elevation="2dp">
-
-                    <FrameLayout
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_marginEnd="15dp">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/rounded_image"
-                            android:src="@drawable/garan"
-                            android:scaleType="centerCrop"
-                            android:clipToOutline="true" />
-                    </FrameLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:paddingStart="8dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Gà rán - Jollibee"
-                            android:textStyle="bold"
-                            android:textSize="16sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="79.000đ"
-                            android:textSize="16sp"
-                            android:textColor="#D02828" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="SL: 1" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <!-- Món ăn 2 -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="12dp"
-                    android:background="#FFFFFF"
-                    android:layout_marginBottom="8dp"
-                    android:elevation="2dp">
-
-                    <FrameLayout
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_marginEnd="15dp">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/rounded_image"
-                            android:src="@drawable/milktea"
-                            android:scaleType="centerCrop"
-                            android:clipToOutline="true" />
-                    </FrameLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:paddingStart="8dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Trà sữa - MayCha"
-                            android:textStyle="bold"
-                            android:textSize="16sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="29.000đ"
-                            android:textSize="16sp"
-                            android:textColor="#D02828" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="SL: 1" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <!-- Món ăn 3 -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="12dp"
-                    android:background="#FFFFFF"
-                    android:elevation="2dp">
-
-                    <FrameLayout
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_marginEnd="15dp">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/rounded_image"
-                            android:src="@drawable/garan"
-                            android:scaleType="centerCrop"
-                            android:clipToOutline="true" />
-                    </FrameLayout>
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:paddingStart="8dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Gà rán - Jollibee"
-                            android:textStyle="bold"
-                            android:textSize="16sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="79.000đ"
-                            android:textSize="16sp"
-                            android:textColor="#D02828" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="SL: 1" />
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
+                android:layout_marginBottom="16dp"/>
 
             <!-- Tổng kết đơn hàng -->
             <LinearLayout
@@ -255,24 +93,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Tổng cộng (n món)"
-                        android:textSize="16sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Phí giao hàng"
-                        android:textSize="16sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Áp dụng voucher:"
-                        android:textSize="16sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:text="Tổng cộng:"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -284,26 +104,6 @@
                     android:layout_weight="1"
                     android:orientation="vertical"
                     android:gravity="end">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="187.000đ"
-                        android:textSize="16sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0đ"
-                        android:textSize="16sp" />
-
-                    <TextView
-                        android:id="@+id/voucher"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Chọn voucher >"
-                        android:textSize="16sp"
-                        android:textColor="#D32F2F" />
 
                     <TextView
                         android:layout_width="wrap_content"
