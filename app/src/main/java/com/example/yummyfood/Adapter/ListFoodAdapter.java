@@ -75,6 +75,8 @@ public class  ListFoodAdapter extends RecyclerView.Adapter<ListFoodAdapter.FoodV
             public void onClick(View view) {
                 int idDonHang = 1; // ID của đơn hàng hiện tại (tùy chỉnh theo logic của bạn)
                 int idMonAn = Integer.parseInt(food.getId()); // ID món ăn
+                /////////////////////////////////////////
+//                String idMonAnString = String.valueOf(idMonAn);
 
                 // Lấy key lớn nhất từ Firebase
                 databaseReference.orderByKey().addListenerForSingleValueEvent(new ValueEventListener() {

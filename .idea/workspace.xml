@@ -50,11 +50,6 @@
           <theme>@style/Theme.YummyFood</theme>
         </config>
       </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_order_status.xml">
-        <config>
-          <theme>@style/Theme.YummyFood</theme>
-        </config>
-      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_profile_admin.xml">
         <config>
           <theme>@style/Theme.YummyFood</theme>
@@ -80,11 +75,6 @@
           <theme>@style/Theme.YummyFood</theme>
         </config>
       </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/item_booked_time.xml">
-        <config>
-          <theme>@style/Theme.YummyFood</theme>
-        </config>
-      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/item_cart.xml">
         <config>
           <theme>@style/Theme.YummyFood</theme>
@@ -100,23 +90,18 @@
           <theme>@style/Theme.YummyFood</theme>
         </config>
       </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/item_table.xml">
-        <config>
-          <theme>@style/Theme.YummyFood</theme>
-        </config>
-      </layout>
     </layouts>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cccba1d7-d54f-4707-b3e1-13d6662c4ec1" name="Changes" comment="chi tiet dat ban">
-      <change beforePath="$PROJECT_DIR$/.gradle/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/config.properties" afterDir="false" />
+    <list default="true" id="cccba1d7-d54f-4707-b3e1-13d6662c4ec1" name="Changes" comment="chi tiet dat ban(chua xong)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_book_detail_tb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_book_detail_tb.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_ds_ban.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_ds_ban.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_table.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_table.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/Adapter/CartAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/Adapter/CartAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/Adapter/ListFoodAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/Adapter/ListFoodAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/CartActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/CartActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/Domain/Food.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/Domain/Food.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +111,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=LocalEmulator, isTemplate=false, identifier=path=F:\124\May_ao\.android\avd\Pixel_4a_API_35.avd)]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=LocalEmulator, isTemplate=false, identifier=path=C:\Users\ASUS\.android\avd\Medium_Phone_API_35.avd)]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -135,8 +120,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="layoutResourceFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -152,7 +137,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/hoangdinhlamhai/YummyFood.git&quot;,
-    &quot;accountId&quot;: &quot;b7b0b2f0-262b-4f6d-afbd-40d69132c45b&quot;
+    &quot;accountId&quot;: &quot;f3b94c69-0d64-4ede-b1e0-8c1f44ae1765&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -270,21 +255,12 @@
       <option name="project" value="LOCAL" />
       <updated>1732999053353</updated>
     </task>
-    <task id="LOCAL-00002" summary="chi tiet dat ban">
-      <option name="closed" value="true" />
-      <created>1733051062168</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1733051062168</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="them vao gio" />
     <MESSAGE value="chi tiet dat ban(chua xong)" />
-    <MESSAGE value="chi tiet dat ban" />
-    <option name="LAST_COMMIT_MESSAGE" value="chi tiet dat ban" />
+    <option name="LAST_COMMIT_MESSAGE" value="chi tiet dat ban(chua xong)" />
   </component>
 </project>
