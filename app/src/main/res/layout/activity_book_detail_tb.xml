@@ -4,76 +4,102 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- TextView cho tên bàn -->
+    <!-- TextView for table name -->
     <TextView
         android:id="@+id/tenBanTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="307dp"
-        android:gravity="center"
         android:text="Tên Bàn"
         android:textColor="#F44336"
-        android:textColorLink="#D94141"
-        android:textSize="24sp"
+        android:textSize="30sp"
         android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
-    <!-- TextView cho chọn ngày -->
-    <TextView
-        android:id="@+id/tvDate"
+    <!-- LinearLayout for inputs -->
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:background="#EFEFEF"
-        android:hint="Chọn ngày"
         android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tenBanTextView"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tenBanTextView">
 
-    <!-- TextView cho chọn giờ bắt đầu -->
-    <TextView
-        android:id="@+id/tvStartTime"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:background="#EFEFEF"
-        android:hint="Chọn giờ bắt đầu"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvDate"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <!-- Date field -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ngày:"
+            android:textColor="@color/light_red"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-    <!-- TextView cho chọn giờ kết thúc -->
-    <TextView
-        android:id="@+id/tvEndTime"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:background="#EFEFEF"
-        android:hint="Chọn giờ kết thúc"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvStartTime"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <!-- Date picker -->
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:background="#EFEFEF"
+            android:hint="Chọn ngày"
+            android:layout_marginTop="16dp" />
 
-    <!-- EditText cho ghi chú -->
-    <EditText
-        android:id="@+id/etGhiChu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Ghi chú"
-        android:layout_marginTop="16dp"
-        android:padding="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvEndTime"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <!-- Start time -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Chọn giờ bắt đầu"
+            android:textColor="@color/light_red"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-    <!-- Button Đặt Bàn -->
+        <TextView
+            android:id="@+id/tvStartTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:background="#EFEFEF"
+            android:hint="Chọn giờ bắt đầu"
+            android:layout_marginTop="16dp" />
+
+        <!-- End time -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Chọn giờ kết thúc"
+            android:textColor="@color/light_red"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvEndTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:background="#EFEFEF"
+            android:hint="Chọn giờ kết thúc"
+            android:layout_marginTop="16dp" />
+
+        <!-- Note -->
+        <EditText
+            android:id="@+id/etGhiChu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ghi chú"
+            android:layout_marginTop="16dp"
+            android:padding="8dp" />
+    </LinearLayout>
+
+    <!-- Buttons -->
     <Button
         android:id="@+id/datcoc"
         android:layout_width="0dp"
