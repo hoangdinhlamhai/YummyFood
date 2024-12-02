@@ -6,22 +6,16 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-
 
 public class Login_userActivity extends AppCompatActivity {
     EditText loginUsername, loginPassword;
@@ -91,36 +85,40 @@ public class Login_userActivity extends AppCompatActivity {
         // Truy cập Firebase Realtime Database
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
 
-        // Thực hiện truy vấn để tìm người dùng theo username
-        reference.child("users").child(userUsername).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()) {
-                    // Lấy mật khẩu từ Firebase
-                    String passwordFromDB = snapshot.child("password").getValue(String.class);
+        // Thực hiện truy vấn để tìm người dùng theo tên tài khoản
+        reference.child("TaiKhoan").orderByChild("tenTaiKhoan").equalTo(userUsername)
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            // Lấy thông tin người dùng
+                            for (DataSnapshot userSnapshot : snapshot.getChildren()) {
+                                String passwordFromDB = userSnapshot.child("matKhau").getValue(String.class);
 
-                    // So sánh mật khẩu người dùng nhập vào với mật khẩu lưu trong Firebase
-                    if (passwordFromDB != null && passwordFromDB.equals(userPassword)) {
-                        // Nếu đăng nhập thành công, chuyển sang trang chủ
-                        Intent intent = new Intent(Login_userActivity.this, HomepageUserActivity.class);
-                        startActivity(intent);
-                    } else {
-                        // Nếu mật khẩu không đúng, thông báo lỗi
-                        loginPassword.setError("Mật khẩu không đúng");
-                        loginPassword.requestFocus();
+                                // So sánh mật khẩu người dùng nhập vào với mật khẩu lưu trong Firebase
+                                if (passwordFromDB != null && passwordFromDB.equals(userPassword)) {
+                                    // Nếu đăng nhập thành công, chuyển sang trang chủ
+                                    Intent intent = new Intent(Login_userActivity.this, HomepageUserActivity.class);
+                                    startActivity(intent);
+                                } else {
+                                    // Nếu mật khẩu không đúng, thông báo lỗi
+                                    loginPassword.setError("Mật khẩu không đúng");
+                                    loginPassword.requestFocus();
+                                }
+                            }
+                        } else {
+                            // Nếu tên người dùng không tồn tại, thông báo lỗi
+                            loginUsername.setError("Tên người dùng không tồn tại");
+                            loginUsername.requestFocus();
+                        }
                     }
-                } else {
-                    // Nếu tên người dùng không tồn tại, thông báo lỗi
-                    loginUsername.setError("Tên người dùng không tồn tại");
-                    loginUsername.requestFocus();
-                }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                // Xử lý khi có lỗi khi truy vấn Firebase
-                Log.e("LoginError", "Error checking user: " + error.getMessage());
-            }
-        });
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        // Xử lý khi có lỗi khi truy vấn Firebase
+                        Log.e("LoginError", "Error checking user: " + error.getMessage());
+                    }
+                });
+
     }
 }
