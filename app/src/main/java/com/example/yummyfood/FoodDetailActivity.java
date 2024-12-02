@@ -93,7 +93,9 @@ public class FoodDetailActivity extends AppCompatActivity {
         danhGiaReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+
                 danhGiaList.clear();
+
                 for (DataSnapshot data : snapshot.getChildren()) {
                     // Lấy giá trị dạng Object và chuyển đổi
                     Object idMonAnObj = data.child("idMonAn").getValue();
@@ -109,23 +111,30 @@ public class FoodDetailActivity extends AppCompatActivity {
                     Log.d("FoodDetailActivity", "idTaiKhoan: " + idTaiKhoan);
                     Log.d("FoodDetailActivity", "danhGia: " + danhGia);
 
-                    // Lấy thông tin tên khách hàng từ bảng KhachHang
-                    DatabaseReference khachHangRef = FirebaseDatabase.getInstance().getReference("KhachHang").child(idTaiKhoan);
-                    khachHangRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            String tenKhachHang = dataSnapshot.child("tenKhachHang").getValue(String.class);
-                            // Tạo đối tượng DanhGia và thêm vào danh sách
-                            DanhGia danhGiaItem = new DanhGia(danhGia, tenKhachHang);
-                            danhGiaList.add(danhGiaItem);
-                            adapter.notifyDataSetChanged();
-                        }
+                    if (idTaiKhoan != null) {
+                        DatabaseReference khachHangRef = FirebaseDatabase.getInstance().getReference("KhachHang").child(idTaiKhoan);
+                        khachHangRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                String tenKhachHang = dataSnapshot.child("tenKhachHang").getValue(String.class);
 
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-                            Log.e("FirebaseError", "Lỗi khi lấy thông tin khách hàng: " + error.getMessage());
-                        }
-                    });
+                                // Tạo đối tượng DanhGia và thêm vào danh sách
+                                DanhGia danhGiaItem = new DanhGia(danhGia, tenKhachHang);
+                                danhGiaList.add(danhGiaItem);
+                                adapter.notifyDataSetChanged();
+
+                                for (DanhGia item : danhGiaList) {
+                                    Log.d("DanhGiaList", "Tên khách hàng: " + item.getTenKhachHang() + ", Đánh giá: " + item.getDanhGia());
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+                                Log.e("FirebaseError", "Lỗi khi lấy thông tin khách hàng: " + error.getMessage());
+                            }
+                        });
+                    }
+
                 }
 
 //                adapter.notifyDataSetChanged();
@@ -136,6 +145,7 @@ public class FoodDetailActivity extends AppCompatActivity {
                 Log.e("FirebaseError", "Lỗi Firebase: " + error.getMessage());
             }
         });
+
 
 
         // nhấn vào nút thanh toán thì chuyển đến trang thanh toán
