@@ -26,5 +26,6 @@ public class notification_user extends AppCompatActivity {
             Intent intent = new Intent(notification_user.this, HomepageUserActivity.class);
             startActivity(intent);
         });
+
     }
 }

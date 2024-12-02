@@ -38,5 +38,6 @@ public class MainActivityVoucher extends AppCompatActivity {
 
         adapter = new VoucherAdapter(this, voucherList);
         recyclerView.setAdapter(adapter);
+
     }
 }

@@ -65,5 +65,6 @@ public class flashsale_user extends AppCompatActivity {
                     startActivity(intent);
                 }
             });
+
         }
     }

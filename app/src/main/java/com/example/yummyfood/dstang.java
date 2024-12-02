@@ -46,6 +46,7 @@ public class dstang extends AppCompatActivity {
         recyclerView.setAdapter(khuVucAdapter);
 
         fetchDataFromFirebase();
+
     }
 
     private void fetchDataFromFirebase() {

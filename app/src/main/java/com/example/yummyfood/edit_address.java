@@ -57,5 +57,6 @@ public class edit_address extends AppCompatActivity {
                 editTextAddress.setText("");
             }
         });
+
     }
 }

@@ -34,6 +34,7 @@ public class scan_qr extends AppCompatActivity {
                 showSuccessDialog("Đặt hàng thành công", "Xem trạng thái", false);
             }
         });
+
     }
 
 

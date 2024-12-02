@@ -106,6 +106,7 @@ public class HomepageUserActivity extends AppCompatActivity {
 
 
         setupUIInteractions();
+
     }
 
 

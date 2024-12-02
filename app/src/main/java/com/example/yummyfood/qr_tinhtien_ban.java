@@ -43,6 +43,7 @@ public class qr_tinhtien_ban extends AppCompatActivity {
                 finish();
             }
         });
+
     }
 
     private void showPaymentDialog() {

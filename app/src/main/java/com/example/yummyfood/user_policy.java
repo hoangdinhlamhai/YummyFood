@@ -30,5 +30,6 @@ public class user_policy extends AppCompatActivity {
                 finish();
             }
         });
+
     }
 }

@@ -87,6 +87,7 @@ public class CartActivity extends AppCompatActivity {
 
         // Load data from Firebase
         loadMonAnData();
+
     }
 
     private void loadMonAnData() {

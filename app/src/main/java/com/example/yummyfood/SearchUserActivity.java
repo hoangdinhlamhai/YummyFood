@@ -44,5 +44,7 @@ public class SearchUserActivity extends AppCompatActivity {
                 Intent intent = new Intent(SearchUserActivity.this, CartActivity.class);
                 startActivity(intent);
             }
-        });    }
+        });
+
+    }
 }

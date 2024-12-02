@@ -54,5 +54,6 @@ public class Profile_User extends AppCompatActivity {
             startActivity(intent);
             finish(); // Đóng Activity hiện tại
         });
+
     }
 }

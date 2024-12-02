@@ -59,5 +59,6 @@ public class history_table extends AppCompatActivity {
                         .show();
             }
         });
+
     }
 }

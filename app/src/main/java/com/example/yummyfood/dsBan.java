@@ -56,6 +56,7 @@ public class dsBan extends AppCompatActivity implements BanAdapter.OnBanClickLis
 
         Button btnBack = findViewById(R.id.btn_back);
         btnBack.setOnClickListener(view -> finish());
+
     }
 
     private void loadBanData(String idKhuVuc) {

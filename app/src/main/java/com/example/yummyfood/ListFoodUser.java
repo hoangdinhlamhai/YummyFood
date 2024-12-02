@@ -44,5 +44,6 @@ public class ListFoodUser extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
 }

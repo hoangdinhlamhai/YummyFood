@@ -60,6 +60,7 @@ public class book_detail_tb extends AppCompatActivity {
         // Nút quay lại
         Button btnBack = findViewById(R.id.btnBack);
         btnBack.setOnClickListener(view -> finish());
+
     }
 
     // Hiển thị DatePicker để chọn ngày

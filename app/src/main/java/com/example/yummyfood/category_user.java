@@ -86,6 +86,7 @@ public class category_user extends AppCompatActivity {
             return true;
         });
 
+
     }
 
 //    private void loadCategoriesFromDatabase() {

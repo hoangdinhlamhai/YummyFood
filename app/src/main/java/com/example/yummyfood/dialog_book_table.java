@@ -19,5 +19,6 @@ public class dialog_book_table extends AppCompatActivity {
             getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
             getWindow().setBackgroundDrawableResource(android.R.color.transparent); // Đặt nền trong suốt
         }
+
     }
 }

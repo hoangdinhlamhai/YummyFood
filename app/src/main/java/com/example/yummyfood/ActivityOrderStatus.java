@@ -15,7 +15,6 @@ public class ActivityOrderStatus extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_status);
 
-
         Button saveButton4 = findViewById(R.id.save_button4);
         saveButton4.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -23,7 +22,6 @@ public class ActivityOrderStatus extends AppCompatActivity {
                 showCancelOrderDialog();
             }
         });
-
 
         Button btnBack = findViewById(R.id.btn_back);
         btnBack.setOnClickListener(new View.OnClickListener() {
@@ -33,8 +31,10 @@ public class ActivityOrderStatus extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
 
+        // Xóa dòng này
+        // return false;
+    }
 
     private void showCancelOrderDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(ActivityOrderStatus.this);
@@ -42,7 +42,6 @@ public class ActivityOrderStatus extends AppCompatActivity {
                 .setPositiveButton("Trang chủ", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
                         Intent intent = new Intent(ActivityOrderStatus.this, HomepageUserActivity.class);
                         startActivity(intent);
                     }
