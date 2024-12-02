@@ -1,7 +1,6 @@
 package com.example.yummyfood.Adapter;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,12 +18,12 @@ import com.example.yummyfood.R;
 import java.util.List;
 import java.util.Map;
 
-public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
+public class FoodPaymentAdapter extends RecyclerView.Adapter<FoodPaymentAdapter.ViewHolder> {
     private final List<CartItem> chiTietMonAnList; // Danh sách chi tiết món ăn
     private final Map<String, Food> monAnMap; // Lưu thông tin món ăn (idMonAn -> đối tượng Food)
     private final Context context;
 
-    public CartAdapter(Context context, List<CartItem> chiTietMonAnList, Map<String, Food> monAnMap) {
+    public FoodPaymentAdapter(Context context, List<CartItem> chiTietMonAnList, Map<String, Food> monAnMap) {
         this.context = context;
         this.chiTietMonAnList = chiTietMonAnList;
         this.monAnMap = monAnMap;
@@ -32,13 +31,14 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_cart, parent, false);
-        return new ViewHolder(view);
+    public FoodPaymentAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.item_food_payment, parent, false);
+        return new FoodPaymentAdapter.ViewHolder(view);
     }
 
+
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull FoodPaymentAdapter.ViewHolder holder, int position) {
         CartItem chiTietMonAn = chiTietMonAnList.get(position);
         int idMonAn = chiTietMonAn.getIdMonAn();
         int soLuong = chiTietMonAn.getSoLuong();

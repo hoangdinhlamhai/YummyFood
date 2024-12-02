@@ -3,6 +3,7 @@ package com.example.yummyfood;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -68,6 +69,15 @@ public class CartActivity extends AppCompatActivity {
             return true;
         });
 
+        Button btnDatHang = findViewById(R.id.btnDatHang);
+        btnDatHang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CartActivity.this, ActivityPaymentUser.class);
+                startActivity(intent);
+            }
+        });
+
         // Initialize RecyclerView
         rvCart = findViewById(R.id.rvCart);
         rvCart.setLayoutManager(new LinearLayoutManager(this));
@@ -117,8 +127,6 @@ public class CartActivity extends AppCompatActivity {
                     // Lấy idMonAn
                     Integer idMonAn = data.child("idMonAn").getValue(Integer.class);
                     idMonAn = (idMonAn != null) ? idMonAn : 0;
-//                    Integer idMonAnInt = data.child("idMonAn").getValue(Integer.class);
-//                    String idMonAn = (idMonAnInt != null) ? String.valueOf(idMonAnInt) : null;
 
                     // Lấy soLuong
                     Integer soLuong = data.child("soLuong").getValue(Integer.class);
