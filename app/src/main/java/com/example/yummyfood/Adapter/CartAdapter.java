@@ -15,6 +15,11 @@ import com.bumptech.glide.Glide;
 import com.example.yummyfood.Domain.CartItem;
 import com.example.yummyfood.Domain.Food;
 import com.example.yummyfood.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
 import java.util.Map;
@@ -60,6 +65,81 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
             holder.tvGiaMonAn.setText("0 đ");
             holder.tvSoLuong.setText(String.valueOf(soLuong));
         }
+
+        // Xử lý khi nhấn nút tăng số lượng
+        holder.btnPlus.setOnClickListener(v -> {
+            chiTietMonAn.setSoLuong(chiTietMonAn.getSoLuong() + 1);
+            holder.tvSoLuong.setText(String.valueOf(chiTietMonAn.getSoLuong()));
+            notifyItemChanged(position); // Cập nhật lại item
+
+            // TODO: Thêm logic cập nhật số lượng lên Firebase
+            DatabaseReference cartRef = FirebaseDatabase.getInstance().getReference("ChiTietDonHang_MonAn");
+
+            cartRef.orderByChild("idMonAn").equalTo(idMonAn)
+                    .addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            for (DataSnapshot data : snapshot.getChildren()) {
+                                String cartKey = data.getKey(); // Lấy key của bản ghi
+                                if (cartKey != null) {
+                                    // Cập nhật số lượng
+                                    cartRef.child(cartKey).child("soLuong").setValue(chiTietMonAn.getSoLuong())
+                                            .addOnSuccessListener(aVoid -> Log.d("FirebaseUpdate", "Cập nhật số lượng thành công!"))
+                                            .addOnFailureListener(e -> Log.e("FirebaseUpdate", "Cập nhật thất bại: " + e.getMessage()));
+                                } else {
+                                    Log.e("FirebaseError", "Không tìm thấy key cho idMonAn: " + idMonAn);
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+                            Log.e("FirebaseError", "Lỗi khi truy vấn Firebase: " + error.getMessage());
+                        }
+                    });
+
+            Log.d("CartAdapter", "Tăng số lượng món ăn ID: " + idMonAn + " - Số lượng: " + chiTietMonAn.getSoLuong());
+        });
+
+        // Xử lý khi nhấn nút giảm số lượng
+        holder.btnMinus.setOnClickListener(v -> {
+            if (chiTietMonAn.getSoLuong() > 1) {
+                chiTietMonAn.setSoLuong(chiTietMonAn.getSoLuong() - 1);
+                holder.tvSoLuong.setText(String.valueOf(chiTietMonAn.getSoLuong()));
+                notifyItemChanged(position); // Cập nhật lại item
+
+                // TODO: Thêm logic cập nhật số lượng lên Firebase
+                DatabaseReference cartRef = FirebaseDatabase.getInstance().getReference("ChiTietDonHang_MonAn");
+
+                cartRef.orderByChild("idMonAn").equalTo(idMonAn)
+                        .addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                for (DataSnapshot data : snapshot.getChildren()) {
+                                    String cartKey = data.getKey(); // Lấy key của bản ghi
+                                    if (cartKey != null) {
+                                        // Cập nhật số lượng
+                                        cartRef.child(cartKey).child("soLuong").setValue(chiTietMonAn.getSoLuong())
+                                                .addOnSuccessListener(aVoid -> Log.d("FirebaseUpdate", "Cập nhật số lượng thành công!"))
+                                                .addOnFailureListener(e -> Log.e("FirebaseUpdate", "Cập nhật thất bại: " + e.getMessage()));
+                                    } else {
+                                        Log.e("FirebaseError", "Không tìm thấy key cho idMonAn: " + idMonAn);
+                                    }
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+                                Log.e("FirebaseError", "Lỗi khi truy vấn Firebase: " + error.getMessage());
+                            }
+                        });
+
+
+                Log.d("CartAdapter", "Giảm số lượng món ăn ID: " + idMonAn + " - Số lượng: " + chiTietMonAn.getSoLuong());
+            } else {
+                Log.d("CartAdapter", "Số lượng không thể nhỏ hơn 1");
+            }
+        });
     }
 
     @Override
@@ -69,7 +149,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvMonAn, tvGiaMonAn, tvSoLuong;
-        ImageView ivHinhAnh;
+        ImageView ivHinhAnh, btnPlus, btnMinus;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -77,6 +157,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
             tvGiaMonAn = itemView.findViewById(R.id.tvGiaMonAn);
             tvSoLuong = itemView.findViewById(R.id.tvSoLuong);
             ivHinhAnh = itemView.findViewById(R.id.ivHinhAnh);
+            btnPlus = itemView.findViewById(R.id.btnPlus);
+            btnMinus = itemView.findViewById(R.id.btnMinus);
         }
     }
 }

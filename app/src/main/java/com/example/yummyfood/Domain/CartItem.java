@@ -34,4 +34,5 @@ public class CartItem {
     public void setSoLuong(int soLuong) {
         this.soLuong = soLuong;
     }
+
 }

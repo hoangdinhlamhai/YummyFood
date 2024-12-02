@@ -57,7 +57,7 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/imageView15"
+        android:id="@+id/btnMinus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/minus_black_circle" />
@@ -71,7 +71,7 @@
         android:text="1" />
 
     <ImageView
-        android:id="@+id/imageView20"
+        android:id="@+id/btnPlus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/plus_black_circle" />

@@ -75,45 +75,78 @@ public class  ListFoodAdapter extends RecyclerView.Adapter<ListFoodAdapter.FoodV
             public void onClick(View view) {
                 int idDonHang = 1; // ID của đơn hàng hiện tại (tùy chỉnh theo logic của bạn)
                 int idMonAn = Integer.parseInt(food.getId()); // ID món ăn
-                /////////////////////////////////////////
-//                String idMonAnString = String.valueOf(idMonAn);
 
-                // Lấy key lớn nhất từ Firebase
+                // Lấy danh sách các item trong đơn hàng từ Firebase
                 databaseReference.orderByKey().addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        int maxSuffix = 0; // Giá trị lớn nhất sau dấu "_"
+                        boolean isItemExists = false;
+                        String existingKey = null;
 
-                        // Lặp qua các keys trong Firebase
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                             String key = snapshot.getKey();
                             if (key != null && key.startsWith(idDonHang + "_")) {
-                                try {
-                                    // Tách phần số sau dấu "_"
-                                    int suffix = Integer.parseInt(key.split("_")[1]);
-                                    if (suffix > maxSuffix) {
-                                        maxSuffix = suffix; // Cập nhật giá trị lớn nhất
-                                    }
-                                } catch (NumberFormatException e) {
-                                    e.printStackTrace(); // Xử lý lỗi nếu có
+                                int existingIdMonAn = snapshot.child("idMonAn").getValue(Integer.class);
+                                if (existingIdMonAn == idMonAn) {
+                                    isItemExists = true;
+                                    existingKey = key;
+                                    break;
                                 }
                             }
                         }
 
-                        // Tạo key mới với giá trị lớn nhất tiếp theo
-                        String newKey = idDonHang + "_" + (maxSuffix + 1);
+                        if (isItemExists) {
+                            // Nếu món ăn đã tồn tại, tăng số lượng lên 1
+                            String finalExistingKey = existingKey;
+                            databaseReference.child(existingKey).child("soLuong").addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot quantitySnapshot) {
+                                    Integer currentQuantity = quantitySnapshot.getValue(Integer.class);
+                                    if (currentQuantity != null) {
+                                        databaseReference.child(finalExistingKey).child("soLuong").setValue(currentQuantity + 1)
+                                                .addOnSuccessListener(aVoid -> {
+                                                    Toast.makeText(context, "Tăng số lượng món ăn!", Toast.LENGTH_SHORT).show();
+                                                })
+                                                .addOnFailureListener(e -> {
+                                                    Toast.makeText(context, "Cập nhật thất bại: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                                });
+                                    }
+                                }
 
-                        // Tạo đối tượng CartItem
-                        CartItem cartItem = new CartItem(idDonHang, idMonAn, 1);
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+                                    Toast.makeText(context, "Không thể đọc dữ liệu: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        } else {
+                            // Nếu món ăn chưa tồn tại, tạo key mới
+                            int maxSuffix = 0;
 
-                        // Thêm vào Firebase
-                        databaseReference.child(newKey).setValue(cartItem)
-                                .addOnSuccessListener(aVoid -> {
-                                    Toast.makeText(context, "Đã thêm vào giỏ hàng!", Toast.LENGTH_SHORT).show();
-                                })
-                                .addOnFailureListener(e -> {
-                                    Toast.makeText(context, "Thêm thất bại: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                                });
+                            for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                                String key = snapshot.getKey();
+                                if (key != null && key.startsWith(idDonHang + "_")) {
+                                    try {
+                                        int suffix = Integer.parseInt(key.split("_")[1]);
+                                        if (suffix > maxSuffix) {
+                                            maxSuffix = suffix;
+                                        }
+                                    } catch (NumberFormatException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            }
+
+                            String newKey = idDonHang + "_" + (maxSuffix + 1);
+                            CartItem cartItem = new CartItem(idDonHang, idMonAn, 1);
+
+                            databaseReference.child(newKey).setValue(cartItem)
+                                    .addOnSuccessListener(aVoid -> {
+                                        Toast.makeText(context, "Đã thêm vào giỏ hàng!", Toast.LENGTH_SHORT).show();
+                                    })
+                                    .addOnFailureListener(e -> {
+                                        Toast.makeText(context, "Thêm thất bại: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                    });
+                        }
                     }
 
                     @Override
@@ -121,9 +154,9 @@ public class  ListFoodAdapter extends RecyclerView.Adapter<ListFoodAdapter.FoodV
                         Toast.makeText(context, "Không thể đọc dữ liệu: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
-
             }
         });
+
     }
 
     @Override
