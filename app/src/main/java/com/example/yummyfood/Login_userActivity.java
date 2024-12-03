@@ -1,7 +1,6 @@
 package com.example.yummyfood;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,7 +21,7 @@ public class Login_userActivity extends AppCompatActivity {
 
     private EditText loginUsername, loginPassword;
     private Button loginButton;
-    TextView signupRedirecText;
+    private TextView signupRedirecText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +37,15 @@ public class Login_userActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 checkUser();
+            }
+        });
+
+        // Thêm OnClickListener cho TextView để chuyển đến giao diện đăng ký
+        signupRedirecText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Login_userActivity.this, activity_register_user.class);
+                startActivity(intent);
             }
         });
     }
@@ -59,16 +67,9 @@ public class Login_userActivity extends AppCompatActivity {
                             // Lấy thông tin người dùng
                             for (DataSnapshot userSnapshot : snapshot.getChildren()) {
                                 String passwordFromDB = userSnapshot.child("matKhau").getValue(String.class);
-                                String userId = userSnapshot.getKey();  // Lấy userId từ key của snapshot
 
                                 // So sánh mật khẩu người dùng nhập vào với mật khẩu lưu trong Firebase
                                 if (passwordFromDB != null && passwordFromDB.equals(userPassword)) {
-                                    // Lưu userId vào SharedPreferences
-                                    SharedPreferences preferences = getSharedPreferences("UserInfo", MODE_PRIVATE);
-                                    SharedPreferences.Editor editor = preferences.edit();
-                                    editor.putString("userId", userId);  // Lưu userId
-                                    editor.apply();
-
                                     // Chuyển đến trang chủ
                                     Intent intent = new Intent(Login_userActivity.this, HomepageUserActivity.class);
                                     startActivity(intent);
