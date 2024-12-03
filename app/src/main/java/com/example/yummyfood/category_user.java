@@ -34,12 +34,6 @@ public class category_user extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category_user);
 
-//        DatabaseHelper databaseHelper = new DatabaseHelper(this);
-//        databaseHelper.processCopy();
-
-        // Open database
-//        database = openOrCreateDatabase("dbYummyFood.db", MODE_PRIVATE, null);
-
         // Initialize RecyclerView
         rvCategories = findViewById(R.id.rvCategories); // Update ID in your XML
         rvCategories.setLayoutManager(new LinearLayoutManager(this));
