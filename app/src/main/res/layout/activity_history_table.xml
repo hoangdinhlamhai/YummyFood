@@ -68,18 +68,13 @@
                 android:orientation="horizontal"
                 android:layout_marginBottom="8dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Tên bàn: "
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+
 
                 <TextView
                     android:id="@+id/tenban"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ban 1"
+                    android:text=""
                     android:textSize="16sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -91,18 +86,13 @@
                 android:orientation="horizontal"
                 android:layout_marginBottom="8dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Ngày:"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+
 
                 <TextView
                     android:id="@+id/tvDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="12/1/2025"
+                    android:text=""
                     android:textSize="16sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -114,18 +104,12 @@
                 android:orientation="horizontal"
                 android:layout_marginBottom="8dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Giờ bat dau:"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvStartTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="19:00"
+                    android:text=""
                     android:textSize="16sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -136,18 +120,13 @@
                 android:orientation="horizontal"
                 android:layout_marginBottom="8dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Giờ ket thuc:"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+
 
                 <TextView
                     android:id="@+id/tvEndTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="19:00"
+                    android:text=""
                     android:textSize="16sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -156,7 +135,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Dặn dò:"
+                android:text=""
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:layout_marginBottom="4dp" />
@@ -167,7 +146,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/background_note"
                 android:padding="16dp"
-                android:text="Chúng tôi có trẻ con nên phiền quán thêm ghế cho trẻ em ạ. Cảm ơn quán ạ"
+                android:text=" "
                 android:textColor="#E85858"
                 android:textSize="14sp"
                 android:layout_marginBottom="16dp" />

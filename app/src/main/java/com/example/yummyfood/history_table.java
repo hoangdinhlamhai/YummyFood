@@ -18,7 +18,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class history_table extends AppCompatActivity {
 
-    TextView tvDate, tvStartTime, tvEndTime, tvNote, tvStatusBooking;
+    // Khai báo các View
+    TextView tvDate, tvStartTime, tvEndTime, tvNote, tvStatusBooking, tvTableName;
     Button btnCancel;
 
     @Override
@@ -32,6 +33,7 @@ public class history_table extends AppCompatActivity {
         tvEndTime = findViewById(R.id.tvEndTime);
         tvNote = findViewById(R.id.tvNote);
         tvStatusBooking = findViewById(R.id.status_booking);
+        tvTableName = findViewById(R.id.tenban); // Khởi tạo TextView cho tên bàn
         btnCancel = findViewById(R.id.cancel_button);
 
         // Xử lý sự kiện quay lại
@@ -70,6 +72,7 @@ public class history_table extends AppCompatActivity {
                             tvStartTime.setText("Giờ bắt đầu: " + bookingDetails.getThoiGianBatDau());
                             tvEndTime.setText("Giờ kết thúc: " + bookingDetails.getThoiGianKetThuc());
                             tvNote.setText("Dặn dò: " + bookingDetails.getGhiChu());
+                            tvTableName.setText("Tên bàn: " + bookingDetails.getTenBan()); // Hiển thị tên bàn
                             found = true;
                             break; // Dừng lại sau khi tìm thấy
                         }
