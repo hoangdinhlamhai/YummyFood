@@ -24,7 +24,7 @@
 
     <!-- Biểu tượng thùng rác (Xóa tất cả) -->
     <ImageButton
-        android:id="@+id/btn_delete_all"
+        android:id="@+id/btnDelete"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_marginTop="30dp"

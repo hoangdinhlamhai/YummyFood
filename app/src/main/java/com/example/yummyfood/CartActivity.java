@@ -5,9 +5,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -87,6 +89,44 @@ public class CartActivity extends AppCompatActivity {
 
         // Load data from Firebase
         loadMonAnData();
+
+        //xoá món trong cart
+        ImageView btnDelete = findViewById(R.id.btnDelete);
+        btnDelete.setOnClickListener(view -> {
+            List<CartItem> selectedItems = cartAdapter.getSelectedItems(); // Lấy các mục được chọn
+
+            if (selectedItems.isEmpty()) {
+                Toast.makeText(CartActivity.this, "Chưa có mục nào được chọn để xóa!", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            DatabaseReference cartRef = FirebaseDatabase.getInstance().getReference("ChiTietDonHang_MonAn");
+
+            for (CartItem item : selectedItems) {
+                cartRef.orderByChild("idMonAn").equalTo(item.getIdMonAn())
+                        .addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                for (DataSnapshot data : snapshot.getChildren()) {
+                                    data.getRef().removeValue()
+                                            .addOnSuccessListener(aVoid -> Log.d("DeleteSuccess", "Xóa thành công!"))
+                                            .addOnFailureListener(e -> Log.e("DeleteError", "Xóa thất bại: " + e.getMessage()));
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+                                Log.e("DeleteError", "Lỗi khi xóa: " + error.getMessage());
+                            }
+                        });
+            }
+
+            // Cập nhật giao diện
+            chiTietMonAnList.removeAll(selectedItems);
+            cartAdapter.notifyDataSetChanged();
+            Toast.makeText(CartActivity.this, "Đã xóa các mục được chọn!", Toast.LENGTH_SHORT).show();
+        });
+
 
     }
 

@@ -12,7 +12,7 @@
     android:paddingBottom="7dp">
 
     <CheckBox
-        android:id="@+id/checkbox1"
+        android:id="@+id/checkbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

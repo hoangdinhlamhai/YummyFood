@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,6 +22,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -28,6 +30,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     private final List<CartItem> chiTietMonAnList; // Danh sách chi tiết món ăn
     private final Map<String, Food> monAnMap; // Lưu thông tin món ăn (idMonAn -> đối tượng Food)
     private final Context context;
+    private final List<CartItem> deleteItems = new ArrayList<>();
 
     public CartAdapter(Context context, List<CartItem> chiTietMonAnList, Map<String, Food> monAnMap) {
         this.context = context;
@@ -42,9 +45,26 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         return new ViewHolder(view);
     }
 
+    public List<CartItem> getSelectedItems() {
+        return deleteItems; // Trả về danh sách các mục được chọn
+    }
+
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         CartItem chiTietMonAn = chiTietMonAnList.get(position);
+
+        // Xử lý CheckBox
+        holder.checkbox.setOnCheckedChangeListener(null); // Xóa listener cũ trước khi đặt mới
+        holder.checkbox.setChecked(deleteItems.contains(chiTietMonAn)); // Đặt trạng thái CheckBox
+
+        holder.checkbox.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) {
+                deleteItems.add(chiTietMonAn);
+            } else {
+                deleteItems.remove(chiTietMonAn);
+            }
+        });
+
         int idMonAn = chiTietMonAn.getIdMonAn();
         int soLuong = chiTietMonAn.getSoLuong();
 
@@ -150,6 +170,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvMonAn, tvGiaMonAn, tvSoLuong;
         ImageView ivHinhAnh, btnPlus, btnMinus;
+        CheckBox checkbox;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -159,6 +180,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
             ivHinhAnh = itemView.findViewById(R.id.ivHinhAnh);
             btnPlus = itemView.findViewById(R.id.btnPlus);
             btnMinus = itemView.findViewById(R.id.btnMinus);
+            checkbox = itemView.findViewById(R.id.checkbox);
         }
     }
 }
