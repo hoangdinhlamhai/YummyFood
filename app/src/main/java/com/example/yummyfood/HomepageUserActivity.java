@@ -184,7 +184,8 @@ public class HomepageUserActivity extends AppCompatActivity {
                 danhMucList.clear(); // Xóa danh sách cũ
                 for (DataSnapshot data : snapshot.getChildren()) {
                     String tenDanhMuc = data.child("tenDanhMuc").getValue(String.class);
-                    Category danhMuc = new Category(tenDanhMuc, null);
+                    String hinhAnh = data.child("hinhAnh").getValue(String.class);
+                    Category danhMuc = new Category(tenDanhMuc, hinhAnh);
                     danhMucList.add(danhMuc); // Thêm dữ liệu mới
                 }
                 categoryHomepageAdapter.notifyDataSetChanged(); // Cập nhật RecyclerView
@@ -197,79 +198,6 @@ public class HomepageUserActivity extends AppCompatActivity {
         });
 
     }
-
-
-//    private void setupUIInteractions() {
-//
-//        EditText searchEditText = findViewById(R.id.search);
-//        searchEditText.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, SearchUserActivity.class)));
-//
-//
-//        TextView flashSaleTextView = findViewById(R.id.textView20);
-//        flashSaleTextView.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, flashsale_user.class)));
-//
-//        // thêm de thay cham gk
-//        TextView flashSaleTextView2 = findViewById(R.id.textView19);
-//        flashSaleTextView2.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, flashsale_user.class)));
-//
-//        TextView flashSaleTextView3 = findViewById(R.id.textView21);
-//        flashSaleTextView3.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, flashsale_user.class)));
-//
-//        TextView flashSaleTextView4 = findViewById(R.id.textView22);
-//        flashSaleTextView4.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, flashsale_user.class)));
-//
-//        ImageView imageView6 = findViewById(R.id.imageView6);
-//        imageView6.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, flashsale_user.class)));
-//
-//
-//        ImageView imageView7 = findViewById(R.id.imageView7);
-//        imageView7.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, flashsale_user.class)));
-//
-//        ImageView imageView8 = findViewById(R.id.imageView8);
-//        imageView8.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, flashsale_user.class)));
-//
-//        ImageView imageView9 = findViewById(R.id.imageView9);
-//        imageView9.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, flashsale_user.class)));
-//
-//        LinearLayout mon2 = findViewById(R.id.mon2);
-//        mon2.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, FoodDetailActivity.class)));
-//
-//        LinearLayout mon3 = findViewById(R.id.mon3);
-//        mon3.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, FoodDetailActivity.class)));
-//
-//        LinearLayout mon4 = findViewById(R.id.mon4);
-//        mon4.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, FoodDetailActivity.class)));
-//
-//        LinearLayout mon5 = findViewById(R.id.mon5);
-//        mon5.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, FoodDetailActivity.class)));
-//
-//
-//
-//
-//
-//
-//        //them den day
-//        ImageView notificationIcon = findViewById(R.id.btntb);
-//        notificationIcon.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, notification_user.class)));
-//
-//
-//        LinearLayout cartIcon1 = findViewById(R.id.mon1);
-//        cartIcon1.setOnClickListener(v -> showDialog());
-//
-//
-//        ImageView foodImage1 = findViewById(R.id.foodImage2);
-//        foodImage1.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, FoodDetailActivity.class)));
-//
-//
-//        ImageView cartIcon2 = findViewById(R.id.cartIcon2_homepage);
-//        cartIcon2.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, CartActivity.class)));
-//
-//
-//        TextView tableBookingTextView = findViewById(R.id.textViewAll);
-//        tableBookingTextView.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, dstang.class)));
-//
-//    }
-
 
     private void showDialog() {
         dialog = new Dialog(HomepageUserActivity.this);
