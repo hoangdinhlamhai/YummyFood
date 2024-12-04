@@ -196,6 +196,8 @@ public class HomepageUserActivity extends AppCompatActivity {
                 // Xử lý lỗi
             }
         });
+        TextView tableBookingTextView = findViewById(R.id.textViewAll);
+        tableBookingTextView.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, dstang.class)));
 
     }
 

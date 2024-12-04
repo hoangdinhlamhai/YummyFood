@@ -115,11 +115,6 @@
           <theme>@style/Theme.YummyFood</theme>
         </config>
       </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/item_category_homepage.xml">
-        <config>
-          <theme>@style/Theme.YummyFood</theme>
-        </config>
-      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/item_food.xml">
         <config>
           <theme>@style/Theme.YummyFood</theme>
@@ -141,7 +136,8 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cccba1d7-d54f-4707-b3e1-13d6662c4ec1" name="Changes" comment="delete food in cart">
+    <list default="true" id="cccba1d7-d54f-4707-b3e1-13d6662c4ec1" name="Changes" comment="lich su dat ban(chua xong)">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_3_2024_11_34_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_3_2024_11_34_PM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/HomepageUserActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/HomepageUserActivity.java" afterDir="false" />
     </list>
@@ -153,7 +149,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=PhysicalDevice, isTemplate=false, identifier=serial=mr79fyzh59nzzhvw)]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=LocalEmulator, isTemplate=false, identifier=path=F:\124\May_ao\.android\avd\Pixel_4a_API_35.avd)]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -168,19 +164,6 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <excluded-from-favorite>
-      <branch-storage>
-        <map>
-          <entry type="LOCAL">
-            <value>
-              <list>
-                <branch-info repo="$PROJECT_DIR$" source="master" />
-              </list>
-            </value>
-          </entry>
-        </map>
-      </branch-storage>
-    </excluded-from-favorite>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -192,7 +175,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/hoangdinhlamhai/YummyFood.git&quot;,
-    &quot;accountId&quot;: &quot;f3b94c69-0d64-4ede-b1e0-8c1f44ae1765&quot;
+    &quot;accountId&quot;: &quot;b7b0b2f0-262b-4f6d-afbd-40d69132c45b&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -329,43 +312,23 @@
       <option name="project" value="LOCAL" />
       <updated>1733171218785</updated>
     </task>
-    <task id="LOCAL-00004" summary="danh mục ở homepage (chưa thêm ảnh)">
+    <task id="LOCAL-00004" summary="lich su dat ban(chua xong)">
       <option name="closed" value="true" />
-      <created>1733252214281</created>
+      <created>1733240174547</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1733252214281</updated>
+      <updated>1733240174547</updated>
     </task>
-    <task id="LOCAL-00005" summary="delete food in cart">
-      <option name="closed" value="true" />
-      <created>1733326888387</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1733326888387</updated>
-    </task>
-    <option name="localTasksCounter" value="6" />
+    <option name="localTasksCounter" value="5" />
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="them vao gio" />
     <MESSAGE value="chi tiet dat ban(chua xong)" />
     <MESSAGE value="render list food in cart" />
     <MESSAGE value="fix lai dang nhap va dang ki" />
-    <MESSAGE value="danh mục ở homepage (chưa thêm ảnh)" />
-    <MESSAGE value="delete food in cart" />
-    <option name="LAST_COMMIT_MESSAGE" value="delete food in cart" />
+    <MESSAGE value="lich su dat ban(chua xong)" />
+    <option name="LAST_COMMIT_MESSAGE" value="lich su dat ban(chua xong)" />
   </component>
 </project>
