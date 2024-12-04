@@ -64,24 +64,6 @@
                 android:paddingBottom="16dp" />
 
             <!-- Avatar -->
-            <ImageView
-                android:id="@+id/avatar"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_gravity="center"
-                android:layout_marginBottom="8dp"
-                android:background="@drawable/rounded_conner"
-                android:backgroundTint="#E2D6D6"
-                android:contentDescription="User Avatar" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Sửa ảnh đại diện"
-                android:textStyle="italic"
-                android:textColor="@android:color/darker_gray"
-                android:layout_gravity="center"
-                android:paddingBottom="20dp" />
 
             <!-- Các trường thông tin -->
             <LinearLayout
@@ -144,6 +126,32 @@
                         android:textSize="16sp"
                         android:background="@null" />
                 </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/rounded_conner"
+                    android:backgroundTint="#E2D6D6"
+                    android:orientation="horizontal"
+                    android:padding="12dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/user"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="12dp" />
+
+                    <EditText
+                        android:id="@+id/tenkh"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="Họ tên"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:background="@null" />
+                </LinearLayout>
 
                 <!-- Phone -->
                 <LinearLayout
@@ -167,7 +175,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:hint="0123456789"
+                        android:hint="Số điện thoại"
                         android:textColor="@android:color/black"
                         android:textSize="16sp"
                         android:background="@null" />
@@ -195,7 +203,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:hint="Da nang"
+                        android:hint=" Địa chỉ"
                         android:textColor="@android:color/black"
                         android:textSize="16sp"
                         android:background="@null" />
@@ -223,7 +231,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:hint="**********"
+                        android:hint=" Nhập mật khẩu mới"
                         android:textColor="@android:color/black"
                         android:textSize="16sp"
                         android:inputType="textPassword"
@@ -258,7 +266,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:hint="**********"
+                        android:hint="Nhập lại mật khẩu mới"
                         android:textColor="@android:color/black"
                         android:textSize="16sp"
                         android:inputType="textPassword"
