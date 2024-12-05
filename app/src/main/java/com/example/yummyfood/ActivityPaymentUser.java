@@ -116,6 +116,8 @@ public class ActivityPaymentUser extends AppCompatActivity {
         databaseReference.child("ChiTietDonHang_MonAn").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
+                int totalAmount = 0;
+
                 for (DataSnapshot data : snapshot.getChildren()) {
                     Integer idChiTietDonHang = data.child("idChiTietDonHang").getValue(Integer.class);
                     Integer idMonAn = data.child("idMonAn").getValue(Integer.class);
@@ -123,9 +125,21 @@ public class ActivityPaymentUser extends AppCompatActivity {
 
                     if (idChiTietDonHang != null && idMonAn != null && soLuong != null) {
                         chiTietMonAnList.add(new CartItem(idChiTietDonHang, idMonAn, soLuong));
+
+                        // Retrieve the Food item
+                        Food foodItem = monAnMap.get(idMonAn.toString());
+                        if (foodItem != null) {
+                            int price = foodItem.getPrice(); // Use getPrice() to get the price
+                            totalAmount += price * soLuong; // Calculate total
+                        }
                     }
                 }
 
+                // Update total amount in TextView
+                TextView totalTextView = findViewById(R.id.tinhtien);
+                totalTextView.setText(totalAmount + "đ");
+
+                // Set adapter to RecyclerView
                 foodPaymentAdapter = new FoodPaymentAdapter(ActivityPaymentUser.this, chiTietMonAnList, monAnMap);
                 rvCart.setAdapter(foodPaymentAdapter);
             }
@@ -135,5 +149,6 @@ public class ActivityPaymentUser extends AppCompatActivity {
                 Toast.makeText(ActivityPaymentUser.this, "Lỗi tải chi tiết đơn hàng!", Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 }

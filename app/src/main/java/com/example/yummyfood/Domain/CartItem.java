@@ -5,6 +5,7 @@ public class CartItem {
     private int idMonAn;
     private int soLuong;
 
+
     public CartItem(int idChiTietDonHang, int idMonAn, int soLuong) {
         this.idChiTietDonHang = idChiTietDonHang;
         this.idMonAn = idMonAn;
