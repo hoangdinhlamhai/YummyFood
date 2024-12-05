@@ -1,6 +1,5 @@
 package com.example.yummyfood;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -40,51 +39,36 @@ public class ActivityPaymentUser extends AppCompatActivity {
         setContentView(R.layout.activity_payment_user);
 
         Button btnReturnRetailFood = findViewById(R.id.btn_paying_payment);
-        btnReturnRetailFood.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ActivityPaymentUser.this, FoodDetailActivity.class);
-                startActivity(intent);
-                finish();
-            }
+        btnReturnRetailFood.setOnClickListener(v -> {
+            Intent intent = new Intent(ActivityPaymentUser.this, FoodDetailActivity.class);
+            startActivity(intent);
+            finish();
         });
 
         TextView txt1 = findViewById(R.id.textView12);
-        txt1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ActivityPaymentUser.this, edit_address.class);
-                startActivity(intent);
-                finish();
-            }
+        txt1.setOnClickListener(v -> {
+            Intent intent = new Intent(ActivityPaymentUser.this, edit_address.class);
+            startActivity(intent);
+            finish();
         });
 
         Button btnPayingPayment = findViewById(R.id.btn_paying_payment);
-        btnPayingPayment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ActivityPaymentUser.this, scan_qr.class);
-                startActivity(intent);
-                finish();
-            }
+        btnPayingPayment.setOnClickListener(v -> {
+            // Giả sử thanh toán ở đây
+            clearCart(); // Xóa giỏ hàng sau khi thanh toán
+            Intent intent = new Intent(ActivityPaymentUser.this, scan_qr.class);
+            startActivity(intent);
+            finish();
         });
 
         ImageView btnBack = findViewById(R.id.btn_return_payment);
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+        btnBack.setOnClickListener(view -> finish());
 
-        // Khởi tạo RecyclerView
         rvCart = findViewById(R.id.rvCart);
         rvCart.setLayoutManager(new LinearLayoutManager(this));
 
-        // Khởi tạo Firebase Database reference
         databaseReference = FirebaseDatabase.getInstance().getReference();
 
-        // Tải dữ liệu từ Firebase
         loadMonAnData();
     }
 
@@ -126,20 +110,16 @@ public class ActivityPaymentUser extends AppCompatActivity {
                     if (idChiTietDonHang != null && idMonAn != null && soLuong != null) {
                         chiTietMonAnList.add(new CartItem(idChiTietDonHang, idMonAn, soLuong));
 
-                        // Retrieve the Food item
                         Food foodItem = monAnMap.get(idMonAn.toString());
                         if (foodItem != null) {
-                            int price = foodItem.getPrice(); // Use getPrice() to get the price
-                            totalAmount += price * soLuong; // Calculate total
+                            totalAmount += foodItem.getPrice() * soLuong;
                         }
                     }
                 }
 
-                // Update total amount in TextView
                 TextView totalTextView = findViewById(R.id.tinhtien);
                 totalTextView.setText(totalAmount + "đ");
 
-                // Set adapter to RecyclerView
                 foodPaymentAdapter = new FoodPaymentAdapter(ActivityPaymentUser.this, chiTietMonAnList, monAnMap);
                 rvCart.setAdapter(foodPaymentAdapter);
             }
@@ -149,6 +129,20 @@ public class ActivityPaymentUser extends AppCompatActivity {
                 Toast.makeText(ActivityPaymentUser.this, "Lỗi tải chi tiết đơn hàng!", Toast.LENGTH_SHORT).show();
             }
         });
+    }
 
+    private void clearCart() {
+        DatabaseReference cartRef = databaseReference.child("ChiTietDonHang_MonAn");
+        cartRef.setValue(null).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+
+                chiTietMonAnList.clear(); // Xóa danh sách trong bộ nhớ
+                if (foodPaymentAdapter != null) {
+                    foodPaymentAdapter.notifyDataSetChanged(); // Cập nhật giao diện
+                }
+            } else {
+                Toast.makeText(ActivityPaymentUser.this, "Lỗi khi xóa giỏ hàng!", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
