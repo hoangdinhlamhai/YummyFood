@@ -267,7 +267,7 @@
                                         <p class="text-xs font-weight-bold mb-0">21/11/2024</p>
                                     </td>
                                     <td class="align-middle text-center text-sm">
-                                        <span class="text-xs font-weight-bold">100000 VND</span>
+                                        <span class="text-xs font-weight-bold">44000 VND</span>
                                     </td>
                                     <td class="align-middle text-center">
                                         <a href="/orders/details" class="text-xs font-weight-bold mb-0">

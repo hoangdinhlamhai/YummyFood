@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -233,15 +234,19 @@
     <div class="container-fluid py-4">
         <div class="row">
             <div class="col-12">
+                <c:forEach var="region" items="${regions}">
                 <div class="card my-4">
                     <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                         <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3 d-flex justify-content-between align-items-center">
-                            <h6 class="text-white text-capitalize ps-3">Tầng 1</h6>
+                            <h6 class="text-white text-capitalize ps-3">${region.tenKV}</h6>
                             <div class="ms-auto"> <!-- Sử dụng ms-auto để đẩy nút sang bên phải -->
                                 <button type="button" class="btn btn-light btn-sm me-2">
-                                    <a href="/region/edit" style="text-decoration: none; color: inherit;">Sửa</a>
+                                    <a href="/region/edit/${region.idKhuVuc}" style="text-decoration: none; color: inherit;">Sửa</a>
                                 </button>
-                                <button type="button" class="btn btn-light btn-sm me-2">Xoá</button>
+                                <form:form action="/region/delete/${region.idKhuVuc}" method="post" style="display:inline;">
+                                    <button type="submit" class="btn btn-light btn-sm me-2">Xoá</button>
+                                </form:form>
+
                             </div>
                         </div>
                     </div>
@@ -259,97 +264,45 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                <c:forEach var="table" items="${region.tables}">
                                     <tr>
                                     <td class="align-middle text-center">
-                                        <span class="text-xs font-weight-bold">1</span>
+                                        <span class="text-xs font-weight-bold">${table.idBan}</span>
                                     </td>
                                     <td>
                                         <div class="d-flex px-2 py-1">
                                             <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="mb-0 font-weight-bold text-sm">Bàn 1</h6>
+                                                <h6 class="mb-0 font-weight-bold text-sm">${table.tenBan}</h6>
                                             </div>
                                         </div>
                                     </td>
                                     <td>
-                                        <span class="text-xs font-weight-bold">10</span>
+                                        <span class="text-xs font-weight-bold">${table.soLuongGhe}</span>
                                     </td>
                                     <td class="align-middle text-center text-sm">
-                                        <span class="text-xs font-weight-bold">Trống</span>
+                                        <span class="text-xs font-weight-bold">
+                                            ${table.trangThai ? 'Đã đặt' : 'Trống'}
+                                        </span>
                                     </td>
                                     <td class="align-middle text-center">
-                                        <span class="text-xs font-weight-bold">100000 VND</span>
+                                        <span class="text-xs font-weight-bold">${table.giaTien} VND</span>
                                     </td>
                                     <td class="align-middle text-center">
                                         <button type="button" class="btn btn-primary btn-sm" style="margin-bottom: 0; background-color: #e22f6e">
-                                            <a href="/table/edit" style="text-decoration: none; color: inherit;">Sửa</a>
+                                            <a href="/table/edit/${table.idBan}" style="text-decoration: none; color: inherit;">Sửa</a>
                                         </button>
-                                        <button type="button" class="btn btn-secondary btn-sm" style="margin-bottom: 0;">Xoá</button>
+                                        <form:form method="post" action="/table/delete/${table.idBan}" style="display:inline;">
+                                            <button type="submit" class="btn btn-secondary btn-sm" style="margin-bottom: 0;">Xoá</button>
+                                        </form:form>
                                     </td>
                                 </tr>
+                                </c:forEach>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
-
-                <div class="card my-4">
-                    <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                        <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3 d-flex justify-content-between align-items-center">
-                            <h6 class="text-white text-capitalize ps-3">Tầng 1</h6>
-                            <div class="ms-auto"> <!-- Sử dụng ms-auto để đẩy nút sang bên phải -->
-                                <button type="button" class="btn btn-light btn-sm me-2">
-                                    <a href="/table/edit" style="text-decoration: none; color: inherit;">Sửa</a>
-                                </button>
-                                <button type="button" class="btn btn-light btn-sm me-2">Xoá</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body px-0 pb-2" style="height: 400px; overflow-y: auto;">
-                        <div class="table-responsive p-0">
-                            <table class="table align-items-center mb-0">
-                                <thead>
-                                <tr>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tên bàn</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Số ghế</th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Trạng thái</th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Giá tiền</th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td class="align-middle text-center">
-                                        <span class="text-xs font-weight-bold">1</span>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex px-2 py-1">
-                                            <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="mb-0 font-weight-bold text-sm">Bàn 1</h6>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <span class="text-xs font-weight-bold">10</span>
-                                    </td>
-                                    <td class="align-middle text-center text-sm">
-                                        <span class="text-xs font-weight-bold">Trống</span>
-                                    </td>
-                                    <td class="align-middle text-center">
-                                        <span class="text-xs font-weight-bold">100000 VND</span>
-                                    </td>
-                                    <td class="align-middle text-center">
-                                        <button type="button" class="btn btn-primary btn-sm" style="margin-bottom: 0; background-color: #e22f6e">
-                                            <a href="/table/edit" style="text-decoration: none; color: inherit;">Sửa</a>
-                                        </button>
-                                        <button type="button" class="btn btn-secondary btn-sm" style="margin-bottom: 0;">Xoá</button>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
+                </c:forEach>
             </div>
         </div>
 

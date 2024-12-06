@@ -242,9 +242,8 @@
                                 <thead>
                                 <tr>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Hình ảnh</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tên danh mục</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"></th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"></th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"></th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"></th>
                                 </tr>
@@ -256,13 +255,15 @@
                                         <span class="text-xs font-weight-bold">${cate.idDanhMuc}</span>
                                     </td>
                                     <td>
+                                        <img src="${cate.hinhAnh}" alt="${cate.tenDanhMuc}"
+                                             style="width: 50px; height: 50px; object-fit: cover; border-radius: 5px;">
+                                    </td>
+                                    <td>
                                         <div class="d-flex px-2 py-1">
                                             <div class="d-flex flex-column justify-content-center">
                                                 <h6 class="mb-0 font-weight-bold text-sm">${cate.tenDanhMuc}</h6>
                                             </div>
                                         </div>
-                                    </td>
-                                    <td>
                                     </td>
                                     <td class="align-middle text-center text-sm">
                                     </td>
@@ -270,9 +271,10 @@
                                     </td>
                                     <td class="align-middle text-center">
                                         <button type="button" class="btn btn-primary btn-sm" style="margin-bottom: 0; background-color: #e22f6e">
-                                            <a href="/category/edit/${cate.idDanhMuc}" style="text-decoration: none; color: inherit;">Sửa</a>
+                                            <a href="/category/edit/" style="text-decoration: none; color: inherit;">Sửa</a>
                                         </button>
-                                        <form:form action="/category/delete/${cate.idDanhMuc}" method="post" style="display:inline;">
+                                        <form:form action="/category/delete" method="post" style="display:inline;">
+                                            <input type="hidden" name="id" value="${cate.idDanhMuc}">
                                             <button type="submit" class="btn btn-secondary btn-sm" style="margin-bottom: 0;">
                                                 Xoá
                                             </button>

@@ -239,6 +239,13 @@
                                 </div>
                             </div>
 
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label>Hình ảnh</label>
+                                    <form:input path="hinhAnh" class="form-control" type="text"/>
+                                </div>
+                            </div>
+
                             <!-- Nút Lưu và Hủy -->
                             <div class="text-center mt-4">
                                 <button type="button" class="btn btn-secondary ml-2 mr-3" onclick="window.history.back();">

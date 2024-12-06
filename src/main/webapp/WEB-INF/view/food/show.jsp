@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -286,7 +287,9 @@
                                         <p class="text-xs font-weight-bold mb-0">${food.category.tenDanhMuc}</p>
                                     </td>
                                     <td class="align-middle text-center text-sm">
-                                        <span class="text-xs font-weight-bold">${food.donGia} VND</span>
+                                        <span class="text-xs font-weight-bold">
+                                            <fmt:formatNumber value="${food.donGia}" type="number" maxFractionDigits="0"/> VND
+                                        </span>
                                     </td>
                                     <td class="align-middle text-center">
                                         <span class="text-xs font-weight-bold">${food.soLuong}</span>

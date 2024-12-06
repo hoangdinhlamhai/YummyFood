@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -228,16 +229,12 @@
                     </div>
 
                     <div class="card-body px-4 py-3">
-                        <form id="addFoodForm">
-                            <!-- Row đầu tiên: ID và Tên món ăn -->
+                        <form:form method="post" action="/table/add_region" modelAttribute="newRegion">
+                            <!-- Row đầu tiên: ID và Tên khu vực -->
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="foodId">ID</label>
-                                    <input type="text" class="form-control" id="foodId" value="123" readonly>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="foodName">Tên khu vực</label>
-                                    <input type="text" class="form-control" id="foodName" placeholder="Nhập tên khu vực" required>
+                                    <label>Tên khu vực</label>
+                                    <form:input path="tenKV" class="form-control" placeholder="Nhập tên khu vực" required="true"/>
                                 </div>
                             </div>
 
@@ -248,7 +245,7 @@
                                 </button>
                                 <button type="submit" class="btn btn-primary" style="background-color: #e22f6e">Thêm mới</button>
                             </div>
-                        </form>
+                        </form:form>
                     </div>
                 </div>
             </div>

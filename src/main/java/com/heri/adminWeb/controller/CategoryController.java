@@ -7,60 +7,50 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
 @Controller
 public class CategoryController {
-
-    private final CategoryService categoryService;
-
     @Autowired
-    public CategoryController(CategoryService categoryService) {
-        this.categoryService = categoryService;
-    }
+    private CategoryService categoryService;
 
     @GetMapping("/category")
     public String category(Model model) {
-        List<Category> categories = categoryService.findAll();
-        model.addAttribute("categories", categories);
+        try {
+            // Lấy danh sách danh mục từ Firebase
+            List<Category> categories = categoryService.findAllAsync().get();
+            model.addAttribute("categories", categories); // Đẩy dữ liệu vào model
+        } catch (Exception e) {
+            e.printStackTrace();
+            model.addAttribute("error", "Lỗi khi lấy dữ liệu từ Firebase.");
+        }
         return "category/show";
     }
 
     @GetMapping("/category/add")
-    public String addCategory(Model model) {
-        Category category = new Category();
-        model.addAttribute("newCategory", category);
-        return "category/add";
+    public String showAddCategoryForm(Model model) {
+        model.addAttribute("newCategory", new Category());
+        return "category/add"; // Tên file JSP
     }
 
     @PostMapping("/category/add")
-    public String saveCategory(@ModelAttribute("newCategory") Category category) {
-        this.categoryService.handleSaveCategory(category); // Sử dụng service để lưu
-        return "redirect:/category";
+    public String addCategory(@ModelAttribute("newCategory") Category category, RedirectAttributes redirectAttributes) {
+        categoryService.addCategory(category);
+        redirectAttributes.addFlashAttribute("message", "Thêm danh mục thành công!");
+        return "redirect:/category"; // Quay lại danh sách danh mục
     }
 
-    @PostMapping("/category/delete/{idDanhMuc}")
-    public String deleteCategory(@PathVariable long idDanhMuc) {
-        this.categoryService.deleteCategory(idDanhMuc);
-        return "redirect:/category";  // Sau khi xóa, chuyển hướng lại về danh sách
+    //delete
+    @PostMapping("/category/delete")
+    public String deleteCategory(@RequestParam("id") String idDanhMuc, RedirectAttributes redirectAttributes) {
+        System.out.println("idDanhMuc: " + idDanhMuc);
+        categoryService.deleteCategory(idDanhMuc);
+        redirectAttributes.addFlashAttribute("message", "Xóa danh mục thành công!");
+        return "redirect:/category"; // Quay lại danh sách danh mục
     }
 
-    //hiện ra trang edit
-    @GetMapping("/category/edit/{idDanhMuc}")
-    public String editCategory(@PathVariable("idDanhMuc") long idDanhMuc, Model model) {
-        Category category = categoryService.findById(idDanhMuc);
-        model.addAttribute("category", category);
-        return "category/edit";
-    }
-
-    // Cập nhật danh mục
-    @PostMapping("/category/update/{idDanhMuc}")
-    public String updateCategory(@PathVariable("idDanhMuc") long idDanhMuc, @ModelAttribute Category category) {
-        category.setIdDanhMuc(idDanhMuc); // Đảm bảo idDanhMuc không thay đổi
-        categoryService.update(category); // Gọi service để cập nhật dữ liệu
-        return "redirect:/category"; // Sau khi cập nhật, chuyển đến trang danh sách
-    }
 }

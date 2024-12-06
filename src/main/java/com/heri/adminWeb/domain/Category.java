@@ -1,19 +1,17 @@
 package com.heri.adminWeb.domain;
 
-import jakarta.persistence.*;
-
-import java.util.List;
-
-@Entity
-@Table(name = "DanhMuc")
 public class Category {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idDanhMuc;
+    private String idDanhMuc;
     private String tenDanhMuc;
+    private String hinhAnh;
 
-    @OneToMany(mappedBy = "category") //phải đúng với tên thuộc tính được ánh xạ của table bên kia(Food)
-    private List<Food> foods;
+    public Category() {}
+
+    public Category(String idDanhMuc, String tenDanhMuc, String hinhAnh) {
+        this.idDanhMuc = idDanhMuc;
+        this.tenDanhMuc = tenDanhMuc;
+        this.hinhAnh = hinhAnh;
+    }
 
     public String getTenDanhMuc() {
         return tenDanhMuc;
@@ -23,19 +21,19 @@ public class Category {
         this.tenDanhMuc = tenDanhMuc;
     }
 
-    public long getIdDanhMuc() {
+    public String getHinhAnh() {
+        return hinhAnh;
+    }
+
+    public void setHinhAnh(String hinhAnh) {
+        this.hinhAnh = hinhAnh;
+    }
+
+    public String getIdDanhMuc() {
         return idDanhMuc;
     }
 
-    public void setIdDanhMuc(long idDanhMuc) {
+    public void setIdDanhMuc(String idDanhMuc) {
         this.idDanhMuc = idDanhMuc;
-    }
-
-    public List<Food> getFoods() {
-        return foods;
-    }
-
-    public void setFoods(List<Food> foods) {
-        this.foods = foods;
     }
 }
