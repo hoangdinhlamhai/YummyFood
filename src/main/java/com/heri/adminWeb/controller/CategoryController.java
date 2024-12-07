@@ -5,10 +5,7 @@ import com.heri.adminWeb.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
@@ -43,6 +40,34 @@ public class CategoryController {
         redirectAttributes.addFlashAttribute("message", "Thêm danh mục thành công!");
         return "redirect:/category"; // Quay lại danh sách danh mục
     }
+
+    //update
+    @GetMapping("/category/edit/{key}")
+    public String showEditCategoryForm(@PathVariable("key") String key, Model model) {
+        try {
+            Category category = categoryService.findByKey(key);
+            if (category != null) {
+                model.addAttribute("category", category);
+                model.addAttribute("key", key); // Gửi key xuống view để dùng khi submit
+            } else {
+                model.addAttribute("error", "Danh mục không tồn tại.");
+                return "redirect:/category";
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            model.addAttribute("error", "Lỗi khi tải danh mục.");
+            return "redirect:/category";
+        }
+        return "category/edit"; // Tên file JSP
+    }
+
+    @PostMapping("/category/edit/{key}")
+    public String updateCategory(@PathVariable("key") String key, @ModelAttribute("category") Category updatedCategory, RedirectAttributes redirectAttributes) {
+        categoryService.updateCategory(key, updatedCategory);
+        redirectAttributes.addFlashAttribute("message", "Cập nhật danh mục thành công!");
+        return "redirect:/category";
+    }
+
 
     //delete
     @PostMapping("/category/delete")

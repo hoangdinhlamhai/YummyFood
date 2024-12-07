@@ -229,7 +229,7 @@
                     </div>
 
                     <div class="card-body px-4 py-3">
-                        <form:form id="editCategoryForm" modelAttribute="category" method="post" action="/category/update/${category.idDanhMuc}" >
+                        <form:form id="editCategoryForm" modelAttribute="category" method="post" action="/category/edit/${category.idDanhMuc}" >
                             <div class="form-row">
                                 <!-- ID Danh mục -->
                                 <div class="form-group col-md-6">
@@ -241,6 +241,11 @@
                                 <div class="form-group col-md-6">
                                     <label for="categoryName">Tên danh mục</label>
                                     <form:input path="tenDanhMuc" class="form-control" type="text"/>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <label>Hinh Anh</label>
+                                    <form:input path="hinhAnh" class="form-control" type="text"/>
                                 </div>
                             </div>
 

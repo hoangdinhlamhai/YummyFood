@@ -271,7 +271,7 @@
                                     </td>
                                     <td class="align-middle text-center">
                                         <button type="button" class="btn btn-primary btn-sm" style="margin-bottom: 0; background-color: #e22f6e">
-                                            <a href="/category/edit/" style="text-decoration: none; color: inherit;">Sửa</a>
+                                            <a href="/category/edit/${cate.idDanhMuc}" style="text-decoration: none; color: inherit;">Sửa</a>
                                         </button>
                                         <form:form action="/category/delete" method="post" style="display:inline;">
                                             <input type="hidden" name="id" value="${cate.idDanhMuc}">
