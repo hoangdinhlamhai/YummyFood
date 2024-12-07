@@ -1,6 +1,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -21,15 +22,15 @@
 
     <!-- LinearLayout for inputs -->
     <LinearLayout
-        android:orientation="vertical"
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tenBanTextView">
 
         <!-- Date field -->
@@ -46,10 +47,10 @@
             android:id="@+id/tvDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"
+            android:layout_marginTop="16dp"
             android:background="#EFEFEF"
             android:hint="Chọn ngày"
-            android:layout_marginTop="16dp" />
+            android:padding="8dp" />
 
         <!-- Start time -->
         <TextView
@@ -65,10 +66,10 @@
             android:id="@+id/tvStartTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"
+            android:layout_marginTop="16dp"
             android:background="#EFEFEF"
             android:hint="Chọn giờ bắt đầu"
-            android:layout_marginTop="16dp" />
+            android:padding="8dp" />
 
         <!-- End time -->
         <TextView
@@ -84,20 +85,39 @@
             android:id="@+id/tvEndTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"
+            android:layout_marginTop="16dp"
             android:background="#EFEFEF"
             android:hint="Chọn giờ kết thúc"
-            android:layout_marginTop="16dp" />
+            android:padding="8dp" />
 
         <!-- Note -->
         <EditText
             android:id="@+id/etGhiChu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Ghi chú"
             android:layout_marginTop="16dp"
+            android:hint="Ghi chú"
             android:padding="8dp" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Các khung giờ đã có người đặt"
+            android:padding="8dp"
+            android:textColor="#0D0C0C"
+            android:textSize="24sp" />
     </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/horizontalRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
 
     <!-- Buttons -->
     <Button

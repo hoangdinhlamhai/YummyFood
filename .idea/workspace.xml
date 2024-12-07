@@ -125,6 +125,11 @@
           <theme>@style/Theme.YummyFood</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/item_giodatban.xml">
+        <config>
+          <theme>@style/Theme.YummyFood</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/item_table.xml">
         <config>
           <theme>@style/Theme.YummyFood</theme>
@@ -136,10 +141,15 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cccba1d7-d54f-4707-b3e1-13d6662c4ec1" name="Changes" comment="tinh tien trong trang thanh toan">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/Domain/ChiTietDonHang.java" afterDir="false" />
+    <list default="true" id="cccba1d7-d54f-4707-b3e1-13d6662c4ec1" name="Changes" comment="fix gio hang">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/Adapter/BookingTimeAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_giodatban.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/CartActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/CartActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/Domain/ChiTietDatBan.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/Domain/ChiTietDatBan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/Login_userActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/Login_userActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/book_detail_tb.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/book_detail_tb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_book_detail_tb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_book_detail_tb.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_homepage_user.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_homepage_user.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -344,7 +354,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733436870226</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="fix gio hang">
+      <option name="closed" value="true" />
+      <created>1733439172669</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1733439172669</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -356,6 +374,7 @@
     <MESSAGE value="fix homepage" />
     <MESSAGE value=" cap nhat thong tin nguoi dung" />
     <MESSAGE value="tinh tien trong trang thanh toan" />
-    <option name="LAST_COMMIT_MESSAGE" value="tinh tien trong trang thanh toan" />
+    <MESSAGE value="fix gio hang" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix gio hang" />
   </component>
 </project>

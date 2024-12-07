@@ -3,10 +3,10 @@ package com.example.yummyfood.Domain;
 public class ChiTietDatBan {
     private String tenBan;
     private String ngay;
-    private String thoiGianBatDau;
-    private String thoiGianKetThuc;
+    private String thoiGianBatDau; // Thời gian bắt đầu
+    private String thoiGianKetThuc; // Thời gian kết thúc
     private String ghiChu;
-    private String userId;  // Thêm trường userId
+    private String userId; // Thêm trường userId
 
     // Constructor mặc định
     public ChiTietDatBan() {}
@@ -18,7 +18,7 @@ public class ChiTietDatBan {
         this.ghiChu = ghiChu;
         this.thoiGianBatDau = thoiGianBatDau;
         this.thoiGianKetThuc = thoiGianKetThuc;
-        this.userId = userId;  // Thêm gán giá trị cho userId
+        this.userId = userId; // Gán giá trị cho userId
     }
 
     // Getter và Setter
