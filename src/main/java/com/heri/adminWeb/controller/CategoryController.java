@@ -68,7 +68,6 @@ public class CategoryController {
         return "redirect:/category";
     }
 
-
     //delete
     @PostMapping("/category/delete")
     public String deleteCategory(@RequestParam("id") String idDanhMuc, RedirectAttributes redirectAttributes) {

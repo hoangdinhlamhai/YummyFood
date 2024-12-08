@@ -262,7 +262,6 @@
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tên món ăn</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Danh mục</th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Giá</th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Số lượng</th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"></th>
                                 </tr>
                                 </thead>
@@ -270,12 +269,12 @@
                                 <c:forEach var="food" items="${foods}">
                                     <tr>
                                     <td class="align-middle text-center">
-                                        <span class="text-xs font-weight-bold">${food.idMonAn}</span>
+                                        <span class="text-xs font-weight-bold">${food.keyMonAn}</span>
                                     </td>
                                     <td>
                                         <div class="d-flex px-2 py-1">
                                             <div>
-                                                <img src="/img/team-2.jpg" class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
+                                                <img src="${food.hinhAnh}" alt="${food.tenMonAn}" style="width:50px; height:50px; border-radius: 16px; margin-right: 8px">
                                             </div>
                                             <div class="d-flex flex-column justify-content-center">
                                                 <h6 class="mb-0 font-weight-bold text-sm">${food.tenMonAn}</h6>
@@ -284,7 +283,7 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <p class="text-xs font-weight-bold mb-0">${food.category.tenDanhMuc}</p>
+                                        <p class="text-xs font-weight-bold mb-0">${food.tenDanhMuc}</p>
                                     </td>
                                     <td class="align-middle text-center text-sm">
                                         <span class="text-xs font-weight-bold">
@@ -292,13 +291,11 @@
                                         </span>
                                     </td>
                                     <td class="align-middle text-center">
-                                        <span class="text-xs font-weight-bold">${food.soLuong}</span>
-                                    </td>
-                                    <td class="align-middle text-center">
                                         <button type="button" class="btn btn-primary btn-sm" style="margin-bottom: 0; background-color: #e22f6e">
-                                            <a href="/food/edit/${food.idMonAn}" style="text-decoration: none; color: inherit;">Sửa</a>
+                                            <a href="/food/edit/${food.keyMonAn}" style="text-decoration: none; color: inherit;">Sửa</a>
                                         </button>
-                                        <form:form action="/food/delete/${food.idMonAn}" method="post" style="display:inline;">
+                                        <form:form action="/food/delete" method="post" style="display:inline;">
+                                            <input type="hidden" name="id" value="${food.keyMonAn}">
                                             <button type="submit" class="btn btn-secondary btn-sm" style="margin-bottom: 0;">
                                                 Xoá
                                             </button>

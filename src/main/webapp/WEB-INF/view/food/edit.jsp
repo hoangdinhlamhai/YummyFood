@@ -229,12 +229,12 @@
                     </div>
 
                     <div class="card-body px-4 py-3">
-                        <form:form method="post" action="/food/update" modelAttribute="food">
+                        <form:form method="post" modelAttribute="food" action="/food/update/${food.keyMonAn}">
                             <!-- Row đầu tiên: ID và Tên món ăn -->
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="foodId">ID</label>
-                                    <form:input path="idMonAn" class="form-control" id="foodId" readonly="true"/>
+                                    <form:input path="keyMonAn" class="form-control" id="foodId" readonly="true"/>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="foodName">Tên món ăn</label>
@@ -249,8 +249,8 @@
                                     <form:textarea path="moTa" class="form-control" id="foodDescription" rows="2" placeholder="Nhập mô tả ngắn"/>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="foodCategory">Danh mục</label>
-                                    <form:select path="category.idDanhMuc" class="form-control" id="foodCategory">
+                                    <label>Danh mục</label>
+                                    <form:select path="idDanhMuc" class="form-control">
                                         <option value="">Chọn danh mục</option>
                                         <form:options items="${categories}" itemValue="idDanhMuc" itemLabel="tenDanhMuc"/>
                                     </form:select>
@@ -263,19 +263,19 @@
                                     <label for="foodPrice">Giá</label>
                                     <form:input path="donGia" type="number" class="form-control" id="foodPrice" placeholder="Nhập giá" min="0" />
                                 </div>
-                                <div class="form-group col-md-6">
-                                    <label for="foodQuantity">Số lượng</label>
-                                    <form:input path="soLuong" type="number" class="form-control" id="foodQuantity" placeholder="Nhập số lượng" min="1" />
-                                </div>
                             </div>
 
                             <!-- Row thứ tư: Hình ảnh -->
-                            <div class="form-row">
-                                <div class="form-group col-md-12">
-                                    <label for="foodImage">Hình ảnh</label>
-                                    <input type="file" class="form-control-file" id="foodImage" accept="image/*"/>
-                                </div>
+                            <div class="form-group">
+                                <label>URL Hình ảnh</label>
+                                <form:input path="hinhAnh" class="form-control" type="text" placeholder="Nhập URL hình ảnh" />
                             </div>
+<%--                            <div class="form-row">--%>
+<%--                                <div class="form-group col-md-12">--%>
+<%--                                    <label for="foodImage">Hình ảnh</label>--%>
+<%--                                    <input type="file" class="form-control-file" id="foodImage" accept="image/*"/>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
 
                             <!-- Nút Lưu và Hủy -->
                             <div class="text-center mt-4">

@@ -229,7 +229,7 @@
                     </div>
 
                     <div class="card-body px-4 py-3">
-                        <form:form method="post" action="/food/add" modelAttribute="newFood">
+                        <form:form method="post" action="/food/add" modelAttribute="newMonAn">
                             <!-- Tên món ăn -->
                             <div class="form-group">
                                 <label>Tên món ăn</label>
@@ -245,7 +245,7 @@
                             <!-- Danh mục -->
                             <div class="form-group">
                                 <label>Danh mục</label>
-                                <form:select path="category.idDanhMuc" class="form-control">
+                                <form:select path="idDanhMuc" class="form-control">
                                     <option value="">Chọn danh mục</option>
                                     <form:options items="${categories}" itemValue="idDanhMuc" itemLabel="tenDanhMuc"/>
                                 </form:select>
@@ -257,17 +257,17 @@
                                     <label for="foodPrice">Giá</label>
                                     <form:input path="donGia" class="form-control" id="foodPrice" type="number" placeholder="Nhập giá" min="0"/>
                                 </div>
-                                <div class="form-group col-md-6">
-                                    <label for="foodQuantity">Số lượng</label>
-                                    <form:input path="soLuong" class="form-control" id="foodQuantity" type="number" placeholder="Nhập số lượng" min="1"/>
-                                </div>
                             </div>
 
                             <!-- Hình ảnh -->
                             <div class="form-group">
-                                <label for="foodImage">Hình ảnh</label>
-                                <input type="file" class="form-control-file" id="foodImage" accept="image/*"/>
+                                <label>URL Hình ảnh</label>
+                                <form:input path="hinhAnh" class="form-control" type="text" placeholder="Nhập URL hình ảnh" />
                             </div>
+<%--                            <div class="form-group">--%>
+<%--                                <label for="foodImage">Hình ảnh</label>--%>
+<%--                                <input type="file" class="form-control-file" id="foodImage" accept="image/*"/>--%>
+<%--                            </div>--%>
 
                             <!-- Nút Lưu và Hủy -->
                             <div class="text-center mt-4">
