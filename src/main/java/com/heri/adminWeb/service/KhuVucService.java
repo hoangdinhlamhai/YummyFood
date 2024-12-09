@@ -2,6 +2,7 @@ package com.heri.adminWeb.service;
 
 import com.google.firebase.database.*;
 import com.heri.adminWeb.domain.Category;
+import com.heri.adminWeb.domain.KhuVuc;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -11,31 +12,30 @@ import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
 @Service
-public class CategoryService {
+public class KhuVucService {
     private final DatabaseReference databaseReference;
 
-    public CategoryService() {
-        this.databaseReference = FirebaseDatabase.getInstance().getReference("DanhMuc");
+    public KhuVucService() {
+        this.databaseReference = FirebaseDatabase.getInstance().getReference("KhuVuc");
     }
 
-    public CompletableFuture<List<Category>> findAllAsync() {
-        CompletableFuture<List<Category>> future = new CompletableFuture<>();
-        List<Category> categories = new ArrayList<>();
+    public CompletableFuture<List<KhuVuc>> findAllAsync() {
+        CompletableFuture<List<KhuVuc>> future = new CompletableFuture<>();
+        List<KhuVuc> khuVucs = new ArrayList<>();
 
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    String idDanhMuc = snapshot.getKey();
-                    String hinhAnh = snapshot.child("hinhAnh").getValue(String.class);
-                    String tenDanhMuc = snapshot.child("tenDanhMuc").getValue(String.class);
+                    String id = snapshot.getKey();
+                    String tenKV = snapshot.child("tenKV").getValue(String.class);
 
-                    if (hinhAnh != null && tenDanhMuc != null) {
-                        Category category = new Category(idDanhMuc, tenDanhMuc, hinhAnh);
-                        categories.add(category);
+                    if (tenKV != null) {
+                        KhuVuc khuVuc = new KhuVuc(id, tenKV);
+                        khuVucs.add(khuVuc);
                     }
                 }
-                future.complete(categories); // Trả về danh sách khi tải xong
+                future.complete(khuVucs); // Trả về danh sách khi tải xong
             }
 
             @Override
@@ -47,7 +47,9 @@ public class CategoryService {
         return future;
     }
 
-    public void addCategory(Category category) {
+    //add khu vuc
+    // Phương thức thêm khu vực mới
+    public void addKhuVuc(KhuVuc khuVuc) {
         // Lấy tất cả các khóa hiện tại
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -74,40 +76,37 @@ public class CategoryService {
                 String newKey = String.valueOf(maxKey + 1);
 
                 // Chuyển đổi Category thành Map
-                Map<String, Object> categoryMap = new HashMap<>();
-                categoryMap.put("tenDanhMuc", category.getTenDanhMuc());
-                categoryMap.put("hinhAnh", category.getHinhAnh());
+                Map<String, Object> khuVucMap = new HashMap<>();
+                khuVucMap.put("tenKV", khuVuc.getTenKV());
 
                 // Lưu vào Firebase
-                databaseReference.child(newKey).setValue(categoryMap, (databaseError, databaseReference) -> {
+                databaseReference.child(newKey).setValue(khuVucMap, (databaseError, databaseReference) -> {
                     if (databaseError != null) {
-                        System.err.println("Lỗi khi thêm danh mục: " + databaseError.getMessage());
+                        System.err.println("Lỗi khi thêm: " + databaseError.getMessage());
                     } else {
-                        System.out.println("Thêm danh mục thành công!");
+                        System.out.println("Thêm khu vực thành công!");
                     }
                 });
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                System.err.println("Lỗi khi lấy danh sách danh mục: " + databaseError.getMessage());
+                System.err.println("Lỗi khi lấy danh sách: " + databaseError.getMessage());
             }
         });
     }
 
-    //update
-    public Category findByKey(String key) {
-        final CompletableFuture<Category> future = new CompletableFuture<>();
+    public KhuVuc findByKey(String key) {
+        final CompletableFuture<KhuVuc> future = new CompletableFuture<>();
 
         databaseReference.child(key).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
-                    String tenDanhMuc = dataSnapshot.child("tenDanhMuc").getValue(String.class);
-                    String hinhAnh = dataSnapshot.child("hinhAnh").getValue(String.class);
+                    String tenKV = dataSnapshot.child("tenKV").getValue(String.class);
 
-                    if (tenDanhMuc != null && hinhAnh != null) {
-                        future.complete(new Category(key, tenDanhMuc, hinhAnh));
+                    if (tenKV != null) {
+                        future.complete(new KhuVuc(key, tenKV));
                     } else {
                         future.complete(null);
                     }
@@ -130,14 +129,12 @@ public class CategoryService {
         }
     }
 
-    public void updateCategory(String key, Category updatedCategory) {
-        // Chuyển đổi Category thành Map
-        Map<String, Object> categoryMap = new HashMap<>();
-        categoryMap.put("tenDanhMuc", updatedCategory.getTenDanhMuc());
-        categoryMap.put("hinhAnh", updatedCategory.getHinhAnh());
+    public void updateKhuVuc(String key, KhuVuc updatedKhuVuc) {
+        Map<String, Object> khuVucMap = new HashMap<>();
+        khuVucMap.put("tenKV", updatedKhuVuc.getTenKV());
 
         // Cập nhật dữ liệu trong Firebase
-        databaseReference.child(key).updateChildren(categoryMap, (databaseError, databaseReference) -> {
+        databaseReference.child(key).updateChildren(khuVucMap, (databaseError, databaseReference) -> {
             if (databaseError != null) {
                 System.err.println("Lỗi khi cập nhật danh mục: " + databaseError.getMessage());
             } else {
@@ -146,10 +143,8 @@ public class CategoryService {
         });
     }
 
-
-
-    public void deleteCategory(String idDanhMuc) {
-        databaseReference.child(idDanhMuc).removeValue((databaseError, databaseReference) -> {
+    public void deleteKhuVuc(String id) {
+        databaseReference.child(id).removeValue((databaseError, databaseReference) -> {
             if (databaseError != null) {
                 System.err.println("Lỗi khi xóa danh mục: " + databaseError.getMessage());
             } else {
@@ -157,5 +152,4 @@ public class CategoryService {
             }
         });
     }
-
 }

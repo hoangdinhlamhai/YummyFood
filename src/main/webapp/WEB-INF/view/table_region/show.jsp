@@ -241,9 +241,10 @@
                             <h6 class="text-white text-capitalize ps-3">${region.tenKV}</h6>
                             <div class="ms-auto"> <!-- Sử dụng ms-auto để đẩy nút sang bên phải -->
                                 <button type="button" class="btn btn-light btn-sm me-2">
-                                    <a href="/region/edit/${region.idKhuVuc}" style="text-decoration: none; color: inherit;">Sửa</a>
+                                    <a href="/region/edit/${region.keyKhuVuc}" style="text-decoration: none; color: inherit;">Sửa</a>
                                 </button>
-                                <form:form action="/region/delete/${region.idKhuVuc}" method="post" style="display:inline;">
+                                <form:form action="/region/delete" method="post" style="display:inline;">
+                                    <input type="hidden" name="id" value="${region.keyKhuVuc}">
                                     <button type="submit" class="btn btn-light btn-sm me-2">Xoá</button>
                                 </form:form>
 
@@ -259,15 +260,15 @@
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tên bàn</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Số ghế</th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Trạng thái</th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Giá tiền</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"></th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"></th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <c:forEach var="table" items="${region.tables}">
+                                <c:forEach var="table" items="${regionToTablesMap[region.keyKhuVuc]}">
                                     <tr>
                                     <td class="align-middle text-center">
-                                        <span class="text-xs font-weight-bold">${table.idBan}</span>
+                                        <span class="text-xs font-weight-bold">${table.keyBan}</span>
                                     </td>
                                     <td>
                                         <div class="d-flex px-2 py-1">
@@ -279,19 +280,19 @@
                                     <td>
                                         <span class="text-xs font-weight-bold">${table.soLuongGhe}</span>
                                     </td>
-                                    <td class="align-middle text-center text-sm">
-                                        <span class="text-xs font-weight-bold">
-                                            ${table.trangThai ? 'Đã đặt' : 'Trống'}
-                                        </span>
-                                    </td>
-                                    <td class="align-middle text-center">
-                                        <span class="text-xs font-weight-bold">${table.giaTien} VND</span>
-                                    </td>
+<%--                                    <td class="align-middle text-center text-sm">--%>
+<%--                                        <span class="text-xs font-weight-bold">--%>
+<%--                                            ${table.trangThai ? 'Đã đặt' : 'Trống'}--%>
+<%--                                        </span>--%>
+<%--                                    </td>--%>
+<%--                                    <td class="align-middle text-center">--%>
+<%--                                        <span class="text-xs font-weight-bold">${table.giaTien} VND</span>--%>
+<%--                                    </td>--%>
                                     <td class="align-middle text-center">
                                         <button type="button" class="btn btn-primary btn-sm" style="margin-bottom: 0; background-color: #e22f6e">
-                                            <a href="/table/edit/${table.idBan}" style="text-decoration: none; color: inherit;">Sửa</a>
+                                            <a href="/table/edit/${table.keyBan}" style="text-decoration: none; color: inherit;">Sửa</a>
                                         </button>
-                                        <form:form method="post" action="/table/delete/${table.idBan}" style="display:inline;">
+                                        <form:form method="post" action="/table/delete/${table.keyBan}" style="display:inline;">
                                             <button type="submit" class="btn btn-secondary btn-sm" style="margin-bottom: 0;">Xoá</button>
                                         </form:form>
                                     </td>

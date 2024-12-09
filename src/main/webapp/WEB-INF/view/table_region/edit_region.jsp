@@ -229,12 +229,12 @@
                     </div>
 
                     <div class="card-body px-4 py-3">
-                        <form:form method="post" action="/region/edit" modelAttribute="region">
+                        <form:form method="post" modelAttribute="region" action="/region/edit/${region.keyKhuVuc}">
                             <!-- Row đầu tiên: ID và Tên khu vực -->
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label>ID</label>
-                                    <form:input path="idKhuVuc" class="form-control" readonly="true"/>
+                                    <form:input path="keyKhuVuc" class="form-control" readonly="true"/>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label>Tên khu vực</label>
