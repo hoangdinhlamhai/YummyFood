@@ -3,7 +3,7 @@ package com.example.yummyfood.Domain;
 public class KhachHang {
     private String email;
     private String idDiaChi;
-    private String soDienThoai;
+    private String sdt;
     private String tenKhachHang;
     private String idTaiKhoan;
 
@@ -16,7 +16,7 @@ public class KhachHang {
         this.tenKhachHang = tenKhachHang;
         this.idTaiKhoan = idTaiKhoan;
         this.idDiaChi = null; // Giữ các trường khác là null
-        this.soDienThoai = null; // Giữ các trường khác là null
+        this.sdt = null; // Giữ các trường khác là null
     }
 
     // Getters và Setters
@@ -36,13 +36,14 @@ public class KhachHang {
         this.idDiaChi = idDiaChi;
     }
 
-    public String getSoDienThoai() {
-        return soDienThoai;
+    public String getSdt() {
+        return sdt;
     }
 
-    public void setSoDienThoai(String soDienThoai) {
-        this.soDienThoai = soDienThoai;
+    public void setSdt(String sdt) {
+        this.sdt = sdt;
     }
+
 
     public String getTenKhachHang() {
         return tenKhachHang;

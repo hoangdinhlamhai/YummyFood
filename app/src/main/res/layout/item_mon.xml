@@ -45,15 +45,13 @@
             android:textColor="#D02828"
             android:textSize="16sp" />
 
-
+        <TextView
+            android:id="@+id/foodQuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Số lượng: 1"
+            android:textSize="14sp" />
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/addToCart"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginStart="16dp"
-        android:contentDescription="Cart Icon"
-        android:src="@drawable/plus_black" />
 </LinearLayout>

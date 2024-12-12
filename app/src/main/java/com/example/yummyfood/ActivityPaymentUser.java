@@ -1,8 +1,8 @@
 package com.example.yummyfood;
 
+import android.content.SharedPreferences;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -14,16 +14,21 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.yummyfood.Adapter.FoodPaymentAdapter;
 import com.example.yummyfood.Domain.CartItem;
+import com.example.yummyfood.Domain.DiaChi;
 import com.example.yummyfood.Domain.Food;
+import com.example.yummyfood.Domain.KhachHang;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 public class ActivityPaymentUser extends AppCompatActivity {
@@ -38,38 +43,92 @@ public class ActivityPaymentUser extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment_user);
 
-        Button btnReturnRetailFood = findViewById(R.id.btn_paying_payment);
-        btnReturnRetailFood.setOnClickListener(v -> {
-            Intent intent = new Intent(ActivityPaymentUser.this, FoodDetailActivity.class);
-            startActivity(intent);
-            finish();
-        });
-
-        TextView txt1 = findViewById(R.id.textView12);
-        txt1.setOnClickListener(v -> {
-            Intent intent = new Intent(ActivityPaymentUser.this, edit_address.class);
-            startActivity(intent);
-            finish();
-        });
-
-        Button btnPayingPayment = findViewById(R.id.btn_paying_payment);
-        btnPayingPayment.setOnClickListener(v -> {
-            // Giả sử thanh toán ở đây
-            clearCart(); // Xóa giỏ hàng sau khi thanh toán
-            Intent intent = new Intent(ActivityPaymentUser.this, scan_qr.class);
-            startActivity(intent);
-            finish();
-        });
-
-        ImageView btnBack = findViewById(R.id.btn_return_payment);
-        btnBack.setOnClickListener(view -> finish());
-
+        // Ánh xạ giao diện
         rvCart = findViewById(R.id.rvCart);
         rvCart.setLayoutManager(new LinearLayoutManager(this));
-
         databaseReference = FirebaseDatabase.getInstance().getReference();
 
+        Button btnPayingPayment = findViewById(R.id.btn_paying_payment);
+        ImageView btnBack = findViewById(R.id.btn_return_payment);
+
+        // Lấy userId từ SharedPreferences
+        SharedPreferences preferences = getSharedPreferences("UserInfo", MODE_PRIVATE);
+        String userId = preferences.getString("userId", null);
+
+        if (userId == null) {
+            Toast.makeText(this, "Không tìm thấy tài khoản đã đăng nhập!", Toast.LENGTH_SHORT).show();
+            finish(); // Kết thúc nếu không có userId
+            return;
+        }
+
+        // Tải dữ liệu khách hàng và địa chỉ
+        loadCustomerData(userId);
         loadMonAnData();
+
+        // Sự kiện quay lại
+        btnBack.setOnClickListener(view -> finish());
+
+        // Sự kiện khi bấm nút "Thanh toán"
+        btnPayingPayment.setOnClickListener(v -> {
+            saveOrderToHistory(); // Lưu đơn hàng vào lịch sử
+            clearCart(); // Xóa giỏ hàng
+            Intent intent = new Intent(ActivityPaymentUser.this, Activity_History_Order.class);
+            startActivity(intent);
+            finish();
+        });
+
+        TextView tableBookingTextView = findViewById(R.id.textView12);
+        tableBookingTextView.setOnClickListener(v -> startActivity(new Intent(ActivityPaymentUser.this, Profile_User.class)));
+
+
+    }
+
+    private void loadCustomerData(String userId) {
+        databaseReference.child("KhachHang").child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    KhachHang khachHang = snapshot.getValue(KhachHang.class);
+                    if (khachHang != null) {
+                        String customerName = khachHang.getTenKhachHang();
+                        String customerPhone = khachHang.getSdt();
+                        loadAddressData(userId, customerName, customerPhone); // Tải địa chỉ
+                    }
+                } else {
+                    Toast.makeText(ActivityPaymentUser.this, "Không tìm thấy dữ liệu khách hàng!", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                Toast.makeText(ActivityPaymentUser.this, "Lỗi khi tải dữ liệu khách hàng!", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void loadAddressData(String userId, String customerName, String customerPhone) {
+        databaseReference.child("DiaChi").child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    String address = snapshot.child("dia_chi").getValue(String.class);
+                    if (address != null) {
+                        String fullAddress = customerName + " | " + customerPhone + "\n" + address;
+                        TextView diachiTextView = findViewById(R.id.diachi);
+                        diachiTextView.setText(fullAddress);
+                    } else {
+                        Toast.makeText(ActivityPaymentUser.this, "Không tìm thấy địa chỉ!", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(ActivityPaymentUser.this, "Địa chỉ không tồn tại!", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                Toast.makeText(ActivityPaymentUser.this, "Lỗi khi tải dữ liệu địa chỉ!", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void loadMonAnData() {
@@ -131,14 +190,52 @@ public class ActivityPaymentUser extends AppCompatActivity {
         });
     }
 
+    private void saveOrderToHistory() {
+        DatabaseReference historyRef = databaseReference.child("HistoryOrders").push(); // Tạo một mục mới trong lịch sử
+        String orderId = historyRef.getKey(); // Lấy ID tự động của đơn hàng
+
+        // Chuẩn bị chi tiết đơn hàng
+        Map<String, Object> orderDetails = new HashMap<>();
+        orderDetails.put("orderTime", getCurrentTime()); // Lưu thời gian hiện tại
+
+        // Chuẩn bị danh sách món ăn
+        Map<String, Object> items = new HashMap<>();
+        for (CartItem item : chiTietMonAnList) {
+            Food foodItem = monAnMap.get(String.valueOf(item.getIdMonAn()));
+            if (foodItem != null) {
+                Map<String, Object> foodDetails = new HashMap<>();
+                foodDetails.put("tenMonAn", foodItem.getName());
+                foodDetails.put("soLuong", item.getSoLuong());
+                foodDetails.put("giaMonAn", foodItem.getPrice());
+                items.put(foodItem.getId(), foodDetails);
+            }
+        }
+
+        // Thêm danh sách món ăn vào đơn hàng
+        orderDetails.put("items", items);
+
+        // Lưu vào Firebase
+        historyRef.setValue(orderDetails).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                Toast.makeText(this, "Đơn hàng đã được lưu!", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Lỗi khi lưu đơn hàng!", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private String getCurrentTime() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+        return sdf.format(new Date());
+    }
+
     private void clearCart() {
         DatabaseReference cartRef = databaseReference.child("ChiTietDonHang_MonAn");
         cartRef.setValue(null).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
-
-                chiTietMonAnList.clear(); // Xóa danh sách trong bộ nhớ
+                chiTietMonAnList.clear();
                 if (foodPaymentAdapter != null) {
-                    foodPaymentAdapter.notifyDataSetChanged(); // Cập nhật giao diện
+                    foodPaymentAdapter.notifyDataSetChanged();
                 }
             } else {
                 Toast.makeText(ActivityPaymentUser.this, "Lỗi khi xóa giỏ hàng!", Toast.LENGTH_SHORT).show();

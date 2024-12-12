@@ -16,6 +16,9 @@
         android:theme="@style/Theme.YummyFood"
         tools:targetApi="31">
         <activity
+            android:name=".ThongBaoDatHangThanhCong"
+            android:exported="false" />
+        <activity
             android:name=".dsBan"
             android:exported="false" />
         <activity
