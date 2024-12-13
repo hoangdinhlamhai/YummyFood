@@ -1,6 +1,8 @@
 package com.example.yummyfood;
 
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,7 +34,7 @@ public class Activity_History_Order extends AppCompatActivity {
 
         recyclerViewHistory = findViewById(R.id.recyclerViewHistory);
         recyclerViewHistory.setLayoutManager(new LinearLayoutManager(this));
-        databaseReference = FirebaseDatabase.getInstance().getReference("HistoryOrders");
+        databaseReference = FirebaseDatabase.getInstance().getReference("ChiTietDonHang");
 
         loadOrderHistory();
     }
@@ -43,9 +45,11 @@ public class Activity_History_Order extends AppCompatActivity {
             public void onDataChange(DataSnapshot snapshot) {
                 List<Order> orders = new ArrayList<>();
 
-                // Lặp qua từng đơn hàng trong "HistoryOrders"
+                // Lặp qua từng đơn hàng
                 for (DataSnapshot orderSnapshot : snapshot.getChildren()) {
-                    String orderTime = orderSnapshot.child("orderTime").getValue(String.class);
+                    String orderId = orderSnapshot.getKey(); // Lấy orderId từ Firebase
+                    String orderTime = orderSnapshot.child("orderTime").getValue(String.class); // Thời gian đặt hàng
+                    String status = orderSnapshot.child("trangThai").getValue(String.class); // Trạng thái đơn hàng
 
                     // Lấy danh sách món ăn
                     List<OrderItem> items = new ArrayList<>();
@@ -62,8 +66,8 @@ public class Activity_History_Order extends AppCompatActivity {
                     }
 
                     // Thêm đơn hàng vào danh sách
-                    if (orderTime != null && !items.isEmpty()) {
-                        orders.add(new Order(orderTime, items));
+                    if (orderTime != null && orderId != null) {
+                        orders.add(new Order(orderId, orderTime, status, items)); // Đúng constructor
                     }
                 }
 
@@ -77,5 +81,8 @@ public class Activity_History_Order extends AppCompatActivity {
                 Toast.makeText(Activity_History_Order.this, "Lỗi tải lịch sử đơn hàng!", Toast.LENGTH_SHORT).show();
             }
         });
+
+        Button btnBack = findViewById(R.id.btn_back);
+        btnBack.setOnClickListener(v -> finish());
     }
 }

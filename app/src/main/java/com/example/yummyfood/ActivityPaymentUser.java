@@ -191,12 +191,13 @@ public class ActivityPaymentUser extends AppCompatActivity {
     }
 
     private void saveOrderToHistory() {
-        DatabaseReference historyRef = databaseReference.child("HistoryOrders").push(); // Tạo một mục mới trong lịch sử
+        DatabaseReference historyRef = databaseReference.child("ChiTietDonHang").push(); // Tạo một mục mới trong lịch sử
         String orderId = historyRef.getKey(); // Lấy ID tự động của đơn hàng
 
         // Chuẩn bị chi tiết đơn hàng
         Map<String, Object> orderDetails = new HashMap<>();
         orderDetails.put("orderTime", getCurrentTime()); // Lưu thời gian hiện tại
+        orderDetails.put("trangThai", "Đã thanh toán"); // Thêm trạng thái là đã thanh toán
 
         // Chuẩn bị danh sách món ăn
         Map<String, Object> items = new HashMap<>();
@@ -217,12 +218,13 @@ public class ActivityPaymentUser extends AppCompatActivity {
         // Lưu vào Firebase
         historyRef.setValue(orderDetails).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
-                Toast.makeText(this, "Đơn hàng đã được lưu!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Đơn hàng đã được lưu và thanh toán!", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(this, "Lỗi khi lưu đơn hàng!", Toast.LENGTH_SHORT).show();
             }
         });
     }
+
 
     private String getCurrentTime() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());

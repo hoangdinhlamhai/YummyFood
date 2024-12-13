@@ -1,21 +1,46 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="8dp">
+    android:padding="10dp">
 
+    <!-- Ngày đặt hàng -->
     <TextView
-        android:id="@+id/tvOrderTime"
+        android:id="@+id/tv_order_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ngày đặt hàng"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:paddingBottom="8dp" />
+        android:text="Ngày đặt hàng: 2024-12-13 14:28:23"
+        android:textSize="14sp"
+        android:textStyle="bold" />
 
+    <!-- Trạng thái đơn hàng -->
+    <TextView
+        android:id="@+id/tv_order_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Trạng thái: Đang vận chuyển"
+        android:textSize="14sp"
+        android:textColor="#555555" />
+
+    <!-- Danh sách món ăn -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvOrderItems"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp" />
+        android:layout_marginTop="8dp" />
+
+    <!-- Nút trạng thái -->
+    <Button
+        android:id="@+id/btn_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:padding="5dp"
+        android:background="@drawable/button_default"
+        android:text="Trạng thái"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="10dp"
+        android:visibility="visible" />
 </LinearLayout>

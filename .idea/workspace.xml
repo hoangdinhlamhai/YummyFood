@@ -70,6 +70,11 @@
           <theme>@style/Theme.YummyFood</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_order_status.xml">
+        <config>
+          <theme>@style/Theme.YummyFood</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_payment_user.xml">
         <config>
           <theme>@style/Theme.YummyFood</theme>
@@ -151,31 +156,19 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cccba1d7-d54f-4707-b3e1-13d6662c4ec1" name="Changes" comment="done dat ban">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/Adapter/ListOrderItemAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/Adapter/OrderHistoryAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/Domain/Order.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/Domain/OrderItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_mon.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_order.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_1_2024_11_09_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_1_2024_11_09_PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_2_2024_11_07_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_2_2024_11_07_PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_3_2024_11_34_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_3_2024_11_34_PM__Changes_.xml" beforeDir="false" />
+    <list default="true" id="cccba1d7-d54f-4707-b3e1-13d6662c4ec1" name="Changes" comment="lich su don hang va chinh sua thong tin don hang">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/button_cancel.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/button_dathanhtoan.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/button_default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/button_disabled.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/button_rate.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/ActivityPaymentUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/ActivityPaymentUser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/Activity_History_Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/Activity_History_Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/Domain/ChiTietDonHang.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/Domain/ChiTietDonHang.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/Domain/KhachHang.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/Domain/KhachHang.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_history_oder_user.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_history_oder_user.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_payment_user.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_payment_user.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_food.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_food.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/Adapter/OrderHistoryAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/Adapter/OrderHistoryAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/Domain/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/Domain/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_order.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_order.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,6 +189,7 @@
       <list>
         <option value="Class" />
         <option value="layoutResourceFile" />
+        <option value="resourceFile" />
       </list>
     </option>
   </component>
@@ -399,7 +393,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733611031231</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="lich su don hang va chinh sua thong tin don hang">
+      <option name="closed" value="true" />
+      <created>1733974679381</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1733974679381</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -413,6 +415,7 @@
     <MESSAGE value="tinh tien trong trang thanh toan" />
     <MESSAGE value="fix gio hang" />
     <MESSAGE value="done dat ban" />
-    <option name="LAST_COMMIT_MESSAGE" value="done dat ban" />
+    <MESSAGE value="lich su don hang va chinh sua thong tin don hang" />
+    <option name="LAST_COMMIT_MESSAGE" value="lich su don hang va chinh sua thong tin don hang" />
   </component>
 </project>
