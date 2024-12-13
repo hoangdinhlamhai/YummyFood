@@ -183,7 +183,12 @@ public class book_detail_tb extends AppCompatActivity {
     private void saveBookingToFirebase(String tenBan, String ngay, String ghiChu, String gioBatDau, String gioKetThuc, String userId) {
         DatabaseReference database = FirebaseDatabase.getInstance().getReference("ChiTietDatBan");
         String bookingId = database.push().getKey();
-        ChiTietDatBan booking = new ChiTietDatBan(tenBan, ngay, ghiChu, gioBatDau, gioKetThuc, userId);
+
+        // Đặt giá trị mặc định cho trangThai
+        String trangThai = "Đã đặt"; // hoặc bất kỳ trạng thái nào phù hợp
+
+        // Tạo một đối tượng ChiTietDatBan mới
+        ChiTietDatBan booking = new ChiTietDatBan(tenBan, ngay, ghiChu, gioBatDau, gioKetThuc, userId, trangThai);
 
         database.child(bookingId).setValue(booking).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
