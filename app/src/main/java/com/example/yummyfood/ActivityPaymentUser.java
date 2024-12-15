@@ -145,7 +145,7 @@ public class ActivityPaymentUser extends AppCompatActivity {
                         monAnMap.put(idMonAn, new Food(idMonAn, tenMonAn, null, giaMonAn, hinhAnh));
                     }
                 }
-                loadChiTietDonHang();
+                loadChiTietDonHang(); // Tiếp tục tải chi tiết đơn hàng sau khi món ăn đã tải xong
             }
 
             @Override
@@ -154,6 +154,7 @@ public class ActivityPaymentUser extends AppCompatActivity {
             }
         });
     }
+
 
     private void loadChiTietDonHang() {
         databaseReference.child("ChiTietDonHang_MonAn").addListenerForSingleValueEvent(new ValueEventListener() {
@@ -199,31 +200,42 @@ public class ActivityPaymentUser extends AppCompatActivity {
         orderDetails.put("orderTime", getCurrentTime()); // Lưu thời gian hiện tại
         orderDetails.put("trangThai", "Đã thanh toán"); // Thêm trạng thái là đã thanh toán
 
-        // Chuẩn bị danh sách món ăn
-        Map<String, Object> items = new HashMap<>();
-        for (CartItem item : chiTietMonAnList) {
-            Food foodItem = monAnMap.get(String.valueOf(item.getIdMonAn()));
-            if (foodItem != null) {
-                Map<String, Object> foodDetails = new HashMap<>();
-                foodDetails.put("tenMonAn", foodItem.getName());
-                foodDetails.put("soLuong", item.getSoLuong());
-                foodDetails.put("giaMonAn", foodItem.getPrice());
-                items.put(foodItem.getId(), foodDetails);
-            }
-        }
-
-        // Thêm danh sách món ăn vào đơn hàng
-        orderDetails.put("items", items);
-
         // Lưu vào Firebase
         historyRef.setValue(orderDetails).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
-                Toast.makeText(this, "Đơn hàng đã được lưu và thanh toán!", Toast.LENGTH_SHORT).show();
+                // Sau khi lưu đơn hàng, lưu từng món ăn
+                saveOrderItems(historyRef.getKey());
             } else {
                 Toast.makeText(this, "Lỗi khi lưu đơn hàng!", Toast.LENGTH_SHORT).show();
             }
         });
     }
+
+    private void saveOrderItems(String orderId) {
+        DatabaseReference itemsRef = databaseReference.child("ChiTietDonHang").child(orderId).child("items");
+
+        for (CartItem item : chiTietMonAnList) {
+            Food foodItem = monAnMap.get(String.valueOf(item.getIdMonAn()));
+            if (foodItem != null) {
+                DatabaseReference foodRef = itemsRef.push(); // Tạo một ID tự động cho từng món ăn
+                Map<String, Object> foodDetails = new HashMap<>();
+                foodDetails.put("tenMonAn", foodItem.getName());
+                foodDetails.put("soLuong", item.getSoLuong());
+                foodDetails.put("giaMonAn", foodItem.getPrice());
+                foodDetails.put("hinhAnh", foodItem.getImage()); // Thêm URL ảnh món ăn
+
+                foodRef.setValue(foodDetails).addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(this, "Đơn hàng đã được lưu và thanh toán!", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(this, "Lỗi khi lưu món ăn!", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        }
+    }
+
+
 
 
     private String getCurrentTime() {

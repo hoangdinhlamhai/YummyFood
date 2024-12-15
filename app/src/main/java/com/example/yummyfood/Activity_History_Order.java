@@ -60,8 +60,9 @@ public class Activity_History_Order extends AppCompatActivity {
                             String tenMonAn = (String) itemMap.get("tenMonAn");
                             int soLuong = ((Long) itemMap.get("soLuong")).intValue();
                             int giaMonAn = ((Long) itemMap.get("giaMonAn")).intValue();
+                            String hinhAnh = (String) itemMap.get("hinhAnh");
 
-                            items.add(new OrderItem(tenMonAn, soLuong, giaMonAn));
+                            items.add(new OrderItem(tenMonAn, soLuong, giaMonAn, hinhAnh));
                         }
                     }
 

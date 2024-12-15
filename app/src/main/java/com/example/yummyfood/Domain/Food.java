@@ -54,14 +54,6 @@ public class Food {
         this.image = image;
     }
 
-    @Override
-    public String toString() {
-        return "Food{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", price=" + price +
-                ", image='" + image + '\'' +
-                '}';
-    }
+
 
 }
