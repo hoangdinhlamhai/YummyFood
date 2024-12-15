@@ -199,6 +199,9 @@ public class HomepageUserActivity extends AppCompatActivity {
         TextView tableBookingTextView = findViewById(R.id.textViewAll);
         tableBookingTextView.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, dstang.class)));
 
+        EditText search1 = findViewById(R.id.search);
+        search1.setOnClickListener(v -> startActivity(new Intent(HomepageUserActivity.this, SearchUserActivity.class)));
+
     }
 
     private void showDialog() {
