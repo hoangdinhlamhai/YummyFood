@@ -35,7 +35,7 @@
                     android:text="Tài khoản"
                     android:fontFamily="sans-serif-black"
                     android:textColor="@color/light_red"
-                    android:textSize="28sp"
+                    android:textSize="25sp"
                     android:gravity="center" />
             </LinearLayout>
 
