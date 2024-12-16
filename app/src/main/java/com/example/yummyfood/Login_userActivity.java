@@ -57,6 +57,18 @@ public class Login_userActivity extends AppCompatActivity {
         String userUsername = loginUsername.getText().toString().trim();
         String userPassword = loginPassword.getText().toString().trim();
 
+        if (userUsername.isEmpty()) {
+            loginUsername.setError("Tên người dùng không được để trống");
+            loginUsername.requestFocus();
+            return;
+        }
+
+        if (userPassword.isEmpty()) {
+            loginPassword.setError("Mật khẩu không được để trống");
+            loginPassword.requestFocus();
+            return;
+        }
+
         // Truy cập Firebase Realtime Database
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
 
@@ -73,10 +85,11 @@ public class Login_userActivity extends AppCompatActivity {
 
                                 // So sánh mật khẩu người dùng nhập vào với mật khẩu lưu trong Firebase
                                 if (passwordFromDB != null && passwordFromDB.equals(userPassword)) {
-                                    // Lưu userId vào SharedPreferences
+                                    // Lưu userId và tên tài khoản vào SharedPreferences
                                     SharedPreferences preferences = getSharedPreferences("UserInfo", MODE_PRIVATE);
                                     SharedPreferences.Editor editor = preferences.edit();
                                     editor.putString("userId", userId); // Lưu ID người dùng
+                                    editor.putString("tenTaiKhoan", userUsername); // Lưu tên tài khoản
                                     editor.apply(); // Áp dụng thay đổi
 
                                     // Chuyển đến trang chủ

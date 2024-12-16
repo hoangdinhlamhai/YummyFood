@@ -1,6 +1,9 @@
 package com.example.yummyfood.Adapter;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,12 +12,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.yummyfood.Activity_Review_User;
 import com.example.yummyfood.Domain.Order;
 import com.example.yummyfood.Domain.OrderItem;
 import com.example.yummyfood.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -40,46 +47,36 @@ public class OrderHistoryAdapter extends RecyclerView.Adapter<OrderHistoryAdapte
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Order order = orders.get(position);
 
-        // Hiển thị ngày đặt hàng
+        // Hiển thị thông tin đơn hàng
         holder.tvOrderTime.setText("Ngày đặt hàng: " + order.getOrderTime());
+        holder.tvOrderStatus.setText("Trạng thái: " + order.getTrangThai());
 
-        // Hiển thị trạng thái bên dưới ngày đặt hàng
-        String status = order.getTrangThai();
-        holder.tvOrderStatus.setText("Trạng thái: " + status);
-
-        // Gán danh sách món ăn cho RecyclerView bên trong
+        // Gán danh sách món ăn vào RecyclerView con
         ListOrderItemAdapter listOrderItemAdapter = new ListOrderItemAdapter(context, order.getItems());
         holder.rvOrderItems.setLayoutManager(new LinearLayoutManager(context));
         holder.rvOrderItems.setAdapter(listOrderItemAdapter);
 
-        // Thay đổi nội dung và hành động của btn_status dựa trên trạng thái
-        if ("Đang vận chuyển".equals(status)) {
-            holder.btnStatus.setVisibility(View.VISIBLE);
-            holder.btnStatus.setText("Đang vận chuyển");
-            holder.btnStatus.setEnabled(false);
-            holder.btnStatus.setBackgroundResource(R.drawable.button_disabled);
-        } else if ("Đang chế biến".equals(status)) {
+        // Xử lý trạng thái nút dựa trên trạng thái đơn hàng
+        String status = order.getTrangThai();
+        if ("Đang chế biến".equals(status)) {
+            // Hiển thị nút "Hủy đơn"
             holder.btnStatus.setVisibility(View.VISIBLE);
             holder.btnStatus.setText("Hủy đơn");
             holder.btnStatus.setEnabled(true);
             holder.btnStatus.setBackgroundResource(R.drawable.button_cancel);
+
+            // Xử lý sự kiện khi bấm vào "Hủy đơn"
             holder.btnStatus.setOnClickListener(v -> showCancelDialog(order, holder));
         } else if ("Đã giao".equals(status)) {
-            holder.btnStatus.setVisibility(View.VISIBLE);
-            holder.btnStatus.setText("Đánh giá");
-            holder.btnStatus.setEnabled(true);
-            holder.btnStatus.setBackgroundResource(R.drawable.button_rate);
-            holder.btnStatus.setOnClickListener(v -> {
-                // Logic chuyển đến màn hình đánh giá
-                Toast.makeText(context, "Chức năng đánh giá chưa được triển khai.", Toast.LENGTH_SHORT).show();
-            });
+            // Kiểm tra trạng thái đánh giá
+            checkIfReviewed(order, holder);
         } else if ("Đã hủy".equals(status)) {
             holder.btnStatus.setVisibility(View.VISIBLE);
             holder.btnStatus.setText("Đã hủy");
             holder.btnStatus.setEnabled(false);
             holder.btnStatus.setBackgroundResource(R.drawable.button_disabled);
         } else {
-            holder.btnStatus.setVisibility(View.GONE); // Ẩn nút nếu trạng thái không rõ
+            holder.btnStatus.setVisibility(View.GONE);
         }
     }
 
@@ -88,25 +85,26 @@ public class OrderHistoryAdapter extends RecyclerView.Adapter<OrderHistoryAdapte
         return orders.size();
     }
 
-    // Hiển thị Dialog xác nhận hủy đơn hàng
+    // Hiển thị hộp thoại xác nhận hủy đơn hàng
     private void showCancelDialog(Order order, ViewHolder holder) {
-        new androidx.appcompat.app.AlertDialog.Builder(context)
-                .setTitle("Hủy đơn hàng")
-                .setMessage("Bạn có chắc muốn hủy đơn hàng này không?")
-                .setPositiveButton("Có", (dialog, which) -> cancelOrder(order, holder)) // Gọi hàm hủy đơn nếu nhấn "Có"
-                .setNegativeButton("Không", (dialog, which) -> dialog.dismiss()) // Đóng dialog nếu nhấn "Không"
+        new AlertDialog.Builder(context)
+                .setTitle("Xác nhận hủy đơn hàng")
+                .setMessage("Bạn có chắc chắn muốn hủy đơn hàng này không?")
+                .setPositiveButton("Có", (dialog, which) -> cancelOrder(order, holder))
+                .setNegativeButton("Không", null)
                 .show();
     }
 
-    // Hủy đơn hàng và cập nhật trạng thái
+    // Xử lý hủy đơn hàng
     private void cancelOrder(Order order, ViewHolder holder) {
         DatabaseReference orderRef = FirebaseDatabase.getInstance()
                 .getReference("ChiTietDonHang")
-                .child(order.getOrderId()); // Sử dụng ID đơn hàng
+                .child(order.getOrderId());
 
+        // Cập nhật trạng thái đơn hàng thành "Đã hủy"
         orderRef.child("trangThai").setValue("Đã hủy").addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
-                // Cập nhật giao diện sau khi hủy
+                // Cập nhật giao diện
                 holder.btnStatus.setText("Đã hủy");
                 holder.btnStatus.setEnabled(false);
                 holder.btnStatus.setBackgroundResource(R.drawable.button_disabled);
@@ -118,6 +116,113 @@ public class OrderHistoryAdapter extends RecyclerView.Adapter<OrderHistoryAdapte
         });
     }
 
+    // Kiểm tra trạng thái đã đánh giá
+    private void checkIfReviewed(Order order, ViewHolder holder) {
+        DatabaseReference ref = FirebaseDatabase.getInstance()
+                .getReference("ChiTietDonHang")
+                .child(order.getOrderId());
+
+        ref.addListenerForSingleValueEvent(new com.google.firebase.database.ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                boolean isReviewed = snapshot.child("isReviewed").getValue(Boolean.class) != null &&
+                        snapshot.child("isReviewed").getValue(Boolean.class);
+
+                if (isReviewed) {
+                    // Nếu đã đánh giá
+                    holder.btnStatus.setVisibility(View.VISIBLE);
+                    holder.btnStatus.setText("Đã đánh giá");
+                    holder.btnStatus.setEnabled(false);
+                    holder.btnStatus.setBackgroundResource(R.drawable.button_disabled);
+                } else {
+                    // Nếu chưa đánh giá
+                    holder.btnStatus.setVisibility(View.VISIBLE);
+                    holder.btnStatus.setText("Đánh giá");
+                    holder.btnStatus.setBackgroundResource(R.drawable.button_rate);
+                    holder.btnStatus.setEnabled(true);
+
+                    holder.btnStatus.setOnClickListener(v -> handleReviewClick(order, holder));
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(context, "Lỗi kiểm tra trạng thái đánh giá", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    // Xử lý sự kiện nhấn nút "Đánh giá"
+    private void handleReviewClick(Order order, ViewHolder holder) {
+        SharedPreferences preferences = context.getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+        String tenTaiKhoan = preferences.getString("tenTaiKhoan", "").trim();
+
+        if (tenTaiKhoan.isEmpty()) {
+            Toast.makeText(context, "Tên tài khoản không hợp lệ. Vui lòng đăng nhập lại!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Lấy ID tài khoản từ Firebase
+        getTaiKhoanId(tenTaiKhoan, new Callback() {
+            @Override
+            public void onSuccess(String idTaiKhoan) {
+                // Chuyển đến màn hình đánh giá
+                Intent intent = new Intent(context, Activity_Review_User.class);
+                intent.putExtra("orderId", order.getOrderId());
+                intent.putExtra("accountId", idTaiKhoan);
+                context.startActivity(intent);
+
+                // Cập nhật trạng thái đã đánh giá
+                FirebaseDatabase.getInstance()
+                        .getReference("ChiTietDonHang")
+                        .child(order.getOrderId())
+                        .child("isReviewed")
+                        .setValue(true);
+
+                // Cập nhật giao diện
+                holder.btnStatus.setText("Đã đánh giá");
+                holder.btnStatus.setEnabled(false);
+                holder.btnStatus.setBackgroundResource(R.drawable.button_disabled);
+            }
+
+            @Override
+            public void onFailure(String message) {
+                Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    // Lấy ID tài khoản từ Firebase
+    private void getTaiKhoanId(String tenTaiKhoan, Callback callback) {
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("TaiKhoan");
+        ref.orderByChild("tenTaiKhoan").equalTo(tenTaiKhoan)
+                .addListenerForSingleValueEvent(new com.google.firebase.database.ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            for (DataSnapshot data : snapshot.getChildren()) {
+                                String idTaiKhoan = data.getKey();
+                                callback.onSuccess(idTaiKhoan);
+                                return;
+                            }
+                        }
+                        callback.onFailure("Không tìm thấy tài khoản.");
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        callback.onFailure("Lỗi: " + error.getMessage());
+                    }
+                });
+    }
+
+    // Interface Callback
+    public interface Callback {
+        void onSuccess(String result);
+        void onFailure(String message);
+    }
+
+    // ViewHolder
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvOrderTime, tvOrderStatus;
         RecyclerView rvOrderItems;

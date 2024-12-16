@@ -198,7 +198,7 @@ public class ActivityPaymentUser extends AppCompatActivity {
         // Chuẩn bị chi tiết đơn hàng
         Map<String, Object> orderDetails = new HashMap<>();
         orderDetails.put("orderTime", getCurrentTime()); // Lưu thời gian hiện tại
-        orderDetails.put("trangThai", "Đã thanh toán"); // Thêm trạng thái là đã thanh toán
+        orderDetails.put("trangThai", "Đang chế biến"); // Thêm trạng thái là đã thanh toán
 
         // Lưu vào Firebase
         historyRef.setValue(orderDetails).addOnCompleteListener(task -> {
