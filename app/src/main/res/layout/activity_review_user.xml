@@ -5,11 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- TextView title -->
     <TextView
         android:id="@+id/title2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_marginTop="44dp"
         android:paddingBottom="16dp"
         android:text="Đánh giá món "
         android:textColor="@color/light_red"
@@ -17,11 +18,11 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.309"
-        app:layout_constraintStart_toEndOf="@+id/appCompatButton"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.445" />
+        app:layout_constraintVertical_bias="0.2" /> <!-- Sửa vertical bias -->
 
+    <!-- Button Back -->
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_back"
         android:layout_width="32dp"
@@ -36,43 +37,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btn_save_review"
-        android:layout_width="362dp"
-        android:layout_height="52dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:backgroundTint="@android:color/holo_red_light"
-        android:text="Save"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
+    <!-- LinearLayout containing RatingBar and EditText -->
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
         android:layout_marginTop="60dp"
-        android:layout_marginEnd="10dp"
         android:background="@drawable/rounded_conner"
         android:backgroundTint="#E2D6D6"
         android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/title2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatButton">
+        app:layout_constraintStart_toStartOf="parent">
 
         <RatingBar
             android:id="@+id/ratingBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:numStars="5"
-            tools:layout_editor_absoluteX="24dp"
-            tools:layout_editor_absoluteY="133dp" />
+            android:layout_marginTop="8dp" /> <!-- Thêm margin cho RatingBar -->
 
         <EditText
             android:id="@+id/food_description_edit_text"
@@ -87,5 +70,21 @@
             android:textSize="16sp" />
 
     </LinearLayout>
+
+    <!-- Save Button -->
+    <Button
+        android:id="@+id/btn_save_review"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="@android:color/holo_red_light"
+        android:text="Save"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

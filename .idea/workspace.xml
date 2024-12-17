@@ -291,16 +291,8 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cccba1d7-d54f-4707-b3e1-13d6662c4ec1" name="Changes" comment="fix lich su don hang">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/Adapter/ReviewAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_review.xml" afterDir="false" />
+    <list default="true" id="cccba1d7-d54f-4707-b3e1-13d6662c4ec1" name="Changes" comment="xem cac danh sach danh gia">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/ActivityPaymentUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/ActivityPaymentUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/Activity_Review_User.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/Activity_Review_User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/Adapter/OrderHistoryAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/Adapter/OrderHistoryAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/Login_userActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/Login_userActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/Rate_Order_User.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/yummyfood/Rate_Order_User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_rate_order_user.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_rate_order_user.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_review_user.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_review_user.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -576,7 +568,23 @@
       <option name="project" value="LOCAL" />
       <updated>1734229943150</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary=" danh gia don hang">
+      <option name="closed" value="true" />
+      <created>1734387028655</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1734387028655</updated>
+    </task>
+    <task id="LOCAL-00017" summary="xem cac danh sach danh gia">
+      <option name="closed" value="true" />
+      <created>1734387065945</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1734387065945</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -596,6 +604,8 @@
     <MESSAGE value="search" />
     <MESSAGE value="fix giao diện" />
     <MESSAGE value="fix lich su don hang" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix lich su don hang" />
+    <MESSAGE value=" danh gia don hang" />
+    <MESSAGE value="xem cac danh sach danh gia" />
+    <option name="LAST_COMMIT_MESSAGE" value="xem cac danh sach danh gia" />
   </component>
 </project>
