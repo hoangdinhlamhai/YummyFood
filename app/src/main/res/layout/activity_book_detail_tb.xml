@@ -105,10 +105,11 @@
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Các khung giờ đã có người đặt"
+            android:text="Các khung giờ đã có người đặt"
             android:padding="8dp"
-            android:textColor="#0D0C0C"
-            android:textSize="24sp" />
+            android:textColor="@color/light_red"
+            android:textSize="20sp" />
+
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
