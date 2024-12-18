@@ -25,8 +25,8 @@
     <!-- Button Back -->
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_back"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:layout_gravity="center"
         android:layout_marginStart="27dp"
         android:layout_marginTop="44dp"

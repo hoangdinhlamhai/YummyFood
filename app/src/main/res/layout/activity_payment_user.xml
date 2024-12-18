@@ -25,8 +25,8 @@
                 android:padding="16dp">            <!-- Nút trở về -->
                 <ImageView
                     android:id="@+id/btn_return_payment"
-                    android:layout_width="28dp"
-                    android:layout_height="28sp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:layout_marginBottom="16dp"
                     android:src="@drawable/btn_back" />
 

@@ -5,6 +5,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -38,6 +39,9 @@ public class SearchUserActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_user);
+
+        Button btnBack = findViewById(R.id.btn_back);
+        btnBack.setOnClickListener(view -> finish());
 
         EditText searchEditText = findViewById(R.id.editTextText4);
         RecyclerView recyclerView = findViewById(R.id.recyclerView);

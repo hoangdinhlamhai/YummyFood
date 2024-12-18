@@ -16,8 +16,8 @@
         <!-- Nút Back -->
         <ImageView
             android:id="@+id/btn_back"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:src="@drawable/btn_back"
             android:contentDescription="Back Button" />
 
