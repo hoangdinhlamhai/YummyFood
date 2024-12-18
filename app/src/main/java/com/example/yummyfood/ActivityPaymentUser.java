@@ -72,7 +72,7 @@ public class ActivityPaymentUser extends AppCompatActivity {
         btnPayingPayment.setOnClickListener(v -> {
             saveOrderToHistory(); // Lưu đơn hàng vào lịch sử
             clearCart(); // Xóa giỏ hàng
-            Intent intent = new Intent(ActivityPaymentUser.this, Activity_History_Order.class);
+            Intent intent = new Intent(ActivityPaymentUser.this, ActivityOrderStatus.class);
             startActivity(intent);
             finish();
         });
