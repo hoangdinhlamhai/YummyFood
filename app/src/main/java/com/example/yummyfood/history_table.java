@@ -2,6 +2,7 @@ package com.example.yummyfood;
 
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,7 +39,7 @@ public class history_table extends AppCompatActivity {
 
         loadBookingData();
 
-        Button btnBack = findViewById(R.id.btn_back);
+        ImageView btnBack = findViewById(R.id.btn_back);
         btnBack.setOnClickListener(view -> finish());
     }
 

@@ -2,6 +2,8 @@ package com.example.yummyfood;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -41,6 +43,9 @@ public class Rate_Order_User extends AppCompatActivity {
 
         // Tải dữ liệu từ Firebase
         loadReviews();
+
+        Button btnBack = findViewById(R.id.btn_back);
+        btnBack.setOnClickListener(view -> finish());
     }
 
     private void loadReviews() {
