@@ -130,28 +130,24 @@ public class ActivityOrderStatus extends AppCompatActivity {
                         orderItemList.clear(); // Xóa danh sách cũ
                         DataSnapshot lastOrderSnapshot = null;
 
-                        // Lấy phần tử cuối cùng trong danh sách đơn hàng
                         for (DataSnapshot orderSnapshot : snapshot.getChildren()) {
-                            lastOrderSnapshot = orderSnapshot;
+                            lastOrderSnapshot = orderSnapshot; // Lấy đơn hàng cuối cùng
                         }
 
                         if (lastOrderSnapshot != null) {
-                            // Lấy danh sách món ăn từ đơn hàng cuối cùng
                             for (DataSnapshot itemSnapshot : lastOrderSnapshot.child("items").getChildren()) {
                                 String tenMonAn = itemSnapshot.child("tenMonAn").getValue(String.class);
                                 Integer giaMonAn = itemSnapshot.child("giaMonAn").getValue(Integer.class);
                                 Integer soLuong = itemSnapshot.child("soLuong").getValue(Integer.class);
                                 String hinhAnh = itemSnapshot.child("hinhAnh").getValue(String.class);
 
-                                // Kiểm tra tránh NullPointerException
                                 if (tenMonAn != null && giaMonAn != null && soLuong != null) {
                                     orderItemList.add(new OrderItem(tenMonAn, soLuong, giaMonAn, hinhAnh));
                                 }
                             }
                         }
 
-                        // Cập nhật RecyclerView
-                        orderStatusAdapter.notifyDataSetChanged();
+                        orderStatusAdapter.notifyDataSetChanged(); // Cập nhật adapter
                     }
 
                     @Override
