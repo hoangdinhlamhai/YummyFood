@@ -229,12 +229,12 @@
                     </div>
 
                     <div class="card-body px-4 py-3">
-                        <form:form method="post" action="/table/edit" modelAttribute="table">
+                        <form:form method="post" modelAttribute="table" action="/table/update/${table.keyBan}">
                             <!-- Row đầu tiên: ID và Tên bàn -->
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="tableId">ID</label>
-                                    <form:input path="idBan" id="tableId" class="form-control" readonly="true" />
+                                    <form:input path="keyBan" id="tableId" class="form-control" readonly="true" />
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="tableName">Tên bàn</label>
@@ -245,10 +245,6 @@
                             <!-- Row thứ hai: Giá và Số lượng -->
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="tablePrice">Giá</label>
-                                    <form:input path="giaTien" id="tablePrice" class="form-control" placeholder="Nhập giá" type="number" min="0" required="true" />
-                                </div>
-                                <div class="form-group col-md-6">
                                     <label for="tableSeats">Số lượng ghế</label>
                                     <form:input path="soLuongGhe" id="tableSeats" class="form-control" placeholder="Nhập số lượng" type="number" min="1" required="true" />
                                 </div>
@@ -257,10 +253,10 @@
                             <!-- Row thứ ba: Khu vực -->
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="tableRegion">Khu vực</label>
-                                    <form:select path="region" id="tableRegion" class="form-control" required="true">
-                                        <form:option value="">Chọn khu vực</form:option>
-                                        <form:options items="${regions}" itemValue="idKhuVuc" itemLabel="tenKV" />
+                                    <label>Khu vực</label>
+                                    <form:select path="keyKhuVuc" class="form-control">
+                                        <option value="">Chọn khu vực</option>
+                                        <form:options items="${regions}" itemValue="keyKhuVuc" itemLabel="tenKV"/>
                                     </form:select>
                                 </div>
                             </div>

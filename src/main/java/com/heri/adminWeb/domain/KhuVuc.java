@@ -26,4 +26,12 @@ public class KhuVuc {
     public void setTenKV(String tenKV) {
         this.tenKV = tenKV;
     }
+
+    @Override
+    public String toString() {
+        return "KhuVuc{" +
+                "keyKhuVuc='" + keyKhuVuc + '\'' +
+                ", tenKV='" + tenKV + '\'' +
+                '}';
+    }
 }

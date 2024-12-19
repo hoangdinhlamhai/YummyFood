@@ -292,7 +292,8 @@
                                         <button type="button" class="btn btn-primary btn-sm" style="margin-bottom: 0; background-color: #e22f6e">
                                             <a href="/table/edit/${table.keyBan}" style="text-decoration: none; color: inherit;">Sửa</a>
                                         </button>
-                                        <form:form method="post" action="/table/delete/${table.keyBan}" style="display:inline;">
+                                        <form:form method="post" action="/table/delete" style="display:inline;">
+                                            <input type="hidden" name="id" value="${table.keyBan}">
                                             <button type="submit" class="btn btn-secondary btn-sm" style="margin-bottom: 0;">Xoá</button>
                                         </form:form>
                                     </td>

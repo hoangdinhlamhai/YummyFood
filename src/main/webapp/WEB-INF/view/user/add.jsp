@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -228,42 +229,48 @@
                     </div>
 
                     <div class="card-body px-4 py-3">
-                        <form id="addCustomerForm">
+                        <form:form method="post" action="/user/add" modelAttribute="newKhachHang">
                             <!-- Row đầu tiên: ID và Tên khách hàng -->
                             <div class="form-row">
+<%--                                <div class="form-group col-md-6">--%>
+<%--                                    <label for="customerId">ID</label>--%>
+<%--                                    <input type="text" class="form-control" id="customerId" value="123" readonly>--%>
+<%--                                </div>--%>
                                 <div class="form-group col-md-6">
-                                    <label for="customerId">ID</label>
-                                    <input type="text" class="form-control" id="customerId" value="123" readonly>
-                                </div>
+                                    <label>Tên khách hàng</label>
+                                    <form:input path="tenKhachHang" class="form-control" placeholder="Nhập tên khách hàng"/>                                </div>
+                            </div>
+
+                            <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="customerName">Tên khách hàng</label>
-                                    <input type="text" class="form-control" id="customerName" placeholder="Nhập tên khách hàng" required>
-                                </div>
+                                    <label>Tên đăng nhập</label>
+                                    <form:input path="tenTaiKhoan" class="form-control" placeholder="Nhập tên đăng nhập"/>                                </div>
+<%--                                <div class="form-group col-md-6">--%>
+<%--                                    <label for="customerAddress">Địa chỉ</label>--%>
+<%--                                    <input type="text" class="form-control" id="customerAddress" placeholder="Nhập địa chỉ" required>--%>
+<%--                                </div>--%>
                             </div>
 
                             <!-- Row thứ hai: Số điện thoại và Địa chỉ -->
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="customerPhone">Số điện thoại</label>
-                                    <input type="tel" class="form-control" id="customerPhone" placeholder="Nhập số điện thoại" pattern="[0-9]{10}" required>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="customerAddress">Địa chỉ</label>
-                                    <input type="text" class="form-control" id="customerAddress" placeholder="Nhập địa chỉ" required>
-                                </div>
+                                    <label>Số điện thoại</label>
+                                    <form:input path="sdt" class="form-control" placeholder="Nhập số điện thoại"/>                                </div>
+<%--                                <div class="form-group col-md-6">--%>
+<%--                                    <label for="customerAddress">Địa chỉ</label>--%>
+<%--                                    <input type="text" class="form-control" id="customerAddress" placeholder="Nhập địa chỉ" required>--%>
+<%--                                </div>--%>
                             </div>
 
                             <!-- Row thứ ba: Email và Mật khẩu -->
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="customerEmail">Email</label>
-                                    <input type="email" class="form-control" id="customerEmail" placeholder="Nhập email" required>
-                                </div>
+                                    <label>Email</label>
+                                    <form:input path="email" class="form-control" placeholder="Nhập email"/>                                </div>
                                 <div class="form-group col-md-6">
-                                    <label for="customerPassword">Mật khẩu</label>
+                                    <label>Mật khẩu</label>
                                     <div class="input-group">
-                                        <input type="password" class="form-control" id="customerPassword" placeholder="Nhập mật khẩu">
-                                        <div class="input-group-append">
+                                        <form:input path="matKhau" class="form-control" placeholder="Nhập mật khẩu"/>                                        <div class="input-group-append">
                                             <button type="button" class="btn btn-outline-secondary" onclick="togglePasswordVisibility()">Hiện</button>
                                         </div>
                                     </div>
@@ -271,12 +278,12 @@
                             </div>
 
                             <!-- Row thứ tư: Ảnh đại diện -->
-                            <div class="form-row">
-                                <div class="form-group col-md-12">
-                                    <label for="customerImage">Ảnh đại diện</label>
-                                    <input type="file" class="form-control-file" id="customerImage" accept="image/*" required>
-                                </div>
-                            </div>
+<%--                            <div class="form-row">--%>
+<%--                                <div class="form-group col-md-12">--%>
+<%--                                    <label for="customerImage">Ảnh đại diện</label>--%>
+<%--                                    <input type="file" class="form-control-file" id="customerImage" accept="image/*" required>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
 
                             <!-- Nút Lưu và Hủy -->
                             <div class="text-center mt-4">
@@ -285,7 +292,7 @@
                                 </button>
                                 <button type="submit" class="btn btn-primary" style="background-color: #e22f6e">Thêm khách hàng</button>
                             </div>
-                        </form>
+                        </form:form>
 
                         <script>
                             function togglePasswordVisibility() {

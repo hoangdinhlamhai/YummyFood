@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -240,46 +241,53 @@
                             <table class="table align-items-center mb-0">
                                 <thead>
                                 <tr>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"></th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tên khách hàng</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Email</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Số điện thoại</th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Địa chỉ</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tên đăng nhập</th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"></th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"></th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td class="align-middle text-center">
-                                        <span class="text-xs font-weight-bold">1</span>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex px-2 py-1">
-                                            <div>
-                                                <img src="/img/team-2.jpg" class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
+                                    <c:forEach var="khachHang" items="${khachHangList}">
+                                    <tr>
+                                        <td>
+                                            <p class="text-xs font-weight-bold mb-0"></p>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex px-2 py-1">
+                                                <div>
+                                                    <img src="/img/team-2.jpg" class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
+                                                </div>
+                                                <div class="d-flex flex-column justify-content-center">
+                                                    <h6 class="mb-0 font-weight-bold text-sm">${khachHang.tenKhachHang}</h6>
+                                                </div>
                                             </div>
-                                            <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="mb-0 font-weight-bold text-sm">Họ và tên</h6>
-                                                <p class="text-xs text-secondary mb-0">Email</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <p class="text-xs font-weight-bold mb-0">0123456789</p>
-                                    </td>
-                                    <td class="align-middle text-center text-sm">
-                                        <span class="text-xs font-weight-bold">Đà Nẵng</span>
-                                    </td>
-                                    <td class="align-middle text-center">
-                                    </td>
-                                    <td class="align-middle text-center">
-                                        <button type="button" class="btn btn-primary btn-sm" style="margin-bottom: 0; background-color: #e22f6e">
-                                            <a href="/user/edit" style="text-decoration: none; color: inherit;">Sửa</a>
-                                        </button>
-                                        <button type="button" class="btn btn-secondary btn-sm" style="margin-bottom: 0;">Xoá</button>
-                                    </td>
-                                </tr>
+                                        </td>
+                                        <td>
+                                            <p class="text-xs font-weight-bold mb-0">${khachHang.email}</p>
+                                        </td>
+                                        <td>
+                                            <p class="text-xs font-weight-bold mb-0">${khachHang.sdt}</p>
+                                        </td>
+                                        <td class="align-middle text-center text-sm">
+                                            <span class="text-xs font-weight-bold">${khachHang.tenTaiKhoan}</span>
+                                        </td>
+                                        <td class="align-middle text-center">
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            <button type="button" class="btn btn-primary btn-sm" style="margin-bottom: 0; background-color: #e22f6e">
+                                                <a href="/user/edit/${khachHang.keyTaiKhoan}" style="text-decoration: none; color: inherit;">Sửa</a>
+                                            </button>
+                                            <form:form action="/user/delete/${khachHang.keyTaiKhoan}" method="post" style="display: inline;">
+                                                <button type="submit" class="btn btn-secondary btn-sm" style="margin-bottom: 0;">Xoá</button>
+                                            </form:form>
 
+                                        </td>
+                                    </tr>
+                                </c:forEach>
                                 </tbody>
                             </table>
                         </div>

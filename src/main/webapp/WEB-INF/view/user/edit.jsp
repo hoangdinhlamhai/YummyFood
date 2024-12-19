@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -231,60 +232,65 @@
                         <div class="e-profile">
                             <div class="row">
                                 <div class="col-12 col-sm-auto mb-3 d-flex justify-content-center">
-                                    <div class="mx-auto" style="width: 140px;">
-                                        <div class="d-flex justify-content-center align-items-center rounded" style="height: 140px; background-color: rgb(233, 236, 239);">
-                                            <span style="color: rgb(166, 168, 170); font: bold 8pt Arial;">140x140</span>
-                                        </div>
-                                        <button class="btn btn-primary mt-2 w-100" style="background-color: #df296a" type="button">
-                                            <i class="fa fa-fw fa-camera"></i>
-                                            <span>Đổi ảnh</span>
-                                        </button>
-                                    </div>
+<%--                                    <div class="mx-auto" style="width: 140px;">--%>
+<%--                                        <div class="d-flex justify-content-center align-items-center rounded" style="height: 140px; background-color: rgb(233, 236, 239);">--%>
+<%--                                            <span style="color: rgb(166, 168, 170); font: bold 8pt Arial;">140x140</span>--%>
+<%--                                        </div>--%>
+<%--                                        <button class="btn btn-primary mt-2 w-100" style="background-color: #df296a" type="button">--%>
+<%--                                            <i class="fa fa-fw fa-camera"></i>--%>
+<%--                                            <span>Đổi ảnh</span>--%>
+<%--                                        </button>--%>
+<%--                                    </div>--%>
                                 </div>
 
                                 <div class="col-md-8 mx-auto">
                                     <div class="tab-content pt-3">
                                         <div class="tab-pane active">
-                                            <form class="form" novalidate="">
-                                                <div class="form-group">
-                                                    <label>ID</label>
-                                                    <input disabled class="form-control w-100" type="text" name="name" placeholder="Nhập họ và tên" value="KH01">
-                                                </div>
+                                            <form:form method="post" modelAttribute="khachHang" action="/user/update/${khachHang.keyTaiKhoan}">
+<%--                                                <div class="form-group">--%>
+<%--                                                    <label>ID</label>--%>
+<%--                                                    <input disabled class="form-control w-100" type="text" name="name" placeholder="Nhập họ và tên" value="KH01">--%>
+<%--                                                </div>--%>
                                                 <div class="form-group">
                                                     <label>Họ và tên</label>
-                                                    <input class="form-control w-100" type="text" name="name" placeholder="Nhập họ và tên" >
+                                                    <form:input path="tenKhachHang" class="form-control" />
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Email</label>
-                                                    <input class="form-control w-100" type="email" placeholder="user@example.com">
+                                                    <form:input path="email" class="form-control" />
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Số điện thoại</label>
-                                                    <input class="form-control w-100" type="text" placeholder="0123456789">
+                                                    <form:input path="sdt" class="form-control" />
                                                 </div>
+
                                                 <div class="form-group">
-                                                    <label>Địa chỉ</label>
-                                                    <textarea class="form-control w-100" rows="5" placeholder="48/Cao Thang/Hai Chau/Da Nang"></textarea>
+                                                    <label>Tên đăng nhập</label>
+                                                    <form:input path="tenTaiKhoan" class="form-control" />
                                                 </div>
+<%--                                                <div class="form-group">--%>
+<%--                                                    <label>Địa chỉ</label>--%>
+<%--                                                    <textarea class="form-control w-100" rows="5" placeholder="48/Cao Thang/Hai Chau/Da Nang"></textarea>--%>
+<%--                                                </div>--%>
 
                                                         <div class="mb-2"><b>Thay đổi mật khẩu</b></div>
                                                         <div class="form-group">
-                                                            <label>Mật khẩu hiện tại</label>
-                                                            <input class="form-control w-100" type="password" placeholder="••••••">
+<%--                                                            <label>Mật khẩu hiện tại</label>--%>
+                                                            <form:input path="matKhau" class="form-control" />
                                                         </div>
-                                                        <div class="form-group">
-                                                            <label>Mật khẩu mới</label>
-                                                            <input class="form-control w-100" type="password" placeholder="••••••">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>Xác nhận mật khẩu</label>
-                                                            <input class="form-control w-100" type="password" placeholder="••••••">
-                                                        </div>
+<%--                                                        <div class="form-group">--%>
+<%--                                                            <label>Mật khẩu mới</label>--%>
+<%--                                                            <input class="form-control w-100" type="password" placeholder="••••••">--%>
+<%--                                                        </div>--%>
+<%--                                                        <div class="form-group">--%>
+<%--                                                            <label>Xác nhận mật khẩu</label>--%>
+<%--                                                            <input class="form-control w-100" type="password" placeholder="••••••">--%>
+<%--                                                        </div>--%>
 
                                                 <div class="d-flex justify-content-center mt-4">
                                                     <button class="btn btn-primary" style="background-color: #df296a" type="submit">Lưu thay đổi</button>
                                                 </div>
-                                            </form>
+                                            </form:form>
                                         </div>
                                     </div>
                                 </div>

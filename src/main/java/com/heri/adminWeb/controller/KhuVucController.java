@@ -93,7 +93,6 @@ public class KhuVucController {
         return "redirect:/table";
     }
 
-
     //delete
     @PostMapping("/region/delete")
     public String delete(@RequestParam("id") String id, RedirectAttributes redirectAttributes) {

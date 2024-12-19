@@ -238,25 +238,25 @@
 
                             <!-- Row thứ ba: Giá và Số lượng -->
                             <div class="form-row">
+<%--                                <div class="form-group col-md-6">--%>
+<%--                                    <label>Giá</label>--%>
+<%--                                    <form:input path="giaTien" type="number" class="form-control" placeholder="Nhập giá" min="0" />--%>
+<%--                                </div>--%>
                                 <div class="form-group col-md-6">
-                                    <label>Giá</label>
-                                    <form:input path="giaTien" type="number" class="form-control" placeholder="Nhập giá" min="0" />
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label>Số lượng ghế</label>
-                                    <form:input path="soLuongGhe" type="number" class="form-control" placeholder="Nhập số lượng" min="1" />
+                                    <label for="tableSeats">Số lượng ghế</label>
+                                    <form:input path="soLuongGhe" id="tableSeats" class="form-control" placeholder="Nhập số lượng" type="number" min="1" required="true" />
                                 </div>
                             </div>
 
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label>Khu vực</label>
-                                    <form:select path="region.idKhuVuc" class="form-control" >
-                                        <form:options items="${regions}" itemValue="idKhuVuc" itemLabel="tenKV"/>
+                                    <form:select path="keyKhuVuc" class="form-control">
+                                        <option value="">Chọn khu vực</option>
+                                        <form:options items="${regions}" itemValue="keyKhuVuc" itemLabel="tenKV"/>
                                     </form:select>
                                 </div>
                             </div>
-
 
                             <!-- Nút Lưu và Hủy -->
                             <div class="text-center mt-4">

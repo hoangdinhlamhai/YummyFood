@@ -4,6 +4,8 @@ public class Ban {
     private String keyBan, tenBan;
     private int keyKhuVuc, soLuongGhe;
 
+    public Ban() {}
+
     public Ban(String keyBan, String tenBan, int keyKhuVuc, int soLuongGhe) {
         this.keyBan = keyBan;
         this.tenBan = tenBan;
@@ -41,5 +43,15 @@ public class Ban {
 
     public void setSoLuongGhe(int soLuongGhe) {
         this.soLuongGhe = soLuongGhe;
+    }
+
+    @Override
+    public String toString() {
+        return "Ban{" +
+                "keyBan='" + keyBan + '\'' +
+                ", tenBan='" + tenBan + '\'' +
+                ", keyKhuVuc=" + keyKhuVuc +
+                ", soLuongGhe=" + soLuongGhe +
+                '}';
     }
 }
