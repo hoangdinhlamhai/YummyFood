@@ -36,6 +36,10 @@ public class ActivityOrderStatus extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_status);
 
+        Button home = findViewById(R.id.save_button4);
+        home.setOnClickListener(v -> startActivity(new Intent(ActivityOrderStatus.this, HomepageUserActivity.class)));
+
+
         // Ánh xạ TextView để hiển thị thông tin địa chỉ
         diachiTextView = findViewById(R.id.diachi);
 
