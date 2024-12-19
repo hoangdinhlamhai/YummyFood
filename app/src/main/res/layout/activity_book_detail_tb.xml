@@ -49,7 +49,7 @@
             android:id="@+id/tvDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="6dp"
             android:background="#EFEFEF"
             android:hint="Chọn ngày"
             android:padding="8dp" />
@@ -68,7 +68,7 @@
             android:id="@+id/tvStartTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="6dp"
             android:background="#EFEFEF"
             android:hint="Chọn giờ bắt đầu"
             android:padding="8dp" />
@@ -87,7 +87,7 @@
             android:id="@+id/tvEndTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="6dp"
             android:background="#EFEFEF"
             android:hint="Chọn giờ kết thúc"
             android:padding="8dp" />
@@ -120,6 +120,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+    <TextView
+        android:id="@+id/chinhsach"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Xem chính sách đặt bàn của chúng tôi "
+        app:layout_constraintBottom_toTopOf="@+id/datcoc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="20sp"
+        android:textColor="@color/blue"
+        />
 
 
     <!-- Buttons -->

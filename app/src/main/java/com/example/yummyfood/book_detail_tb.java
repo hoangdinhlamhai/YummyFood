@@ -46,6 +46,9 @@ public class book_detail_tb extends AppCompatActivity {
             finish();
             return;
         }
+        TextView chinhsach = findViewById(R.id.chinhsach);
+        chinhsach.setOnClickListener(v -> startActivity(new Intent(book_detail_tb.this, user_policy.class)));
+
 
         // Khởi tạo các view
         tenBanTextView = findViewById(R.id.tenBanTextView);
